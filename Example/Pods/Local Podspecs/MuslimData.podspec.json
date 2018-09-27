@@ -1,0 +1,22 @@
+{
+  "name": "MuslimData",
+  "version": "0.1.0",
+  "summary": "A short description of MuslimData.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Kosrat D. Ahmad/MuslimData",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Kosrat D. Ahmad": "kosrat.d.ahmad@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/Kosrat D. Ahmad/MuslimData.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "MuslimData/Classes/**/*"
+}
