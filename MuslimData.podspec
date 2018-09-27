@@ -40,5 +40,5 @@ Best library for muslim's data like (Prayer times, Names of Allah, Azkars, and w
   
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit'
-  #s.dependency 'GRDB.swift'
+  s.dependency 'GRDB.swift'
 end

@@ -1,15 +1,22 @@
 PODS:
-  - MuslimData (0.1.0)
+  - GRDB.swift (3.3.1)
+  - MuslimData (0.1.0):
+    - GRDB.swift
 
 DEPENDENCIES:
   - MuslimData (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - GRDB.swift
 
 EXTERNAL SOURCES:
   MuslimData:
     :path: "../"
 
 SPEC CHECKSUMS:
-  MuslimData: b08085acd4314ff96daf888a9a417f45740ef0b8
+  GRDB.swift: d7ec5d5cc95df7f08c655e5a6500b54f4b092e89
+  MuslimData: 84892008a07f6b5b1504354d5dca8be86b49ccc5
 
 PODFILE CHECKSUM: 1aad6dccfd126c8fa30a1bc8724b3e75cef584f4
 

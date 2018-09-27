@@ -1,9 +1,9 @@
 {
   "name": "MuslimData",
   "version": "0.1.0",
-  "summary": "A short description of MuslimData.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/Kosrat D. Ahmad/MuslimData",
+  "summary": "Best muslim data library",
+  "description": "Best library for muslim's data like (Prayer times, Names of Allah, Azkars, and with some other helper methods)",
+  "homepage": "https://github.com/KosratDAhmad/MuslimData",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,11 +12,18 @@
     "Kosrat D. Ahmad": "kosrat.d.ahmad@gmail.com"
   },
   "source": {
-    "git": "https://github.com/Kosrat D. Ahmad/MuslimData.git",
+    "git": "https://github.com/KosratDAhmad/MuslimData.git",
     "tag": "0.1.0"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "10.0"
   },
-  "source_files": "MuslimData/Classes/**/*"
+  "source_files": "MuslimData/Classes/**/*",
+  "swift_version": "4.2",
+  "frameworks": "UIKit",
+  "dependencies": {
+    "GRDB.swift": [
+
+    ]
+  }
 }
