@@ -7,12 +7,21 @@
 //
 
 import UIKit
+import MuslimData
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+        MuslimData().getPrayerTimes(city: "Soran", date: Date(), format: .time24) { (prayerTime, error) in
+            guard error == nil else {
+                print("Prayer tims didn't found for the specified properties.")
+                return
+            }
+            print("prayer time: \(prayerTime!)")
+        }
     }
 
     override func didReceiveMemoryWarning() {

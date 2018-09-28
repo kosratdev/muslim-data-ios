@@ -25,6 +25,8 @@
 		26890D653300D1A61094C36B188A14C1 /* TableDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B307258B18E36BE3B1A1A030E918AB /* TableDefinition.swift */; };
 		275B4E6D87B44E54E1B8D98DA9EA690F /* FTS5CustomTokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DEAEC67E04E1DA6E04EEB89A04D060 /* FTS5CustomTokenizer.swift */; };
 		2C2692AC4CF597B6AEA59060C47B375D /* SQLGenerationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E1DC5B24BE55E6FAAB4DD6FB77664E /* SQLGenerationContext.swift */; };
+		2DD6DA3C215E14810081834F /* PrayerTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD6DA3B215E14810081834F /* PrayerTime.swift */; };
+		2DD6DA3F215E53750081834F /* MuslimData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD6DA3E215E53750081834F /* MuslimData.swift */; };
 		31EAAB92D4D8A1AD8D486011EEC2F4DB /* Column.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E8AA768E75F069B2B013A3518DBC9 /* Column.swift */; };
 		32CFBA34689549DC131666B2675FF132 /* DatabaseValueConvertible+ReferenceConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D086872A8667FA047C8D1063FD3FBCC /* DatabaseValueConvertible+ReferenceConvertible.swift */; };
 		353565C6F691A5A45494A62753D2BC2B /* SQLOrdering.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3F6EC05B923265B084D3F01CC96A09 /* SQLOrdering.swift */; };
@@ -123,7 +125,6 @@
 		E4B603D3580CBADC3DCA86315439A04F /* DatabaseSchemaCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AE91B8371208BC9BA9B0C8FC4BFB2A /* DatabaseSchemaCache.swift */; };
 		E9F508B3E4FE7036C2CF3AB0B2662B6D /* FTS3TokenizerDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13A95B81F9BA61F5D482FD708414E6 /* FTS3TokenizerDescriptor.swift */; };
 		EA9A7D43AE4DEA9ADC1C93170FB32069 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26B7E086FE0FC18625FB5707DE657ACA /* Foundation.framework */; };
-		EBA070A14D9F638A27767DDB1B8E927F /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68520037C9003D94121AD01301DC2E0D /* ReplaceMe.swift */; };
 		EDF9AE395DECB26916ECAE226370D1FB /* StandardLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5A504D0E4E287681D384040723D333 /* StandardLibrary.swift */; };
 		F0D3D76A11249C3745083B89D885BECC /* DatabaseRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD10E7085E19F02739711B74BF58011 /* DatabaseRegion.swift */; };
 		F46B274F4E3FA2F38963DCE4A0A87093 /* Fixits-0-84-0.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911F1CDB665FAD1F39AAB54397C245BD /* Fixits-0-84-0.swift */; };
@@ -191,6 +192,8 @@
 		2CB7C93E5552F1361D72E85C19E57F21 /* Pods-MuslimData_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MuslimData_Example-frameworks.sh"; sourceTree = "<group>"; };
 		2D889519CACD44B32221461F4CE9308F /* FTS5+QueryInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "FTS5+QueryInterface.swift"; path = "GRDB/QueryInterface/FTS5+QueryInterface.swift"; sourceTree = "<group>"; };
 		2D8ECC29F8B0023795658EAFA69A874D /* Association.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Association.swift; path = GRDB/QueryInterface/Association/Association.swift; sourceTree = "<group>"; };
+		2DD6DA3B215E14810081834F /* PrayerTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTime.swift; sourceTree = "<group>"; };
+		2DD6DA3E215E53750081834F /* MuslimData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MuslimData.swift; path = MuslimData/Classes/MuslimData.swift; sourceTree = "<group>"; };
 		2E770C49FE6A60654B2A7335FF12FD7F /* FTS3.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTS3.swift; path = GRDB/FTS/FTS3.swift; sourceTree = "<group>"; };
 		2FBD0F48A445925C0388FCCF5E17F3DC /* SQLCollatedExpression.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SQLCollatedExpression.swift; path = GRDB/QueryInterface/SQLCollatedExpression.swift; sourceTree = "<group>"; };
 		315399E275776B020BB32A993FE97B46 /* Pods-MuslimData_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MuslimData_Example-dummy.m"; sourceTree = "<group>"; };
@@ -225,7 +228,6 @@
 		61104C86498A4134C865CA57C9E05387 /* Pods-MuslimData_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MuslimData_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		66271EA187C4741D4BC9CDE5A2D610CD /* DatabaseQueue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseQueue.swift; path = GRDB/Core/DatabaseQueue.swift; sourceTree = "<group>"; };
 		6843FBAF918D58ECCDF5B26D09D75BE1 /* Pods-MuslimData_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MuslimData_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		68520037C9003D94121AD01301DC2E0D /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = MuslimData/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
 		689616F1CA07DDA6D542649E7F78173E /* Database+Schema.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Database+Schema.swift"; path = "GRDB/Core/Database+Schema.swift"; sourceTree = "<group>"; };
 		68B40D09CA92727A83277E7CFAFEFE42 /* UUID.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UUID.swift; path = GRDB/Core/Support/Foundation/UUID.swift; sourceTree = "<group>"; };
 		693895E35120FF72C8B7055062AD9445 /* FTS5WrapperTokenizer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTS5WrapperTokenizer.swift; path = GRDB/FTS/FTS5WrapperTokenizer.swift; sourceTree = "<group>"; };
@@ -295,7 +297,7 @@
 		C5E5B71522F14344DF411EEDC04BA352 /* GRDB-Bridging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GRDB-Bridging.h"; path = "Support/GRDB-Bridging.h"; sourceTree = "<group>"; };
 		C68BC55C23D56512AB6F33D35C981F56 /* SQLSelectable+QueryInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SQLSelectable+QueryInterface.swift"; path = "GRDB/QueryInterface/SQLSelectable+QueryInterface.swift"; sourceTree = "<group>"; };
 		C6953AECA60A01465DC718E4C29EBC26 /* AssociationQuery.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AssociationQuery.swift; path = GRDB/QueryInterface/Association/AssociationQuery.swift; sourceTree = "<group>"; };
-		C77266F984561CC1F24FE5B3C51C2C9B /* DBHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DBHelper.swift; path = MuslimData/Classes/DBHelper.swift; sourceTree = "<group>"; };
+		C77266F984561CC1F24FE5B3C51C2C9B /* DBHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		C7B10650F3A9F0AC3910E1860EFCB1F9 /* NSData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NSData.swift; path = GRDB/Core/Support/Foundation/NSData.swift; sourceTree = "<group>"; };
 		C8F7B3D498F5304DD5464A269D930479 /* Pods-MuslimData_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MuslimData_Tests.modulemap"; sourceTree = "<group>"; };
 		CA927489CB36639049FF5A24195C76B7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -385,11 +387,21 @@
 			name = Pod;
 			sourceTree = "<group>";
 		};
-		40F51DA328ECBC9B2D9FB64539C9078F /* MuslimData */ = {
+		2DD6DA40215E6C8F0081834F /* DB Helper */ = {
 			isa = PBXGroup;
 			children = (
 				C77266F984561CC1F24FE5B3C51C2C9B /* DBHelper.swift */,
-				68520037C9003D94121AD01301DC2E0D /* ReplaceMe.swift */,
+			);
+			name = "DB Helper";
+			path = "MuslimData/Classes/DB Helper";
+			sourceTree = "<group>";
+		};
+		40F51DA328ECBC9B2D9FB64539C9078F /* MuslimData */ = {
+			isa = PBXGroup;
+			children = (
+				2DD6DA40215E6C8F0081834F /* DB Helper */,
+				2DD6DA3B215E14810081834F /* PrayerTime.swift */,
+				2DD6DA3E215E53750081834F /* MuslimData.swift */,
 				29EA150EEA351C03611F76C9862F6396 /* Pod */,
 				E110CB836C0A07051A0F29C8BB666D7D /* Resources */,
 				D86EA03237360DC8EFAB24DFED5E9AA8 /* Support Files */,
@@ -801,8 +813,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1938A58B2F98597437B1B6CA6AE5331C /* DBHelper.swift in Sources */,
+				2DD6DA3C215E14810081834F /* PrayerTime.swift in Sources */,
 				E28911F306053CDECB3347D0543F56BF /* MuslimData-dummy.m in Sources */,
-				EBA070A14D9F638A27767DDB1B8E927F /* ReplaceMe.swift in Sources */,
+				2DD6DA3F215E53750081834F /* MuslimData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
