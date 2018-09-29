@@ -20,10 +20,11 @@ public class MuslimData {
     // MARK: - Properties
 
     let dbRef: DBHelper
+    public static let shared = MuslimData()
 
     // MARK: - Constractors
 
-    public init() {
+    private init() {
         dbRef = DBHelper.shared
     }
 
