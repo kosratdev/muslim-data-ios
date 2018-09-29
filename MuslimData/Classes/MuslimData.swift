@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import GRDB
 
 /// Time format enum that represents 12 hours or 24 hours time format.
 ///
@@ -35,34 +36,36 @@ public class MuslimData {
     /// - Parameters:
     ///   - city: City name
     ///   - date: Prayer times date
-    ///   - format: Prayer times format that should be on of time12 or time24.
     ///   - callback: Callback that will returen the prayer time when it has been found in the database.
-    public func getPrayerTimes(city: String, date: Date, format: TimeFormat,
-                        _ callback: @escaping (PrayerTime?, String?) -> Void) {
-        let date = formatPrayerDate(date)
-            do {
-                try dbRef.dbQueue?.inDatabase { dbConnect in
-                    let result = try PrayerTime.fetchOne(dbConnect, """
-                        SELECT * FROM staticprayertimes where city = '\(cityMapper(city))' and date = '\(date)'
-                        """)
-                    guard var prayerTime = result else {
+    public func getPrayerTimes(city: String, date: Date,
+                               _ callback: @escaping (PrayerTime?, String?) -> Void) {
+        let stringDate = formatPrayerDate(date)
+        do {
+            try dbRef.dbQueue?.inDatabase { dbConnect in
+                let result = try Row.fetchOne(dbConnect, """
+                    SELECT * FROM staticprayertimes where city = '\(cityMapper(city))' and date = '\(stringDate)'
+                    """)
+                guard let fajr = result?["fajr"] as? String,
+                    let sunrise = result?["sunrise"] as? String,
+                    let dhuhr = result?["dhuhr"] as? String,
+                    let asr = result?["asr"] as? String,
+                    let maghrib = result?["maghrib"] as? String,
+                    let isha = result?["isha"] as? String else {
                         callback(nil, "Error:")
                         return
-                    }
-
-                    if format == .time12 {
-                        prayerTime.fajr = formatToTime12(prayerTime.fajr)
-                        prayerTime.sunrise = formatToTime12(prayerTime.sunrise)
-                        prayerTime.zuhr = formatToTime12(prayerTime.zuhr)
-                        prayerTime.asr = formatToTime12(prayerTime.asr)
-                        prayerTime.maghrib = formatToTime12(prayerTime.maghrib)
-                        prayerTime.isha = formatToTime12(prayerTime.isha)
-                    }
-                    callback(prayerTime, nil)
                 }
-            } catch {
-                callback(nil, "Error: \(error.localizedDescription)")
+
+                let prayerTime = PrayerTime(fajr: fajr.toDate(date),
+                                            sunrise: sunrise.toDate(date),
+                                            dhuhr: dhuhr.toDate(date),
+                                            asr: asr.toDate(date),
+                                            maghrib: maghrib.toDate(date),
+                                            isha: isha.toDate(date))
+                callback(prayerTime, nil)
             }
+        } catch {
+            callback(nil, "Error: \(error.localizedDescription)")
+        }
     }
 
     // MARK: - Private Methods
@@ -119,18 +122,5 @@ public class MuslimData {
             }
         }
         return parentCity ?? city
-    }
-
-    /// Convert 24 hours time format to 12 hours time format.
-    ///
-    /// - Parameter time: 24 Hours time format.
-    /// - Returns: 12 Hours time format.
-    private func formatToTime12(_ time: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        let date = dateFormatter.date(from: time)!
-        dateFormatter.dateFormat = "hh:mm a"
-        return dateFormatter.string(from: date)
     }
 }

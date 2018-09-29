@@ -13,21 +13,17 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
 
-        MuslimData.shared.getPrayerTimes(city: "Soran", date: Date(), format: .time24) { (prayerTime, error) in
+        // Get prayer times from the MuslimData library
+        MuslimData.shared.getPrayerTimes(city: "Soran", date: Date()) { (prayerTime, error) in
             guard error == nil else {
                 print("Prayer tims didn't found for the specified properties.")
                 return
             }
-            print("prayer time: \(prayerTime!)")
+            print("prayer times: \(prayerTime!)")
+            print("Fromat prayer times: \(prayerTime!.formatPrayers(.time12))")
+            print("Format one prayer time: \(prayerTime!.isha.toTime(format: .time24))")
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 }
 

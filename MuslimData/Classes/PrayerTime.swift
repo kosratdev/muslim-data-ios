@@ -6,36 +6,27 @@
 //
 
 import Foundation
-import GRDB
 
 /// Prayer times object that will be use to get static prayer times from database.
-public struct PrayerTime: FetchableRecord {
-    public var fajr: String
-    public var sunrise: String
-    public var zuhr: String
-    public var asr: String
-    public var maghrib: String
-    public var isha: String
+public struct PrayerTime {
+    // MARK: - Properties
 
-    /// get columns from db.
-    enum Columns {
-        static let fajr = Column("fajr")
-        static let sunrise = Column("sunrise")
-        static let zuhr = Column("dhuhr")
-        static let asr = Column("asr")
-        static let maghrib = Column("maghrib")
-        static let isha = Column("isha")
-    }
+    public var fajr: Date
+    public var sunrise: Date
+    public var dhuhr: Date
+    public var asr: Date
+    public var maghrib: Date
+    public var isha: Date
 
-    /// put columns to row.
+    // MARK: - Public Methods
+
+    /// Format prayer times from Date object to String by "HH:mm" or "hh:mm a" pattern which
+    /// depends on the given time format.
     ///
-    /// - Parameter row: Row
-    public init(row: Row) {
-        fajr = row[Columns.fajr]
-        sunrise = row[Columns.sunrise]
-        zuhr = row[Columns.zuhr]
-        asr = row[Columns.asr]
-        maghrib = row[Columns.maghrib]
-        isha = row[Columns.isha]
+    /// - Parameter format: TimeFormat instance.
+    /// - Returns: Array of formatted prayer times
+    public func formatPrayers(_ format: TimeFormat) -> [String] {
+        return [fajr.toTime(format: format), sunrise.toTime(format: format), dhuhr.toTime(format: format),
+                asr.toTime(format: format), maghrib.toTime(format: format), isha.toTime(format: format)]
     }
 }
