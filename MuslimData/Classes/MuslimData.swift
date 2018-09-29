@@ -20,14 +20,11 @@ public enum TimeFormat {
 public class MuslimData {
     // MARK: - Properties
 
-    let dbRef: DBHelper
     public static let shared = MuslimData()
 
     // MARK: - Constractors
 
-    private init() {
-        dbRef = DBHelper.shared
-    }
+    private init() {}
 
     // MARK: - Public Methods
 
@@ -37,90 +34,31 @@ public class MuslimData {
     ///   - city: City name
     ///   - date: Prayer times date
     ///   - callback: Callback that will returen the prayer time when it has been found in the database.
-    public func getPrayerTimes(city: String, date: Date,
-                               _ callback: @escaping (PrayerTime?, String?) -> Void) {
-        let stringDate = formatPrayerDate(date)
-        do {
-            try dbRef.dbQueue?.inDatabase { dbConnect in
-                let result = try Row.fetchOne(dbConnect, """
-                    SELECT * FROM staticprayertimes where city = '\(cityMapper(city))' and date = '\(stringDate)'
-                    """)
-                guard let fajr = result?["fajr"] as? String,
-                    let sunrise = result?["sunrise"] as? String,
-                    let dhuhr = result?["dhuhr"] as? String,
-                    let asr = result?["asr"] as? String,
-                    let maghrib = result?["maghrib"] as? String,
-                    let isha = result?["isha"] as? String else {
-                        callback(nil, "Error:")
-                        return
-                }
-
-                let prayerTime = PrayerTime(fajr: fajr.toDate(date),
-                                            sunrise: sunrise.toDate(date),
-                                            dhuhr: dhuhr.toDate(date),
-                                            asr: asr.toDate(date),
-                                            maghrib: maghrib.toDate(date),
-                                            isha: isha.toDate(date))
-                callback(prayerTime, nil)
+    public func getPrayerTimes(city: String, date: Date, _ callback: @escaping (PrayerTime?, String?) -> Void) {
+        DBHelper.shared.prayerTimes(city: city, date: date) { row, error in
+            guard error == nil else {
+                callback(nil, error)
+                return
             }
-        } catch {
-            callback(nil, "Error: \(error.localizedDescription)")
-        }
-    }
-
-    // MARK: - Private Methods
-
-    /// Format date to "MM-dd" pattern which will be used to get prayers fro this date in the prayer database.
-    ///
-    /// - Parameter date: Date instance.
-    /// - Returns: Formatted date by "MM-dd" pattern.
-    private func formatPrayerDate(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "us")
-        formatter.dateFormat = "MM-dd"
-        return formatter.string(from: date)
-    }
-
-    /// City mapper that finds parent city if it has and it is used in the static prayers.
-    ///
-    /// - Parameter city: Current city.
-    /// - Returns: Parent city.
-    private func cityMapper(_ city: String) -> String {
-        let city = city.capitalized
-        let cities = ["Akre": ["Amedi", "Sulav", "Kani", "Sheladiz", "Barzan", "Bele", "Shanidar", "Bujal", "Mergin",
-                               "Susna", "Sersink"],
-                      "Bardarash": ["Mamuzin"],
-                      "Darbandikhan": ["Zarayan"],
-                      "Duhok": ["Sumel", "Zawita", "Atrish", "Sharya", "Mrebah"],
-                      "Erbil": ["Kalak", "Pirmam", "Shaqlawa", "Harir", "Khalifan", "Rawanduz", "Soran", "Mergasur",
-                                "Galala", "Choman", "Hiran", "Makhmur", "Qushtapa", "Kasnazan"],
-                      "Halabja": ["Khurmal", "Sirwan", "Byara", "Tawella"],
-                      "Kifri": ["Hajiawa", "Chwarqurna", "Ranya"],
-                      "Kirkuk": ["Taza Khurmatu"],
-                      "Koysinjaq": ["Taqtaq", "Khalakan"],
-                      "Qalat Dizah": ["Sangasar", "Zharawa"],
-                      "Sulaymaniyah": ["Dokan", "Bazian", "Chamchamal", "Qaran Dagh", "Arbat", "Penjwen", "Said Sadiq",
-                                       "Kalar", "Takiya", "Shorsh"],
-                      "Kamyaran": ["Divandarreh"],
-                      "Al Asimah": ["Kuwait City", "Dasman Palace", "Sharq", "Mirqab", "Jibla", "Dasma", "Daiya",
-                                    "Salhia", "Bneid Al Qar", "Kaifan", "Mansouriya", "Abdullah al-Salem", "Nuzha",
-                                    "Faiha", "Shamiya", "Rawda", "Adailiya", "Khaldiya", "Qadsiya", "Qortuba", "Surra",
-                                    "Yarmouk", "Shuwaikh Industrial", "Rai", "Granada", "Sulaibikhat", "Doha",
-                                    "Nahdha", "Jaber Al Ahmad", "Qairawan", "Ahmadi", "Al Wafrah", "Sabah Al Salem",
-                                    "Messila", "Al-Masayel", "Adan", "Fnaitees", "Qusor", "Qurain", "Abu Fatira",
-                                    "Mubarak Al Kabeer", "Jeleeb Al-Shuyoukh", "Eqaila", "Fintas", "Dahar", "Mahboula",
-                                    "Hadiya", "Al-Riqqa", "Abu Halifa", "Fahad Al Ahmad", "Assabahiyah", "Mangaf",
-                                    "Fahaheel", "South Sabahiya", "Ali Sabah Al Salem", "Shalayhat Mina Abdullah",
-                                    "Zour", "Al Khiran"],
-                      "Failaka Island": ["Zoor", "Kubbar Island", "Al-Nuwaiseeb"],
-                      "Abdali": ["Jahra"]]
-
-        var parentCity: String?
-        cities.forEach { key, values in
-            if values.contains(city) {
-                parentCity = key
+            // Getting data from columns
+            guard let fajr = row?["fajr"] as? String,
+                let sunrise = row?["sunrise"] as? String,
+                let dhuhr = row?["dhuhr"] as? String,
+                let asr = row?["asr"] as? String,
+                let maghrib = row?["maghrib"] as? String,
+                let isha = row?["isha"] as? String else {
+                    callback(nil, "All columns are not found in the row.")
+                    return
             }
+
+            // Create PrayerTime object.
+            let prayerTime = PrayerTime(fajr: fajr.toDate(date),
+                                        sunrise: sunrise.toDate(date),
+                                        dhuhr: dhuhr.toDate(date),
+                                        asr: asr.toDate(date),
+                                        maghrib: maghrib.toDate(date),
+                                        isha: isha.toDate(date))
+            callback(prayerTime, nil)
         }
-        return parentCity ?? city
     }
 }
