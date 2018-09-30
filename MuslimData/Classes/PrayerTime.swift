@@ -29,4 +29,17 @@ public struct PrayerTime {
         return [fajr.toTime(format: format), sunrise.toTime(format: format), dhuhr.toTime(format: format),
                 asr.toTime(format: format), maghrib.toTime(format: format), isha.toTime(format: format)]
     }
+
+    /// Get next prayer index and if all prayer times passed it will return 0.
+    ///
+    /// - Returns: Next prayer index
+    public func nextPrayerIndex() -> Int {
+        let prayers = [fajr, sunrise, dhuhr, asr, maghrib, isha]
+        let now = Date()
+
+        for index in 0 ..< prayers.count where prayers[index] > now {
+            return index
+        }
+        return 0
+    }
 }
