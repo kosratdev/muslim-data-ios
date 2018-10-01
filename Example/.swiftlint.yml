@@ -1,0 +1,4 @@
+excluded:
+  - Pods
+included:
+  - ../MuslimData

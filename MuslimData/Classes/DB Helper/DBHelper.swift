@@ -31,7 +31,8 @@ class DBHelper {
         do {
             try dbQueue?.inDatabase { dbConnect in
                 let result = try Row.fetchOne(dbConnect, """
-                    SELECT * FROM staticprayertimes where city = '\(cityMapper(city))' and date = '\(formatPrayerDate(date))'
+                    SELECT * FROM staticprayertimes where city = '\(cityMapper(city))'
+                    and date = '\(formatPrayerDate(date))'
                     """)
                 guard let row = result else {
                         callback(nil, "Found nil while unwrapping result.")
