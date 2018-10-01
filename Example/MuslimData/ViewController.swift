@@ -25,6 +25,7 @@ class ViewController: UIViewController {
             print("Format one prayer time: \(prayerTime!.isha.toTime(format: .time24))")
             print("next prayer index: \(prayerTime!.nextPrayerIndex())")
             print("next prayer interval: \(prayerTime!.nextPrayerInterval())")
+            print("next prayer time remaining: \(prayerTime!.nextPrayerTimeRemaining())")
         }
     }
 }

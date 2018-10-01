@@ -61,4 +61,15 @@ public struct PrayerTime {
 
         return prayers[index].timeIntervalSinceNow
     }
+
+    /// Get next prayer remaining time with "HH:mm:ss" pattern.
+    ///
+    /// - Returns: String of next prayer remaining time.
+    public func nextPrayerTimeRemaining() -> String {
+        let time = nextPrayerInterval()
+        let hours = Int(time) / 3600
+        let minutes = Int(time) / 60 % 60
+        let seconds = Int(time) % 60
+        return String(format: "%02i:%02i:%02i", hours, minutes, seconds)
+    }
 }
