@@ -40,6 +40,25 @@ public struct PrayerTime {
         for index in 0 ..< prayers.count where prayers[index] > now {
             return index
         }
-        return 0
+        return -1
+    }
+
+    /// Get next prayer remaining time interval
+    ///
+    /// - Returns: TimeInterval
+    public func nextPrayerInterval() -> TimeInterval {
+        let prayers = [fajr, sunrise, dhuhr, asr, maghrib, isha]
+        let index = nextPrayerIndex()
+
+        // If all prayer times passed then return remaining time interval for next Fajr prayer.
+        if index == -1 {
+            let calendar = Calendar.current
+            var components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: prayers[0])
+            components.day = components.day! + 1
+            let newFajr = calendar.date(from: components)!
+            return newFajr.timeIntervalSinceNow
+         }
+
+        return prayers[index].timeIntervalSinceNow
     }
 }
