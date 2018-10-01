@@ -57,7 +57,7 @@ public struct PrayerTime {
             components.day = components.day! + 1
             let newFajr = calendar.date(from: components)!
             return newFajr.timeIntervalSinceNow
-         }
+        }
 
         return prayers[index].timeIntervalSinceNow
     }

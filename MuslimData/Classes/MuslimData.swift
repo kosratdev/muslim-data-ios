@@ -47,8 +47,8 @@ public class MuslimData {
                 let asr = row?["asr"] as? String,
                 let maghrib = row?["maghrib"] as? String,
                 let isha = row?["isha"] as? String else {
-                    callback(nil, "All columns are not found in the row.")
-                    return
+                callback(nil, "All columns are not found in the row.")
+                return
             }
 
             // Create PrayerTime object.

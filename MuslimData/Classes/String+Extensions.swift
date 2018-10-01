@@ -15,10 +15,10 @@ extension String {
     /// - Parameter date: Date which is used to the conversion.
     /// - Returns: Date object for the string time
     func toDate(_ date: Date) -> Date {
-        let hourIndex = self.index(self.startIndex, offsetBy: 2)
+        let hourIndex = index(startIndex, offsetBy: 2)
         let hourFromTime = Int(self[..<hourIndex])!
 
-        let minuteIndex = self.index(self.endIndex, offsetBy: -2)
+        let minuteIndex = index(endIndex, offsetBy: -2)
         let minuteFromTime = Int(self[minuteIndex...])
 
         let calendar = Calendar.current

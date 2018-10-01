@@ -1,0 +1,7 @@
+# format options!
+
+# file options
+--exclude Pods
+
+# rules
+--disable trailingCommas,unusedArguments
