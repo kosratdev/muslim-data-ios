@@ -1,4 +1,5 @@
 use_frameworks!
+inhibit_all_warnings!
 
 target 'MuslimData_Example' do
   pod 'MuslimData', :path => '../'
