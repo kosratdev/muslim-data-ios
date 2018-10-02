@@ -18,14 +18,6 @@ public enum TimeFormat {
 }
 
 public class MuslimData {
-    // MARK: - Properties
-
-    public static let shared = MuslimData()
-
-    // MARK: - Constractors
-
-    private init() {}
-
     // MARK: - Public Methods
 
     /// Get prayer times from the prayer database.
@@ -34,8 +26,8 @@ public class MuslimData {
     ///   - city: City name
     ///   - date: Prayer times date
     ///   - callback: Callback that will returen the prayer time when it has been found in the database.
-    public func getPrayerTimes(city: String, date: Date, isStatic: Bool, attributes: PrayerAttribute,
-                               _ callback: @escaping (PrayerTime?, String?) -> Void) {
+    public static func getPrayerTimes(city: String, date: Date, isStatic: Bool, attributes: PrayerAttribute,
+                                      _ callback: @escaping (PrayerTime?, String?) -> Void) {
         if !isStatic {
             let prayers = Prayer(caculationmethod: attributes.calculationMethod, asrJuristic: attributes.asrMethod,
                                  adjustHighLats: attributes.adjustAngle, timeFormat: .time24)
