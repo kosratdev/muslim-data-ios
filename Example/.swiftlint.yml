@@ -1,4 +1,5 @@
 excluded:
   - Pods
+  - ../MuslimData/Classes/Prayer.swift
 included:
   - ../MuslimData

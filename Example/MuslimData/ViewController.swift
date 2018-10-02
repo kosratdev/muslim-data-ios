@@ -15,7 +15,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         // Get prayer times from the MuslimData library
-        MuslimData.shared.getPrayerTimes(city: "Soran", date: Date()) { (prayerTime, error) in
+        let attributes = PrayerAttribute(calculationMethod: .makkah, asrMethod: .shafii, adjustAngle: .angleBased,
+                                         latitude: 36.123, longitude: 44.123, timeZone: 3.0)
+        MuslimData.shared.getPrayerTimes(city: "Soran", date: Date(),
+                                         isStatic: false, attributes: attributes) { (prayerTime, error) in
             guard error == nil else {
                 print("Prayer tims didn't found for the specified properties.")
                 return

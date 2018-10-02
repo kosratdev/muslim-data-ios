@@ -28,6 +28,8 @@
 		25AC45DE4E85FCE452A86656A3B3678F /* SQLiteDateParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E5C80DD813681D6D33E6C1C9D723C /* SQLiteDateParser.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		264A89433E2DC30CFCE29421746CD0D4 /* VirtualTableModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41865C76CBFE33B44D68F99A0D9AE5A7 /* VirtualTableModule.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		2663236D77E64CD6575244CF80459F55 /* MuslimData-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0774D2E270A41775C58906FED3787A1E /* MuslimData-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2D21BC662163DB8900C0BEE9 /* Prayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D21BC652163DB8900C0BEE9 /* Prayer.swift */; };
+		2D21BC682163DC8300C0BEE9 /* PrayerAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D21BC672163DC8300C0BEE9 /* PrayerAttribute.swift */; };
 		2ED13C4270AFAE75C63139E33564C7A7 /* TransactionObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFFC840B7226F424A02FC24047A026E /* TransactionObserver.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		2FCD65F9D6AB668B265B019F94E5D2EA /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B90311194AE3B617EBDC9CF229393F6 /* DBHelper.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		305202F9D1E9EE1578D47A1C05BFAEAB /* NSNull.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1D827F97A81FCE499B7388A10EE48 /* NSNull.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -190,6 +192,8 @@
 		26B7E086FE0FC18625FB5707DE657ACA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		2974A296F60056CDD04E670915AB52A7 /* DatabaseCollation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseCollation.swift; path = GRDB/Core/DatabaseCollation.swift; sourceTree = "<group>"; };
 		2CB7C93E5552F1361D72E85C19E57F21 /* Pods-MuslimData_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MuslimData_Example-frameworks.sh"; sourceTree = "<group>"; };
+		2D21BC652163DB8900C0BEE9 /* Prayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Prayer.swift; path = MuslimData/Classes/Prayer.swift; sourceTree = "<group>"; };
+		2D21BC672163DC8300C0BEE9 /* PrayerAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrayerAttribute.swift; path = MuslimData/Classes/PrayerAttribute.swift; sourceTree = "<group>"; };
 		2D889519CACD44B32221461F4CE9308F /* FTS5+QueryInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "FTS5+QueryInterface.swift"; path = "GRDB/QueryInterface/FTS5+QueryInterface.swift"; sourceTree = "<group>"; };
 		2D8ECC29F8B0023795658EAFA69A874D /* Association.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Association.swift; path = GRDB/QueryInterface/Association/Association.swift; sourceTree = "<group>"; };
 		2E770C49FE6A60654B2A7335FF12FD7F /* FTS3.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTS3.swift; path = GRDB/FTS/FTS3.swift; sourceTree = "<group>"; };
@@ -604,6 +608,8 @@
 				36095CFE90D4E2578CF9394D7AC71925 /* Date+Extensions.swift */,
 				51349D57ED9F001C7400E6C5530DFB14 /* MuslimData.swift */,
 				96C47671774DC41A796382894C51DFBA /* PrayerTime.swift */,
+				2D21BC652163DB8900C0BEE9 /* Prayer.swift */,
+				2D21BC672163DC8300C0BEE9 /* PrayerAttribute.swift */,
 				4E430C0E02C0236C24F97D1B11D9A02D /* String+Extensions.swift */,
 				5DE133F803B843EFF46654C9DE78EE4C /* DB Helper */,
 				B3DBB3827E3E6ABE147EABEF23FC0690 /* Pod */,
@@ -786,8 +792,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				152AD55901F7BDB847B0AD18184270C4 /* GRDB.swift */,
 				16CCE8C8ECDF5450A0EE06B1B6EB7368 /* MuslimData */,
+				152AD55901F7BDB847B0AD18184270C4 /* GRDB.swift */,
 				5E8DBB119C1381993FB416B2E8096C8B /* Pods-MuslimData_Example */,
 				63BD661A3E6D26137C2A9FEB4AB6E87F /* Pods-MuslimData_Tests */,
 			);
@@ -816,6 +822,8 @@
 				AA477CEF827762F7701B92BD05FD0D53 /* MuslimData.swift in Sources */,
 				1C2466DE347041786BE99F5094E45A42 /* PrayerTime.swift in Sources */,
 				EB88C532673729E1E253D889199035A4 /* String+Extensions.swift in Sources */,
+				2D21BC662163DB8900C0BEE9 /* Prayer.swift in Sources */,
+				2D21BC682163DC8300C0BEE9 /* PrayerAttribute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

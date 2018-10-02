@@ -34,7 +34,24 @@ public class MuslimData {
     ///   - city: City name
     ///   - date: Prayer times date
     ///   - callback: Callback that will returen the prayer time when it has been found in the database.
-    public func getPrayerTimes(city: String, date: Date, _ callback: @escaping (PrayerTime?, String?) -> Void) {
+    public func getPrayerTimes(city: String, date: Date, isStatic: Bool, attributes: PrayerAttribute,
+                               _ callback: @escaping (PrayerTime?, String?) -> Void) {
+        if !isStatic {
+            let prayers = Prayer(caculationmethod: attributes.calculationMethod, asrJuristic: attributes.asrMethod,
+                                 adjustHighLats: attributes.adjustAngle, timeFormat: .time24)
+            let calculatedTimes = prayers.getPrayerTimes(NSCalendar.current, latitude: attributes.latitude,
+                                                         longitude: attributes.longitude, tZone: attributes.timeZone)
+
+            let prayerTime = PrayerTime(fajr: calculatedTimes["Fajr"]!.toDate(date),
+                                        sunrise: calculatedTimes["Sunrise"]!.toDate(date),
+                                        dhuhr: calculatedTimes["Dhuhr"]!.toDate(date),
+                                        asr: calculatedTimes["Asr"]!.toDate(date),
+                                        maghrib: calculatedTimes["Maghrib"]!.toDate(date),
+                                        isha: calculatedTimes["Isha"]!.toDate(date))
+            callback(prayerTime, nil)
+            return
+        }
+
         DBHelper.shared.prayerTimes(city: city, date: date) { row, error in
             guard error == nil else {
                 callback(nil, error)
