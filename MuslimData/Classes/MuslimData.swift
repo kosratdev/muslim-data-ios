@@ -41,13 +41,20 @@ public class MuslimData {
                                  adjustHighLats: attributes.adjustAngle, timeFormat: .time24)
             let calculatedTimes = prayers.getPrayerTimes(NSCalendar.current, latitude: attributes.latitude,
                                                          longitude: attributes.longitude, tZone: attributes.timeZone)
+            // Check calculated prayer times for nullability.
+            guard let fajr = calculatedTimes["Fajr"], let sunrise = calculatedTimes["Sunrise"],
+                let dhuhr = calculatedTimes["Dhuhr"], let asr = calculatedTimes["Dhuhr"],
+                let maghrib = calculatedTimes["Maghrib"], let isha = calculatedTimes["Isha"] else {
+                callback(nil, "")
+                return
+            }
 
-            let prayerTime = PrayerTime(fajr: calculatedTimes["Fajr"]!.toDate(date),
-                                        sunrise: calculatedTimes["Sunrise"]!.toDate(date),
-                                        dhuhr: calculatedTimes["Dhuhr"]!.toDate(date),
-                                        asr: calculatedTimes["Asr"]!.toDate(date),
-                                        maghrib: calculatedTimes["Maghrib"]!.toDate(date),
-                                        isha: calculatedTimes["Isha"]!.toDate(date))
+            let prayerTime = PrayerTime(fajr: fajr.toDate(date),
+                                        sunrise: sunrise.toDate(date),
+                                        dhuhr: dhuhr.toDate(date),
+                                        asr: asr.toDate(date),
+                                        maghrib: maghrib.toDate(date),
+                                        isha: isha.toDate(date))
             callback(prayerTime, nil)
             return
         }
