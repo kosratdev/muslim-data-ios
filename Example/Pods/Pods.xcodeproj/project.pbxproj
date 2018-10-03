@@ -22,7 +22,7 @@
 		1593687543D3EE37E7BFCD3E2A943247 /* FTS3+QueryInterfaceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9353DB793E04F84984708BA8CA83A3EC /* FTS3+QueryInterfaceRequest.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		1C2466DE347041786BE99F5094E45A42 /* PrayerTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C47671774DC41A796382894C51DFBA /* PrayerTime.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		1D3EF0D7A6BFEE8FE3752A89E187D19C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5C9562D27CB4DCBA9759F3BD7F01A3 /* UIKit.framework */; };
-		1F3A4EDC918E93D39EEB99F8C2DA37CA /* PrayersDb.db in Resources */ = {isa = PBXBuildFile; fileRef = 6140F0ACD465E59627769ACB02FBEBBB /* PrayersDb.db */; };
+		1F3A4EDC918E93D39EEB99F8C2DA37CA /* MuslimData.db in Resources */ = {isa = PBXBuildFile; fileRef = 6140F0ACD465E59627769ACB02FBEBBB /* MuslimData.db */; };
 		215C77F3FE6349A66D73FD42FAAF6FD7 /* NSNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7686B57EA6AAAC222E6267A2DC1255B1 /* NSNumber.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		22AEEEEF973CBE543630728D9F10A745 /* RequestProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E9D4CEEA9C65C397135276C002597 /* RequestProtocols.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		25AC45DE4E85FCE452A86656A3B3678F /* SQLiteDateParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E5C80DD813681D6D33E6C1C9D723C /* SQLiteDateParser.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -230,7 +230,7 @@
 		60747EDB8F1E875E6BE28A3106FB6C86 /* Row.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Row.swift; path = GRDB/Core/Row.swift; sourceTree = "<group>"; };
 		6106E65C780C1B9C6B488F8AE348A959 /* Pods-MuslimData_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MuslimData_Example.release.xcconfig"; sourceTree = "<group>"; };
 		61104C86498A4134C865CA57C9E05387 /* Pods-MuslimData_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MuslimData_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		6140F0ACD465E59627769ACB02FBEBBB /* PrayersDb.db */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = PrayersDb.db; path = MuslimData/Assets/PrayersDb.db; sourceTree = "<group>"; };
+		6140F0ACD465E59627769ACB02FBEBBB /* MuslimData.db */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = MuslimData.db; path = MuslimData/Assets/MuslimData.db; sourceTree = "<group>"; };
 		66271EA187C4741D4BC9CDE5A2D610CD /* DatabaseQueue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseQueue.swift; path = GRDB/Core/DatabaseQueue.swift; sourceTree = "<group>"; };
 		6843FBAF918D58ECCDF5B26D09D75BE1 /* Pods-MuslimData_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MuslimData_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		689616F1CA07DDA6D542649E7F78173E /* Database+Schema.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Database+Schema.swift"; path = "GRDB/Core/Database+Schema.swift"; sourceTree = "<group>"; };
@@ -432,7 +432,7 @@
 		5DF8501F948C1E15E49221CDCE4C9225 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				6140F0ACD465E59627769ACB02FBEBBB /* PrayersDb.db */,
+				6140F0ACD465E59627769ACB02FBEBBB /* MuslimData.db */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -823,7 +823,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F3A4EDC918E93D39EEB99F8C2DA37CA /* PrayersDb.db in Resources */,
+				1F3A4EDC918E93D39EEB99F8C2DA37CA /* MuslimData.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

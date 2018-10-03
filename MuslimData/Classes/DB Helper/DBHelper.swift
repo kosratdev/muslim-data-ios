@@ -17,7 +17,7 @@ class DBHelper {
     // MARK: - Life cycle
 
     private init() {
-        let databaseURL = Bundle(for: DBHelper.self).path(forResource: "PrayersDb", ofType: "db")!
+        let databaseURL = Bundle(for: DBHelper.self).path(forResource: "MuslimData", ofType: "db")!
         dbQueue = try? DatabaseQueue(path: databaseURL)
 
         // Be a nice iOS citizen, and don’t consume too much memory
@@ -31,7 +31,7 @@ class DBHelper {
         do {
             try dbQueue?.inDatabase { dbConnect in
                 let result = try Row.fetchOne(dbConnect, """
-                SELECT * FROM staticprayertimes where city = '\(cityMapper(city))'
+                SELECT * FROM prayer_times where city = '\(cityMapper(city))'
                 and date = '\(formatPrayerDate(date))'
                 """)
                 guard let row = result else {
