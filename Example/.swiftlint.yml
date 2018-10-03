@@ -1,0 +1,5 @@
+excluded:
+  - Pods
+  - ../MuslimData/Classes/Prayer Times/Prayer.swift
+included:
+  - ../MuslimData

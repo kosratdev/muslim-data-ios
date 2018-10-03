@@ -7,18 +7,29 @@
 //
 
 import UIKit
+import MuslimData
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        // Get prayer times from the MuslimData library
+        let attributes = PrayerAttribute(calculationMethod: .makkah, asrMethod: .shafii, adjustAngle: .angleBased,
+                                         latitude: 36.123, longitude: 44.123, timeZone: 3.0)
+        MuslimData.getPrayerTimes(city: "Soran", date: Date(),
+                                         isStatic: false, attributes: attributes) { (prayerTime, error) in
+            guard error == nil else {
+                print("Prayer tims didn't found for the specified properties.")
+                return
+            }
+            print("prayer times: \(prayerTime!)")
+            print("Fromat prayer times: \(prayerTime!.formatPrayers(.time12))")
+            print("Format one prayer time: \(prayerTime!.isha.toTime(format: .time24))")
+            print("next prayer index: \(prayerTime!.nextPrayerIndex())")
+            print("next prayer interval: \(prayerTime!.nextPrayerInterval())")
+            print("next prayer time remaining: \(prayerTime!.nextPrayerTimeRemaining())")
+        }
     }
-
 }
 
