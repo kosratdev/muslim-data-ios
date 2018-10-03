@@ -192,8 +192,8 @@
 		26B7E086FE0FC18625FB5707DE657ACA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		2974A296F60056CDD04E670915AB52A7 /* DatabaseCollation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseCollation.swift; path = GRDB/Core/DatabaseCollation.swift; sourceTree = "<group>"; };
 		2CB7C93E5552F1361D72E85C19E57F21 /* Pods-MuslimData_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MuslimData_Example-frameworks.sh"; sourceTree = "<group>"; };
-		2D21BC652163DB8900C0BEE9 /* Prayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Prayer.swift; path = "../MuslimData/Classes/Prayer Times/Prayer.swift"; sourceTree = "<group>"; };
-		2D21BC672163DC8300C0BEE9 /* PrayerAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrayerAttribute.swift; path = "../MuslimData/Classes/Prayer Times/PrayerAttribute.swift"; sourceTree = "<group>"; };
+		2D21BC652163DB8900C0BEE9 /* Prayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prayer.swift; sourceTree = "<group>"; };
+		2D21BC672163DC8300C0BEE9 /* PrayerAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerAttribute.swift; sourceTree = "<group>"; };
 		2D889519CACD44B32221461F4CE9308F /* FTS5+QueryInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "FTS5+QueryInterface.swift"; path = "GRDB/QueryInterface/FTS5+QueryInterface.swift"; sourceTree = "<group>"; };
 		2D8ECC29F8B0023795658EAFA69A874D /* Association.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Association.swift; path = GRDB/QueryInterface/Association/Association.swift; sourceTree = "<group>"; };
 		2E770C49FE6A60654B2A7335FF12FD7F /* FTS3.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTS3.swift; path = GRDB/FTS/FTS3.swift; sourceTree = "<group>"; };
@@ -203,7 +203,7 @@
 		324C8957BF0318620AD02E4EA75BB291 /* Database+Statements.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Database+Statements.swift"; path = "GRDB/Core/Database+Statements.swift"; sourceTree = "<group>"; };
 		328A0F7580F71C0634877BB5356566E1 /* RowAdapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RowAdapter.swift; path = GRDB/Core/RowAdapter.swift; sourceTree = "<group>"; };
 		32E6233ED2DBDF9DF599C72BBE784EAD /* Fixits-Swift2.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Fixits-Swift2.swift"; path = "GRDB/Legacy/Fixits-Swift2.swift"; sourceTree = "<group>"; };
-		36095CFE90D4E2578CF9394D7AC71925 /* Date+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Date+Extensions.swift"; path = "../MuslimData/Classes/Extensions/Date+Extensions.swift"; sourceTree = "<group>"; };
+		36095CFE90D4E2578CF9394D7AC71925 /* Date+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		3645E976A7DBA3E9E255C214D52D07A0 /* HasManyAssociation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HasManyAssociation.swift; path = GRDB/QueryInterface/Association/HasManyAssociation.swift; sourceTree = "<group>"; };
 		37F7F2D39570BBAA871912A3CF4532CC /* Pods_MuslimData_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MuslimData_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38746DAE6C1F979763DA569E84679666 /* AssociationRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AssociationRequest.swift; path = GRDB/QueryInterface/Association/AssociationRequest.swift; sourceTree = "<group>"; };
@@ -219,7 +219,7 @@
 		49CF25D35CE0985C670D9BD08FBB6CFD /* SQLCollection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SQLCollection.swift; path = GRDB/QueryInterface/SQLCollection.swift; sourceTree = "<group>"; };
 		4A5C9562D27CB4DCBA9759F3BD7F01A3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		4B5572FEAA82C1ADA192FEB6F0DE9AB6 /* StatementColumnConvertible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatementColumnConvertible.swift; path = GRDB/Core/StatementColumnConvertible.swift; sourceTree = "<group>"; };
-		4E430C0E02C0236C24F97D1B11D9A02D /* String+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Extensions.swift"; path = "../MuslimData/Classes/Extensions/String+Extensions.swift"; sourceTree = "<group>"; };
+		4E430C0E02C0236C24F97D1B11D9A02D /* String+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		4F7D15F6F41E7B9C8A0315E035484472 /* GRDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GRDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50CF326FD28C2299F6091DBAC3AA5962 /* Data.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Data.swift; path = GRDB/Core/Support/Foundation/Data.swift; sourceTree = "<group>"; };
 		51349D57ED9F001C7400E6C5530DFB14 /* MuslimData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MuslimData.swift; path = MuslimData/Classes/MuslimData.swift; sourceTree = "<group>"; };
@@ -267,7 +267,7 @@
 		9353DB793E04F84984708BA8CA83A3EC /* FTS3+QueryInterfaceRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "FTS3+QueryInterfaceRequest.swift"; path = "GRDB/QueryInterface/FTS3+QueryInterfaceRequest.swift"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		96031338E9DD42AAABEEB771863AB209 /* GRDB.swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GRDB.swift-dummy.m"; sourceTree = "<group>"; };
-		96C47671774DC41A796382894C51DFBA /* PrayerTime.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PrayerTime.swift; path = "../MuslimData/Classes/Prayer Times/PrayerTime.swift"; sourceTree = "<group>"; };
+		96C47671774DC41A796382894C51DFBA /* PrayerTime.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PrayerTime.swift; sourceTree = "<group>"; };
 		9B4D1482F880B6529B3E0B1DAD3EA163 /* StatementAuthorizer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatementAuthorizer.swift; path = GRDB/Core/StatementAuthorizer.swift; sourceTree = "<group>"; };
 		9B681343E1D4391C4DC4F5A3F6B90FFF /* DatabaseValueConvertible+Decodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DatabaseValueConvertible+Decodable.swift"; path = "GRDB/Core/Support/StandardLibrary/DatabaseValueConvertible+Decodable.swift"; sourceTree = "<group>"; };
 		9BCD2B4258F62D2EA28CCE0C38AA7A1A /* PersistableRecord.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PersistableRecord.swift; path = GRDB/Record/PersistableRecord.swift; sourceTree = "<group>"; };
@@ -383,7 +383,8 @@
 				36095CFE90D4E2578CF9394D7AC71925 /* Date+Extensions.swift */,
 				4E430C0E02C0236C24F97D1B11D9A02D /* String+Extensions.swift */,
 			);
-			path = Extensions;
+			name = Extensions;
+			path = MuslimData/Classes/Extensions;
 			sourceTree = "<group>";
 		};
 		2D21BC6A2163F1BA00C0BEE9 /* Prayer Times */ = {
@@ -393,7 +394,8 @@
 				2D21BC652163DB8900C0BEE9 /* Prayer.swift */,
 				2D21BC672163DC8300C0BEE9 /* PrayerAttribute.swift */,
 			);
-			path = "Prayer Times";
+			name = "Prayer Times";
+			path = "MuslimData/Classes/Prayer Times";
 			sourceTree = "<group>";
 		};
 		43C6405696483435B6B220059B0A78CA /* Pods */ = {
