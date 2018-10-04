@@ -57,7 +57,7 @@ public struct LocationHelper {
                     dbConnect,
                     "SELECT * FROM prayer_times where city = '\(self.dbHelper.cityMapper(result!.city))'"
                 )
-                result!.isStatic = isStatic ?? false
+                result!.hasFixedPrayerTimes = isStatic ?? false
                 callback(result)
             }
         } catch {

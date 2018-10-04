@@ -14,7 +14,7 @@ public struct Location: FetchableRecord {
     public let longitude: Double
     public let city: String
     public let countryCode: String
-    public var isStatic = false
+    public var hasFixedPrayerTimes = false
 
     /// get columns from db.
     enum Columns {
@@ -39,6 +39,6 @@ public struct Location: FetchableRecord {
         self.longitude = longitude
         self.city = city
         self.countryCode = countryCode
-        self.isStatic = isStatic
+        hasFixedPrayerTimes = isStatic
     }
 }
