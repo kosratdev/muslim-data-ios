@@ -97,4 +97,20 @@ public struct LocationHelper {
             callback(nil)
         }
     }
+
+    /// Check whether the city has fixed prayer times or not.
+    ///
+    /// - Parameters:
+    ///   - city: City name.
+    ///   - callback: Callback that returns a Boolean that indicate the city has fixed prayer times or not.
+    public func cityHasFixedPrayerTimes(city: String, callback: @escaping (Bool) -> Void) {
+        do {
+            try dbHelper.dbPool?.read { dbConnect in
+                let result = try Bool.fetchOne(dbConnect, "SELECT * FROM prayer_times where city = '\(city)'")
+                callback(result ?? false)
+            }
+        } catch {
+            callback(false)
+        }
+    }
 }

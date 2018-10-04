@@ -48,6 +48,11 @@ class ViewController: UIViewController {
             }
             print("location: \(location)")
         }
+
+        // Check a city to know that it has fixed prayer times or not
+        LocationHelper.shared.cityHasFixedPrayerTimes(city: "Duhok") { (hasFixed) in
+            print("City has fixed prayer times: \(hasFixed)")
+        }
     }
 }
 
