@@ -30,6 +30,8 @@
 		2663236D77E64CD6575244CF80459F55 /* MuslimData-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0774D2E270A41775C58906FED3787A1E /* MuslimData-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2D21BC662163DB8900C0BEE9 /* Prayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D21BC652163DB8900C0BEE9 /* Prayer.swift */; };
 		2D21BC682163DC8300C0BEE9 /* PrayerAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D21BC672163DC8300C0BEE9 /* PrayerAttribute.swift */; };
+		2D50F27E2165520900D6C7F1 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D50F27D2165520900D6C7F1 /* Location.swift */; };
+		2D50F28021655B7B00D6C7F1 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D50F27F21655B7B00D6C7F1 /* LocationHelper.swift */; };
 		2ED13C4270AFAE75C63139E33564C7A7 /* TransactionObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFFC840B7226F424A02FC24047A026E /* TransactionObserver.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		2FCD65F9D6AB668B265B019F94E5D2EA /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B90311194AE3B617EBDC9CF229393F6 /* DBHelper.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		305202F9D1E9EE1578D47A1C05BFAEAB /* NSNull.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1D827F97A81FCE499B7388A10EE48 /* NSNull.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -194,6 +196,8 @@
 		2CB7C93E5552F1361D72E85C19E57F21 /* Pods-MuslimData_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MuslimData_Example-frameworks.sh"; sourceTree = "<group>"; };
 		2D21BC652163DB8900C0BEE9 /* Prayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prayer.swift; sourceTree = "<group>"; };
 		2D21BC672163DC8300C0BEE9 /* PrayerAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerAttribute.swift; sourceTree = "<group>"; };
+		2D50F27D2165520900D6C7F1 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		2D50F27F21655B7B00D6C7F1 /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 		2D889519CACD44B32221461F4CE9308F /* FTS5+QueryInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "FTS5+QueryInterface.swift"; path = "GRDB/QueryInterface/FTS5+QueryInterface.swift"; sourceTree = "<group>"; };
 		2D8ECC29F8B0023795658EAFA69A874D /* Association.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Association.swift; path = GRDB/QueryInterface/Association/Association.swift; sourceTree = "<group>"; };
 		2E770C49FE6A60654B2A7335FF12FD7F /* FTS3.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTS3.swift; path = GRDB/FTS/FTS3.swift; sourceTree = "<group>"; };
@@ -396,6 +400,16 @@
 			);
 			name = "Prayer Times";
 			path = "MuslimData/Classes/Prayer Times";
+			sourceTree = "<group>";
+		};
+		2D50F27C2165517400D6C7F1 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				2D50F27D2165520900D6C7F1 /* Location.swift */,
+				2D50F27F21655B7B00D6C7F1 /* LocationHelper.swift */,
+			);
+			name = Location;
+			path = MuslimData/Classes/Location;
 			sourceTree = "<group>";
 		};
 		43C6405696483435B6B220059B0A78CA /* Pods */ = {
@@ -628,6 +642,7 @@
 			children = (
 				5DE133F803B843EFF46654C9DE78EE4C /* DB Helper */,
 				2D21BC6A2163F1BA00C0BEE9 /* Prayer Times */,
+				2D50F27C2165517400D6C7F1 /* Location */,
 				2D21BC692163F1A100C0BEE9 /* Extensions */,
 				51349D57ED9F001C7400E6C5530DFB14 /* MuslimData.swift */,
 				B3DBB3827E3E6ABE147EABEF23FC0690 /* Pod */,
@@ -838,6 +853,8 @@
 				2FCD65F9D6AB668B265B019F94E5D2EA /* DBHelper.swift in Sources */,
 				96D094A27FF35BDC541965EA2CE29D5E /* MuslimData-dummy.m in Sources */,
 				AA477CEF827762F7701B92BD05FD0D53 /* MuslimData.swift in Sources */,
+				2D50F28021655B7B00D6C7F1 /* LocationHelper.swift in Sources */,
+				2D50F27E2165520900D6C7F1 /* Location.swift in Sources */,
 				1C2466DE347041786BE99F5094E45A42 /* PrayerTime.swift in Sources */,
 				EB88C532673729E1E253D889199035A4 /* String+Extensions.swift in Sources */,
 				2D21BC662163DB8900C0BEE9 /* Prayer.swift in Sources */,
