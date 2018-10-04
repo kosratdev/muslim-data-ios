@@ -9,12 +9,12 @@ import Foundation
 import GRDB
 
 /// Location model that holds a location information.
-struct Location: FetchableRecord {
-    let latitude: Double
-    let longitude: Double
-    let city: String
-    let countryCode: String
-    var isStatic = false
+public struct Location: FetchableRecord {
+    public let latitude: Double
+    public let longitude: Double
+    public let city: String
+    public let countryCode: String
+    public var isStatic = false
 
     /// get columns from db.
     enum Columns {
@@ -27,10 +27,18 @@ struct Location: FetchableRecord {
     /// put columns to row.
     ///
     /// - Parameter row: Row
-    init(row: Row) {
+    public init(row: Row) {
         latitude = row[Columns.latitude]
         longitude = row[Columns.longitude]
         city = row[Columns.city]
         countryCode = row[Columns.countryCode]
+    }
+
+    public init(latitude: Double, longitude: Double, city: String, countryCode: String, isStatic: Bool) {
+        self.latitude = latitude
+        self.longitude = longitude
+        self.city = city
+        self.countryCode = countryCode
+        self.isStatic = isStatic
     }
 }

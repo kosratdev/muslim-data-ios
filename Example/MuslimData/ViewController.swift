@@ -30,6 +30,15 @@ class ViewController: UIViewController {
             print("next prayer interval: \(prayerTime!.nextPrayerInterval())")
             print("next prayer time remaining: \(prayerTime!.nextPrayerTimeRemaining())")
         }
+
+        // User geocoder for a location 
+        LocationHelper.shared.geocoder(countryCode: "GB", city: "London") { location in
+            guard let location = location else {
+                print("City name can not be geocoder")
+                return
+            }
+            print("location: \(location)")
+        }
     }
 }
 

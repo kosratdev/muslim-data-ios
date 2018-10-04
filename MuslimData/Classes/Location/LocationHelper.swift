@@ -8,7 +8,7 @@
 import Foundation
 
 /// Location helper model that holds some helper methods about locations that we may need it in the MuslimData.
-struct LocationHelper {
+public struct LocationHelper {
     // MARK: - Properties
 
     let dbHelper: DBHelper
@@ -37,6 +37,32 @@ struct LocationHelper {
             } catch {
                 callback(nil, "Error: \(error.localizedDescription)")
             }
+        }
+    }
+
+    /// Geocode city name into Location object.
+    ///
+    /// - Parameters:
+    ///   - countryCode: Country code
+    ///   - city: City name
+    ///   - callback: Callback that returns a Location object.
+    public func geocoder(countryCode: String, city: String, callback: @escaping (Location?) -> Void) {
+        do {
+            try dbHelper.dbPool?.read { dbConnect in
+                var result = try Location.fetchOne(
+                    dbConnect,
+                    "SELECT * FROM cities where country_code='\(countryCode)' and city='\(city)'"
+                )
+                let isStatic = try Bool.fetchOne(
+                    dbConnect,
+                    "SELECT * FROM prayer_times where city = '\(self.dbHelper.cityMapper(result!.city))'"
+                )
+                result!.isStatic = isStatic ?? false
+                callback(result)
+            }
+        } catch {
+            print("error: \(error.localizedDescription)")
+            callback(nil)
         }
     }
 }

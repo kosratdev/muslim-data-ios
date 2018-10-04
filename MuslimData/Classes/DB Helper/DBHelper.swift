@@ -45,24 +45,11 @@ class DBHelper {
         }
     }
 
-    // MARK: - Private Methods
-
-    /// Format date to "MM-dd" pattern which will be used to get prayers fro this date in the prayer database.
-    ///
-    /// - Parameter date: Date instance.
-    /// - Returns: Formatted date by "MM-dd" pattern.
-    private func formatPrayerDate(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "us")
-        formatter.dateFormat = "MM-dd"
-        return formatter.string(from: date)
-    }
-
     /// City mapper that finds parent city if it has and it is used in the static prayers.
     ///
     /// - Parameter city: Current city.
     /// - Returns: Parent city.
-    private func cityMapper(_ city: String) -> String {
+    func cityMapper(_ city: String) -> String {
         let city = city.capitalized
         let cities = ["Akre": ["Amedi", "Sulav", "Kani", "Sheladiz", "Barzan", "Bele", "Shanidar", "Bujal", "Mergin",
                                "Susna", "Sersink"],
@@ -99,5 +86,18 @@ class DBHelper {
             }
         }
         return parentCity ?? city
+    }
+
+    // MARK: - Private Methods
+
+    /// Format date to "MM-dd" pattern which will be used to get prayers fro this date in the prayer database.
+    ///
+    /// - Parameter date: Date instance.
+    /// - Returns: Formatted date by "MM-dd" pattern.
+    private func formatPrayerDate(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "us")
+        formatter.dateFormat = "MM-dd"
+        return formatter.string(from: date)
     }
 }
