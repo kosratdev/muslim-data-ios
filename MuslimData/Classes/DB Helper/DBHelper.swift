@@ -11,25 +11,25 @@ import UIKit
 class DBHelper {
     // MARK: - Properties
 
-    var dbQueue: DatabaseQueue?
+    var dbPool: DatabasePool?
     static let shared = DBHelper()
 
     // MARK: - Life cycle
 
     private init() {
         let databaseURL = Bundle(for: DBHelper.self).path(forResource: "MuslimData", ofType: "db")!
-        dbQueue = try? DatabaseQueue(path: databaseURL)
+        dbPool = try? DatabasePool(path: databaseURL)
 
         // Be a nice iOS citizen, and don’t consume too much memory
         // See https://github.com/groue/GRDB.swift/#memory-management
-        dbQueue?.setupMemoryManagement(in: UIApplication.shared)
+        dbPool?.setupMemoryManagement(in: UIApplication.shared)
     }
 
     // MARK: - Public Methods
 
     func prayerTimes(city: String, date: Date, callback: @escaping (Row?, String?) -> Void) {
         do {
-            try dbQueue?.inDatabase { dbConnect in
+            try dbPool?.read { dbConnect in
                 let result = try Row.fetchOne(dbConnect, """
                 SELECT * FROM prayer_times where city = '\(cityMapper(city))'
                 and date = '\(formatPrayerDate(date))'

@@ -30,7 +30,7 @@ struct LocationHelper {
     public func citySearch(_ city: String, callback: @escaping ([Location]?, String?) -> Void) {
         DispatchQueue.global().async {
             do {
-                try self.dbHelper.dbQueue?.inDatabase { dbConnect in
+                try self.dbHelper.dbPool?.read { dbConnect in
                     let result = try Location.fetchAll(dbConnect, "SELECT * FROM cities where city like '%\(city)%'")
                     callback(result, nil)
                 }
