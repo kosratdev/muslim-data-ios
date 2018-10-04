@@ -31,10 +31,19 @@ class ViewController: UIViewController {
             print("next prayer time remaining: \(prayerTime!.nextPrayerTimeRemaining())")
         }
 
-        // User geocoder for a location 
+        // Use geocoder to find city location by name.
         LocationHelper.shared.geocoder(countryCode: "GB", city: "London") { location in
             guard let location = location else {
                 print("City name can not be geocoder")
+                return
+            }
+            print("location: \(location)")
+        }
+
+        // Use reverse geocoder to find city name by latitude and longitude.
+        LocationHelper.shared.geocoder(latitude: 36.654090, longitude: 44.541278) { (location) in
+            guard let location = location else {
+                print("City name can nnot be geocoder by latitude and longitude")
                 return
             }
             print("location: \(location)")

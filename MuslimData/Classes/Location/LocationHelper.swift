@@ -40,7 +40,7 @@ public struct LocationHelper {
         }
     }
 
-    /// Geocode city name into Location object.
+    /// Geocoder to find city location by it's name.
     ///
     /// - Parameters:
     ///   - countryCode: Country code
@@ -65,6 +65,35 @@ public struct LocationHelper {
             }
         } catch {
             print("error: \(error.localizedDescription)")
+            callback(nil)
+        }
+    }
+
+    /// Reverse geocoder to find city by it's latitude and longitude.
+    ///
+    /// - Parameters:
+    ///   - latitude: City latitude.
+    ///   - longitude: City longitude.
+    ///   - callback: Callback that returns a Location object.
+    public func geocoder(latitude: Double, longitude: Double, callback: @escaping (Location?) -> Void) {
+        do {
+            try dbHelper.dbPool?.read { dbConnect in
+                var result = try Location.fetchOne(dbConnect, """
+                SELECT cities.country_code as country_code, cities.city as city, cities.latitude as latitude,
+                cities.longitude as longitude, countries.country_name as country_name
+                FROM cities
+                INNER JOIN countries on cities.country_code = countries.country_code
+                ORDER BY abs(latitude - (\(latitude))) + abs(longitude - (\(longitude)))
+                LIMIT 1
+                """)
+                let hasFixed = try Bool.fetchOne(
+                    dbConnect,
+                    "SELECT * FROM prayer_times where city = '\(self.dbHelper.cityMapper(result!.city))'"
+                )
+                result!.hasFixedPrayerTimes = hasFixed ?? false
+                callback(result)
+            }
+        } catch {
             callback(nil)
         }
     }
