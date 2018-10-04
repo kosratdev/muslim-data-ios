@@ -14,6 +14,7 @@ public struct Location: FetchableRecord {
     public let longitude: Double
     public let city: String
     public let countryCode: String
+    public let countryName: String
     public var hasFixedPrayerTimes = false
 
     /// get columns from db.
@@ -22,6 +23,7 @@ public struct Location: FetchableRecord {
         static let longitude = Column("longitude")
         static let city = Column("city")
         static let countryCode = Column("country_code")
+        static let countryName = Column("country_name")
     }
 
     /// put columns to row.
@@ -32,13 +34,16 @@ public struct Location: FetchableRecord {
         longitude = row[Columns.longitude]
         city = row[Columns.city]
         countryCode = row[Columns.countryCode]
+        countryName = row[Columns.countryName]
     }
 
-    public init(latitude: Double, longitude: Double, city: String, countryCode: String, isStatic: Bool) {
+    public init(latitude: Double, longitude: Double, city: String, countryCode: String, countryName: String,
+                hasFixedPrayerTimes: Bool) {
         self.latitude = latitude
         self.longitude = longitude
         self.city = city
         self.countryCode = countryCode
-        hasFixedPrayerTimes = isStatic
+        self.countryName = countryName
+        self.hasFixedPrayerTimes = hasFixedPrayerTimes
     }
 }

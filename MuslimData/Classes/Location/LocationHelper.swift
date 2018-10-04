@@ -49,10 +49,13 @@ public struct LocationHelper {
     public func geocoder(countryCode: String, city: String, callback: @escaping (Location?) -> Void) {
         do {
             try dbHelper.dbPool?.read { dbConnect in
-                var result = try Location.fetchOne(
-                    dbConnect,
-                    "SELECT * FROM cities where country_code='\(countryCode)' and city='\(city)'"
-                )
+                var result = try Location.fetchOne(dbConnect, """
+                SELECT cities.country_code as country_code, cities.city as city, cities.latitude as latitude,
+                cities.longitude as longitude, countries.country_name as country_name
+                FROM cities
+                INNER JOIN countries on cities.country_code = countries.country_code
+                WHERE cities.country_code='\(countryCode)' and cities.city='\(city)'
+                """)
                 let isStatic = try Bool.fetchOne(
                     dbConnect,
                     "SELECT * FROM prayer_times where city = '\(self.dbHelper.cityMapper(result!.city))'"
