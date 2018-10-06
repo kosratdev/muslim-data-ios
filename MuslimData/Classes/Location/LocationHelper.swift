@@ -56,15 +56,20 @@ public struct LocationHelper {
                 INNER JOIN countries on cities.country_code = countries.country_code
                 WHERE cities.country_code='\(countryCode)' and cities.city='\(city)'
                 """)
+
+                guard var location = result else {
+                    callback(nil)
+                    return
+                }
+
                 let isStatic = try Bool.fetchOne(
                     dbConnect,
-                    "SELECT * FROM prayer_times where city = '\(self.dbHelper.cityMapper(result!.city))'"
+                    "SELECT * FROM prayer_times where city = '\(self.dbHelper.cityMapper(location.city))'"
                 )
-                result!.hasFixedPrayerTimes = isStatic ?? false
-                callback(result)
+                location.hasFixedPrayerTimes = isStatic ?? false
+                callback(location)
             }
         } catch {
-            print("error: \(error.localizedDescription)")
             callback(nil)
         }
     }
