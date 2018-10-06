@@ -84,4 +84,10 @@ class LocationTests: XCTestCase {
             XCTAssertEqual(location!.hasFixedPrayerTimes, true)
         }
     }
+
+    func testFixedPrayerTimes() {
+        locationHelper.cityHasFixedPrayerTimes(countryCode: "IQ", city: "Soran") { hasFixed in
+            XCTAssertTrue(hasFixed)
+        }
+    }
 }
