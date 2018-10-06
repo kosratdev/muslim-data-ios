@@ -27,11 +27,11 @@ class DBHelper {
 
     // MARK: - Public Methods
 
-    func prayerTimes(city: String, date: Date, callback: @escaping (Row?, String?) -> Void) {
+    func prayerTimes(countryCode: String, city: String, date: Date, callback: @escaping (Row?, String?) -> Void) {
         do {
             try dbPool?.read { dbConnect in
                 let result = try Row.fetchOne(dbConnect, """
-                SELECT * FROM prayer_times where city = '\(cityMapper(city))'
+                SELECT * FROM prayer_times where country_code = '\(countryCode)' and city = '\(cityMapper(city))'
                 and date = '\(formatPrayerDate(date))'
                 """)
                 guard let row = result else {
