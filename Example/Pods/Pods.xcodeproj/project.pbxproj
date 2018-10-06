@@ -108,7 +108,7 @@
 		9A3E17D3254DAB7BAD6122AF04FD5C15 /* Pods-MuslimData_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B46BF8EDC251F828FA9D2A5F49245EA /* Pods-MuslimData_Tests-dummy.m */; };
 		9E8562EC5E70551195365E32C0DCA436 /* DatabaseWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF66686801AB62D1F52707A4047BF42 /* DatabaseWriter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		9F5E26875E4DA67CE40D06D6A8B0892D /* Fixits-0-84-0.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911F1CDB665FAD1F39AAB54397C245BD /* Fixits-0-84-0.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		AA477CEF827762F7701B92BD05FD0D53 /* MuslimData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51349D57ED9F001C7400E6C5530DFB14 /* MuslimData.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		AA477CEF827762F7701B92BD05FD0D53 /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51349D57ED9F001C7400E6C5530DFB14 /* TimeFormat.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		AB2550003D3B8D5D8ED209A0317F1C46 /* SchedulingWatchdog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14EF130B080A8391CD6E75633890A79 /* SchedulingWatchdog.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		AD6D8EB8819DBE8A3F68A6707EE0A9D2 /* grdb_config.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E967D3D99BB76CC7650C92ACFAFBBC7 /* grdb_config.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AD8324C27645B315287CE8635013A32A /* Fixits-0.101.1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158226054E671E8D430875C1236C28FF /* Fixits-0.101.1.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -226,7 +226,7 @@
 		4E430C0E02C0236C24F97D1B11D9A02D /* String+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		4F7D15F6F41E7B9C8A0315E035484472 /* GRDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GRDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50CF326FD28C2299F6091DBAC3AA5962 /* Data.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Data.swift; path = GRDB/Core/Support/Foundation/Data.swift; sourceTree = "<group>"; };
-		51349D57ED9F001C7400E6C5530DFB14 /* MuslimData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MuslimData.swift; path = MuslimData/Classes/MuslimData.swift; sourceTree = "<group>"; };
+		51349D57ED9F001C7400E6C5530DFB14 /* TimeFormat.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TimeFormat.swift; sourceTree = "<group>"; };
 		52AC06CC3B26BA17EBFF972E5CDF3B84 /* FetchRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FetchRequest.swift; path = GRDB/Core/FetchRequest.swift; sourceTree = "<group>"; };
 		58F9278B235AD9A57D7B4E9101C9AAE2 /* DatabaseSnapshot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseSnapshot.swift; path = GRDB/Core/DatabaseSnapshot.swift; sourceTree = "<group>"; };
 		5D4CB8EBAB26749F414AD969AC79CD80 /* Fixits-0.109.0.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Fixits-0.109.0.swift"; path = "GRDB/Legacy/Fixits-0.109.0.swift"; sourceTree = "<group>"; };
@@ -397,6 +397,7 @@
 				96C47671774DC41A796382894C51DFBA /* PrayerTime.swift */,
 				2D21BC652163DB8900C0BEE9 /* Prayer.swift */,
 				2D21BC672163DC8300C0BEE9 /* PrayerAttribute.swift */,
+				51349D57ED9F001C7400E6C5530DFB14 /* TimeFormat.swift */,
 			);
 			name = "Prayer Times";
 			path = "MuslimData/Classes/Prayer Times";
@@ -644,7 +645,6 @@
 				2D21BC6A2163F1BA00C0BEE9 /* Prayer Times */,
 				2D50F27C2165517400D6C7F1 /* Location */,
 				2D21BC692163F1A100C0BEE9 /* Extensions */,
-				51349D57ED9F001C7400E6C5530DFB14 /* MuslimData.swift */,
 				B3DBB3827E3E6ABE147EABEF23FC0690 /* Pod */,
 				5DF8501F948C1E15E49221CDCE4C9225 /* Resources */,
 				570CA9C544FFC257A3EB5407FFABD825 /* Support Files */,
@@ -852,7 +852,7 @@
 				63F1C256CF5E05B023FFE6C1D5D757BD /* Date+Extensions.swift in Sources */,
 				2FCD65F9D6AB668B265B019F94E5D2EA /* DBHelper.swift in Sources */,
 				96D094A27FF35BDC541965EA2CE29D5E /* MuslimData-dummy.m in Sources */,
-				AA477CEF827762F7701B92BD05FD0D53 /* MuslimData.swift in Sources */,
+				AA477CEF827762F7701B92BD05FD0D53 /* TimeFormat.swift in Sources */,
 				2D50F28021655B7B00D6C7F1 /* LocationHelper.swift in Sources */,
 				2D50F27E2165520900D6C7F1 /* Location.swift in Sources */,
 				1C2466DE347041786BE99F5094E45A42 /* PrayerTime.swift in Sources */,

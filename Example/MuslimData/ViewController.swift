@@ -19,7 +19,7 @@ class ViewController: UIViewController {
                                 countryName: "Iraq", hasFixedPrayerTimes: true)
         let attributes = PrayerAttribute(calculationMethod: .makkah, asrMethod: .shafii,
                                          adjustAngle: .angleBased, timeZone: 3.0)
-        MuslimData.getPrayerTimes(location: location, date: Date(),
+        PrayerTime.getPrayerTimes(location: location, date: Date(),
                                   attributes: attributes) { (prayerTime, error) in
             guard error == nil else {
                 print("Prayer tims didn't found for the specified properties.")
