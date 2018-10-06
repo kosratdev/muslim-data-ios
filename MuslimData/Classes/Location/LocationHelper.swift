@@ -49,7 +49,7 @@ public struct LocationHelper {
     public func geocoder(countryCode: String, city: String, callback: @escaping (Location?) -> Void) {
         do {
             try dbHelper.dbPool?.read { dbConnect in
-                var result = try Location.fetchOne(dbConnect, """
+                let result = try Location.fetchOne(dbConnect, """
                 SELECT cities.country_code as country_code, cities.city as city, cities.latitude as latitude,
                 cities.longitude as longitude, countries.country_name as country_name
                 FROM cities
@@ -83,7 +83,7 @@ public struct LocationHelper {
     public func geocoder(latitude: Double, longitude: Double, callback: @escaping (Location?) -> Void) {
         do {
             try dbHelper.dbPool?.read { dbConnect in
-                var result = try Location.fetchOne(dbConnect, """
+                let result = try Location.fetchOne(dbConnect, """
                 SELECT cities.country_code as country_code, cities.city as city, cities.latitude as latitude,
                 cities.longitude as longitude, countries.country_name as country_name
                 FROM cities
@@ -91,11 +91,17 @@ public struct LocationHelper {
                 ORDER BY abs(latitude - (\(latitude))) + abs(longitude - (\(longitude)))
                 LIMIT 1
                 """)
+
+                guard var location = result else {
+                    callback(nil)
+                    return
+                }
+
                 let hasFixed = try Bool.fetchOne(
                     dbConnect,
-                    "SELECT * FROM prayer_times where city = '\(self.dbHelper.cityMapper(result!.city))'"
+                    "SELECT * FROM prayer_times where city = '\(self.dbHelper.cityMapper(location.city))'"
                 )
-                result!.hasFixedPrayerTimes = hasFixed ?? false
+                location.hasFixedPrayerTimes = hasFixed ?? false
                 callback(result)
             }
         } catch {

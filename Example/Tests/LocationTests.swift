@@ -55,4 +55,33 @@ class LocationTests: XCTestCase {
             XCTAssertEqual(location!.hasFixedPrayerTimes, true)
         }
     }
+
+    func testGeocoderLocation() {
+        // Test (London, GB) which has fixed prayer times.
+        locationHelper.geocoder(latitude: 51.50853, longitude: -0.12574) { location in
+            XCTAssertNotNil(location)
+            XCTAssertEqual(location!.city, "London")
+            XCTAssertEqual(location!.countryCode, "GB")
+            XCTAssertEqual(location!.countryName, "United Kingdom")
+            XCTAssertEqual(location!.hasFixedPrayerTimes, true)
+        }
+
+        // Test (Tahran, IR) which hasn't fixed prayer times.
+        locationHelper.geocoder(latitude: 35.69439, longitude: 51.42151) { location in
+            XCTAssertNotNil(location)
+            XCTAssertEqual(location!.city, "Tehran")
+            XCTAssertEqual(location!.countryCode, "IR")
+            XCTAssertEqual(location!.countryName, "Iran")
+            XCTAssertEqual(location!.hasFixedPrayerTimes, false)
+        }
+
+        // Test (Soran, IQ) which has fixed prayer times by city mapper.
+        locationHelper.geocoder(latitude: 36.652686, longitude: 44.541427) { location in
+            XCTAssertNotNil(location)
+            XCTAssertEqual(location!.city, "Soran")
+            XCTAssertEqual(location!.countryCode, "IQ")
+            XCTAssertEqual(location!.countryName, "Iraq")
+            XCTAssertEqual(location!.hasFixedPrayerTimes, true)
+        }
+    }
 }
