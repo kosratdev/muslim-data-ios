@@ -86,7 +86,23 @@ class LocationTests: XCTestCase {
     }
 
     func testFixedPrayerTimes() {
+        // Test (Soran, IQ) which has fixed prayer times
         locationHelper.cityHasFixedPrayerTimes(countryCode: "IQ", city: "Soran") { hasFixed in
+            XCTAssertTrue(hasFixed)
+        }
+
+        // Test (Tehran, IR) which hasn't fixed prayer times
+        locationHelper.cityHasFixedPrayerTimes(countryCode: "IR", city: "Tehran") { hasFixed in
+            XCTAssertFalse(hasFixed)
+        }
+
+        // Test (Urmia, IR) which has fixed prayer times
+        locationHelper.cityHasFixedPrayerTimes(countryCode: "IR", city: "Urmia") { hasFixed in
+            XCTAssertTrue(hasFixed)
+        }
+
+        // Test (Homs, SY) which has fixed prayer times
+        locationHelper.cityHasFixedPrayerTimes(countryCode: "SY", city: "Homs") { hasFixed in
             XCTAssertTrue(hasFixed)
         }
     }
