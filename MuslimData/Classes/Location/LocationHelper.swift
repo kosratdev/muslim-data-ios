@@ -120,7 +120,8 @@ public struct LocationHelper {
         do {
             try dbHelper.dbPool?.read { dbConnect in
                 let result = try Bool.fetchOne(dbConnect, """
-                SELECT * FROM prayer_times where country_code='\(countryCode)' and city = '\(city)'
+                SELECT * FROM prayer_times
+                WHERE country_code='\(countryCode)' and city = '\(self.dbHelper.cityMapper(city))'
                 """)
                 callback(result ?? false)
             }
