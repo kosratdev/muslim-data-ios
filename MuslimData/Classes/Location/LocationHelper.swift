@@ -98,11 +98,13 @@ public struct LocationHelper {
                 }
 
                 let hasFixed = try Bool.fetchOne(
-                    dbConnect,
-                    "SELECT * FROM prayer_times where city = '\(self.dbHelper.cityMapper(location.city))'"
+                    dbConnect, """
+                    SELECT * FROM prayer_times
+                    where country_code='\(location.countryCode)' and city = '\(self.dbHelper.cityMapper(location.city))'
+                    """
                 )
                 location.hasFixedPrayerTimes = hasFixed ?? false
-                callback(result)
+                callback(location)
             }
         } catch {
             callback(nil)
