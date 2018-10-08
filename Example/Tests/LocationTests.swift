@@ -106,4 +106,22 @@ class LocationTests: XCTestCase {
             XCTAssertTrue(hasFixed)
         }
     }
+
+    func testCityMapper() {
+        XCTAssertEqual("Sulav".mapper(countryCode: "IQ"), "Akre")
+        XCTAssertEqual("Mamuzin".mapper(countryCode: "IQ"), "Bardarash")
+        XCTAssertEqual("Zarayan".mapper(countryCode: "IQ"), "Darbandikhan")
+        XCTAssertEqual("Atrish".mapper(countryCode: "IQ"), "Duhok")
+        XCTAssertEqual("Choman".mapper(countryCode: "IQ"), "Erbil")
+        XCTAssertEqual("Byara".mapper(countryCode: "IQ"), "Halabja")
+        XCTAssertEqual("Ranya".mapper(countryCode: "IQ"), "Kifri")
+        XCTAssertEqual("Taza Khurmatu".mapper(countryCode: "IQ"), "Kirkuk")
+        XCTAssertEqual("Khalakan".mapper(countryCode: "IQ"), "Koysinjaq")
+        XCTAssertEqual("Sangasar".mapper(countryCode: "IQ"), "Qalat Dizah")
+        XCTAssertEqual("Takiya".mapper(countryCode: "IQ"), "Sulaymaniyah")
+        XCTAssertEqual("Divandarreh".mapper(countryCode: "IR"), "Kamyaran")
+        XCTAssertEqual("Rai".mapper(countryCode: "KW"), "Al Asimah")
+        XCTAssertEqual("Kubbar Island".mapper(countryCode: "KW"), "Failaka Island")
+        XCTAssertEqual("Jahra".mapper(countryCode: "KW"), "Abdali")
+    }
 }
