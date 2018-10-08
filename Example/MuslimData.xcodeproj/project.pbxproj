@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D110EDE216BE7FB002035FA /* PrayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D110EDD216BE7FB002035FA /* PrayerTests.swift */; };
 		2D4558BA21694A5200A08DAF /* LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4558B921694A5200A08DAF /* LocationTests.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		1FA7CF45010583A8DE450B74 /* Pods-MuslimData_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuslimData_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MuslimData_Example/Pods-MuslimData_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		2D110EDD216BE7FB002035FA /* PrayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTests.swift; sourceTree = "<group>"; };
 		2D4558B921694A5200A08DAF /* LocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTests.swift; sourceTree = "<group>"; };
 		5665FE91640402C3D36C56F2 /* Pods-MuslimData_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuslimData_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MuslimData_Tests/Pods-MuslimData_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* MuslimData_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MuslimData_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +137,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				2D110EDD216BE7FB002035FA /* PrayerTests.swift */,
 				2D4558B921694A5200A08DAF /* LocationTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
@@ -373,6 +376,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D110EDE216BE7FB002035FA /* PrayerTests.swift in Sources */,
 				2D4558BA21694A5200A08DAF /* LocationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
