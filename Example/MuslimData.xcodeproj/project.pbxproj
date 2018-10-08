@@ -13,7 +13,6 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		AB4BCD02C3DCCBDDC1561720 /* Pods_MuslimData_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADF54AF43802AA1A3AAAFA2C /* Pods_MuslimData_Example.framework */; };
 		CDB24AAE23DBDE3BEC76E09E /* Pods_MuslimData_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C6730E9A81B0B385FC0760 /* Pods_MuslimData_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -41,7 +40,6 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* MuslimData_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuslimData_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		74AFAA0290358FD0025B4CFB /* Pods-MuslimData_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuslimData_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MuslimData_Tests/Pods-MuslimData_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		ADF54AF43802AA1A3AAAFA2C /* Pods_MuslimData_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MuslimData_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03E607FABE06466BB50FF62 /* Pods-MuslimData_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuslimData_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-MuslimData_Example/Pods-MuslimData_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -138,7 +136,6 @@
 			isa = PBXGroup;
 			children = (
 				2D4558B921694A5200A08DAF /* LocationTests.swift */,
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -377,7 +374,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D4558BA21694A5200A08DAF /* LocationTests.swift in Sources */,
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
