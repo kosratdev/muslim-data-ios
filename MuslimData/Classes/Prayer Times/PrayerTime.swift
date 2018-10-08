@@ -35,7 +35,7 @@ public struct PrayerTime {
                                                          longitude: location.longitude, tZone: attributes.timeZone)
             // Check calculated prayer times for nullability.
             guard let fajr = calculatedTimes["Fajr"], let sunrise = calculatedTimes["Sunrise"],
-                let dhuhr = calculatedTimes["Dhuhr"], let asr = calculatedTimes["Dhuhr"],
+                let dhuhr = calculatedTimes["Dhuhr"], let asr = calculatedTimes["Asr"],
                 let maghrib = calculatedTimes["Maghrib"], let isha = calculatedTimes["Isha"] else {
                 callback(nil, "")
                 return

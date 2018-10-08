@@ -12,23 +12,24 @@ import XCTest
 class PrayerTests: XCTestCase {
 
     var attributes: PrayerAttribute!
+    var date: Date!
 
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        date = Date(timeIntervalSince1970: 1538956800) // 2018/10/08
         attributes = PrayerAttribute(calculationMethod: .makkah, asrMethod: .shafii,
                                      adjustAngle: .angleBased, timeZone: 3.0)
     }
 
     override func tearDown() {
+        date = nil
         attributes = nil
         super.tearDown()
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
     func testFixedPrayer() {
-        let date = Date(timeIntervalSince1970: 1538956800) // 2018/10/08
-
         // Test fixed prayer times for Sulav, Iraq
         let sulav = Location(latitude: 0.0, longitude: 0.0, city: "Sulav", countryCode: "IQ",
                              countryName: "Iraq", hasFixedPrayerTimes: true)
@@ -88,6 +89,22 @@ class PrayerTests: XCTestCase {
             XCTAssertEqual(stringPrayer[4], "18:05")
             XCTAssertEqual(stringPrayer[5], "19:15")
         }
+    }
 
+    func testCalculatedPrayer() {
+        // Test calculated prayer times for Mecca, Saudi Arabia
+        let mecca = Location(latitude: 21.42664, longitude: 39.82563, city: "Mecca", countryCode: "SA",
+                             countryName: "Saudi Arabia", hasFixedPrayerTimes: false)
+        PrayerTime.getPrayerTimes(location: mecca, date: date, attributes: attributes) { prayer, error in
+            XCTAssertNil(error)
+            XCTAssertNotNil(prayer)
+            let stringPrayer = prayer!.formatPrayers(.time24)
+            XCTAssertEqual(stringPrayer[0], "04:58")
+            XCTAssertEqual(stringPrayer[1], "06:14")
+            XCTAssertEqual(stringPrayer[2], "12:08")
+            XCTAssertEqual(stringPrayer[3], "15:31")
+            XCTAssertEqual(stringPrayer[4], "18:02")
+            XCTAssertEqual(stringPrayer[5], "19:32")
+        }
     }
 }
