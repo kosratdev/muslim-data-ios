@@ -31,7 +31,8 @@ class DBHelper {
         do {
             try dbPool?.read { dbConnect in
                 let result = try Row.fetchOne(dbConnect, """
-                SELECT * FROM prayer_times where country_code = '\(countryCode)' and city = '\(cityMapper(city))'
+                SELECT * FROM prayer_times
+                WHERE country_code = '\(countryCode)' and city = '\(city.mapper(countryCode: countryCode))'
                 and date = '\(formatPrayerDate(date))'
                 """)
                 guard let row = result else {
@@ -43,49 +44,6 @@ class DBHelper {
         } catch {
             callback(nil, "Error: \(error.localizedDescription)")
         }
-    }
-
-    /// City mapper that finds parent city if it has and it is used in the static prayers.
-    ///
-    /// - Parameter city: Current city.
-    /// - Returns: Parent city.
-    func cityMapper(_ city: String) -> String {
-        let city = city.capitalized
-        let cities = ["Akre": ["Amedi", "Sulav", "Kani", "Sheladiz", "Barzan", "Bele", "Shanidar", "Bujal", "Mergin",
-                               "Susna", "Sersink"],
-                      "Bardarash": ["Mamuzin"],
-                      "Darbandikhan": ["Zarayan"],
-                      "Duhok": ["Sumel", "Zawita", "Atrish", "Sharya", "Mrebah"],
-                      "Erbil": ["Kalak", "Pirmam", "Shaqlawa", "Harir", "Khalifan", "Rawanduz", "Soran", "Mergasur",
-                                "Galala", "Choman", "Hiran", "Makhmur", "Qushtapa", "Kasnazan"],
-                      "Halabja": ["Khurmal", "Sirwan", "Byara", "Tawella"],
-                      "Kifri": ["Hajiawa", "Chwarqurna", "Ranya"],
-                      "Kirkuk": ["Taza Khurmatu"],
-                      "Koysinjaq": ["Taqtaq", "Khalakan"],
-                      "Qalat Dizah": ["Sangasar", "Zharawa"],
-                      "Sulaymaniyah": ["Dokan", "Bazian", "Chamchamal", "Qaran Dagh", "Arbat", "Penjwen", "Said Sadiq",
-                                       "Kalar", "Takiya", "Shorsh"],
-                      "Kamyaran": ["Divandarreh"],
-                      "Al Asimah": ["Kuwait City", "Dasman Palace", "Sharq", "Mirqab", "Jibla", "Dasma", "Daiya",
-                                    "Salhia", "Bneid Al Qar", "Kaifan", "Mansouriya", "Abdullah al-Salem", "Nuzha",
-                                    "Faiha", "Shamiya", "Rawda", "Adailiya", "Khaldiya", "Qadsiya", "Qortuba", "Surra",
-                                    "Yarmouk", "Shuwaikh Industrial", "Rai", "Granada", "Sulaibikhat", "Doha",
-                                    "Nahdha", "Jaber Al Ahmad", "Qairawan", "Ahmadi", "Al Wafrah", "Sabah Al Salem",
-                                    "Messila", "Al-Masayel", "Adan", "Fnaitees", "Qusor", "Qurain", "Abu Fatira",
-                                    "Mubarak Al Kabeer", "Jeleeb Al-Shuyoukh", "Eqaila", "Fintas", "Dahar", "Mahboula",
-                                    "Hadiya", "Al-Riqqa", "Abu Halifa", "Fahad Al Ahmad", "Assabahiyah", "Mangaf",
-                                    "Fahaheel", "South Sabahiya", "Ali Sabah Al Salem", "Shalayhat Mina Abdullah",
-                                    "Zour", "Al Khiran"],
-                      "Failaka Island": ["Zoor", "Kubbar Island", "Al-Nuwaiseeb"],
-                      "Abdali": ["Jahra"]]
-
-        var parentCity: String?
-        cities.forEach { key, values in
-            if values.contains(city) {
-                parentCity = key
-            }
-        }
-        return parentCity ?? city
     }
 
     // MARK: - Private Methods

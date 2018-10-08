@@ -63,8 +63,11 @@ public struct LocationHelper {
                 }
 
                 let isStatic = try Bool.fetchOne(
-                    dbConnect,
-                    "SELECT * FROM prayer_times where city = '\(self.dbHelper.cityMapper(location.city))'"
+                    dbConnect, """
+                    SELECT * FROM prayer_times
+                    where country_code = '\(location.countryCode)' and
+                    city = '\(location.city.mapper(countryCode: location.countryCode))'
+                    """
                 )
                 location.hasFixedPrayerTimes = isStatic ?? false
                 callback(location)
@@ -100,7 +103,8 @@ public struct LocationHelper {
                 let hasFixed = try Bool.fetchOne(
                     dbConnect, """
                     SELECT * FROM prayer_times
-                    where country_code='\(location.countryCode)' and city = '\(self.dbHelper.cityMapper(location.city))'
+                    where country_code='\(location.countryCode)' and
+                    city = '\(location.city.mapper(countryCode: location.countryCode))'
                     """
                 )
                 location.hasFixedPrayerTimes = hasFixed ?? false
@@ -121,7 +125,8 @@ public struct LocationHelper {
             try dbHelper.dbPool?.read { dbConnect in
                 let result = try Bool.fetchOne(dbConnect, """
                 SELECT * FROM prayer_times
-                WHERE country_code='\(countryCode)' and city = '\(self.dbHelper.cityMapper(city))'
+                WHERE country_code='\(countryCode)' and
+                city = '\(city.mapper(countryCode: countryCode))'
                 """)
                 callback(result ?? false)
             }
