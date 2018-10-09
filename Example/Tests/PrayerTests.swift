@@ -18,8 +18,7 @@ class PrayerTests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         date = Date(timeIntervalSince1970: 1538956800) // 2018/10/08
-        attributes = PrayerAttribute(calculationMethod: .makkah, asrMethod: .shafii,
-                                     adjustAngle: .angleBased, timeZone: 3.0)
+        attributes = PrayerAttribute(method: .makkah, asrMethod: .shafii, adjustAngle: .angleBased)
     }
 
     override func tearDown() {

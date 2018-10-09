@@ -90,8 +90,8 @@ open class Prayer {
 
     // ------------------------------------------------------------
     // Init
-    public init(caculationmethod: CalculationMethods, asrJuristic: AsrJuristicMethods, adjustHighLats: AdjustingMethods, timeFormat: TimeForamts) {
-        caculationMethod = caculationmethod
+    public init(method: CalculationMethods, asrJuristic: AsrJuristicMethods, adjustHighLats: AdjustingMethods, timeFormat: TimeForamts) {
+        caculationMethod = method
         self.asrJuristic = asrJuristic
         self.adjustHighLats = adjustHighLats
         self.timeFormat = timeFormat

@@ -8,16 +8,14 @@
 import Foundation
 
 public struct PrayerAttribute {
-    public let calculationMethod: Prayer.CalculationMethods
+    public let method: Prayer.CalculationMethods
     public let asrMethod: Prayer.AsrJuristicMethods
     public let adjustAngle: Prayer.AdjustingMethods
-    public let timeZone: Double
 
-    public init(calculationMethod: Prayer.CalculationMethods, asrMethod: Prayer.AsrJuristicMethods,
-                adjustAngle: Prayer.AdjustingMethods, timeZone: Double) {
-        self.calculationMethod = calculationMethod
+    public init(method: Prayer.CalculationMethods, asrMethod: Prayer.AsrJuristicMethods,
+                adjustAngle: Prayer.AdjustingMethods) {
+        self.method = method
         self.asrMethod = asrMethod
         self.adjustAngle = adjustAngle
-        self.timeZone = timeZone
     }
 }

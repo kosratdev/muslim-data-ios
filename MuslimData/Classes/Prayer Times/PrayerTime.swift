@@ -29,7 +29,7 @@ public struct PrayerTime {
     public static func getPrayerTimes(location: Location, date: Date, attributes: PrayerAttribute,
                                       callback: @escaping (PrayerTime?, String?) -> Void) {
         if !location.hasFixedPrayerTimes {
-            let prayers = Prayer(caculationmethod: attributes.calculationMethod, asrJuristic: attributes.asrMethod,
+            let prayers = Prayer(method: attributes.method, asrJuristic: attributes.asrMethod,
                                  adjustHighLats: attributes.adjustAngle, timeFormat: .time24)
             let calculatedTimes = prayers.getPrayerTimes(date, latitude: location.latitude,
                                                          longitude: location.longitude)

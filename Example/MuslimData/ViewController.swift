@@ -17,8 +17,7 @@ class ViewController: UIViewController {
         // Get prayer times from the MuslimData library
         let location = Location(latitude: 36.123, longitude: 44.123, city: "Erbil", countryCode: "IQ",
                                 countryName: "Iraq", hasFixedPrayerTimes: true)
-        let attributes = PrayerAttribute(calculationMethod: .makkah, asrMethod: .shafii,
-                                         adjustAngle: .angleBased, timeZone: 3.0)
+        let attributes = PrayerAttribute(method: .makkah, asrMethod: .shafii, adjustAngle: .angleBased)
         PrayerTime.getPrayerTimes(location: location, date: Date(),
                                   attributes: attributes) { (prayerTime, error) in
             guard error == nil else {
