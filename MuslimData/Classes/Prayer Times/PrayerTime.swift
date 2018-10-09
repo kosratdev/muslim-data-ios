@@ -31,7 +31,7 @@ public struct PrayerTime {
         if !location.hasFixedPrayerTimes {
             let prayers = Prayer(caculationmethod: attributes.calculationMethod, asrJuristic: attributes.asrMethod,
                                  adjustHighLats: attributes.adjustAngle, timeFormat: .time24)
-            let calculatedTimes = prayers.getPrayerTimes(NSCalendar.current, latitude: location.latitude,
+            let calculatedTimes = prayers.getPrayerTimes(date, latitude: location.latitude,
                                                          longitude: location.longitude, tZone: attributes.timeZone)
             // Check calculated prayer times for nullability.
             guard let fajr = calculatedTimes["Fajr"], let sunrise = calculatedTimes["Sunrise"],
