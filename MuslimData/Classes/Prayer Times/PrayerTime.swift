@@ -32,7 +32,7 @@ public struct PrayerTime {
             let prayers = Prayer(caculationmethod: attributes.calculationMethod, asrJuristic: attributes.asrMethod,
                                  adjustHighLats: attributes.adjustAngle, timeFormat: .time24)
             let calculatedTimes = prayers.getPrayerTimes(date, latitude: location.latitude,
-                                                         longitude: location.longitude, tZone: attributes.timeZone)
+                                                         longitude: location.longitude)
             // Check calculated prayer times for nullability.
             guard let fajr = calculatedTimes["Fajr"], let sunrise = calculatedTimes["Sunrise"],
                 let dhuhr = calculatedTimes["Dhuhr"], let asr = calculatedTimes["Asr"],

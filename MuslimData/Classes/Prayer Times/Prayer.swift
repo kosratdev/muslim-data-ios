@@ -211,11 +211,11 @@ open class Prayer {
     }
 
     // return prayer times for a given date
-    open func getPrayerTimes(_ date: Date, latitude: Double, longitude: Double, tZone: Double) -> [String: String] {
+    open func getPrayerTimes(_ date: Date, latitude: Double, longitude: Double) -> [String: String] {
         let year = Calendar.current.component(.year, from: date)
         let month = Calendar.current.component(.month, from: date)
         let day = Calendar.current.component(.day, from: date)
-
+        let tZone = Double(TimeZone.current.secondsFromGMT()) / 60.0 / 60.0
         return getDatePrayerTimes(year, month: month, day: day, latitude: latitude, longitude: longitude, tZone: tZone)
     }
 
