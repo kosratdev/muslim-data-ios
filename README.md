@@ -28,6 +28,21 @@ it, simply add the following line to your Podfile:
 pod 'MuslimData'
 ```
 
+## Usage 
+
+### Search for location (offline)
+
+You can search for any cities or places around the world and this is useful when a use doesn't have internet connection or user's location is turned off so you can search here:
+```swift
+LocationHelper.shared.citySearch(city: "London") { locations, error in
+    guard let locations = locations, locations.count > 0 else {
+        print("City could not be found!")
+        return
+    }
+    print("locations: \(locations)")
+}
+```
+
 ## Author
 
 Kosrat D. Ahmad, kosrat.d.ahmad@gmail.com
