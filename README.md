@@ -30,7 +30,12 @@ pod 'MuslimData'
 
 ## Usage 
 
-### Search for location (offline)
+### Location Helper 
+
+There are some location helper methods that provides **offline** Location Search, Geocoder, Reverse Geocoder, and check a city for fixed prayer times.
+
+
+#### Search for location
 
 You can search for any cities or places around the world and this is useful when a use doesn't have internet connection or user's location is turned off so you can search here:
 ```swift
@@ -40,6 +45,47 @@ LocationHelper.shared.citySearch(city: "London") { locations, error in
         return
     }
     print("locations: \(locations)")
+}
+```
+
+#### Geocoder 
+
+Use geocoder to find city location by name.
+
+```swift
+// Use geocoder to find city location by name.
+LocationHelper.shared.geocoder(countryCode: "GB", city: "London") { location in
+    guard let location = location else {
+        print("City name can not be geocode")
+        return
+    }
+    print("location: \(location)")
+}
+```
+
+#### Reverse Geocoder
+
+Use reverse geocoder to find city name by latitude and longitude.
+
+```swift 
+// Use reverse geocoder to find city name by latitude and longitude.
+LocationHelper.shared.geocoder(latitude: 36.654090, longitude: 44.541278) { (location) in
+    guard let location = location else {
+        print("City name can nnot be geocode by latitude and longitude")
+        return
+    }
+    print("location: \(location)")
+}
+```
+
+#### Has Fixed Prayer Times
+
+Check a city to know that it has fixed prayer times or not
+
+```swift
+// Check a city to know that it has fixed prayer times or not
+LocationHelper.shared.cityHasFixedPrayerTimes(countryCode: "IQ", city: "Duhok") { (hasFixed) in
+    print("City has fixed prayer times: \(hasFixed)")
 }
 ```
 
