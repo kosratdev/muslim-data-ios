@@ -89,6 +89,33 @@ LocationHelper.shared.cityHasFixedPrayerTimes(countryCode: "IQ", city: "Duhok") 
 }
 ```
 
+### Prayer Times 
+
+You can easily get a location prayer times just by passing (`Location`, `PrayerAttribute`, and `Date`) object to `getPrayerTimes` method.
+
+```swift 
+// Create location object.
+let location = Location(latitude: 36.123, longitude: 44.123, city: "Erbil", countryCode: "IQ",
+                        countryName: "Iraq", hasFixedPrayerTimes: true)
+
+// Crate prayer attributes object.
+let attributes = PrayerAttribute(method: .makkah, asrMethod: .shafii, adjustAngle: .angleBased)
+
+// Get prayer times
+PrayerTime.getPrayerTimes(location: location, date: Date(), attributes: attributes) { prayerTime, error in
+    guard error == nil else {
+        print("Prayer tims didn't found for the specified properties.")
+        return
+    }
+    print("prayer times: \(prayerTime!)")
+    print("Fromat prayer times: \(prayerTime!.formatPrayers(.time12))")
+    print("Format one prayer time: \(prayerTime!.isha.toTime(format: .time24))")
+    print("next prayer index: \(prayerTime!.nextPrayerIndex())")
+    print("next prayer interval: \(prayerTime!.nextPrayerInterval())")
+    print("next prayer time remaining: \(prayerTime!.nextPrayerTimeRemaining())")
+}
+```
+
 ## Author
 
 Kosrat D. Ahmad, kosrat.d.ahmad@gmail.com
