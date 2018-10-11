@@ -1,0 +1,23 @@
+{
+    "IQ": {
+        "Akre": ["Amedi", "Sulav", "Kani", "Sheladiz", "Barzan", "Bele", "Shanidar", "Bujal", "Mergin","Susna", "Sersink"],
+        "Bardarash": ["Mamuzin"],
+        "Darbandikhan": ["Zarayan"],
+        "Duhok": ["Sumel", "Zawita", "Atrish", "Sharya", "Mrebah"],
+        "Erbil": ["Kalak", "Pirmam", "Shaqlawa", "Harir", "Khalifan", "Rawanduz", "Soran", "Mergasur", "Galala", "Choman", "Hiran", "Makhmur", "Qushtapa", "Kasnazan"],
+        "Halabja": ["Khurmal", "Sirwan", "Byara", "Tawella"],
+        "Kifri": ["Hajiawa", "Chwarqurna", "Ranya"],
+        "Kirkuk": ["Taza Khurmatu"],
+        "Koysinjaq": ["Taqtaq", "Khalakan"],
+        "Qalat Dizah": ["Sangasar", "Zharawa"],
+        "Sulaymaniyah": ["Dokan", "Bazian", "Chamchamal", "Qaran Dagh", "Arbat", "Penjwen", "Said Sadiq", "Kalar", "Takiya", "Shorsh"]
+    },
+    "IR":{
+        "Kamyaran": ["Divandarreh"] 
+    },
+    "KW": {
+        "Al Asimah": ["Kuwait City", "Dasman Palace", "Sharq", "Mirqab", "Jibla", "Dasma", "Daiya", "Salhia", "Bneid Al Qar", "Kaifan", "Mansouriya", "Abdullah al-Salem", "Nuzha", "Faiha", "Shamiya", "Rawda", "Adailiya", "Khaldiya", "Qadsiya", "Qortuba", "Surra", "Yarmouk", "Shuwaikh Industrial", "Rai", "Granada", "Sulaibikhat", "Doha", "Nahdha", "Jaber Al Ahmad", "Qairawan", "Ahmadi", "Al Wafrah", "Sabah Al Salem", "Messila", "Al-Masayel", "Adan", "Fnaitees", "Qusor", "Qurain", "Abu Fatira", "Mubarak Al Kabeer", "Jeleeb Al-Shuyoukh", "Eqaila", "Fintas", "Dahar", "Mahboula", "Hadiya", "Al-Riqqa", "Abu Halifa", "Fahad Al Ahmad", "Assabahiyah", "Mangaf", "Fahaheel", "South Sabahiya", "Ali Sabah Al Salem", "Shalayhat Mina Abdullah", "Zour", "Al Khiran"],
+        "Failaka Island": ["Zoor", "Kubbar Island", "Al-Nuwaiseeb"],
+        "Abdali": ["Jahra"]
+    }
+}

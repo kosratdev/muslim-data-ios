@@ -90,8 +90,8 @@ open class Prayer {
 
     // ------------------------------------------------------------
     // Init
-    public init(caculationmethod: CalculationMethods, asrJuristic: AsrJuristicMethods, adjustHighLats: AdjustingMethods, timeFormat: TimeForamts) {
-        caculationMethod = caculationmethod
+    public init(method: CalculationMethods, asrJuristic: AsrJuristicMethods, adjustHighLats: AdjustingMethods, timeFormat: TimeForamts) {
+        caculationMethod = method
         self.asrJuristic = asrJuristic
         self.adjustHighLats = adjustHighLats
         self.timeFormat = timeFormat
@@ -211,11 +211,11 @@ open class Prayer {
     }
 
     // return prayer times for a given date
-    open func getPrayerTimes(_ date: Calendar, latitude: Double, longitude: Double, tZone: Double) -> [String: String] {
-        let year = ((date as NSCalendar).component(NSCalendar.Unit.year, from: Date()))
-        let month = ((date as NSCalendar).component(NSCalendar.Unit.month, from: Date()))
-        let day = ((date as NSCalendar).component(NSCalendar.Unit.day, from: Date()))
-
+    open func getPrayerTimes(_ date: Date, latitude: Double, longitude: Double) -> [String: String] {
+        let year = Calendar.current.component(.year, from: date)
+        let month = Calendar.current.component(.month, from: date)
+        let day = Calendar.current.component(.day, from: date)
+        let tZone = Double(TimeZone.current.secondsFromGMT()) / 60.0 / 60.0
         return getDatePrayerTimes(year, month: month, day: day, latitude: latitude, longitude: longitude, tZone: tZone)
     }
 

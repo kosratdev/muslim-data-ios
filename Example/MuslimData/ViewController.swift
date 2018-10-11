@@ -15,10 +15,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         // Get prayer times from the MuslimData library
-        let attributes = PrayerAttribute(calculationMethod: .makkah, asrMethod: .shafii, adjustAngle: .angleBased,
-                                         latitude: 36.123, longitude: 44.123, timeZone: 3.0)
-        MuslimData.getPrayerTimes(city: "Soran", date: Date(),
-                                         isStatic: false, attributes: attributes) { (prayerTime, error) in
+        let location = Location(latitude: 36.123, longitude: 44.123, city: "Erbil", countryCode: "IQ",
+                                countryName: "Iraq", hasFixedPrayerTimes: true)
+        let attributes = PrayerAttribute(method: .makkah, asrMethod: .shafii, adjustAngle: .angleBased)
+        PrayerTime.getPrayerTimes(location: location, date: Date(),
+                                  attributes: attributes) { (prayerTime, error) in
             guard error == nil else {
                 print("Prayer tims didn't found for the specified properties.")
                 return
@@ -29,6 +30,29 @@ class ViewController: UIViewController {
             print("next prayer index: \(prayerTime!.nextPrayerIndex())")
             print("next prayer interval: \(prayerTime!.nextPrayerInterval())")
             print("next prayer time remaining: \(prayerTime!.nextPrayerTimeRemaining())")
+        }
+
+        // Use geocoder to find city location by name.
+        LocationHelper.shared.geocoder(countryCode: "GB", city: "London") { location in
+            guard let location = location else {
+                print("City name can not be geocoder")
+                return
+            }
+            print("location: \(location)")
+        }
+
+        // Use reverse geocoder to find city name by latitude and longitude.
+        LocationHelper.shared.geocoder(latitude: 36.654090, longitude: 44.541278) { (location) in
+            guard let location = location else {
+                print("City name can nnot be geocoder by latitude and longitude")
+                return
+            }
+            print("location: \(location)")
+        }
+
+        // Check a city to know that it has fixed prayer times or not
+        LocationHelper.shared.cityHasFixedPrayerTimes(countryCode: "IQ", city: "Duhok") { (hasFixed) in
+            print("City has fixed prayer times: \(hasFixed)")
         }
     }
 }
