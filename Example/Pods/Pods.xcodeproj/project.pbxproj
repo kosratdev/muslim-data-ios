@@ -27,6 +27,9 @@
 		25AC45DE4E85FCE452A86656A3B3678F /* SQLiteDateParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E5C80DD813681D6D33E6C1C9D723C /* SQLiteDateParser.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		264A89433E2DC30CFCE29421746CD0D4 /* VirtualTableModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41865C76CBFE33B44D68F99A0D9AE5A7 /* VirtualTableModule.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		2AAE5EE75216199F6806C30889F809CA /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77497E653D61328EF8422F1E63E9624D /* Date+Extensions.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2D275BAC216FDB9F009058C2 /* Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D275BAB216FDB9F009058C2 /* Name.swift */; };
+		2D275BAE216FDCB2009058C2 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D275BAD216FDCB2009058C2 /* Language.swift */; };
+		2D275BB0216FDD95009058C2 /* Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D275BAF216FDD95009058C2 /* Names.swift */; };
 		2ED13C4270AFAE75C63139E33564C7A7 /* TransactionObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFFC840B7226F424A02FC24047A026E /* TransactionObserver.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		305202F9D1E9EE1578D47A1C05BFAEAB /* NSNull.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1D827F97A81FCE499B7388A10EE48 /* NSNull.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		308D2FCD2211AF28020EE8E95E410D7E /* Fixits-3.0.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B22914BF5E0110FC9D7EE957A9577DE /* Fixits-3.0.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -196,6 +199,9 @@
 		26B7E086FE0FC18625FB5707DE657ACA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		2974A296F60056CDD04E670915AB52A7 /* DatabaseCollation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseCollation.swift; path = GRDB/Core/DatabaseCollation.swift; sourceTree = "<group>"; };
 		2CB7C93E5552F1361D72E85C19E57F21 /* Pods-MuslimData_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MuslimData_Example-frameworks.sh"; sourceTree = "<group>"; };
+		2D275BAB216FDB9F009058C2 /* Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Name.swift; sourceTree = "<group>"; };
+		2D275BAD216FDCB2009058C2 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		2D275BAF216FDD95009058C2 /* Names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Names.swift; sourceTree = "<group>"; };
 		2D889519CACD44B32221461F4CE9308F /* FTS5+QueryInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "FTS5+QueryInterface.swift"; path = "GRDB/QueryInterface/FTS5+QueryInterface.swift"; sourceTree = "<group>"; };
 		2D8ECC29F8B0023795658EAFA69A874D /* Association.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Association.swift; path = GRDB/QueryInterface/Association/Association.swift; sourceTree = "<group>"; };
 		2E11C71264CD3130E8E69F64830CE239 /* Prayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Prayer.swift; sourceTree = "<group>"; };
@@ -381,6 +387,17 @@
 				4A5C9562D27CB4DCBA9759F3BD7F01A3 /* UIKit.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		2D275BAA216FDB4C009058C2 /* Names */ = {
+			isa = PBXGroup;
+			children = (
+				2D275BAB216FDB9F009058C2 /* Name.swift */,
+				2D275BAD216FDCB2009058C2 /* Language.swift */,
+				2D275BAF216FDD95009058C2 /* Names.swift */,
+			);
+			name = Names;
+			path = MuslimData/Classes/Names;
 			sourceTree = "<group>";
 		};
 		42D007B3E2FAD56F788B989DC1EE126C /* DB Helper */ = {
@@ -625,6 +642,7 @@
 				42D007B3E2FAD56F788B989DC1EE126C /* DB Helper */,
 				4516FE5247D08C2D8853D26DEB6F199A /* Location */,
 				8D93934D031EC06B937B26EDF877895D /* Prayer Times */,
+				2D275BAA216FDB4C009058C2 /* Names */,
 				AFC3848F5B1C7B8A32BF28A84D86930B /* Extensions */,
 				C13C43C31E2460033D634A18332C09E7 /* Pod */,
 				AAAA682BF3622F5DEEF4CAD6E0814A7C /* Resources */,
@@ -867,9 +885,12 @@
 				91633239447D99907A1A2D43A68337CF /* LocationHelper.swift in Sources */,
 				B97050FEB74129203C675615E5B7A54F /* MuslimData-dummy.m in Sources */,
 				90360D3D0CB0BCE4CC870C773081AE04 /* Prayer.swift in Sources */,
+				2D275BB0216FDD95009058C2 /* Names.swift in Sources */,
 				D9CFBF37D791A637DE9233AF2711B80A /* PrayerAttribute.swift in Sources */,
 				67F34F0E84DD46FE3DE2103FB1C6AB5C /* PrayerTime.swift in Sources */,
 				E46829D2A2714A9EE7AE569FBC2F5845 /* String+Extensions.swift in Sources */,
+				2D275BAE216FDCB2009058C2 /* Language.swift in Sources */,
+				2D275BAC216FDB9F009058C2 /* Name.swift in Sources */,
 				84A77123CDCA06B2A01DA300CA5C3255 /* TimeFormat.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
