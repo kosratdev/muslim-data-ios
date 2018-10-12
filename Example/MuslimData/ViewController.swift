@@ -54,6 +54,15 @@ class ViewController: UIViewController {
         LocationHelper.shared.cityHasFixedPrayerTimes(countryCode: "IQ", city: "Duhok") { (hasFixed) in
             print("City has fixed prayer times: \(hasFixed)")
         }
+
+        // Get 99 names of allah from MuslimData library
+        Names.names(language: .en) { names, error in
+            guard error == nil else {
+                print("Names of Allah didn't found: \(error!)")
+                return
+            }
+            print("last name: \(names![98])")
+        }
     }
 }
 

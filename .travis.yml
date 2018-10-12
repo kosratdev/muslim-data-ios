@@ -7,6 +7,6 @@ script:
   - pod lib lint --allow-warnings
 deploy:
   provider: script
-  script: ./scripts/push.sh
+  script: bash scripts/push.sh
   on:
     tags: true

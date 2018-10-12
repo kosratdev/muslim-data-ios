@@ -46,6 +46,30 @@ class DBHelper {
         }
     }
 
+    /// Get 99 names of allah from database.
+    ///
+    /// - Parameters:
+    ///   - language: Language of the translated names.
+    ///   - callback: Callback that will return list of names in Row object or error message.
+    func names(language: Language, callback: @escaping ([Row]?, String?) -> Void) {
+        do {
+            try dbPool?.read { dbConnect in
+                let result = try Row.fetchAll(dbConnect, """
+                SELECT ori.name , tr.name as translated
+                FROM names as ori
+                INNER JOIN names_translations as tr on tr.name_id = ori._id and tr.language = '\(language)'
+                """)
+                guard result.count > 0 else {
+                    callback(nil, "No row found")
+                    return
+                }
+                callback(result, nil)
+            }
+        } catch {
+            callback(nil, "Error: \(error.localizedDescription)")
+        }
+    }
+
     // MARK: - Private Methods
 
     /// Format date to "MM-dd" pattern which will be used to get prayers fro this date in the prayer database.

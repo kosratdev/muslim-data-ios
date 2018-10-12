@@ -3,3 +3,9 @@ excluded:
   - ../MuslimData/Classes/Prayer Times/Prayer.swift
 included:
   - ../MuslimData
+identifier_name:
+  excluded: 
+    - en
+    - ar
+    - fa
+    - ru

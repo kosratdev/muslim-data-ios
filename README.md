@@ -115,7 +115,20 @@ PrayerTime.getPrayerTimes(location: location, date: Date(), attributes: attribut
     print("next prayer time remaining: \(prayerTime!.nextPrayerTimeRemaining())")
 }
 ```
+### Names of Allah 
 
+Get 99 Names of Allah with it's translation and now it is available for these languages (`en`, `ar`, `ckb`, `fa`, and `ru`)
+
+```swift
+// Get 99 names of allah from MuslimData library
+Names.names(language: .en) { names, error in
+    guard error == nil else {
+        print("Names of Allah didn't found: \(error!)")
+        return
+    }
+    print("Names of Allah: \(names)")
+} 
+```
 ## Author
 
 Kosrat D. Ahmad, kosrat.d.ahmad@gmail.com
