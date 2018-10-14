@@ -70,7 +70,7 @@ class ViewController: UIViewController {
                 print("Azkar categories didn't find: \(error!)")
                 return
             }
-            print("First Azkar Category: \(azkarCategories![0])")
+            print("First Azkar Category Name: \(azkarCategories![0].name)")
         }
 
         // Get azkar chapters from MuslimData library
