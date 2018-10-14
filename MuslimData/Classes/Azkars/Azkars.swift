@@ -54,4 +54,29 @@ public class Azkars {
             callback(chapters, nil)
         }
     }
+
+    /// Get azkar items for specific azkar chapter from database which is localized by given language.
+    ///
+    /// - Parameters:
+    ///   - language: Language of the chapter.
+    ///   - chapterId: Chapter id for the azkar items.
+    ///   - callback: Callback that will return list of AzkarItem object that contains azkar items data
+    ///               or error message.
+    public static func azkarItems(language: Language, chapterId: Int,
+                                  callback: @escaping ([AzkarItem]?, String?) -> Void) {
+        DBHelper.shared.azkarItems(language: language, chapterId: chapterId) { rows, error in
+            guard error == nil else {
+                callback(nil, error)
+                return
+            }
+
+            var items: [AzkarItem] = []
+            for row in rows! {
+                let name = AzkarItem(id: row["_id"], chapterId: row["chapter_id"], item: row["item"],
+                                     translation: "item_translation", reference: "reference")
+                items.append(name)
+            }
+            callback(items, nil)
+        }
+    }
 }
