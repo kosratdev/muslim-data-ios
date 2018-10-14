@@ -72,6 +72,15 @@ class ViewController: UIViewController {
             }
             print("First Azkar Category: \(azkarCategories![0])")
         }
+
+        // Get azkar chapters from MuslimData library
+        Azkars.azkarChapters(language: .en) { azkarChapters, error in
+            guard error == nil else {
+                print("Azkar chapters didn't found: \(error!)")
+                return
+            }
+            print("First Azkar Chapter Name: \(azkarChapters![0].name)")
+        }
     }
 }
 

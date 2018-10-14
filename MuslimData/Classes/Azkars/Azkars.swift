@@ -31,4 +31,26 @@ public class Azkars {
             callback(categories, nil)
         }
     }
+
+    /// Get list of azkar chapters which is localized by given language.
+    ///
+    /// - Parameters:
+    ///   - language: Language of the azkar chapters.
+    ///   - callback: Callback that will return list of AzkarChapter object that contains
+    ///               azkar chapter data or error message.
+    public static func azkarChapters(language: Language, callback: @escaping ([AzkarChapter]?, String?) -> Void) {
+        DBHelper.shared.azkarChapters(language: language) { rows, error in
+            guard error == nil else {
+                callback(nil, error)
+                return
+            }
+
+            var chapters: [AzkarChapter] = []
+            for row in rows! {
+                let name = AzkarChapter(id: row["_id"], categoryId: row["category_id"], name: row["chapter_name"])
+                chapters.append(name)
+            }
+            callback(chapters, nil)
+        }
+    }
 }

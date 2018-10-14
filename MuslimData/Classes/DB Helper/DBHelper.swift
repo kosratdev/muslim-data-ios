@@ -95,6 +95,30 @@ class DBHelper {
         }
     }
 
+    /// Get azkar chapters from database which is localized by given language.
+    ///
+    /// - Parameters:
+    ///   - language: Language of the chapter.
+    ///   - callback: Callback that will return list of Row object that contains azkar chapters data or error message.
+    func azkarChapters(language: Language, callback: @escaping ([Row]?, String?) -> Void) {
+        do {
+            try dbPool?.read { dbConnect in
+                let result = try Row.fetchAll(dbConnect, """
+                SELECT org._id, category_id, chapter_name
+                FROM azkar_chapters as org
+                INNER JOIN azkar_chapters_translations as tr on tr.chapter_id = org._id and language = '\(language)'
+                """)
+                guard result.count > 0 else {
+                    callback(nil, "No row found")
+                    return
+                }
+                callback(result, nil)
+            }
+        } catch {
+            callback(nil, "Error: \(error.localizedDescription)")
+        }
+    }
+
     // MARK: - Private Methods
 
     /// Format date to "MM-dd" pattern which will be used to get prayers fro this date in the prayer database.
