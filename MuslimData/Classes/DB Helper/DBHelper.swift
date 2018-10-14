@@ -100,13 +100,18 @@ class DBHelper {
     /// - Parameters:
     ///   - language: Language of the chapter.
     ///   - callback: Callback that will return list of Row object that contains azkar chapters data or error message.
-    func azkarChapters(language: Language, callback: @escaping ([Row]?, String?) -> Void) {
+    func azkarChapters(language: Language, categoryId: Int? = nil, callback: @escaping ([Row]?, String?) -> Void) {
+        var category = ""
+        if let categoryId = categoryId {
+            category = " and category_id = \(categoryId)"
+        }
         do {
             try dbPool?.read { dbConnect in
                 let result = try Row.fetchAll(dbConnect, """
                 SELECT org._id, category_id, chapter_name
                 FROM azkar_chapters as org
                 INNER JOIN azkar_chapters_translations as tr on tr.chapter_id = org._id and language = '\(language)'
+                \(category)
                 """)
                 guard result.count > 0 else {
                     callback(nil, "No row found")

@@ -38,8 +38,9 @@ public class Azkars {
     ///   - language: Language of the azkar chapters.
     ///   - callback: Callback that will return list of AzkarChapter object that contains
     ///               azkar chapter data or error message.
-    public static func azkarChapters(language: Language, callback: @escaping ([AzkarChapter]?, String?) -> Void) {
-        DBHelper.shared.azkarChapters(language: language) { rows, error in
+    public static func azkarChapters(language: Language, categoryId: Int? = nil,
+                                     callback: @escaping ([AzkarChapter]?, String?) -> Void) {
+        DBHelper.shared.azkarChapters(language: language, categoryId: categoryId) { rows, error in
             guard error == nil else {
                 callback(nil, error)
                 return
