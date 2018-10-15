@@ -97,4 +97,83 @@ class AzkarTests: XCTestCase {
             XCTAssertEqual(chapters!.count, 133)
         }
     }
+
+    func testAzkarChaptersByCategory() {
+        // Test English azkar chapters for category id = 1
+        Azkars.azkarChapters(language: .en, categoryId: 1) { chapters, error in
+            XCTAssertNil(error)
+            XCTAssertNotNil(chapters)
+            XCTAssertEqual(chapters!.count, 7)
+        }
+
+        // Test English azkar chapters for category id = 2
+        Azkars.azkarChapters(language: .en, categoryId: 2) { chapters, error in
+            XCTAssertNil(error)
+            XCTAssertNotNil(chapters)
+            XCTAssertEqual(chapters!.count, 14)
+        }
+
+        // Test English azkar chapters for category id = 3
+        Azkars.azkarChapters(language: .en, categoryId: 3) { chapters, error in
+            XCTAssertNil(error)
+            XCTAssertNotNil(chapters)
+            XCTAssertEqual(chapters!.count, 7)
+        }
+
+        // Test English azkar chapters for category id = 4
+        Azkars.azkarChapters(language: .en, categoryId: 4) { chapters, error in
+            XCTAssertNil(error)
+            XCTAssertNotNil(chapters)
+            XCTAssertEqual(chapters!.count, 15)
+        }
+
+        // Test English azkar chapters for category id = 5
+        Azkars.azkarChapters(language: .en, categoryId: 5) { chapters, error in
+            XCTAssertNil(error)
+            XCTAssertNotNil(chapters)
+            XCTAssertEqual(chapters!.count, 11)
+        }
+
+        // Test English azkar chapters for category id = 6
+        Azkars.azkarChapters(language: .en, categoryId: 6) { chapters, error in
+            XCTAssertNil(error)
+            XCTAssertNotNil(chapters)
+            XCTAssertEqual(chapters!.count, 19)
+        }
+
+        // Test English azkar chapters for category id = 7
+        Azkars.azkarChapters(language: .en, categoryId: 7) { chapters, error in
+            XCTAssertNil(error)
+            XCTAssertNotNil(chapters)
+            XCTAssertEqual(chapters!.count, 9)
+        }
+
+        // Test English azkar chapters for category id = 8
+        Azkars.azkarChapters(language: .en, categoryId: 8) { chapters, error in
+            XCTAssertNil(error)
+            XCTAssertNotNil(chapters)
+            XCTAssertEqual(chapters!.count, 8)
+        }
+
+        // Test English azkar chapters for category id = 9
+        Azkars.azkarChapters(language: .en, categoryId: 9) { chapters, error in
+            XCTAssertNil(error)
+            XCTAssertNotNil(chapters)
+            XCTAssertEqual(chapters!.count, 20)
+        }
+
+        // Test English azkar chapters for category id = 10
+        Azkars.azkarChapters(language: .en, categoryId: 10) { chapters, error in
+            XCTAssertNil(error)
+            XCTAssertNotNil(chapters)
+            XCTAssertEqual(chapters!.count, 10)
+        }
+
+        // Test English azkar chapters for category id = 11
+        Azkars.azkarChapters(language: .en, categoryId: 11) { chapters, error in
+            XCTAssertNil(error)
+            XCTAssertNotNil(chapters)
+            XCTAssertEqual(chapters!.count, 13)
+        }
+    }
 }
