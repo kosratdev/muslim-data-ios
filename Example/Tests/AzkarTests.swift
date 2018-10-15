@@ -176,4 +176,27 @@ class AzkarTests: XCTestCase {
             XCTAssertEqual(chapters!.count, 13)
         }
     }
+
+    func testAzkarItems() {
+        // Test English azkar items for chapter id = 1
+        Azkars.azkarItems(language: .en, chapterId: 1) { items, error in
+            XCTAssertNil(error)
+            XCTAssertNotNil(items)
+            XCTAssertEqual(items!.count, 4)
+        }
+
+        // Test English azkar items for chapter id = 10
+        Azkars.azkarItems(language: .en, chapterId: 10) { items, error in
+            XCTAssertNil(error)
+            XCTAssertNotNil(items)
+            XCTAssertEqual(items!.count, 2)
+        }
+
+        // Test English azkar items for chapter id = 100
+        Azkars.azkarItems(language: .en, chapterId: 100) { items, error in
+            XCTAssertNil(error)
+            XCTAssertNotNil(items)
+            XCTAssertEqual(items!.count, 1)
+        }
+    }
 }
