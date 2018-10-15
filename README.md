@@ -115,6 +115,68 @@ PrayerTime.getPrayerTimes(location: location, date: Date(), attributes: attribut
     print("next prayer time remaining: \(prayerTime!.nextPrayerTimeRemaining())")
 }
 ```
+
+### Azkars (Hisnul Muslim)
+
+Get all azkars from (**Hisnul Muslim** book) that is categorized by (`Category`, `Chapter`, and `Item`) and also the azkars are available for these languages (`en`, `ar`, `ckb`, `fa`, and `ru`)
+
+#### Azkar Categories 
+
+Get all azkar categories and it is localized for the given language.
+
+```swift
+// Get azkar categories from MuslimData library
+Azkars.azkarCategories(language: .en) { azkarCategories, error in
+    guard error == nil else {
+        print("Azkar categories didn't find: \(error!)")
+        return
+    }
+    print("Azkar Categories: \(azkarCategories!)")
+}
+```
+
+#### Azkar Chapters
+
+Get azkar chapters and it is localized for the given language.
+
+```swift
+// Get azkar chapters from MuslimData library
+Azkars.azkarChapters(language: .en) { azkarChapters, error in
+    guard error == nil else {
+        print("Azkar chapters didn't found: \(error!)")
+        return
+    }
+    print("Azkar Chapters: \(azkarChapters!)")
+}
+```
+
+Get azkar chapters for a specific category and it is localized for the given language.
+
+```swift
+// Get azkar chapters for a specific category from MuslimData library
+Azkars.azkarChapters(language: .en, categoryId: 2) { azkarChapters, error in
+    guard error == nil else {
+        print("Azkar chapters didn't found: \(error!)")
+        return
+    }
+    print("Azkar Chapters for a category: \(azkarChapters!)")
+}
+```
+
+#### Azkar Items
+
+Get azkar items for a specific chapter and it is localized for the given language.
+```swift
+// Get azkar items for a specific chapter from MuslimData library
+Azkars.azkarItems(language: .en, chapterId: 2) { azkarItems, error in
+    guard error == nil else {
+        print("Azkar items didn't found: \(error!)")
+        return
+    }
+    print("azkar items: \(azkarItems!)")
+}
+```
+
 ### Names of Allah 
 
 Get 99 Names of Allah with it's translation and now it is available for these languages (`en`, `ar`, `ckb`, `fa`, and `ru`)
