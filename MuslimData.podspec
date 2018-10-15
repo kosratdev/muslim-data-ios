@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MuslimData'
-  s.version          = '0.3.2'
-  s.summary          = 'Islamic library (Prayer Times [fixed and calculated], Offline Geocoder, and Location Search).'
+  s.version          = '1.0.0'
+  s.summary          = 'Islamic library (Prayer Times [fixed and calculated], Names of Allah, and Azkars).'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-  MuslimData is an Islamic library that provides Prayer Times (fixed and calculated), Offline Geocoder, and Location Search.
+  MuslimData is an Islamic library that provides Prayer Times (fixed and calculated), Offline Geocoder, Location Search, Names of Allah, Azkars (Husnil Muslim).
 
   Fixed and Calculated Prayer Times
   Most cities around the world find their prayer times by using some calculations which is based on location (longitude and latitude) but some other cities have fixed time table for their prayer times. This library contains most fixed and calculated prayer times. Now you can contribute it to improve it and also you can use it in Muslim communities or Muslim apps.
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Kosrat D. Ahmad' => 'kosrat.d.ahmad@gmail.com' }
-  s.source           = { :git => 'https://github.com/KosratDAhmad/MuslimData.git', :tag => 'v'+s.version.to_s }
+  s.source           = { :git => 'https://github.com/KosratDAhmad/MuslimData.git', :tag => 'v'+s.version.to_s+'-beta.1' }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'

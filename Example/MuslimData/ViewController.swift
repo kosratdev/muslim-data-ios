@@ -63,6 +63,42 @@ class ViewController: UIViewController {
             }
             print("last name: \(names![98])")
         }
+
+        // Get azkar categories from MuslimData library
+        Azkars.azkarCategories(language: .en) { azkarCategories, error in
+            guard error == nil else {
+                print("Azkar categories didn't find: \(error!)")
+                return
+            }
+            print("First Azkar Category Name: \(azkarCategories![0].name)")
+        }
+
+        // Get azkar chapters from MuslimData library
+        Azkars.azkarChapters(language: .en) { azkarChapters, error in
+            guard error == nil else {
+                print("Azkar chapters didn't found: \(error!)")
+                return
+            }
+            print("First Azkar Chapter Name: \(azkarChapters![0].name)")
+        }
+
+        // Get azkar chapters for a specific category from MuslimData library
+        Azkars.azkarChapters(language: .en, categoryId: 2) { azkarChapters, error in
+            guard error == nil else {
+                print("Azkar chapters didn't found: \(error!)")
+                return
+            }
+            print("Chapter name: \(azkarChapters![0].name) : for category id = \(azkarChapters![0].categoryId)")
+        }
+
+        // Get azkar items for a specific chapter from MuslimData library
+        Azkars.azkarItems(language: .en, chapterId: 2) { azkarItems, error in
+            guard error == nil else {
+                print("Azkar items didn't found: \(error!)")
+                return
+            }
+            print("First azkar item: \(azkarItems![0].item)")
+        }
     }
 }
 
