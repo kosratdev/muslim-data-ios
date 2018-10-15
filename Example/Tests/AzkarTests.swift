@@ -60,4 +60,41 @@ class AzkarTests: XCTestCase {
             XCTAssertNotNil(categories![7].name)
         }
     }
+
+    func testAzkarChapters() {
+        // Test English azkar chapters
+        Azkars.azkarChapters(language: .en) { chapters, error in
+            XCTAssertNil(error)
+            XCTAssertNotNil(chapters)
+            XCTAssertEqual(chapters!.count, 133)
+        }
+
+        // Test Arabic azkar chapters
+        Azkars.azkarChapters(language: .ar) { chapters, error in
+            XCTAssertNil(error)
+            XCTAssertNotNil(chapters)
+            XCTAssertEqual(chapters!.count, 133)
+        }
+
+        // Test Central Kurdish azkar chapters
+        Azkars.azkarChapters(language: .ckb) { chapters, error in
+            XCTAssertNil(error)
+            XCTAssertNotNil(chapters)
+            XCTAssertEqual(chapters!.count, 133)
+        }
+
+        // Test Farsi azkar chapters
+        Azkars.azkarChapters(language: .fa) { chapters, error in
+            XCTAssertNil(error)
+            XCTAssertNotNil(chapters)
+            XCTAssertEqual(chapters!.count, 133)
+        }
+
+        // Test Russian azkar chapters
+        Azkars.azkarChapters(language: .ru) { chapters, error in
+            XCTAssertNil(error)
+            XCTAssertNotNil(chapters)
+            XCTAssertEqual(chapters!.count, 133)
+        }
+    }
 }
