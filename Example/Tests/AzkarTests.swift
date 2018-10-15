@@ -25,6 +25,7 @@ class AzkarTests: XCTestCase {
             XCTAssertNil(error)
             XCTAssertNotNil(categories)
             XCTAssertEqual(categories!.count, 11)
+            XCTAssertNotNil(categories![5].name)
         }
 
         // Test Arabic azkar categories
@@ -32,6 +33,7 @@ class AzkarTests: XCTestCase {
             XCTAssertNil(error)
             XCTAssertNotNil(categories)
             XCTAssertEqual(categories!.count, 11)
+            XCTAssertNotNil(categories![10].name)
         }
 
         // Test Central Kurdish azkar categories
@@ -39,6 +41,7 @@ class AzkarTests: XCTestCase {
             XCTAssertNil(error)
             XCTAssertNotNil(categories)
             XCTAssertEqual(categories!.count, 11)
+            XCTAssertNotNil(categories![3].name)
         }
 
         // Test Farsi azkar categories
@@ -46,6 +49,7 @@ class AzkarTests: XCTestCase {
             XCTAssertNil(error)
             XCTAssertNotNil(categories)
             XCTAssertEqual(categories!.count, 11)
+            XCTAssertNotNil(categories![1].name)
         }
 
         // Test Russian azkar categories
@@ -53,6 +57,7 @@ class AzkarTests: XCTestCase {
             XCTAssertNil(error)
             XCTAssertNotNil(categories)
             XCTAssertEqual(categories!.count, 11)
+            XCTAssertNotNil(categories![7].name)
         }
     }
 }
