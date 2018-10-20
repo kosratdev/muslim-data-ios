@@ -11,6 +11,6 @@ import Foundation
 public struct Name {
     // MARK: - Properties
 
-    let name: String
-    let translated: String
+    public let name: String
+    public let translated: String
 }
