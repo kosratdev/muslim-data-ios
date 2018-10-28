@@ -17,17 +17,12 @@ public class Names {
     ///   - language: Language for translating names.
     ///   - callback: Callback that return list of names or an error message
     public static func names(language: Language, callback: @escaping ([Name]?, String?) -> Void) {
-        DBHelper.shared.names(language: language) { rows, error in
+        DBHelper.shared.names(language: language) { names, error in
             guard error == nil else {
                 callback(nil, error)
                 return
             }
 
-            var names: [Name] = []
-            for row in rows! {
-                let name = Name(name: row["name"], translated: row["translated"])
-                names.append(name)
-            }
             callback(names, nil)
         }
     }

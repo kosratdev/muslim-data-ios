@@ -50,11 +50,11 @@ class DBHelper {
     ///
     /// - Parameters:
     ///   - language: Language of the translated names.
-    ///   - callback: Callback that will return list of names in Row object or error message.
-    func names(language: Language, callback: @escaping ([Row]?, String?) -> Void) {
+    ///   - callback: Callback that will return list of names object or error message.
+    func names(language: Language, callback: @escaping ([Name]?, String?) -> Void) {
         do {
             try dbPool?.read { dbConnect in
-                let result = try Row.fetchAll(dbConnect, """
+                let result = try Name.fetchAll(dbConnect, """
                 SELECT ori.name , tr.name as translated
                 FROM names as ori
                 INNER JOIN names_translations as tr on tr.name_id = ori._id and tr.language = '\(language)'
