@@ -54,18 +54,12 @@ public class Azkars {
     ///               or error message.
     public static func azkarItems(language: Language, chapterId: Int,
                                   callback: @escaping ([AzkarItem]?, String?) -> Void) {
-        DBHelper.shared.azkarItems(language: language, chapterId: chapterId) { rows, error in
+        DBHelper.shared.azkarItems(language: language, chapterId: chapterId) { items, error in
             guard error == nil else {
                 callback(nil, error)
                 return
             }
 
-            var items: [AzkarItem] = []
-            for row in rows! {
-                let name = AzkarItem(id: row["_id"], chapterId: row["chapter_id"], item: row["item"],
-                                     translation: "item_translation", reference: "reference")
-                items.append(name)
-            }
             callback(items, nil)
         }
     }

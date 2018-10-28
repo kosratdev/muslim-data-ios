@@ -130,11 +130,11 @@ class DBHelper {
     /// - Parameters:
     ///   - language: Language of the chapter.
     ///   - chapterId: Chapter id for the azkar items.
-    ///   - callback: Callback that will return list of Row object that contains azkar items data or error message.
-    func azkarItems(language: Language, chapterId: Int, callback: @escaping ([Row]?, String?) -> Void) {
+    ///   - callback: Callback that will return list of AzkarItem or error message.
+    func azkarItems(language: Language, chapterId: Int, callback: @escaping ([AzkarItem]?, String?) -> Void) {
         do {
             try dbPool?.read { dbConnect in
-                let result = try Row.fetchAll(dbConnect, """
+                let result = try AzkarItem.fetchAll(dbConnect, """
                 SELECT org._id, org.chapter_id, org.item, tr.item_translation, rtr.reference
                 FROM azkar_items as org
                 INNER JOIN azkar_items_translations as tr on tr.item_id = org._id and tr.language = '\(language)'
