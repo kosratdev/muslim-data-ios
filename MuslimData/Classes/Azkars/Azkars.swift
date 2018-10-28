@@ -35,17 +35,12 @@ public class Azkars {
     ///               azkar chapter data or error message.
     public static func azkarChapters(language: Language, categoryId: Int? = nil,
                                      callback: @escaping ([AzkarChapter]?, String?) -> Void) {
-        DBHelper.shared.azkarChapters(language: language, categoryId: categoryId) { rows, error in
+        DBHelper.shared.azkarChapters(language: language, categoryId: categoryId) { chapters, error in
             guard error == nil else {
                 callback(nil, error)
                 return
             }
 
-            var chapters: [AzkarChapter] = []
-            for row in rows! {
-                let name = AzkarChapter(id: row["_id"], categoryId: row["category_id"], name: row["chapter_name"])
-                chapters.append(name)
-            }
             callback(chapters, nil)
         }
     }
