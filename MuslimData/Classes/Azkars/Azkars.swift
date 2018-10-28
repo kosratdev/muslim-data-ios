@@ -17,17 +17,12 @@ public class Azkars {
     ///   - callback: Callback that will return list of AzkarCategory object that contains
     ///               azkar category data or error message.
     public static func azkarCategories(language: Language, callback: @escaping ([AzkarCategory]?, String?) -> Void) {
-        DBHelper.shared.azkarCategories(language: language) { rows, error in
+        DBHelper.shared.azkarCategories(language: language) { categories, error in
             guard error == nil else {
                 callback(nil, error)
                 return
             }
 
-            var categories: [AzkarCategory] = []
-            for row in rows! {
-                let name = AzkarCategory(id: row["_id"], name: row["category_name"])
-                categories.append(name)
-            }
             callback(categories, nil)
         }
     }
