@@ -50,11 +50,11 @@ class DBHelper {
     ///
     /// - Parameters:
     ///   - language: Language of the translated names.
-    ///   - callback: Callback that will return list of names in Row object or error message.
-    func names(language: Language, callback: @escaping ([Row]?, String?) -> Void) {
+    ///   - callback: Callback that will return list of names object or error message.
+    func names(language: Language, callback: @escaping ([Name]?, String?) -> Void) {
         do {
             try dbPool?.read { dbConnect in
-                let result = try Row.fetchAll(dbConnect, """
+                let result = try Name.fetchAll(dbConnect, """
                 SELECT ori.name , tr.name as translated
                 FROM names as ori
                 INNER JOIN names_translations as tr on tr.name_id = ori._id and tr.language = '\(language)'
@@ -74,11 +74,11 @@ class DBHelper {
     ///
     /// - Parameters:
     ///   - language: Language of the category.
-    ///   - callback: Callback that will return list of Row object that contains azkar category data or error message.
-    func azkarCategories(language: Language, callback: @escaping ([Row]?, String?) -> Void) {
+    ///   - callback: Callback that will return list of AzkarCategory or error message.
+    func azkarCategories(language: Language, callback: @escaping ([AzkarCategory]?, String?) -> Void) {
         do {
             try dbPool?.read { dbConnect in
-                let result = try Row.fetchAll(dbConnect, """
+                let result = try AzkarCategory.fetchAll(dbConnect, """
                 SELECT org._id, category_name
                 FROM azkar_categories as org
                 INNER JOIN azkar_categories_translations as tr on tr.category_id = org._id
@@ -99,15 +99,16 @@ class DBHelper {
     ///
     /// - Parameters:
     ///   - language: Language of the chapter.
-    ///   - callback: Callback that will return list of Row object that contains azkar chapters data or error message.
-    func azkarChapters(language: Language, categoryId: Int? = nil, callback: @escaping ([Row]?, String?) -> Void) {
+    ///   - callback: Callback that will return list of AzkarChapter or error message.
+    func azkarChapters(language: Language, categoryId: Int? = nil,
+                       callback: @escaping ([AzkarChapter]?, String?) -> Void) {
         var category = ""
         if let categoryId = categoryId {
             category = " and category_id = \(categoryId)"
         }
         do {
             try dbPool?.read { dbConnect in
-                let result = try Row.fetchAll(dbConnect, """
+                let result = try AzkarChapter.fetchAll(dbConnect, """
                 SELECT org._id, category_id, chapter_name
                 FROM azkar_chapters as org
                 INNER JOIN azkar_chapters_translations as tr on tr.chapter_id = org._id and language = '\(language)'
@@ -129,11 +130,11 @@ class DBHelper {
     /// - Parameters:
     ///   - language: Language of the chapter.
     ///   - chapterId: Chapter id for the azkar items.
-    ///   - callback: Callback that will return list of Row object that contains azkar items data or error message.
-    func azkarItems(language: Language, chapterId: Int, callback: @escaping ([Row]?, String?) -> Void) {
+    ///   - callback: Callback that will return list of AzkarItem or error message.
+    func azkarItems(language: Language, chapterId: Int, callback: @escaping ([AzkarItem]?, String?) -> Void) {
         do {
             try dbPool?.read { dbConnect in
-                let result = try Row.fetchAll(dbConnect, """
+                let result = try AzkarItem.fetchAll(dbConnect, """
                 SELECT org._id, org.chapter_id, org.item, tr.item_translation, rtr.reference
                 FROM azkar_items as org
                 INNER JOIN azkar_items_translations as tr on tr.item_id = org._id and tr.language = '\(language)'
