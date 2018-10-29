@@ -20,7 +20,7 @@ public struct AzkarChapter: FetchableRecord {
     enum Columns {
         static let id = Column("_id")
         static let categoryId = Column("category_id")
-        static let name = Column("category_name")
+        static let name = Column("chapter_name")
     }
 
     // MARK: - Constructors
