@@ -13,6 +13,7 @@
 		2D6B21C421708D600054F8C0 /* NamesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6B21C321708D600054F8C0 /* NamesTest.swift */; };
 		2D9FC355217278E0003EF074 /* AzkarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9FC354217278E0003EF074 /* AzkarTests.swift */; };
 		2DCAA592218C8A7D00F4B065 /* PrayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCAA591218C8A7D00F4B065 /* PrayersViewController.swift */; };
+		2DCAA594218C97A800F4B065 /* NamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCAA593218C97A800F4B065 /* NamesViewController.swift */; };
 		2DEFB3D9218B29ED005D94F4 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEFB3D8218B29ED005D94F4 /* Location.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 		2D6B21C321708D600054F8C0 /* NamesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesTest.swift; sourceTree = "<group>"; };
 		2D9FC354217278E0003EF074 /* AzkarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AzkarTests.swift; sourceTree = "<group>"; };
 		2DCAA591218C8A7D00F4B065 /* PrayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayersViewController.swift; sourceTree = "<group>"; };
+		2DCAA593218C97A800F4B065 /* NamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesViewController.swift; sourceTree = "<group>"; };
 		2DEFB3D8218B29ED005D94F4 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		5665FE91640402C3D36C56F2 /* Pods-MuslimData_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuslimData_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MuslimData_Tests/Pods-MuslimData_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* MuslimData_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MuslimData_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +144,7 @@
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 				2DCAA591218C8A7D00F4B065 /* PrayersViewController.swift */,
+				2DCAA593218C97A800F4B065 /* NamesViewController.swift */,
 			);
 			name = "Example for MuslimData";
 			path = MuslimData;
@@ -391,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D27AC4B2188E621004722BD /* LocationViewController.swift in Sources */,
+				2DCAA594218C97A800F4B065 /* NamesViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				2DEFB3D9218B29ED005D94F4 /* Location.swift in Sources */,
 				2DCAA592218C8A7D00F4B065 /* PrayersViewController.swift in Sources */,
