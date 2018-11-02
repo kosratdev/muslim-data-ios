@@ -95,7 +95,7 @@
         <!--Prayer Times-->
         <scene sceneID="22p-Ub-aG4">
             <objects>
-                <viewController id="qbc-RA-OYh" sceneMemberID="viewController">
+                <viewController id="qbc-RA-OYh" customClass="PrayersViewController" customModule="MuslimData_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wIy-N8-Zcj"/>
                         <viewControllerLayoutGuide type="bottom" id="Lud-gQ-P9b"/>
@@ -103,9 +103,60 @@
                     <view key="view" contentMode="scaleToFill" id="teA-kZ-Hg9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Erbil, Iraq 2 Nov. 2018" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ZH-sc-Lfr">
+                                <rect key="frame" x="16" y="80" width="343" height="41"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="56" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SKz-HS-380">
+                                <rect key="frame" x="0.0" y="137" width="375" height="481"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="prayerCell" textLabel="dbD-7B-Tlh" detailTextLabel="mWM-oi-pd7" style="IBUITableViewCellStyleValue1" id="2b2-eD-PyA">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="56"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2b2-eD-PyA" id="BXZ-20-h1F">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dbD-7B-Tlh">
+                                                    <rect key="frame" x="15" y="18" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mWM-oi-pd7">
+                                                    <rect key="frame" x="316" y="18" width="44" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="SKz-HS-380" firstAttribute="top" secondItem="1ZH-sc-Lfr" secondAttribute="bottom" constant="16" id="Ccj-kr-BEX"/>
+                            <constraint firstItem="Lud-gQ-P9b" firstAttribute="top" secondItem="SKz-HS-380" secondAttribute="bottom" id="Igo-nu-CBr"/>
+                            <constraint firstItem="1ZH-sc-Lfr" firstAttribute="top" secondItem="wIy-N8-Zcj" secondAttribute="bottom" constant="16" id="Ub6-DL-x1X"/>
+                            <constraint firstItem="1ZH-sc-Lfr" firstAttribute="leading" secondItem="teA-kZ-Hg9" secondAttribute="leading" constant="16" id="aXB-vy-xYS"/>
+                            <constraint firstAttribute="trailing" secondItem="1ZH-sc-Lfr" secondAttribute="trailing" constant="16" id="r8u-fS-75M"/>
+                            <constraint firstAttribute="trailing" secondItem="SKz-HS-380" secondAttribute="trailing" id="vWd-qP-agE"/>
+                            <constraint firstItem="SKz-HS-380" firstAttribute="leading" secondItem="teA-kZ-Hg9" secondAttribute="leading" id="yqx-vs-Lll"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Prayer Times" id="3qH-hL-R3o"/>
+                    <connections>
+                        <outlet property="locationDetail" destination="1ZH-sc-Lfr" id="9QB-TI-PT4"/>
+                        <outlet property="prayerTable" destination="SKz-HS-380" id="hoh-vj-rth"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0yJ-SV-WhJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
