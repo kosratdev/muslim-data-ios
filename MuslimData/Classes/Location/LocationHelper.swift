@@ -28,14 +28,24 @@ public struct LocationHelper {
     ///   - city: City name
     ///   - callback: Callback that returns a Location object.
     public func citySearch(_ city: String, callback: @escaping ([Location]?, String?) -> Void) {
-        DispatchQueue.global().async {
+        DispatchQueue.global(qos: .background).async {
             do {
                 try self.dbHelper.dbPool?.read { dbConnect in
-                    let result = try Location.fetchAll(dbConnect, "SELECT * FROM cities where city like '%\(city)%'")
-                    callback(result, nil)
+                    let locations = try Location.fetchAll(dbConnect, """
+                    SELECT cities.country_code as country_code, cities.city as city, cities.latitude as latitude,
+                    cities.longitude as longitude, countries.country_name as country_name
+                    FROM cities
+                    INNER JOIN countries on cities.country_code = countries.country_code
+                    WHERE cities.city like '\(city)%'
+                    """)
+                    DispatchQueue.main.async {
+                        callback(locations, nil)
+                    }
                 }
             } catch {
-                callback(nil, "Error: \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    callback(nil, "Error: \(error.localizedDescription)")
+                }
             }
         }
     }
