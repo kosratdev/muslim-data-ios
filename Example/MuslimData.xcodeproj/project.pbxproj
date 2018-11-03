@@ -108,6 +108,7 @@
 		2DBD7E7F218E346600B6595B /* Prayers */ = {
 			isa = PBXGroup;
 			children = (
+				2DEFB3D7218B29D8005D94F4 /* Locations */,
 				2DCAA591218C8A7D00F4B065 /* PrayersViewController.swift */,
 			);
 			name = Prayers;
@@ -174,7 +175,6 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				2DEFB3D7218B29D8005D94F4 /* Locations */,
 				2DBD7E7F218E346600B6595B /* Prayers */,
 				2DBD7E80218E347500B6595B /* Names */,
 				2DBD7E7C218E01BF00B6595B /* Azkars */,

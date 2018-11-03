@@ -22,13 +22,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location: Erbil, Iraq" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="usm-KJ-vAN">
-                                <rect key="frame" x="16" y="80" width="343" height="21"/>
+                                <rect key="frame" x="16" y="132" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Search Result" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epk-7z-9hh">
-                                <rect key="frame" x="0.0" y="117" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="169" width="375" height="30"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="UPy-JV-AHE"/>
@@ -38,7 +38,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="56" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9yl-ry-vWP">
-                                <rect key="frame" x="0.0" y="155" width="375" height="463"/>
+                                <rect key="frame" x="0.0" y="207" width="375" height="411"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="locationCell" textLabel="Kef-WG-5zY" detailTextLabel="wST-KU-iMS" style="IBUITableViewCellStyleSubtitle" id="tgQ-XS-d3f">
@@ -82,7 +82,13 @@
                             <constraint firstItem="9yl-ry-vWP" firstAttribute="top" secondItem="epk-7z-9hh" secondAttribute="bottom" constant="8" id="kTv-KW-aWN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Locations" id="gbR-Ya-0HW"/>
+                    <navigationItem key="navigationItem" title="Locations" id="gbR-Ya-0HW">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="apq-Tj-VmR">
+                            <connections>
+                                <action selector="done:" destination="vXZ-lx-hvc" id="Q6h-WK-90e"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="locationTable" destination="9yl-ry-vWP" id="icm-97-XSS"/>
                         <outlet property="locationTitle" destination="usm-KJ-vAN" id="4ny-Sc-grU"/>
@@ -90,7 +96,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1844" y="-524"/>
+            <point key="canvasLocation" x="3702" y="187"/>
         </scene>
         <!--Prayer Times-->
         <scene sceneID="22p-Ub-aG4">
@@ -152,7 +158,13 @@
                             <constraint firstItem="SKz-HS-380" firstAttribute="leading" secondItem="teA-kZ-Hg9" secondAttribute="leading" id="yqx-vs-Lll"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Prayer Times" id="3qH-hL-R3o"/>
+                    <navigationItem key="navigationItem" title="Prayer Times" id="3qH-hL-R3o">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="ic_nav_location" id="Xhm-bm-6M6">
+                            <connections>
+                                <segue destination="IFt-kl-Hue" kind="show" id="e9T-NG-9Av"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="locationDetail" destination="1ZH-sc-Lfr" id="9QB-TI-PT4"/>
                         <outlet property="prayerTable" destination="SKz-HS-380" id="hoh-vj-rth"/>
@@ -345,7 +357,6 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="IFt-kl-Hue" kind="relationship" relationship="viewControllers" id="Zq4-gj-tJt"/>
                         <segue destination="fAL-vk-i34" kind="relationship" relationship="viewControllers" id="GLE-DD-Oe9"/>
                         <segue destination="11z-rq-ybI" kind="relationship" relationship="viewControllers" id="kJC-Yn-zdn"/>
                         <segue destination="0Kb-yR-R01" kind="relationship" relationship="viewControllers" id="oUt-Rp-vz5"/>
@@ -353,7 +364,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nZs-QG-qFd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="129" y="427"/>
+            <point key="canvasLocation" x="-110" y="905"/>
         </scene>
         <!--Locations-->
         <scene sceneID="Ao8-WE-ZKP">
@@ -361,8 +372,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IFt-kl-Hue" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Locations" image="ic_nav_location" id="Tyi-hk-SUA"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qzh-em-MWm">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="qzh-em-MWm">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -372,7 +383,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i82-j5-gB7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="940" y="-524"/>
+            <point key="canvasLocation" x="2814" y="187"/>
         </scene>
         <!--Prayer Times-->
         <scene sceneID="vVa-Le-SWg">

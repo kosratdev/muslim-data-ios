@@ -27,6 +27,10 @@ class PrayersViewController: UIViewController {
 
         prayerTable.dataSource = self
         prayerTable.tableFooterView  = UIView()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
         // Get prayer times
         getPrayers()

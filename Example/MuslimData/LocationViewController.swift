@@ -26,7 +26,6 @@ class LocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.searchController = searchBar()
         navigationItem.searchController?.searchBar.placeholder = "Search locations"
 
@@ -52,6 +51,13 @@ class LocationViewController: UIViewController {
     func displayLocation() {
         let location = Location.loadSavedLocation()
         locationTitle.text = "\(location.city), \(location.countryName)"
+    }
+
+    /// Dismiss and return to the parent screen.
+    ///
+    /// - Parameter sender: Any
+    @IBAction func done(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
 }
 
