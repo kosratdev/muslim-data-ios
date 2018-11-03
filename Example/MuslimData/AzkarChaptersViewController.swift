@@ -41,7 +41,14 @@ class AzkarChaptersViewController: UIViewController {
 
 // MARK: - UITableViewDelegate
 
-extension AzkarChaptersViewController: UITableViewDelegate {}
+extension AzkarChaptersViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let controller = storyboard?.instantiateViewController(withIdentifier: "azkarController") as? AzkarDetailViewController
+        controller?.azkarChapter = chapters[indexPath.row]
+        navigationController?.pushViewController(controller!, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
 
 // MARK: - UITableViewDataSource
 
