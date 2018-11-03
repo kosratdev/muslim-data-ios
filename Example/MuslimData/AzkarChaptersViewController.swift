@@ -30,7 +30,6 @@ class AzkarChaptersViewController: UIViewController {
         // Get azkar chapters from MuslimData library.
         Azkars.azkarChapters(language: .en) { chapters, error in
             guard error == nil else {
-                print("Prayer tims didn't found for the specified properties.")
                 return
             }
             self.chapters = chapters!

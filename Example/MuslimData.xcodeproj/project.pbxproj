@@ -18,7 +18,6 @@
 		2DCAA594218C97A800F4B065 /* NamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCAA593218C97A800F4B065 /* NamesViewController.swift */; };
 		2DEFB3D9218B29ED005D94F4 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEFB3D8218B29ED005D94F4 /* Location.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
@@ -52,7 +51,6 @@
 		607FACD01AFB9204008FA782 /* MuslimData_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MuslimData_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -107,6 +105,32 @@
 			name = Azkars;
 			sourceTree = "<group>";
 		};
+		2DBD7E7F218E346600B6595B /* Prayers */ = {
+			isa = PBXGroup;
+			children = (
+				2DCAA591218C8A7D00F4B065 /* PrayersViewController.swift */,
+			);
+			name = Prayers;
+			sourceTree = "<group>";
+		};
+		2DBD7E80218E347500B6595B /* Names */ = {
+			isa = PBXGroup;
+			children = (
+				2DCAA593218C97A800F4B065 /* NamesViewController.swift */,
+			);
+			name = Names;
+			sourceTree = "<group>";
+		};
+		2DBD7E81218E34A400B6595B /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				607FACDC1AFB9204008FA782 /* Images.xcassets */,
+				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 		2DEFB3D7218B29D8005D94F4 /* Locations */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,16 +173,13 @@
 		607FACD21AFB9204008FA782 /* Example for MuslimData */ = {
 			isa = PBXGroup;
 			children = (
-				2DEFB3D7218B29D8005D94F4 /* Locations */,
-				2DBD7E7C218E01BF00B6595B /* Azkars */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
-				607FACDC1AFB9204008FA782 /* Images.xcassets */,
-				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				2DEFB3D7218B29D8005D94F4 /* Locations */,
+				2DBD7E7F218E346600B6595B /* Prayers */,
+				2DBD7E80218E347500B6595B /* Names */,
+				2DBD7E7C218E01BF00B6595B /* Azkars */,
+				2DBD7E81218E34A400B6595B /* Assets */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
-				2DCAA591218C8A7D00F4B065 /* PrayersViewController.swift */,
-				2DCAA593218C97A800F4B065 /* NamesViewController.swift */,
 			);
 			name = "Example for MuslimData";
 			path = MuslimData;
@@ -410,7 +431,6 @@
 				2D27AC4B2188E621004722BD /* LocationViewController.swift in Sources */,
 				2DCAA594218C97A800F4B065 /* NamesViewController.swift in Sources */,
 				2DBD7E7B218E01AF00B6595B /* AzkarChaptersViewController.swift in Sources */,
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				2DEFB3D9218B29ED005D94F4 /* Location.swift in Sources */,
 				2DBD7E7E218E05FD00B6595B /* AzkarDetailViewController.swift in Sources */,
 				2DCAA592218C8A7D00F4B065 /* PrayersViewController.swift in Sources */,

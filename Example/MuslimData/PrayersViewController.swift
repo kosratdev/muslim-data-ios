@@ -41,7 +41,6 @@ class PrayersViewController: UIViewController {
         PrayerTime.getPrayerTimes(location: location, date: Date(),
                                   attributes: attributes) { (prayerTime, error) in
             guard error == nil else {
-                print("Prayer tims didn't found for the specified properties.")
                 return
             }
             self.prayerTimes = prayerTime!.formatPrayers(.time12)

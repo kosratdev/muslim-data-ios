@@ -29,7 +29,6 @@ class NamesViewController: UIViewController {
         // Get names of allah from MuslimData.
         Names.names(language: .en) { names, error in
             guard error == nil else {
-                print("Prayer tims didn't found for the specified properties.")
                 return
             }
             self.names = names!

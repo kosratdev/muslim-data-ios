@@ -32,7 +32,6 @@ class AzkarDetailViewController: UIViewController {
         // Get azkar items from MuslimData library.
         Azkars.azkarItems(language: .en, chapterId: azkarChapter!.id) { azkars, error in
             guard error == nil else {
-                print("Prayer tims didn't found for the specified properties.")
                 return
             }
             self.azkars = azkars!
