@@ -12,6 +12,7 @@
 		2D4558BA21694A5200A08DAF /* LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4558B921694A5200A08DAF /* LocationTests.swift */; };
 		2D6B21C421708D600054F8C0 /* NamesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6B21C321708D600054F8C0 /* NamesTest.swift */; };
 		2D9FC355217278E0003EF074 /* AzkarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9FC354217278E0003EF074 /* AzkarTests.swift */; };
+		2DBD7E7B218E01AF00B6595B /* AzkarChaptersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBD7E7A218E01AF00B6595B /* AzkarChaptersViewController.swift */; };
 		2DCAA592218C8A7D00F4B065 /* PrayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCAA591218C8A7D00F4B065 /* PrayersViewController.swift */; };
 		2DCAA594218C97A800F4B065 /* NamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCAA593218C97A800F4B065 /* NamesViewController.swift */; };
 		2DEFB3D9218B29ED005D94F4 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEFB3D8218B29ED005D94F4 /* Location.swift */; };
@@ -41,6 +42,7 @@
 		2D4558B921694A5200A08DAF /* LocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTests.swift; sourceTree = "<group>"; };
 		2D6B21C321708D600054F8C0 /* NamesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesTest.swift; sourceTree = "<group>"; };
 		2D9FC354217278E0003EF074 /* AzkarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AzkarTests.swift; sourceTree = "<group>"; };
+		2DBD7E7A218E01AF00B6595B /* AzkarChaptersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AzkarChaptersViewController.swift; sourceTree = "<group>"; };
 		2DCAA591218C8A7D00F4B065 /* PrayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayersViewController.swift; sourceTree = "<group>"; };
 		2DCAA593218C97A800F4B065 /* NamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesViewController.swift; sourceTree = "<group>"; };
 		2DEFB3D8218B29ED005D94F4 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -94,6 +96,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		2DBD7E7C218E01BF00B6595B /* Azkars */ = {
+			isa = PBXGroup;
+			children = (
+				2DBD7E7A218E01AF00B6595B /* AzkarChaptersViewController.swift */,
+			);
+			name = Azkars;
+			sourceTree = "<group>";
+		};
 		2DEFB3D7218B29D8005D94F4 /* Locations */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				2DEFB3D7218B29D8005D94F4 /* Locations */,
+				2DBD7E7C218E01BF00B6595B /* Azkars */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -395,6 +406,7 @@
 			files = (
 				2D27AC4B2188E621004722BD /* LocationViewController.swift in Sources */,
 				2DCAA594218C97A800F4B065 /* NamesViewController.swift in Sources */,
+				2DBD7E7B218E01AF00B6595B /* AzkarChaptersViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				2DEFB3D9218B29ED005D94F4 /* Location.swift in Sources */,
 				2DCAA592218C8A7D00F4B065 /* PrayersViewController.swift in Sources */,
