@@ -14,6 +14,8 @@ Most cities around the world find their prayer times by using some calculations 
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+<img width="40%" src="https://raw.githubusercontent.com/KosratDAhmad/MuslimData/develop/screenshots/1-prayer-times.png" /> <img width="40%" src="https://raw.githubusercontent.com/KosratDAhmad/MuslimData/develop/screenshots/2-locations.png" /> <img width="40%" src="https://raw.githubusercontent.com/KosratDAhmad/MuslimData/develop/screenshots/3-names.png" /> <img width="40%" src="https://raw.githubusercontent.com/KosratDAhmad/MuslimData/develop/screenshots/4-azkars.png" /> <img width="40%" src="https://raw.githubusercontent.com/KosratDAhmad/MuslimData/develop/screenshots/5-azkar-detail.png" />
+
 ## Requirements
 
 * iOS 10.0+
@@ -47,6 +49,13 @@ LocationHelper.shared.citySearch(city: "London") { locations, error in
     print("locations: \(locations)")
 }
 ```
+`Important Note`: Search results always return **false** for **hasFixedPrayerTimes** property in the **Location** object so you need manualy check selected location in the search result like the following example 
+```swift
+// Check the selected location to know that it has fixed prayer times or not.
+LocationHelper.shared.cityHasFixedPrayerTimes(countryCode: location.countryCode, city: location.city) { hasFixed in
+    location.hasFixedPrayerTimes = hasFixed
+}
+```
 
 #### Geocoder 
 
@@ -69,7 +78,7 @@ Use reverse geocoder to find city name by latitude and longitude.
 
 ```swift 
 // Use reverse geocoder to find city name by latitude and longitude.
-LocationHelper.shared.geocoder(latitude: 36.654090, longitude: 44.541278) { (location) in
+LocationHelper.shared.geocoder(latitude: 36.654090, longitude: 44.541278) { location in
     guard let location = location else {
         print("City name can nnot be geocode by latitude and longitude")
         return
@@ -84,7 +93,7 @@ Check a city to know that it has fixed prayer times or not
 
 ```swift
 // Check a city to know that it has fixed prayer times or not
-LocationHelper.shared.cityHasFixedPrayerTimes(countryCode: "IQ", city: "Duhok") { (hasFixed) in
+LocationHelper.shared.cityHasFixedPrayerTimes(countryCode: "IQ", city: "Duhok") { hasFixed in
     print("City has fixed prayer times: \(hasFixed)")
 }
 ```

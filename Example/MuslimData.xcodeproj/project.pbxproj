@@ -8,11 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		2D110EDE216BE7FB002035FA /* PrayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D110EDD216BE7FB002035FA /* PrayerTests.swift */; };
+		2D27AC4B2188E621004722BD /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D27AC4A2188E621004722BD /* LocationViewController.swift */; };
 		2D4558BA21694A5200A08DAF /* LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4558B921694A5200A08DAF /* LocationTests.swift */; };
 		2D6B21C421708D600054F8C0 /* NamesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6B21C321708D600054F8C0 /* NamesTest.swift */; };
 		2D9FC355217278E0003EF074 /* AzkarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9FC354217278E0003EF074 /* AzkarTests.swift */; };
+		2DBD7E7B218E01AF00B6595B /* AzkarChaptersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBD7E7A218E01AF00B6595B /* AzkarChaptersViewController.swift */; };
+		2DBD7E7E218E05FD00B6595B /* AzkarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBD7E7D218E05FD00B6595B /* AzkarDetailViewController.swift */; };
+		2DCAA592218C8A7D00F4B065 /* PrayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCAA591218C8A7D00F4B065 /* PrayersViewController.swift */; };
+		2DCAA594218C97A800F4B065 /* NamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCAA593218C97A800F4B065 /* NamesViewController.swift */; };
+		2DEFB3D9218B29ED005D94F4 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEFB3D8218B29ED005D94F4 /* Location.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
@@ -33,14 +38,19 @@
 /* Begin PBXFileReference section */
 		1FA7CF45010583A8DE450B74 /* Pods-MuslimData_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuslimData_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MuslimData_Example/Pods-MuslimData_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		2D110EDD216BE7FB002035FA /* PrayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTests.swift; sourceTree = "<group>"; };
+		2D27AC4A2188E621004722BD /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		2D4558B921694A5200A08DAF /* LocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTests.swift; sourceTree = "<group>"; };
 		2D6B21C321708D600054F8C0 /* NamesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesTest.swift; sourceTree = "<group>"; };
 		2D9FC354217278E0003EF074 /* AzkarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AzkarTests.swift; sourceTree = "<group>"; };
+		2DBD7E7A218E01AF00B6595B /* AzkarChaptersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AzkarChaptersViewController.swift; sourceTree = "<group>"; };
+		2DBD7E7D218E05FD00B6595B /* AzkarDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AzkarDetailViewController.swift; sourceTree = "<group>"; };
+		2DCAA591218C8A7D00F4B065 /* PrayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayersViewController.swift; sourceTree = "<group>"; };
+		2DCAA593218C97A800F4B065 /* NamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesViewController.swift; sourceTree = "<group>"; };
+		2DEFB3D8218B29ED005D94F4 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		5665FE91640402C3D36C56F2 /* Pods-MuslimData_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuslimData_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MuslimData_Tests/Pods-MuslimData_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* MuslimData_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MuslimData_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -86,6 +96,51 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		2DBD7E7C218E01BF00B6595B /* Azkars */ = {
+			isa = PBXGroup;
+			children = (
+				2DBD7E7A218E01AF00B6595B /* AzkarChaptersViewController.swift */,
+				2DBD7E7D218E05FD00B6595B /* AzkarDetailViewController.swift */,
+			);
+			name = Azkars;
+			sourceTree = "<group>";
+		};
+		2DBD7E7F218E346600B6595B /* Prayers */ = {
+			isa = PBXGroup;
+			children = (
+				2DEFB3D7218B29D8005D94F4 /* Locations */,
+				2DCAA591218C8A7D00F4B065 /* PrayersViewController.swift */,
+			);
+			name = Prayers;
+			sourceTree = "<group>";
+		};
+		2DBD7E80218E347500B6595B /* Names */ = {
+			isa = PBXGroup;
+			children = (
+				2DCAA593218C97A800F4B065 /* NamesViewController.swift */,
+			);
+			name = Names;
+			sourceTree = "<group>";
+		};
+		2DBD7E81218E34A400B6595B /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				607FACDC1AFB9204008FA782 /* Images.xcassets */,
+				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		2DEFB3D7218B29D8005D94F4 /* Locations */ = {
+			isa = PBXGroup;
+			children = (
+				2D27AC4A2188E621004722BD /* LocationViewController.swift */,
+				2DEFB3D8218B29ED005D94F4 /* Location.swift */,
+			);
+			name = Locations;
+			sourceTree = "<group>";
+		};
 		41A62F07BE87B6355FB1E1CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,10 +175,10 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
-				607FACDC1AFB9204008FA782 /* Images.xcassets */,
-				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				2DBD7E7F218E346600B6595B /* Prayers */,
+				2DBD7E80218E347500B6595B /* Names */,
+				2DBD7E7C218E01BF00B6595B /* Azkars */,
+				2DBD7E81218E34A400B6595B /* Assets */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for MuslimData";
@@ -373,7 +428,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				2D27AC4B2188E621004722BD /* LocationViewController.swift in Sources */,
+				2DCAA594218C97A800F4B065 /* NamesViewController.swift in Sources */,
+				2DBD7E7B218E01AF00B6595B /* AzkarChaptersViewController.swift in Sources */,
+				2DEFB3D9218B29ED005D94F4 /* Location.swift in Sources */,
+				2DBD7E7E218E05FD00B6595B /* AzkarDetailViewController.swift in Sources */,
+				2DCAA592218C8A7D00F4B065 /* PrayersViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
