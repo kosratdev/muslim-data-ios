@@ -26,7 +26,7 @@
 		22AEEEEF973CBE543630728D9F10A745 /* RequestProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E9D4CEEA9C65C397135276C002597 /* RequestProtocols.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		25AC45DE4E85FCE452A86656A3B3678F /* SQLiteDateParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E5C80DD813681D6D33E6C1C9D723C /* SQLiteDateParser.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		264A89433E2DC30CFCE29421746CD0D4 /* VirtualTableModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41865C76CBFE33B44D68F99A0D9AE5A7 /* VirtualTableModule.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		2AAE5EE75216199F6806C30889F809CA /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77497E653D61328EF8422F1E63E9624D /* Date+Extensions.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2AAE5EE75216199F6806C30889F809CA /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77497E653D61328EF8422F1E63E9624D /* DateExtensions.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		2D275BAC216FDB9F009058C2 /* Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D275BAB216FDB9F009058C2 /* Name.swift */; };
 		2D275BAE216FDCB2009058C2 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D275BAD216FDCB2009058C2 /* Language.swift */; };
 		2D275BB0216FDD95009058C2 /* Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D275BAF216FDD95009058C2 /* Names.swift */; };
@@ -266,7 +266,7 @@
 		750D8D7DC71BBD65322699D1A932CF33 /* QueryInterfaceRequest+Association.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "QueryInterfaceRequest+Association.swift"; path = "GRDB/QueryInterface/QueryInterfaceRequest+Association.swift"; sourceTree = "<group>"; };
 		759F20942A4272E5BF84CF07EEC0F987 /* MuslimData.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = MuslimData.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		7686B57EA6AAAC222E6267A2DC1255B1 /* NSNumber.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NSNumber.swift; path = GRDB/Core/Support/Foundation/NSNumber.swift; sourceTree = "<group>"; };
-		77497E653D61328EF8422F1E63E9624D /* Date+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		77497E653D61328EF8422F1E63E9624D /* DateExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		77C87DA23071B93A2B015498BFBAD108 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7905C0E0932BB6984A598095DBD9D76B /* Pods-MuslimData_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MuslimData_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		7981A9D4F90B4BBFFF60E9311443EE44 /* MuslimData-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MuslimData-prefix.pch"; sourceTree = "<group>"; };
@@ -514,7 +514,7 @@
 		AFC3848F5B1C7B8A32BF28A84D86930B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				77497E653D61328EF8422F1E63E9624D /* Date+Extensions.swift */,
+				77497E653D61328EF8422F1E63E9624D /* DateExtensions.swift */,
 				A72ECFBD72A8A92833E075887BD87538 /* String+Extensions.swift */,
 			);
 			name = Extensions;
@@ -900,7 +900,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AAE5EE75216199F6806C30889F809CA /* Date+Extensions.swift in Sources */,
+				2AAE5EE75216199F6806C30889F809CA /* DateExtensions.swift in Sources */,
 				B4DE0630FB32DC7EE21FE2580E92B63E /* DBHelper.swift in Sources */,
 				3D79C100C060692888A43F6F52A03AB6 /* Location.swift in Sources */,
 				91633239447D99907A1A2D43A68337CF /* LocationHelper.swift in Sources */,

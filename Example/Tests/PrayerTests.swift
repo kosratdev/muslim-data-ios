@@ -13,12 +13,14 @@ class PrayerTests: XCTestCase {
 
     var attributes: PrayerAttribute!
     var date: Date!
+    var offsets: [Double]!
 
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         date = Date(timeIntervalSince1970: 1538956800) // 2018/10/08
-        attributes = PrayerAttribute(method: .makkah, asrMethod: .shafii, adjustAngle: .angleBased)
+        offsets = [1,1,1,-1,-1,-1]
+        attributes = PrayerAttribute(method: .makkah, asrMethod: .shafii, adjustAngle: .angleBased, offsets: offsets)
     }
 
     override func tearDown() {
@@ -36,12 +38,12 @@ class PrayerTests: XCTestCase {
             XCTAssertNil(error)
             XCTAssertNotNil(prayer)
             let stringPrayer = prayer!.formatPrayers(.time24)
-            XCTAssertEqual(stringPrayer[0], "04:45")
-            XCTAssertEqual(stringPrayer[1], "06:10")
-            XCTAssertEqual(stringPrayer[2], "11:58")
-            XCTAssertEqual(stringPrayer[3], "15:14")
-            XCTAssertEqual(stringPrayer[4], "17:44")
-            XCTAssertEqual(stringPrayer[5], "18:59")
+            XCTAssertEqual(stringPrayer[0], "04:46")
+            XCTAssertEqual(stringPrayer[1], "06:11")
+            XCTAssertEqual(stringPrayer[2], "11:59")
+            XCTAssertEqual(stringPrayer[3], "15:13")
+            XCTAssertEqual(stringPrayer[4], "17:43")
+            XCTAssertEqual(stringPrayer[5], "18:58")
         }
 
         // Test fixed prayer times for Erbil, Iraq
@@ -51,12 +53,12 @@ class PrayerTests: XCTestCase {
             XCTAssertNil(error)
             XCTAssertNotNil(prayer)
             let stringPrayer = prayer!.formatPrayers(.time24)
-            XCTAssertEqual(stringPrayer[0], "04:41")
-            XCTAssertEqual(stringPrayer[1], "06:09")
-            XCTAssertEqual(stringPrayer[2], "12:01")
-            XCTAssertEqual(stringPrayer[3], "15:11")
-            XCTAssertEqual(stringPrayer[4], "17:42")
-            XCTAssertEqual(stringPrayer[5], "18:57")
+            XCTAssertEqual(stringPrayer[0], "04:42")
+            XCTAssertEqual(stringPrayer[1], "06:10")
+            XCTAssertEqual(stringPrayer[2], "12:02")
+            XCTAssertEqual(stringPrayer[3], "15:10")
+            XCTAssertEqual(stringPrayer[4], "17:41")
+            XCTAssertEqual(stringPrayer[5], "18:56")
         }
 
         // Test fixed prayer times for Baghdad, Iraq
@@ -66,12 +68,12 @@ class PrayerTests: XCTestCase {
             XCTAssertNil(error)
             XCTAssertNotNil(prayer)
             let stringPrayer = prayer!.formatPrayers(.time24)
-            XCTAssertEqual(stringPrayer[0], "04:33")
-            XCTAssertEqual(stringPrayer[1], "06:02")
-            XCTAssertEqual(stringPrayer[2], "11:57")
-            XCTAssertEqual(stringPrayer[3], "15:15")
-            XCTAssertEqual(stringPrayer[4], "17:41")
-            XCTAssertEqual(stringPrayer[5], "18:59")
+            XCTAssertEqual(stringPrayer[0], "04:34")
+            XCTAssertEqual(stringPrayer[1], "06:03")
+            XCTAssertEqual(stringPrayer[2], "11:58")
+            XCTAssertEqual(stringPrayer[3], "15:14")
+            XCTAssertEqual(stringPrayer[4], "17:40")
+            XCTAssertEqual(stringPrayer[5], "18:58")
         }
 
         // Test fixed prayer times for Sanandaj, Iran
@@ -81,12 +83,12 @@ class PrayerTests: XCTestCase {
             XCTAssertNil(error)
             XCTAssertNotNil(prayer)
             let stringPrayer = prayer!.formatPrayers(.time24)
-            XCTAssertEqual(stringPrayer[0], "04:57")
-            XCTAssertEqual(stringPrayer[1], "06:22")
-            XCTAssertEqual(stringPrayer[2], "12:28")
-            XCTAssertEqual(stringPrayer[3], "15:28")
-            XCTAssertEqual(stringPrayer[4], "18:05")
-            XCTAssertEqual(stringPrayer[5], "19:15")
+            XCTAssertEqual(stringPrayer[0], "04:58")
+            XCTAssertEqual(stringPrayer[1], "06:23")
+            XCTAssertEqual(stringPrayer[2], "12:29")
+            XCTAssertEqual(stringPrayer[3], "15:27")
+            XCTAssertEqual(stringPrayer[4], "18:04")
+            XCTAssertEqual(stringPrayer[5], "19:14")
         }
     }
 
@@ -98,12 +100,12 @@ class PrayerTests: XCTestCase {
             XCTAssertNil(error)
             XCTAssertNotNil(prayer)
             let stringPrayer = prayer!.formatPrayers(.time24)
-            XCTAssertEqual(stringPrayer[0], "04:58")
-            XCTAssertEqual(stringPrayer[1], "06:14")
-            XCTAssertEqual(stringPrayer[2], "12:08")
-            XCTAssertEqual(stringPrayer[3], "15:31")
-            XCTAssertEqual(stringPrayer[4], "18:02")
-            XCTAssertEqual(stringPrayer[5], "19:32")
+            XCTAssertEqual(stringPrayer[0], "04:59")
+            XCTAssertEqual(stringPrayer[1], "06:15")
+            XCTAssertEqual(stringPrayer[2], "12:09")
+            XCTAssertEqual(stringPrayer[3], "15:30")
+            XCTAssertEqual(stringPrayer[4], "18:01")
+            XCTAssertEqual(stringPrayer[5], "19:31")
         }
     }
 }

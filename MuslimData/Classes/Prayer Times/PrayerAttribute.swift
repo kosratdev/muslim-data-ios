@@ -11,11 +11,13 @@ public struct PrayerAttribute {
     public let method: Prayer.CalculationMethods
     public let asrMethod: Prayer.AsrJuristicMethods
     public let adjustAngle: Prayer.AdjustingMethods
+    public let offsets: [Double]
 
     public init(method: Prayer.CalculationMethods, asrMethod: Prayer.AsrJuristicMethods,
-                adjustAngle: Prayer.AdjustingMethods) {
+                adjustAngle: Prayer.AdjustingMethods, offsets: [Double]) {
         self.method = method
         self.asrMethod = asrMethod
         self.adjustAngle = adjustAngle
+        self.offsets = offsets
     }
 }
