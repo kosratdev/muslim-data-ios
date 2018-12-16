@@ -26,4 +26,12 @@ extension Date {
         }
         return dateFormatter.string(from: self)
     }
+
+    /// Add minutes to the date.
+    ///
+    /// - Parameter minutes: minutes to be added to the date.
+    /// - Returns: New date that added the specified minutes.
+    public func addMinutes(_ minutes: Double) -> Date {
+        return addingTimeInterval(60 * minutes)
+    }
 }

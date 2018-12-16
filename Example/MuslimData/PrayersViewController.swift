@@ -40,8 +40,9 @@ class PrayersViewController: UIViewController {
 
     /// Get prayer times from the MuslimData library
     func getPrayers() {
+        let offsets = [Double](repeating: 0, count: 6)
         let location = Location.loadSavedLocation()
-        let attributes = PrayerAttribute(method: .makkah, asrMethod: .shafii, adjustAngle: .angleBased)
+        let attributes = PrayerAttribute(method: .makkah, asrMethod: .shafii, adjustAngle: .angleBased, offsets: offsets)
         PrayerTime.getPrayerTimes(location: location, date: Date(),
                                   attributes: attributes) { (prayerTime, error) in
             guard error == nil else {

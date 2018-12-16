@@ -18,6 +18,20 @@ public struct PrayerTime {
     public var maghrib: Date
     public var isha: Date
 
+    // MARK: - Private Methods
+
+    /// Apply offests to the current prayer times.
+    ///
+    /// - Parameter offsets: List of double values as prayer offsets.
+    private mutating func applyOffsets(_ offsets: [Double]) {
+        fajr = fajr.addMinutes(offsets[0])
+        sunrise = sunrise.addMinutes(offsets[1])
+        dhuhr = dhuhr.addMinutes(offsets[2])
+        asr = asr.addMinutes(offsets[3])
+        maghrib = maghrib.addMinutes(offsets[4])
+        isha = isha.addMinutes(offsets[5])
+    }
+
     // MARK: - Public Methods
 
     /// Get prayer times from the prayer database.
@@ -41,12 +55,13 @@ public struct PrayerTime {
                 return
             }
 
-            let prayerTime = PrayerTime(fajr: fajr.toDate(date),
+            var prayerTime = PrayerTime(fajr: fajr.toDate(date),
                                         sunrise: sunrise.toDate(date),
                                         dhuhr: dhuhr.toDate(date),
                                         asr: asr.toDate(date),
                                         maghrib: maghrib.toDate(date),
                                         isha: isha.toDate(date))
+            prayerTime.applyOffsets(attributes.offsets)
             callback(prayerTime, nil)
             return
         }
@@ -68,12 +83,13 @@ public struct PrayerTime {
             }
 
             // Create PrayerTime object.
-            let prayerTime = PrayerTime(fajr: fajr.toDate(date),
+            var prayerTime = PrayerTime(fajr: fajr.toDate(date),
                                         sunrise: sunrise.toDate(date),
                                         dhuhr: dhuhr.toDate(date),
                                         asr: asr.toDate(date),
                                         maghrib: maghrib.toDate(date),
                                         isha: isha.toDate(date))
+            prayerTime.applyOffsets(attributes.offsets)
             callback(prayerTime, nil)
         }
     }
