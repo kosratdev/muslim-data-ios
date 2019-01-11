@@ -36,14 +36,14 @@ open class Prayer {
     // ------------------------------------------------------------
     // Calculation Methods
     public enum CalculationMethods: Int {
-        case jafari = 0 // Ithna Ashari
-        case karachi // University of Islamic Sciences, Karachi
-        case isna // Islamic Society of North America (ISNA)
+        case makkah = 0 // Umm al-Qura, Makkah
         case mwl // Muslim World League (MWL)
-        case makkah // Umm al-Qura, Makkah
+        case isna // Islamic Society of North America (ISNA)
+        case karachi // University of Islamic Sciences, Karachi
         case egypt // Egyptian General Authority of Survey
-        case custom // Custom Setting
+        case jafari // Ithna Ashari
         case tehran // Institute of Geophysics, University of Tehran
+        case custom // Custom Setting
     }
 
     // ------------------------------------------------------------
@@ -78,14 +78,14 @@ open class Prayer {
     // Time Names
     let numIterations: Int = 1 // number of iterations needed to compute times
     var methodParams: [CalculationMethods: [Double]] = [
-        .jafari: [16, 0, 4, 0, 14],
-        .karachi: [18, 1, 0, 0, 18],
-        .isna: [15, 1, 0, 0, 15],
-        .mwl: [18, 1, 0, 0, 17],
         .makkah: [18.5, 1, 0, 1, 90],
+        .mwl: [18, 1, 0, 0, 17],
+        .isna: [15, 1, 0, 0, 15],
+        .karachi: [18, 1, 0, 0, 18],
         .egypt: [18, 1, 0, 0, 17],
-        .custom: [19.5, 1, 0, 0, 17.5],
+        .jafari: [16, 0, 4, 0, 14],
         .tehran: [17.7, 0, 4.5, 0, 14],
+        .custom: [19.5, 1, 0, 0, 17.5],
     ]
 
     // ------------------------------------------------------------
@@ -95,10 +95,6 @@ open class Prayer {
         self.asrJuristic = asrJuristic
         self.adjustHighLats = adjustHighLats
         self.timeFormat = timeFormat
-    }
-
-    public init(caculationmethod _: CalculationMethods, asrJuristic _: AsrJuristicMethods, adjustHighLats _: AdjustingMethods, timeFormat _: TimeForamts, offsets: [Double]) {
-        self.offsets = offsets
     }
 
     // ---------------------- Julian Date Functions -----------------------
