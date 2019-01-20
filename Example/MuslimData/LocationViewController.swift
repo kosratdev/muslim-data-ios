@@ -26,8 +26,10 @@ class LocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.searchController = searchBar()
-        navigationItem.searchController?.searchBar.placeholder = "Search locations"
+        if #available(iOS 11.0, *) {
+            navigationItem.searchController = searchBar()
+            navigationItem.searchController?.searchBar.placeholder = "Search locations"
+        }
 
         locationTable.delegate = self
         locationTable.dataSource = self
@@ -90,7 +92,9 @@ extension LocationViewController: UITableViewDelegate {
             location.saveLocation()
             self.displayLocation()
         }
-        navigationItem.searchController?.isActive = false
+        if #available(iOS 11.0, *) {
+            navigationItem.searchController?.isActive = false
+        }
     }
 }
 

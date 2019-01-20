@@ -129,6 +129,8 @@ extension DatabaseWriter {
     /// Add a transaction observer, so that it gets notified of
     /// database changes.
     ///
+    /// To remove the observer, use `DatabaseReader.remove(transactionObserver:)`.
+    ///
     /// - parameter transactionObserver: A transaction observer.
     /// - parameter extent: The duration of the observation. The default is
     ///   the observer lifetime (observation lasts until observer
@@ -137,7 +139,8 @@ extension DatabaseWriter {
         writeWithoutTransaction { $0.add(transactionObserver: transactionObserver, extent: extent) }
     }
     
-    /// Remove a transaction observer.
+    /// Default implementation for the DatabaseReader requirement.
+    /// :nodoc:
     public func remove(transactionObserver: TransactionObserver) {
         writeWithoutTransaction { $0.remove(transactionObserver: transactionObserver) }
     }
@@ -187,37 +190,6 @@ extension DatabaseWriter {
         #endif
     }
     
-    // MARK: - Reading from Database
-    
-    /// Default implementation, based on the deprecated readFromCurrentState.
-    ///
-    /// :nodoc:
-    public func concurrentRead<T>(_ block: @escaping (Database) throws -> T) -> Future<T> {
-        let semaphore = DispatchSemaphore(value: 0)
-        var result: Result<T>? = nil
-
-        do {
-            try readFromCurrentState { db in
-                result = Result { try block(db) }
-                semaphore.signal()
-            }
-        } catch {
-            result = .failure(error)
-            semaphore.signal()
-        }
-
-        return Future {
-            _ = semaphore.wait(timeout: .distantFuture)
-
-            switch result! {
-            case .failure(let error):
-                throw error
-            case .success(let result):
-                return result
-            }
-        }
-    }
-    
     // MARK: - Claiming Disk Space
     
     /// Rebuilds the database file, repacking it into a minimal amount of
@@ -226,6 +198,110 @@ extension DatabaseWriter {
     /// See https://www.sqlite.org/lang_vacuum.html for more information.
     public func vacuum() throws {
         try writeWithoutTransaction { try $0.execute("VACUUM") }
+    }
+    
+    // MARK: - Value Observation
+    
+    /// Default implementation for the DatabaseReader requirement.
+    /// :nodoc:
+    public func add<Reducer: ValueReducer>(
+        observation: ValueObservation<Reducer>,
+        onError: ((Error) -> Void)?,
+        onChange: @escaping (Reducer.Value) -> Void)
+        throws -> TransactionObserver
+    {
+        let calledOnMainQueue = DispatchQueue.isMain
+        var startValue: Reducer.Value? = nil
+        defer {
+            if let startValue = startValue {
+                onChange(startValue)
+            }
+        }
+        
+        // Use unsafeReentrantWrite so that observation can start from any
+        // dispatch queue.
+        return try unsafeReentrantWrite { db in
+            // Create the reducer
+            var reducer = try observation.makeReducer(db)
+            
+            // Take care of initial value. Make sure it is dispatched before
+            // any future transaction can trigger a change.
+            switch observation.scheduling {
+            case .mainQueue:
+                if let value = try reducer.initialValue(db, requiresWriteAccess: observation.requiresWriteAccess) {
+                    if calledOnMainQueue {
+                        startValue = value
+                    } else {
+                        DispatchQueue.main.async { onChange(value) }
+                    }
+                }
+            case let .onQueue(queue, startImmediately: startImmediately):
+                if startImmediately {
+                    if let value = try reducer.initialValue(db, requiresWriteAccess: observation.requiresWriteAccess) {
+                        queue.async { onChange(value) }
+                    }
+                }
+            case let .unsafe(startImmediately: startImmediately):
+                if startImmediately {
+                    startValue = try reducer.initialValue(db, requiresWriteAccess: observation.requiresWriteAccess)
+                }
+            }
+            
+            // Start observing the database
+            let valueObserver = try ValueObserver(
+                region: observation.observedRegion(db),
+                reducer: reducer,
+                configuration: db.configuration,
+                fetch: observation.fetchAfterChange(in: self),
+                notificationQueue: observation.notificationQueue,
+                onError: onError,
+                onChange: onChange)
+            db.add(transactionObserver: valueObserver, extent: observation.extent)
+            
+            return valueObserver
+        }
+    }
+}
+
+extension ValueReducer {
+    /// Helper method for DatabaseWriter.add(observation:onError:onChange:)
+    fileprivate mutating func initialValue(_ db: Database, requiresWriteAccess: Bool) throws -> Value? {
+        if requiresWriteAccess {
+            var fetchedValue: Fetched!
+            try db.inSavepoint {
+                fetchedValue = try fetch(db)
+                return .commit
+            }
+            return value(fetchedValue)
+        } else {
+            return try value(db.readOnly { try fetch(db) })
+        }
+    }
+}
+
+extension ValueObservation where Reducer: ValueReducer {
+    /// Helper method for DatabaseWriter.add(observation:onError:onChange:)
+    fileprivate func fetchAfterChange(in writer: DatabaseWriter) -> (Database, Reducer) -> Future<Reducer.Fetched> {
+        // The technique to return a future value after database has changed
+        // depends on the requiresWriteAccess flag:
+        if requiresWriteAccess {
+            // Synchronous fetch
+            return { (db, reducer) in
+                Future(Result {
+                    var fetchedValue: Reducer.Fetched!
+                    try db.inTransaction {
+                        fetchedValue = try reducer.fetch(db)
+                        return .commit
+                    }
+                    return fetchedValue
+                })
+            }
+        } else {
+            // Concurrent fetch
+            return { [unowned writer] (_, reducer) in
+                writer.concurrentRead(reducer.fetch)
+            }
+        }
     }
 }
 
@@ -236,6 +312,10 @@ public class Future<Value> {
     
     init(_ wait: @escaping () throws -> Value) {
         _wait = wait
+    }
+    
+    init(_ result: Result<Value>) {
+        _wait = { try result.unwrap() }
     }
     
     /// Blocks the current thread until the value is available, and returns it.
