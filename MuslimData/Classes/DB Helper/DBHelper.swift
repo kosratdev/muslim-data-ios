@@ -17,8 +17,10 @@ class DBHelper {
     // MARK: - Life cycle
 
     private init() {
+        var configuration = Configuration()
+        configuration.readonly = true
         let databaseURL = Bundle(for: DBHelper.self).path(forResource: "MuslimData", ofType: "db")!
-        dbPool = try? DatabasePool(path: databaseURL)
+        dbPool = try? DatabasePool(path: databaseURL, configuration: configuration)
 
         // Be a nice iOS citizen, and don’t consume too much memory
         // See https://github.com/groue/GRDB.swift/#memory-management

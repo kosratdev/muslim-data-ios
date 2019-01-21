@@ -1,6 +1,6 @@
 PODS:
-  - GRDB.swift (3.3.1)
-  - MuslimData (0.1.0):
+  - GRDB.swift (3.6.2)
+  - MuslimData (1.0.0-beta.6):
     - GRDB.swift
 
 DEPENDENCIES:
@@ -15,8 +15,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  GRDB.swift: d7ec5d5cc95df7f08c655e5a6500b54f4b092e89
-  MuslimData: b65b45da6a73b62e8d4a089d118f892cd1cc9453
+  GRDB.swift: e10787d857b6b8135354b9e08fb23b4bb8e2fab7
+  MuslimData: debe6225717ba9b0ae67effb191b5c9d286df4dc
 
 PODFILE CHECKSUM: f1a8413ff73c18d27d5283425e84b7905893b20c
 
