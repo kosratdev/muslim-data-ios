@@ -27,7 +27,7 @@ MuslimData is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'MuslimData', '1.0.0-beta.6'
+pod 'MuslimData', '1.0.0-beta.7'
 ```
 
 ## Usage 
