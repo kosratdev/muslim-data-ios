@@ -83,12 +83,12 @@ class PrayerTests: XCTestCase {
             XCTAssertNil(error)
             XCTAssertNotNil(prayer)
             let stringPrayer = prayer!.formatPrayers(.time24)
-            XCTAssertEqual(stringPrayer[0], "04:58")
+            XCTAssertEqual(stringPrayer[0], "05:04")
             XCTAssertEqual(stringPrayer[1], "06:23")
             XCTAssertEqual(stringPrayer[2], "12:29")
             XCTAssertEqual(stringPrayer[3], "15:27")
             XCTAssertEqual(stringPrayer[4], "18:04")
-            XCTAssertEqual(stringPrayer[5], "19:14")
+            XCTAssertEqual(stringPrayer[5], "19:19")
         }
     }
 

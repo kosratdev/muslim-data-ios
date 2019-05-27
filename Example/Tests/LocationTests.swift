@@ -119,7 +119,7 @@ class LocationTests: XCTestCase {
         XCTAssertEqual("Khalakan".mapper(countryCode: "IQ"), "Koysinjaq")
         XCTAssertEqual("Sangasar".mapper(countryCode: "IQ"), "Qalat Dizah")
         XCTAssertEqual("Takiya".mapper(countryCode: "IQ"), "Sulaymaniyah")
-        XCTAssertEqual("Divandarreh".mapper(countryCode: "IR"), "Kamyaran")
+        XCTAssertEqual("Divandarreh".mapper(countryCode: "IR"), "Sanandaj")
         XCTAssertEqual("Rai".mapper(countryCode: "KW"), "Al Asimah")
         XCTAssertEqual("Kubbar Island".mapper(countryCode: "KW"), "Failaka Island")
         XCTAssertEqual("Jahra".mapper(countryCode: "KW"), "Abdali")
