@@ -31,7 +31,7 @@ public struct LocationHelper {
         DispatchQueue.global(qos: .background).async {
             do {
                 try self.dbHelper.dbPool?.read { dbConnect in
-                    let locations = try Location.fetchAll(dbConnect, """
+                    let locations = try Location.fetchAll(dbConnect, sql: """
                     SELECT cities.country_code as country_code, cities.city as city, cities.latitude as latitude,
                     cities.longitude as longitude, countries.country_name as country_name
                     FROM cities
@@ -59,7 +59,7 @@ public struct LocationHelper {
     public func geocoder(countryCode: String, city: String, callback: @escaping (Location?) -> Void) {
         do {
             try dbHelper.dbPool?.read { dbConnect in
-                let result = try Location.fetchOne(dbConnect, """
+                let result = try Location.fetchOne(dbConnect, sql: """
                 SELECT cities.country_code as country_code, cities.city as city, cities.latitude as latitude,
                 cities.longitude as longitude, countries.country_name as country_name
                 FROM cities
@@ -73,7 +73,7 @@ public struct LocationHelper {
                 }
 
                 let isStatic = try Bool.fetchOne(
-                    dbConnect, """
+                    dbConnect, sql: """
                     SELECT * FROM prayer_times
                     where country_code = '\(location.countryCode)' and
                     city = '\(location.city.mapper(countryCode: location.countryCode))'
@@ -96,7 +96,7 @@ public struct LocationHelper {
     public func geocoder(latitude: Double, longitude: Double, callback: @escaping (Location?) -> Void) {
         do {
             try dbHelper.dbPool?.read { dbConnect in
-                let result = try Location.fetchOne(dbConnect, """
+                let result = try Location.fetchOne(dbConnect, sql: """
                 SELECT cities.country_code as country_code, cities.city as city, cities.latitude as latitude,
                 cities.longitude as longitude, countries.country_name as country_name
                 FROM cities
@@ -111,7 +111,7 @@ public struct LocationHelper {
                 }
 
                 let hasFixed = try Bool.fetchOne(
-                    dbConnect, """
+                    dbConnect, sql: """
                     SELECT * FROM prayer_times
                     where country_code='\(location.countryCode)' and
                     city = '\(location.city.mapper(countryCode: location.countryCode))'
@@ -133,7 +133,7 @@ public struct LocationHelper {
     public func cityHasFixedPrayerTimes(countryCode: String, city: String, callback: @escaping (Bool) -> Void) {
         do {
             try dbHelper.dbPool?.read { dbConnect in
-                let result = try Bool.fetchOne(dbConnect, """
+                let result = try Bool.fetchOne(dbConnect, sql: """
                 SELECT * FROM prayer_times
                 WHERE country_code='\(countryCode)' and
                 city = '\(city.mapper(countryCode: countryCode))'

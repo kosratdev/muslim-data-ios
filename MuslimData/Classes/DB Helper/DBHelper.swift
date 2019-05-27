@@ -32,7 +32,7 @@ class DBHelper {
     func prayerTimes(countryCode: String, city: String, date: Date, callback: @escaping (Row?, String?) -> Void) {
         do {
             try dbPool?.read { dbConnect in
-                let result = try Row.fetchOne(dbConnect, """
+                let result = try Row.fetchOne(dbConnect, sql: """
                 SELECT * FROM prayer_times
                 WHERE country_code = '\(countryCode)' and city = '\(city.mapper(countryCode: countryCode))'
                 and date = '\(formatPrayerDate(date))'
@@ -56,7 +56,7 @@ class DBHelper {
     func names(language: Language, callback: @escaping ([Name]?, String?) -> Void) {
         do {
             try dbPool?.read { dbConnect in
-                let result = try Name.fetchAll(dbConnect, """
+                let result = try Name.fetchAll(dbConnect, sql: """
                 SELECT ori.name , tr.name as translated
                 FROM names as ori
                 INNER JOIN names_translations as tr on tr.name_id = ori._id and tr.language = '\(language)'
@@ -80,7 +80,7 @@ class DBHelper {
     func azkarCategories(language: Language, callback: @escaping ([AzkarCategory]?, String?) -> Void) {
         do {
             try dbPool?.read { dbConnect in
-                let result = try AzkarCategory.fetchAll(dbConnect, """
+                let result = try AzkarCategory.fetchAll(dbConnect, sql: """
                 SELECT org._id, category_name
                 FROM azkar_categories as org
                 INNER JOIN azkar_categories_translations as tr on tr.category_id = org._id
@@ -110,7 +110,7 @@ class DBHelper {
         }
         do {
             try dbPool?.read { dbConnect in
-                let result = try AzkarChapter.fetchAll(dbConnect, """
+                let result = try AzkarChapter.fetchAll(dbConnect, sql: """
                 SELECT org._id, category_id, chapter_name
                 FROM azkar_chapters as org
                 INNER JOIN azkar_chapters_translations as tr on tr.chapter_id = org._id and language = '\(language)'
@@ -136,7 +136,7 @@ class DBHelper {
     func azkarItems(language: Language, chapterId: Int, callback: @escaping ([AzkarItem]?, String?) -> Void) {
         do {
             try dbPool?.read { dbConnect in
-                let result = try AzkarItem.fetchAll(dbConnect, """
+                let result = try AzkarItem.fetchAll(dbConnect, sql: """
                 SELECT org._id, org.chapter_id, org.item, tr.item_translation, rtr.reference
                 FROM azkar_items as org
                 INNER JOIN azkar_items_translations as tr on tr.item_id = org._id and tr.language = '\(language)'
