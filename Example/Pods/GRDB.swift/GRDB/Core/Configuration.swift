@@ -2,6 +2,8 @@ import Foundation
 import Dispatch
 #if SWIFT_PACKAGE
     import CSQLite
+#elseif GRDBCIPHER
+    import SQLCipher
 #elseif !GRDBCUSTOMSQLITE && !GRDBCIPHER
     import SQLite3
 #endif
@@ -77,12 +79,27 @@ public struct Configuration {
     // MARK: - Encryption
     
     #if SQLITE_HAS_CODEC
-    /// The passphrase for encrypted database.
+    /// The passphrase for the encrypted database.
     ///
     /// Default: nil
     public var passphrase: String?
-    #endif
     
+    #endif
+
+    /// If set, allows custom configuration to be run every time
+    /// a new connection is opened.
+    ///
+    /// This block is run after the Database's connection has opened, but
+    /// before that connection has been made available to any read/write
+    /// API's.
+    ///
+    /// For example:
+    ///
+    ///     var config = Configuration()
+    ///     config.prepareDatabase = { db in
+    ///         try db.execute(sql: "PRAGMA kdf_iter = 10000")
+    ///     }
+    public var prepareDatabase: ((Database) throws -> Void)?
     
     // MARK: - Transactions
     

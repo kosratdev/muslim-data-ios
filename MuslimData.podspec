@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MuslimData'
-  s.version          = '1.0.0-beta.7'
+  s.version          = '1.0.0-beta.8'
   s.summary          = 'Islamic library (Prayer Times [fixed and calculated], Names of Allah, and Azkars).'
 
 # This description is used to generate tags and improve search results.
@@ -39,7 +39,7 @@ Pod::Spec.new do |s|
   #   'MuslimData' => ['MuslimData/Assets/*.png']
   # }
 
-  s.swift_version = "4.2"
+  s.swift_version = "5"
   s.resources = 'MuslimData/Assets/**/*'
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
