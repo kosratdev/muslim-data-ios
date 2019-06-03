@@ -44,5 +44,5 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit'
-  s.dependency 'GRDB.swift', '4.0.1'
+  s.dependency 'GRDB.swift', '~> 4.0.1'
 end

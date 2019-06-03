@@ -4,6 +4,7 @@ before_script:
   - sudo systemsetup -settimezone Asia/Baghdad
 script:
   - set -o pipefail && xcodebuild -enableCodeCoverage YES -workspace Example/MuslimData.xcworkspace -scheme MuslimData-Example -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO -destination 'platform=iOS Simulator,name=iPhone XS,OS=12.2' test | xcpretty --test --color
+  - pod repo update
   - pod lib lint --allow-warnings
 deploy:
   provider: script
