@@ -39,10 +39,10 @@ Pod::Spec.new do |s|
   #   'MuslimData' => ['MuslimData/Assets/*.png']
   # }
 
-  s.swift_version = "5"
+  s.swift_version = "5.0"
   s.resources = 'MuslimData/Assets/**/*'
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit'
-  s.dependency 'GRDB.swift'
+  s.dependency 'GRDB.swift', '~> 4.0.1'
 end
