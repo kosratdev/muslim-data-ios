@@ -45,14 +45,13 @@ class LocationViewController: UIViewController {
     func searchBar() -> UISearchController {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
-        searchController.dimsBackgroundDuringPresentation = false
         return searchController
     }
 
     /// Display selected location on the screen.
     func displayLocation() {
         let location = Location.loadSavedLocation()
-        locationTitle.text = "\(location.city), \(location.countryName)"
+        locationTitle.text = "\(location.cityName), \(location.countryName)"
     }
 
     /// Dismiss and return to the parent screen.
@@ -85,13 +84,10 @@ extension LocationViewController: UISearchBarDelegate {
 // MARK: - UITableViewDelegate
 extension LocationViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var location = locations[indexPath.row]
-        LocationHelper.shared.cityHasFixedPrayerTimes(countryCode: location.countryCode,
-                                                      city: location.city) { isFixed in
-            location.hasFixedPrayerTimes = isFixed
-            location.saveLocation()
-            self.displayLocation()
-        }
+        let location = locations[indexPath.row]
+        
+        location.saveLocation()
+        self.displayLocation()
         if #available(iOS 11.0, *) {
             navigationItem.searchController?.isActive = false
         }
@@ -107,7 +103,7 @@ extension LocationViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell", for: indexPath)
         let location = locations[indexPath.row]
-        cell.textLabel?.text = location.city
+        cell.textLabel?.text = location.cityName
         cell.detailTextLabel?.text = location.countryName
 
         return cell

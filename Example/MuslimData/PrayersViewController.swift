@@ -56,7 +56,7 @@ class PrayersViewController: UIViewController {
         dateFormatter.dateFormat = "dd MMM yyyy"
         let stringDate = dateFormatter.string(from: Date())
 
-        locationDetail.text = "\(location.city), \(location.countryName)\n\(stringDate)"
+        locationDetail.text = "\(location.cityName), \(location.countryName)\n\(stringDate)"
     }
 }
 

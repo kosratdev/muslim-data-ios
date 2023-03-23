@@ -31,7 +31,7 @@ class LocationTests: XCTestCase {
             XCTAssertNotNil(location)
             XCTAssertEqual(location!.latitude, 51.50853)
             XCTAssertEqual(location!.longitude, -0.12574)
-            XCTAssertEqual(location!.hasFixedPrayerTimes, true)
+            XCTAssertEqual(location!.hasFixedPrayerTime, true)
         }
 
         // Test Nil.
@@ -44,7 +44,7 @@ class LocationTests: XCTestCase {
             XCTAssertNotNil(location)
             XCTAssertEqual(location!.latitude, 35.69439)
             XCTAssertEqual(location!.longitude, 51.42151)
-            XCTAssertEqual(location!.hasFixedPrayerTimes, false)
+            XCTAssertEqual(location!.hasFixedPrayerTime, false)
         }
 
         // Test (Soran, IQ) which has fixed prayer times by city mapper.
@@ -52,7 +52,7 @@ class LocationTests: XCTestCase {
             XCTAssertNotNil(location)
             XCTAssertEqual(location!.latitude, 36.652686)
             XCTAssertEqual(location!.longitude, 44.541427)
-            XCTAssertEqual(location!.hasFixedPrayerTimes, true)
+            XCTAssertEqual(location!.hasFixedPrayerTime, true)
         }
     }
 
@@ -60,50 +60,28 @@ class LocationTests: XCTestCase {
         // Test (London, GB) which has fixed prayer times.
         locationHelper.geocoder(latitude: 51.50853, longitude: -0.12574) { location in
             XCTAssertNotNil(location)
-            XCTAssertEqual(location!.city, "London")
+            XCTAssertEqual(location!.cityName, "London")
             XCTAssertEqual(location!.countryCode, "GB")
             XCTAssertEqual(location!.countryName, "United Kingdom")
-            XCTAssertEqual(location!.hasFixedPrayerTimes, true)
+            XCTAssertEqual(location!.hasFixedPrayerTime, true)
         }
 
         // Test (Tahran, IR) which hasn't fixed prayer times.
         locationHelper.geocoder(latitude: 35.69439, longitude: 51.42151) { location in
             XCTAssertNotNil(location)
-            XCTAssertEqual(location!.city, "Tehran")
+            XCTAssertEqual(location!.cityName, "Tehran")
             XCTAssertEqual(location!.countryCode, "IR")
             XCTAssertEqual(location!.countryName, "Iran")
-            XCTAssertEqual(location!.hasFixedPrayerTimes, false)
+            XCTAssertEqual(location!.hasFixedPrayerTime, false)
         }
 
         // Test (Soran, IQ) which has fixed prayer times by city mapper.
         locationHelper.geocoder(latitude: 36.652686, longitude: 44.541427) { location in
             XCTAssertNotNil(location)
-            XCTAssertEqual(location!.city, "Soran")
+            XCTAssertEqual(location!.cityName, "Soran")
             XCTAssertEqual(location!.countryCode, "IQ")
             XCTAssertEqual(location!.countryName, "Iraq")
-            XCTAssertEqual(location!.hasFixedPrayerTimes, true)
-        }
-    }
-
-    func testFixedPrayerTimes() {
-        // Test (Soran, IQ) which has fixed prayer times
-        locationHelper.cityHasFixedPrayerTimes(countryCode: "IQ", city: "Soran") { hasFixed in
-            XCTAssertTrue(hasFixed)
-        }
-
-        // Test (Tehran, IR) which hasn't fixed prayer times
-        locationHelper.cityHasFixedPrayerTimes(countryCode: "IR", city: "Tehran") { hasFixed in
-            XCTAssertFalse(hasFixed)
-        }
-
-        // Test (Urmia, IR) which has fixed prayer times
-        locationHelper.cityHasFixedPrayerTimes(countryCode: "IR", city: "Urmia") { hasFixed in
-            XCTAssertTrue(hasFixed)
-        }
-
-        // Test (Homs, SY) which has fixed prayer times
-        locationHelper.cityHasFixedPrayerTimes(countryCode: "SY", city: "Homs") { hasFixed in
-            XCTAssertTrue(hasFixed)
+            XCTAssertEqual(location!.hasFixedPrayerTime, true)
         }
     }
 
@@ -113,12 +91,12 @@ class LocationTests: XCTestCase {
         XCTAssertEqual("Zarayan".mapper(countryCode: "IQ"), "Darbandikhan")
         XCTAssertEqual("Atrish".mapper(countryCode: "IQ"), "Duhok")
         XCTAssertEqual("Choman".mapper(countryCode: "IQ"), "Erbil")
-        XCTAssertEqual("Byara".mapper(countryCode: "IQ"), "Halabja")
-        XCTAssertEqual("Ranya".mapper(countryCode: "IQ"), "Kifri")
+        XCTAssertEqual("Byara".mapper(countryCode: "IQ"), "Khurmal")
+        XCTAssertEqual("Ranya".mapper(countryCode: "IQ"), "Chamchamal")
         XCTAssertEqual("Taza Khurmatu".mapper(countryCode: "IQ"), "Kirkuk")
-        XCTAssertEqual("Khalakan".mapper(countryCode: "IQ"), "Koysinjaq")
-        XCTAssertEqual("Sangasar".mapper(countryCode: "IQ"), "Qalat Dizah")
-        XCTAssertEqual("Takiya".mapper(countryCode: "IQ"), "Sulaymaniyah")
+        XCTAssertEqual("Khalakan".mapper(countryCode: "IQ"), "Chamchamal")
+        XCTAssertEqual("Sangasar".mapper(countryCode: "IQ"), "Qaladiza")
+        XCTAssertEqual("Takiya".mapper(countryCode: "IQ"), "Kifri")
         XCTAssertEqual("Divandarreh".mapper(countryCode: "IR"), "Sanandaj")
         XCTAssertEqual("Rai".mapper(countryCode: "KW"), "Al Asimah")
         XCTAssertEqual("Kubbar Island".mapper(countryCode: "KW"), "Failaka Island")

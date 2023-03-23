@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class Azkars {
+public enum Azkars {
     // MARK: - Public Methods
 
     /// Get list of azkar categories which is localized by given language.
@@ -33,7 +33,8 @@ public class Azkars {
     ///   - language: Language of the azkar chapters.
     ///   - callback: Callback that will return list of AzkarChapter object that contains
     ///               azkar chapter data or error message.
-    public static func azkarChapters(language: Language, categoryId: Int? = nil,
+    public static func azkarChapters(language: Language,
+                                     categoryId: Int? = nil,
                                      callback: @escaping ([AzkarChapter]?, String?) -> Void) {
         DBHelper.shared.azkarChapters(language: language, categoryId: categoryId) { chapters, error in
             guard error == nil else {
@@ -52,7 +53,8 @@ public class Azkars {
     ///   - chapterId: Chapter id for the azkar items.
     ///   - callback: Callback that will return list of AzkarItem object that contains azkar items data
     ///               or error message.
-    public static func azkarItems(language: Language, chapterId: Int,
+    public static func azkarItems(language: Language,
+                                  chapterId: Int,
                                   callback: @escaping ([AzkarItem]?, String?) -> Void) {
         DBHelper.shared.azkarItems(language: language, chapterId: chapterId) { items, error in
             guard error == nil else {

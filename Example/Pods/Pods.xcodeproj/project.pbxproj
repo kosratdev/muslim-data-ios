@@ -35,6 +35,7 @@
 		296E2869F5F3E220C5132E55AF60E2D3 /* GRDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FFD2B745CCCE37869DFC4E8FA83908E /* GRDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2A050272F5AA9419EACC2B68583FBF0C /* StatementAuthorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D32E01380A9B4A0B3817B6B914A51 /* StatementAuthorizer.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		2B130AEAB2EE4BD7997DB369572A684A /* FetchableRecord+TableRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2058FFAD3AA3F5F1DA38DAB365079462 /* FetchableRecord+TableRecord.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2D6CD44729CC5BF2009B527C /* muslim_db_v1.2.0.db in Resources */ = {isa = PBXBuildFile; fileRef = 2D6CD44629CC5BF2009B527C /* muslim_db_v1.2.0.db */; };
 		2DAF0C709FAF6D288751DB00EB06B40C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FD7232797ACF3F6F7685B58BCDC00C7 /* Foundation.framework */; };
 		318B2D4FBE83F08BB67C2AA6A52977AB /* FTS5+QueryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5779BFB97BB16F7C257E39CD28630594 /* FTS5+QueryInterface.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		33FDF2697ECE2E34513CACBC1EDFDB51 /* DatabaseValueConvertible+RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1585FD241A9AC0D79B3E084E1A8B7B77 /* DatabaseValueConvertible+RawRepresentable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -119,7 +120,6 @@
 		A9286B0849F46D5349C42CDD9E3FCBD8 /* GRDB.swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2F3326B33A6BC66E13954DF736BEAA /* GRDB.swift-dummy.m */; };
 		A9346A4922DFB8C725C8722D99258AF8 /* DatabaseValueConvertible+ReferenceConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A115FEA22E3B697DDD8CB0CF3FCAD9 /* DatabaseValueConvertible+ReferenceConvertible.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		AC842DD31D9FD9F8A80F393309AC1A2B /* NSNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4B392CEDEDE8E47D3BD1ECC7EA551E /* NSNumber.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		B019FF76BF6712FBE0BC6CC0F152E33B /* MuslimData.db in Resources */ = {isa = PBXBuildFile; fileRef = E57DB6A40549E8C58A467DB31136C295 /* MuslimData.db */; };
 		B03A35D413AA6ACB4F1BE28702E84333 /* DatabaseReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C83188D9DFD01CA9D469EB06279767D /* DatabaseReader.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		B09F1124D798A0E3AFA81B0B79F80E36 /* Pool.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87A77728D7700424D943FDE619754A2 /* Pool.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		B5B1E0C592A08E5665915D2BC1A0D9E8 /* DatabaseSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8D1DE939367A8362484A58B33EB6DE /* DatabaseSnapshot.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -218,7 +218,7 @@
 		1DE3C6FBEF1E948A8881FAC46607E0CE /* TableRecord+Association.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "TableRecord+Association.swift"; path = "GRDB/QueryInterface/TableRecord+Association.swift"; sourceTree = "<group>"; };
 		1E4B392CEDEDE8E47D3BD1ECC7EA551E /* NSNumber.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NSNumber.swift; path = GRDB/Core/Support/Foundation/NSNumber.swift; sourceTree = "<group>"; };
 		2058FFAD3AA3F5F1DA38DAB365079462 /* FetchableRecord+TableRecord.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "FetchableRecord+TableRecord.swift"; path = "GRDB/Record/FetchableRecord+TableRecord.swift"; sourceTree = "<group>"; };
-		208FD7047BA6E0490F50904E4F73EC84 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		208FD7047BA6E0490F50904E4F73EC84 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		22BAAE27BDCE90B8C1F6B4992424D9C6 /* DatabaseCollation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseCollation.swift; path = GRDB/Core/DatabaseCollation.swift; sourceTree = "<group>"; };
 		24A48FA30EC31431A33C17FAE91902EE /* DatabaseValueConvertible+Encodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DatabaseValueConvertible+Encodable.swift"; path = "GRDB/Core/Support/StandardLibrary/DatabaseValueConvertible+Encodable.swift"; sourceTree = "<group>"; };
 		25525D31CDCACA2AEE38C6A90DEDD714 /* Database.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Database.swift; path = GRDB/Core/Database.swift; sourceTree = "<group>"; };
@@ -227,8 +227,9 @@
 		291780A00DC00211D75FBDEA9B09E764 /* SQLFunctions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SQLFunctions.swift; path = GRDB/QueryInterface/SQL/SQLFunctions.swift; sourceTree = "<group>"; };
 		2BC5D21AC275156EB1E637182C566346 /* MuslimData.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MuslimData.modulemap; sourceTree = "<group>"; };
 		2C8D1DE939367A8362484A58B33EB6DE /* DatabaseSnapshot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseSnapshot.swift; path = GRDB/Core/DatabaseSnapshot.swift; sourceTree = "<group>"; };
+		2D6CD44629CC5BF2009B527C /* muslim_db_v1.2.0.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = muslim_db_v1.2.0.db; path = MuslimData/Assets/muslim_db_v1.2.0.db; sourceTree = "<group>"; };
 		2DC6A83C7FE2580E3F2A1AFBB2B117E6 /* PrayerAttribute.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PrayerAttribute.swift; sourceTree = "<group>"; };
-		2E88CF46329DBA47B53B98F005E11EE3 /* MuslimData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MuslimData.framework; path = MuslimData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E88CF46329DBA47B53B98F005E11EE3 /* MuslimData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MuslimData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F75C56ED8BD1951FC8172C608B20303 /* Pods-MuslimData_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MuslimData_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		2FFBDBD6E148D8CD2D3E5D40636ABE46 /* AzkarItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AzkarItem.swift; sourceTree = "<group>"; };
 		30678A7CEDBC6447D947E5D4EC9E1173 /* Pods-MuslimData_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MuslimData_Tests-dummy.m"; sourceTree = "<group>"; };
@@ -241,7 +242,7 @@
 		3708554DF1666EC6C41BBEB89E5AC257 /* URL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = URL.swift; path = GRDB/Core/Support/Foundation/URL.swift; sourceTree = "<group>"; };
 		374B2EE56EE7DAC67CCB2C047D622957 /* Configuration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Configuration.swift; path = GRDB/Core/Configuration.swift; sourceTree = "<group>"; };
 		37C9ECD60B68221B76E253AA39B4B52E /* FTS3TokenizerDescriptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTS3TokenizerDescriptor.swift; path = GRDB/FTS/FTS3TokenizerDescriptor.swift; sourceTree = "<group>"; };
-		3A3F05D7AA5BB40DB61D702ECFAACD79 /* cityMapper.json */ = {isa = PBXFileReference; includeInIndex = 1; name = cityMapper.json; path = MuslimData/Assets/cityMapper.json; sourceTree = "<group>"; };
+		3A3F05D7AA5BB40DB61D702ECFAACD79 /* cityMapper.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; name = cityMapper.json; path = MuslimData/Assets/cityMapper.json; sourceTree = "<group>"; };
 		3BEF107E7E8091B90FAECDFC4C7A6954 /* Inflections+English.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Inflections+English.swift"; path = "GRDB/Utils/Inflections+English.swift"; sourceTree = "<group>"; };
 		3CA2DEAEDF6FED5B07AE3779109C7886 /* DatabaseSchemaCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseSchemaCache.swift; path = GRDB/Core/DatabaseSchemaCache.swift; sourceTree = "<group>"; };
 		3FF0BA87045E3E9FABE15B6BF3A8D5A2 /* FTS3.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTS3.swift; path = GRDB/FTS/FTS3.swift; sourceTree = "<group>"; };
@@ -254,11 +255,11 @@
 		4E8F40C80B8B85C4393ED5F43C8ED116 /* ValueObservation+DatabaseValueConvertible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ValueObservation+DatabaseValueConvertible.swift"; path = "GRDB/ValueObservation/ValueObservation+DatabaseValueConvertible.swift"; sourceTree = "<group>"; };
 		4EB99538C9E87FA9C44300FFCA0B04EE /* Statement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Statement.swift; path = GRDB/Core/Statement.swift; sourceTree = "<group>"; };
 		518451B0E85374EA68E5B75FB38C27E1 /* DatabaseWriter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseWriter.swift; path = GRDB/Core/DatabaseWriter.swift; sourceTree = "<group>"; };
-		5198A73019ED73FEB081FFEF93349F97 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		5198A73019ED73FEB081FFEF93349F97 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		51AA10D7887DE3F10F9030EC1A2CC378 /* DatabaseQueue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseQueue.swift; path = GRDB/Core/DatabaseQueue.swift; sourceTree = "<group>"; };
 		551E845F7B283CFF0E2D215372DA26A9 /* String+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		56CDF9772D8CD1E94A5E39433D191434 /* FTS5Tokenizer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTS5Tokenizer.swift; path = GRDB/FTS/FTS5Tokenizer.swift; sourceTree = "<group>"; };
-		57083C76476CFFD9C6281EB0FA5CF562 /* GRDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GRDB.framework; path = GRDB.swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		57083C76476CFFD9C6281EB0FA5CF562 /* GRDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GRDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5779BFB97BB16F7C257E39CD28630594 /* FTS5+QueryInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "FTS5+QueryInterface.swift"; path = "GRDB/QueryInterface/FTS5+QueryInterface.swift"; sourceTree = "<group>"; };
 		5880470B1529D3998D951354FE8AAA99 /* SQLInterpolation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SQLInterpolation.swift; path = GRDB/Core/SQLInterpolation.swift; sourceTree = "<group>"; };
 		58B9F1435B3801DADE391A4A5136738A /* ValueObservation+Count.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ValueObservation+Count.swift"; path = "GRDB/ValueObservation/ValueObservation+Count.swift"; sourceTree = "<group>"; };
@@ -286,7 +287,7 @@
 		6F74C3288A30C090F9DAE356D7F8CEF9 /* HasOneAssociation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HasOneAssociation.swift; path = GRDB/QueryInterface/Request/Association/HasOneAssociation.swift; sourceTree = "<group>"; };
 		707CD218A0DD160B3BF52677AA016730 /* Names.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Names.swift; sourceTree = "<group>"; };
 		7093F7382D260704506C5464AFBC16F5 /* SQLExpressible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SQLExpressible.swift; path = GRDB/QueryInterface/SQL/SQLExpressible.swift; sourceTree = "<group>"; };
-		720E3E47CB7DDE45FA7550A02D097ACD /* MuslimData.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = MuslimData.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		720E3E47CB7DDE45FA7550A02D097ACD /* MuslimData.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = MuslimData.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		730FF805483A83B2584256EEDC5D2639 /* Language.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		743A1901BFD326063BEDE3DD34614586 /* Pods-MuslimData_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MuslimData_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		74E7C387B223D2421080A1FB6A9C4272 /* Pods-MuslimData_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MuslimData_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -311,12 +312,12 @@
 		9768AEB6008CAEF84324EC4C8938989B /* ValueObservation+Map.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ValueObservation+Map.swift"; path = "GRDB/ValueObservation/ValueObservation+Map.swift"; sourceTree = "<group>"; };
 		98583347F707576BCEA189427FC47A69 /* AssociationAggregate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AssociationAggregate.swift; path = GRDB/QueryInterface/Request/Association/AssociationAggregate.swift; sourceTree = "<group>"; };
 		988514746A18BB7288E7AE2B074B7196 /* SQLExpression.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SQLExpression.swift; path = GRDB/QueryInterface/SQL/SQLExpression.swift; sourceTree = "<group>"; };
-		9A0D52E8D92DD8E648D19B837936563A /* Pods_MuslimData_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MuslimData_Tests.framework; path = "Pods-MuslimData_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A0D52E8D92DD8E648D19B837936563A /* Pods_MuslimData_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MuslimData_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A76849C47F3395C7AD6455AB2B7634D /* LocationHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 		9AC1744C057858332AA73845B0CE26D7 /* DatabaseValueConvertible+Decodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DatabaseValueConvertible+Decodable.swift"; path = "GRDB/Core/Support/StandardLibrary/DatabaseValueConvertible+Decodable.swift"; sourceTree = "<group>"; };
 		9B99EBD21496FBA605E3A375E86ED829 /* DatabaseValueConversion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseValueConversion.swift; path = GRDB/Core/DatabaseValueConversion.swift; sourceTree = "<group>"; };
 		9C3DE7F469BC348F7C1DDC5196499B58 /* GRDB-Bridging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GRDB-Bridging.h"; path = "Support/GRDB-Bridging.h"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9F05530485A897CD1D0A0A27D17A90BE /* Pods-MuslimData_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MuslimData_Tests-Info.plist"; sourceTree = "<group>"; };
 		A49D0B537A24E7B6779BDF2FF4BF1376 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		A83D32E01380A9B4A0B3817B6B914A51 /* StatementAuthorizer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatementAuthorizer.swift; path = GRDB/Core/StatementAuthorizer.swift; sourceTree = "<group>"; };
@@ -369,10 +370,9 @@
 		E375E483DE2FE415F9FEA19C9669B526 /* SerializedDatabase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SerializedDatabase.swift; path = GRDB/Core/SerializedDatabase.swift; sourceTree = "<group>"; };
 		E3BABC3D3DC05C7FD6865D180C0A432D /* SQLQueryGenerator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SQLQueryGenerator.swift; path = GRDB/QueryInterface/SQLGeneration/SQLQueryGenerator.swift; sourceTree = "<group>"; };
 		E3E4C6CC7D33B6BEE3483F48A38E6A45 /* NSNull.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NSNull.swift; path = GRDB/Core/Support/Foundation/NSNull.swift; sourceTree = "<group>"; };
-		E57DB6A40549E8C58A467DB31136C295 /* MuslimData.db */ = {isa = PBXFileReference; includeInIndex = 1; name = MuslimData.db; path = MuslimData/Assets/MuslimData.db; sourceTree = "<group>"; };
 		E73BE27477C2865305F88857F860D067 /* HasManyAssociation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HasManyAssociation.swift; path = GRDB/QueryInterface/Request/Association/HasManyAssociation.swift; sourceTree = "<group>"; };
 		E8180C67106D338B3A2A64D08774B6D9 /* CGFloat.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CGFloat.swift; path = GRDB/Core/Support/CoreGraphics/CGFloat.swift; sourceTree = "<group>"; };
-		E8487A5B3066D2B150E82D87B277D480 /* Pods_MuslimData_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MuslimData_Example.framework; path = "Pods-MuslimData_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8487A5B3066D2B150E82D87B277D480 /* Pods_MuslimData_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MuslimData_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9488B06541B325219BAE37A334A1E59 /* DatabaseRegion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseRegion.swift; path = GRDB/Core/DatabaseRegion.swift; sourceTree = "<group>"; };
 		EA0B8A534766D304CF9DE1A5C2C35051 /* GRDB-4.0.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "GRDB-4.0.swift"; path = "GRDB/Fixit/GRDB-4.0.swift"; sourceTree = "<group>"; };
 		EABE51A24C723C856DD1DCC752712250 /* StandardLibrary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StandardLibrary.swift; path = GRDB/Core/Support/StandardLibrary/StandardLibrary.swift; sourceTree = "<group>"; };
@@ -489,7 +489,6 @@
 				4022D06EB0FD32BF668EE12AF2306B41 /* standard */,
 				0A8C8B1A53515417C6F57ECB1DB76072 /* Support Files */,
 			);
-			name = GRDB.swift;
 			path = GRDB.swift;
 			sourceTree = "<group>";
 		};
@@ -755,8 +754,8 @@
 		CF862A95B5D3FFC023257833F1193CE5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2D6CD44629CC5BF2009B527C /* muslim_db_v1.2.0.db */,
 				3A3F05D7AA5BB40DB61D702ECFAACD79 /* cityMapper.json */,
-				E57DB6A40549E8C58A467DB31136C295 /* MuslimData.db */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -922,14 +921,15 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1420;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = A08711B133A02CDCC7C1F09A0D69CB4A /* Products */;
@@ -964,7 +964,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34B4EB735E3756C6399E9137529EE8BF /* cityMapper.json in Resources */,
-				B019FF76BF6712FBE0BC6CC0F152E33B /* MuslimData.db in Resources */,
+				2D6CD44729CC5BF2009B527C /* muslim_db_v1.2.0.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1199,7 +1199,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/MuslimData/MuslimData-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/MuslimData/MuslimData-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/MuslimData/MuslimData.modulemap";
 				PRODUCT_MODULE_NAME = MuslimData;
@@ -1219,6 +1219,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1241,6 +1242,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1248,6 +1250,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1263,13 +1266,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -1291,7 +1293,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/GRDB.swift/GRDB.swift-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/GRDB.swift/GRDB.swift-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/GRDB.swift/GRDB.swift.modulemap";
 				PRODUCT_MODULE_NAME = GRDB;
@@ -1311,6 +1313,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1333,6 +1336,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1340,6 +1344,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1358,7 +1363,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1388,7 +1393,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-MuslimData_Tests/Pods-MuslimData_Tests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-MuslimData_Tests/Pods-MuslimData_Tests.modulemap";
@@ -1422,7 +1427,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-MuslimData_Example/Pods-MuslimData_Example-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-MuslimData_Example/Pods-MuslimData_Example.modulemap";
@@ -1456,7 +1461,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-MuslimData_Tests/Pods-MuslimData_Tests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-MuslimData_Tests/Pods-MuslimData_Tests.modulemap";
@@ -1491,7 +1496,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/MuslimData/MuslimData-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/MuslimData/MuslimData-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/MuslimData/MuslimData.modulemap";
 				PRODUCT_MODULE_NAME = MuslimData;
@@ -1523,7 +1528,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-MuslimData_Example/Pods-MuslimData_Example-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-MuslimData_Example/Pods-MuslimData_Example.modulemap";
@@ -1557,7 +1562,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/GRDB.swift/GRDB.swift-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/GRDB.swift/GRDB.swift-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/GRDB.swift/GRDB.swift.modulemap";
 				PRODUCT_MODULE_NAME = GRDB;

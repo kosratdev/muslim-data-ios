@@ -9,12 +9,12 @@ import Foundation
 
 // MARK: - Date Extensions
 
-extension Date {
+public extension Date {
     /// Convert date to string time by given time format.
     ///
     /// - Parameter format: TimeFormat object.
     /// - Returns: Formatted date to string time.
-    public func toTime(format: TimeFormat) -> String {
+    func toTime(format: TimeFormat) -> String {
         let dateFormatter = DateFormatter()
         switch format {
         case .time24:
@@ -31,7 +31,7 @@ extension Date {
     ///
     /// - Parameter minutes: minutes to be added to the date.
     /// - Returns: New date that added the specified minutes.
-    public func addMinutes(_ minutes: Double) -> Date {
-        return addingTimeInterval(60 * minutes)
+    func addMinutes(_ minutes: Double) -> Date {
+        addingTimeInterval(60 * minutes)
     }
 }

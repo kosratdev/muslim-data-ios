@@ -17,10 +17,10 @@ open class Prayer {
     open var timeFormat: TimeForamts = .time24 // time format
     var prayerTimesCurrent: [Double] = []
     var offsets = [Double](repeating: 0.0, count: 7)
-    var lat: Double = Double() // latitude
-    var lng: Double = Double() // longitude
-    var timeZone: Double = Double() // time-zone
-    var JDate: Double = Double() // 0.0 // Julian date
+    var lat: Double = .init() // latitude
+    var lng: Double = .init() // longitude
+    var timeZone: Double = .init() // time-zone
+    var JDate: Double = .init() // 0.0 // Julian date
 
     public enum PrayerName: String {
         case Fajr
@@ -146,7 +146,7 @@ open class Prayer {
         // (2*g)]
         let e = 23.439 - (0.00000036 * D)
         let d = Double.dArcSin(Double.dSin(e) * Double.dSin(L))
-        var RA = Double.dArcTan2((Double.dCos(e) * Double.dSin(L)), x: Double.dCos(L)) / 15.0
+        var RA = Double.dArcTan2(Double.dCos(e) * Double.dSin(L), x: Double.dCos(L)) / 15.0
         RA = Double.fixHour(RA)
         let EqT = q / 15.0 - RA
         let sPosition: [Double] = [d, EqT]
@@ -155,12 +155,12 @@ open class Prayer {
 
     // compute equation of time
     func equationOfTime(_ jd: Double) -> Double {
-        return sunPosition(jd)[1]
+        sunPosition(jd)[1]
     }
 
     // compute declination angle of sun
     func sunDeclination(_ jd: Double) -> Double {
-        return sunPosition(jd)[0]
+        sunPosition(jd)[0]
     }
 
     // compute mid-day (Dhuhr, Zawal) time
@@ -191,7 +191,7 @@ open class Prayer {
     // ---------------------- Misc Functions -----------------------
     // compute the difference between two times
     func timeDiff(_ time1: Double, time2: Double) -> Double {
-        return Double.fixHour(time2 - time1)
+        Double.fixHour(time2 - time1)
     }
 
     // -------------------- Interface Functions --------------------
@@ -282,7 +282,7 @@ open class Prayer {
 
         adujestedTime = Double.fixHour(adujestedTime + 0.5 / 60) // add 0.5 minutes to round
 
-        var hours: Int = Int(floor(adujestedTime))
+        var hours = Int(floor(adujestedTime))
         let minutes = Int(floor((Double(adujestedTime) - Double(hours)) * 60))
         var suffix: String, result: String
         if hours >= 12 {
@@ -321,7 +321,7 @@ open class Prayer {
 
     // convert double hours to 12h format with no suffix
     func floatToTime12NS(_ time: Double) -> String {
-        return floatToTime12(time, noSuffix: true)
+        floatToTime12(time, noSuffix: true)
     }
 
     // ---------------------- Compute Prayer Times -----------------------
@@ -455,7 +455,7 @@ open class Prayer {
 
     // the night portion used for adjusting times in higher latitudes
     func nightPortion(_ angle: Double) -> Double {
-        var calc: Double = 0.0
+        var calc = 0.0
         if adjustHighLats == .angleBased {
             calc = angle / 60.0
         } else if adjustHighLats == .midNight {
@@ -501,7 +501,7 @@ extension Double {
     // ---------------------- Trigonometric Functions -----------------------
     // range reduce angle in degrees.
     static func fixAngle(_ a: Double) -> Double {
-        let reduceAngle = a - (360 * (floor(a / 360.0)))
+        let reduceAngle = a - (360 * floor(a / 360.0))
         let angle = reduceAngle < 0 ? (reduceAngle + 360) : reduceAngle
 
         return angle
@@ -517,51 +517,51 @@ extension Double {
 
     // radian to degree
     static func radiansToDegrees(_ alpha: Double) -> Double {
-        return ((alpha * 180.0) / .pi)
+        (alpha * 180.0) / .pi
     }
 
     // deree to radian
     static func degreesToRadians(_ alpha: Double) -> Double {
-        return ((alpha * .pi) / 180.0)
+        (alpha * .pi) / 180.0
     }
 
     // degree sin
     static func dSin(_ d: Double) -> Double {
-        return (sin(degreesToRadians(d)))
+        sin(degreesToRadians(d))
     }
 
     // degree cos
     static func dCos(_ d: Double) -> Double {
-        return (cos(degreesToRadians(d)))
+        cos(degreesToRadians(d))
     }
 
     // degree tan
     static func dTan(_ d: Double) -> Double {
-        return (tan(degreesToRadians(d)))
+        tan(degreesToRadians(d))
     }
 
     // degree arcsin
     static func dArcSin(_ x: Double) -> Double {
-        return radiansToDegrees(asin(x))
+        radiansToDegrees(asin(x))
     }
 
     // degree arccos
     static func dArcCos(_ x: Double) -> Double {
-        return radiansToDegrees(acos(x))
+        radiansToDegrees(acos(x))
     }
 
     // degree arctan
     static func dArcTan(_ x: Double) -> Double {
-        return radiansToDegrees(atan(x))
+        radiansToDegrees(atan(x))
     }
 
     // degree arctan2
     static func dArcTan2(_ y: Double, x: Double) -> Double {
-        return radiansToDegrees(atan2(y, x))
+        radiansToDegrees(atan2(y, x))
     }
 
     // degree arccot
     static func dArcCot(_ x: Double) -> Double {
-        return radiansToDegrees(atan2(1.0, x))
+        radiansToDegrees(atan2(1.0, x))
     }
 }

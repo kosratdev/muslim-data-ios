@@ -1,0 +1,10 @@
+# format options!
+--swiftversion 5.1
+
+# file options
+--exclude Pods
+
+# rules
+--disable trailingCommas,unusedArguments
+--disable wrapMultilineStatementBraces
+

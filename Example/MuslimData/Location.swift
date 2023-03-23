@@ -17,10 +17,10 @@ extension Location {
         let defaults = UserDefaults.standard
         defaults.set(latitude, forKey: "latitude")
         defaults.set(longitude, forKey: "longitude")
-        defaults.set(city, forKey: "city")
+        defaults.set(cityName, forKey: "city")
         defaults.set(countryCode, forKey: "countryCode")
         defaults.set(countryName, forKey: "countryName")
-        defaults.set(hasFixedPrayerTimes, forKey: "hasFixedPrayerTimes")
+        defaults.set(hasFixedPrayerTime, forKey: "hasFixedPrayerTime")
     }
 
     /// Load saved location from User Defaults.
@@ -32,12 +32,12 @@ extension Location {
         latitude = latitude == 0.0 ? 36.188204 : latitude
         var longitude = defaults.double(forKey: "longitude")
         longitude = longitude == 0.0 ? 43.966606 : longitude
-        let city = defaults.string(forKey: "city") ?? "Erbil"
+        let cityName = defaults.string(forKey: "city") ?? "Erbil"
         let countryCode = defaults.string(forKey: "countryCode") ?? "IQ"
         let countryName = defaults.string(forKey: "countryName") ?? "Iraq"
-        let hasFixedPrayerTimes = (defaults.object(forKey: "hasFixedPrayerTimes") as? Bool) ?? true
+        let hasFixedPrayerTime = (defaults.object(forKey: "hasFixedPrayerTime") as? Bool) ?? true
 
-        return Location(latitude: latitude, longitude: longitude, city: city, countryCode: countryCode,
-                        countryName: countryName, hasFixedPrayerTimes: hasFixedPrayerTimes)
+        return Location(latitude: latitude, longitude: longitude, cityName: cityName, countryCode: countryCode,
+                        countryName: countryName, hasFixedPrayerTime: hasFixedPrayerTime)
     }
 }

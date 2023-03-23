@@ -1,0 +1,12 @@
+excluded:
+  - Pods
+  - ../MuslimData/Classes/Prayer Times/Prayer.swift
+included:
+  - ../MuslimData
+identifier_name:
+  excluded:
+    - id 
+    - en
+    - ar
+    - fa
+    - ru
