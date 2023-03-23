@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MuslimData'
-  s.version          = '1.0.1'
+  s.version          = '1.2.1'
   s.summary          = 'Islamic library (Prayer Times [fixed and calculated], Names of Allah, and Azkars).'
 
 # This description is used to generate tags and improve search results.
@@ -28,10 +28,10 @@ Pod::Spec.new do |s|
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Kosrat D. Ahmad' => 'kosrat.d.ahmad@gmail.com' }
-  s.source           = { :git => 'https://github.com/KosratDAhmad/MuslimData.git', :tag => 'v'+s.version.to_s }
+  s.source           = { :git => 'https://github.com/KosratDAhmad/MuslimData.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '16.2'
 
   s.source_files = 'MuslimData/Classes/**/*'
   
