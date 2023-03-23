@@ -42,15 +42,16 @@ public struct PrayerTime {
     ///   - callback: Callback that will returen the prayer time when it has been found in the database.
     public static func getPrayerTimes(location: Location, date: Date, attributes: PrayerAttribute,
                                       callback: @escaping (PrayerTime?, String?) -> Void) {
-        if !location.hasFixedPrayerTimes {
+        if !location.hasFixedPrayerTime {
             let prayers = Prayer(method: attributes.method, asrJuristic: attributes.asrMethod,
                                  adjustHighLats: attributes.adjustAngle, timeFormat: .time24)
             let calculatedTimes = prayers.getPrayerTimes(date, latitude: location.latitude,
                                                          longitude: location.longitude)
             // Check calculated prayer times for nullability.
             guard let fajr = calculatedTimes["Fajr"], let sunrise = calculatedTimes["Sunrise"],
-                let dhuhr = calculatedTimes["Dhuhr"], let asr = calculatedTimes["Asr"],
-                let maghrib = calculatedTimes["Maghrib"], let isha = calculatedTimes["Isha"] else {
+                  let dhuhr = calculatedTimes["Dhuhr"], let asr = calculatedTimes["Asr"],
+                  let maghrib = calculatedTimes["Maghrib"], let isha = calculatedTimes["Isha"]
+            else {
                 callback(nil, "")
                 return
             }
@@ -66,18 +67,21 @@ public struct PrayerTime {
             return
         }
 
-        DBHelper.shared.prayerTimes(countryCode: location.countryCode, city: location.city, date: date) { row, error in
+        DBHelper.shared.prayerTimes(countryCode: location.countryCode,
+                                    city: location.cityName,
+                                    date: date) { row, error in
             guard error == nil else {
                 callback(nil, error)
                 return
             }
             // Getting data from columns
             guard let fajr = row?["fajr"] as? String,
-                let sunrise = row?["sunrise"] as? String,
-                let dhuhr = row?["dhuhr"] as? String,
-                let asr = row?["asr"] as? String,
-                let maghrib = row?["maghrib"] as? String,
-                let isha = row?["isha"] as? String else {
+                  let sunrise = row?["sunrise"] as? String,
+                  let dhuhr = row?["dhuhr"] as? String,
+                  let asr = row?["asr"] as? String,
+                  let maghrib = row?["maghrib"] as? String,
+                  let isha = row?["isha"] as? String
+            else {
                 callback(nil, "All columns are not found in the row.")
                 return
             }
@@ -100,8 +104,8 @@ public struct PrayerTime {
     /// - Parameter format: TimeFormat instance.
     /// - Returns: Array of formatted prayer times
     public func formatPrayers(_ format: TimeFormat) -> [String] {
-        return [fajr.toTime(format: format), sunrise.toTime(format: format), dhuhr.toTime(format: format),
-                asr.toTime(format: format), maghrib.toTime(format: format), isha.toTime(format: format)]
+        [fajr.toTime(format: format), sunrise.toTime(format: format), dhuhr.toTime(format: format),
+         asr.toTime(format: format), maghrib.toTime(format: format), isha.toTime(format: format)]
     }
 
     /// Get next prayer index and if all prayer times passed it will return 0.

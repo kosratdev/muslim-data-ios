@@ -8,7 +8,7 @@
 import Foundation
 
 /// Names class that has a helper method to return a list of Names.
-public class Names {
+public enum Names {
     // MARK: - Public Methods
 
     /// Get list of names of allah with translation for given language.

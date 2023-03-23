@@ -32,11 +32,11 @@ public struct LocationHelper {
             do {
                 try self.dbHelper.dbPool?.read { dbConnect in
                     let locations = try Location.fetchAll(dbConnect, sql: """
-                    SELECT cities.country_code as country_code, cities.city as city, cities.latitude as latitude,
-                    cities.longitude as longitude, countries.country_name as country_name
-                    FROM cities
-                    INNER JOIN countries on cities.country_code = countries.country_code
-                    WHERE cities.city like '\(city)%'
+                    SELECT city.country_code as country_code, country_name, city_name,
+                           latitude, longitude, has_fixed_prayer_time
+                    FROM city
+                    INNER JOIN country on city.country_code = country.country_code
+                    WHERE city.city_name like '\(city)%'
                     """)
                     DispatchQueue.main.async {
                         callback(locations, nil)
@@ -60,11 +60,11 @@ public struct LocationHelper {
         do {
             try dbHelper.dbPool?.read { dbConnect in
                 let result = try Location.fetchOne(dbConnect, sql: """
-                SELECT cities.country_code as country_code, cities.city as city, cities.latitude as latitude,
-                cities.longitude as longitude, countries.country_name as country_name
-                FROM cities
-                INNER JOIN countries on cities.country_code = countries.country_code
-                WHERE cities.country_code='\(countryCode)' and cities.city='\(city)'
+                SELECT city.country_code as country_code, country_name, city_name, latitude,
+                       longitude, has_fixed_prayer_time
+                FROM city
+                INNER JOIN country on city.country_code = country.country_code
+                WHERE city.country_code='\(countryCode)' COLLATE NOCASE and city.city_name='\(city)' COLLATE NOCASE
                 """)
 
                 guard var location = result else {
@@ -72,14 +72,6 @@ public struct LocationHelper {
                     return
                 }
 
-                let isStatic = try Bool.fetchOne(
-                    dbConnect, sql: """
-                    SELECT * FROM prayer_times
-                    where country_code = '\(location.countryCode)' and
-                    city = '\(location.city.mapper(countryCode: location.countryCode))'
-                    """
-                )
-                location.hasFixedPrayerTimes = isStatic ?? false
                 callback(location)
             }
         } catch {
@@ -97,10 +89,10 @@ public struct LocationHelper {
         do {
             try dbHelper.dbPool?.read { dbConnect in
                 let result = try Location.fetchOne(dbConnect, sql: """
-                SELECT cities.country_code as country_code, cities.city as city, cities.latitude as latitude,
-                cities.longitude as longitude, countries.country_name as country_name
-                FROM cities
-                INNER JOIN countries on cities.country_code = countries.country_code
+                SELECT city.country_code as country_code, country_name, city_name, latitude,
+                       longitude, has_fixed_prayer_time
+                FROM city
+                INNER JOIN country on city.country_code = country.country_code
                 ORDER BY abs(latitude - (\(latitude))) + abs(longitude - (\(longitude)))
                 LIMIT 1
                 """)
@@ -110,38 +102,10 @@ public struct LocationHelper {
                     return
                 }
 
-                let hasFixed = try Bool.fetchOne(
-                    dbConnect, sql: """
-                    SELECT * FROM prayer_times
-                    where country_code='\(location.countryCode)' and
-                    city = '\(location.city.mapper(countryCode: location.countryCode))'
-                    """
-                )
-                location.hasFixedPrayerTimes = hasFixed ?? false
                 callback(location)
             }
         } catch {
             callback(nil)
-        }
-    }
-
-    /// Check whether the city has fixed prayer times or not.
-    ///
-    /// - Parameters:
-    ///   - city: City name.
-    ///   - callback: Callback that returns a Boolean that indicate the city has fixed prayer times or not.
-    public func cityHasFixedPrayerTimes(countryCode: String, city: String, callback: @escaping (Bool) -> Void) {
-        do {
-            try dbHelper.dbPool?.read { dbConnect in
-                let result = try Bool.fetchOne(dbConnect, sql: """
-                SELECT * FROM prayer_times
-                WHERE country_code='\(countryCode)' and
-                city = '\(city.mapper(countryCode: countryCode))'
-                """)
-                callback(result ?? false)
-            }
-        } catch {
-            callback(false)
         }
     }
 }
