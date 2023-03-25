@@ -6,9 +6,10 @@
         "Erbil": ["Kalak", "Pirmam", "Shaqlawa", "Harir", "Khalifan", "Rawanduz", "Soran", "Mergasur", "Galala", "Choman", "Hiran", "Qushtapa", "Kasnazan"],
         "Kirkuk": ["Taza Khurmatu"],
         "Sulaymaniyah": ["Kalar", "Mawat", "Arbat"],
-        "Qaladiza": ["Halsho", "Nawdasht", "Piramagroon", "Tasluja", "Bazian", "Sangasar", "Zharawa", "Sangaw"],
-        "Kifri": ["Dokan", "Takiya", "Qadir Karam", "Aghjalar"],
-        "Chamchamal": ["Ranya", "Hajiawa", "Sarkapkan", "Khalakan", "Taqtaq", "Hizop", "Chwarqurna", "Shorsh", "Takiay Jabari"],
+        "Qaladiza": ["Halsho", "Nawdasht", "Piramagroon", "Tasluja", "Bazian", "Sangasar", "Zharawa"],
+        "Kifri": ["Dokan", "Qadir Karam"],
+        "Ranya": ["Hajiawa", "Sarkapkan", "Khalakan", "Taqtaq", "Hizop", "Chwarqurna"]
+        "Chamchamal": ["Takiya", "Takiay Jabari", "Shorsh", "Aghjalar", "Sangaw"]
         "Darbandikhan": ["Zalan", "Gapilon", "Chwarta", "Barzinjah", "Zarayan", "Halebjai Taza","Qara Dagh", "Khanaqin"],
         "Halabja": ["Garmk", "Penjwen", "Nalparez", "Said Sadiq", "Sirwan", "Pshta"],
         "Khurmal": ["Byara", "Tawella", "Gokhlan", "Balkha"]
