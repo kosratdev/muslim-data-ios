@@ -1,0 +1,20 @@
+name: Unit Tests
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: macOS-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install Cocoapods
+      run: |
+        gem install cocoapods
+        pod install --project-directory=Example
+    - name: Run Tests
+      run: |
+        set -eo pipefail
+        xcodebuild test -enableCodeCoverage YES -workspace Example/MuslimData.xcworkspace -scheme MuslimData -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14 Pro' | xcpretty
+
