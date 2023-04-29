@@ -1,6 +1,8 @@
 name: Deploy to Cocoapods
 
-on: [release]
+on:
+  release:
+    types: [released]
 
 jobs:
   unit_tests:
