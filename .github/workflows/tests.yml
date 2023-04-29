@@ -3,7 +3,7 @@ name: Unit Tests
 on: [pull_request]
 
 jobs:
-  build:
+  unit_tests:
     runs-on: macOS-latest
     steps:
     - uses: szenius/set-timezone@v1.2

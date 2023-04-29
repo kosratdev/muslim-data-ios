@@ -3,13 +3,30 @@ name: Deploy to Cocoapods
 on: [release]
 
 jobs:
-  build:
-
+  unit_tests:
     runs-on: macOS-latest
+    steps:
+    - uses: szenius/set-timezone@v1.2
+      with:
+        timezoneMacos: "Asia/Baghdad"
+    - uses: actions/checkout@v3
+    
+    - name: Install Cocoapods
+      run: |
+        gem install cocoapods
+        pod install --project-directory=Example
+    
+    - name: Run Tests
+      run: |
+        set -eo pipefail
+        xcodebuild test -enableCodeCoverage YES -workspace Example/MuslimData.xcworkspace -scheme MuslimData-Example -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14 Pro' | xcpretty
+
+  deploy:
+    runs-on: macOS-latest
+    needs: unit_tests
 
     steps:
     - uses: actions/checkout@v3
-    
     - name: Install Cocoapods
       run: gem install cocoapods
       
