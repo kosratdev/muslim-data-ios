@@ -91,7 +91,7 @@ class LocationTests: XCTestCase {
         XCTAssertEqual("Zarayan".mapper(countryCode: "IQ"), "Darbandikhan")
         XCTAssertEqual("Atrish".mapper(countryCode: "IQ"), "Duhok")
         XCTAssertEqual("Choman".mapper(countryCode: "IQ"), "Erbil")
-        XCTAssertEqual("Byara".mapper(countryCode: "IQ"), "Khurmal")
+        XCTAssertEqual("Byara".mapper(countryCode: "IQ"), "Halabja")
         XCTAssertEqual("Hajiawa".mapper(countryCode: "IQ"), "Ranya")
         XCTAssertEqual("Taza Khurmatu".mapper(countryCode: "IQ"), "Kirkuk")
         XCTAssertEqual("Khalakan".mapper(countryCode: "IQ"), "Ranya")

@@ -11,8 +11,7 @@
         "Ranya": ["Hajiawa", "Sarkapkan", "Khalakan", "Taqtaq", "Hizop", "Chwarqurna"],
         "Chamchamal": ["Takiya", "Takiay Jabari", "Shorsh", "Aghjalar", "Sangaw"],
         "Darbandikhan": ["Zalan", "Gapilon", "Chwarta", "Barzinjah", "Zarayan", "Halebjai Taza","Qara Dagh", "Khanaqin"],
-        "Halabja": ["Garmk", "Penjwen", "Nalparez", "Said Sadiq", "Sirwan", "Pshta"],
-        "Khurmal": ["Byara", "Tawella", "Gokhlan", "Balkha"]
+        "Halabja": ["Garmk", "Penjwen", "Nalparez", "Said Sadiq", "Sirwan", "Pshta", "Byara", "Tawella", "Gokhlan", "Balkha", "Khurmal"],
     },
     "IR":{
         "Sanandaj": ["Kamyaran", "Divandarreh", "Dehgolan", "Qorveh"],
