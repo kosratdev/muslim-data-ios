@@ -6,11 +6,10 @@ jobs:
   build:
     runs-on: macOS-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Set Timezone to +3 (With input)
     - uses: szenius/set-timezone@v1.2
       with:
         timezoneMacos: "Asia/Baghdad"
+    - uses: actions/checkout@v3
     - name: Install Cocoapods
       run: |
         gem install cocoapods
@@ -19,4 +18,3 @@ jobs:
       run: |
         set -eo pipefail
         xcodebuild test -enableCodeCoverage YES -workspace Example/MuslimData.xcworkspace -scheme MuslimData-Example -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14 Pro' | xcpretty
-
