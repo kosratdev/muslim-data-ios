@@ -4,11 +4,8 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: macOS-latest
-
     steps:
-    
     - uses: actions/checkout@v3
     - name: Set Timezone to +3 (With input)
     - uses: szenius/set-timezone@v1.2
