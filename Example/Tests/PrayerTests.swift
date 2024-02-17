@@ -91,6 +91,21 @@ class PrayerTests: XCTestCase {
             XCTAssertEqual(stringPrayer[4], "18:04")
             XCTAssertEqual(stringPrayer[5], "19:19")
         }
+        
+        // Test fixed prayer times for Qasre, Iraq
+        let qasre = Location(latitude: 0.0, longitude: 0.0, cityName: "Qasre", countryCode: "IQ",
+                             countryName: "Iraq", hasFixedPrayerTime: true)
+        PrayerTime.getPrayerTimes(location: qasre, date: date, attributes: attributes) { prayer, error in
+            XCTAssertNil(error)
+            XCTAssertNotNil(prayer)
+            let stringPrayer = prayer!.formatPrayers(.time24)
+            XCTAssertEqual(stringPrayer[0], "04:37")
+            XCTAssertEqual(stringPrayer[1], "06:05")
+            XCTAssertEqual(stringPrayer[2], "12:00")
+            XCTAssertEqual(stringPrayer[3], "15:06")
+            XCTAssertEqual(stringPrayer[4], "17:40")
+            XCTAssertEqual(stringPrayer[5], "18:55")
+        }
     }
 
     func testCalculatedPrayer() {
