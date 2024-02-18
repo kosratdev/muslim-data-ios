@@ -54,6 +54,14 @@ class LocationTests: XCTestCase {
             XCTAssertEqual(location!.longitude, 44.541427)
             XCTAssertEqual(location!.hasFixedPrayerTime, true)
         }
+        
+        // Test (Qasre, IQ) which has fixed prayer times by city mapper.
+        locationHelper.geocoder(countryCode: "IQ", city: "Qasre") { location in
+            XCTAssertNotNil(location)
+            XCTAssertEqual(location!.latitude, 36.557804)
+            XCTAssertEqual(location!.longitude, 44.827805)
+            XCTAssertEqual(location!.hasFixedPrayerTime, true)
+        }
     }
 
     func testGeocoderLocation() {
@@ -83,6 +91,15 @@ class LocationTests: XCTestCase {
             XCTAssertEqual(location!.countryName, "Iraq")
             XCTAssertEqual(location!.hasFixedPrayerTime, true)
         }
+        
+        // Test (Qasre, IQ) which has fixed prayer times by city mapper.
+        locationHelper.geocoder(latitude: 36.557804, longitude: 44.827805) { location in
+            XCTAssertNotNil(location)
+            XCTAssertEqual(location!.cityName, "Qasre")
+            XCTAssertEqual(location!.countryCode, "IQ")
+            XCTAssertEqual(location!.countryName, "Iraq")
+            XCTAssertEqual(location!.hasFixedPrayerTime, true)
+        }
     }
 
     func testCityMapper() {
@@ -101,5 +118,9 @@ class LocationTests: XCTestCase {
         XCTAssertEqual("Rai".mapper(countryCode: "KW"), "Al Asimah")
         XCTAssertEqual("Kubbar Island".mapper(countryCode: "KW"), "Failaka Island")
         XCTAssertEqual("Jahra".mapper(countryCode: "KW"), "Abdali")
+        XCTAssertEqual("Wallze".mapper(countryCode: "IQ"), "Qasre")
+        XCTAssertEqual("Koila".mapper(countryCode: "IQ"), "Qasre")
+        XCTAssertNotEqual("Rai".mapper(countryCode: "IQ"), "Qasre")
+        XCTAssertNotEqual("Choman".mapper(countryCode: "IQ"), "Qasre")
     }
 }
