@@ -81,7 +81,7 @@ class IQCityMapperTests: XCTestCase {
         XCTAssertEqual("Wasan".mapper(countryCode: "IQ"), "Qasre")
         XCTAssertEqual("Choma".mapper(countryCode: "IQ"), "Qasre")
         XCTAssertEqual("Mergay Khwaru".mapper(countryCode: "IQ"), "Qasre")
-        XCTAssertEqual("Kani Bast".mapper(countryCode: "IQ"), "Qasre")
+        XCTAssertEqual("Kani bast".mapper(countryCode: "IQ"), "Qasre")
     }
     
     func testKirkukCityMapper() {

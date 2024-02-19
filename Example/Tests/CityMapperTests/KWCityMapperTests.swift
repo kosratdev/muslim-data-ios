@@ -32,7 +32,7 @@ class KWCityMapperTests: XCTestCase {
         XCTAssertEqual("Bneid Al Qar".mapper(countryCode: "KW"), "Al Asimah")
         XCTAssertEqual("Kaifan".mapper(countryCode: "KW"), "Al Asimah")
         XCTAssertEqual("Mansouriya".mapper(countryCode: "KW"), "Al Asimah")
-        XCTAssertEqual("Abdullah Al-Salem".mapper(countryCode: "KW"), "Al Asimah")
+        XCTAssertEqual("Abdullah al-Salem".mapper(countryCode: "KW"), "Al Asimah")
         XCTAssertEqual("Nuzha".mapper(countryCode: "KW"), "Al Asimah")
         XCTAssertEqual("Faiha".mapper(countryCode: "KW"), "Al Asimah")
         XCTAssertEqual("Shamiya".mapper(countryCode: "KW"), "Al Asimah")

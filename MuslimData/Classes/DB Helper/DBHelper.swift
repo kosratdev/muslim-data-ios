@@ -34,8 +34,8 @@ class DBHelper {
             try dbPool?.read { dbConnect in
                 let result = try Row.fetchOne(dbConnect, sql: """
                 SELECT * FROM prayer_time
-                WHERE country_code = '\(countryCode)' and city = '\(city.mapper(countryCode: countryCode))'
-                and date = '\(formatPrayerDate(date))'
+                WHERE country_code = "\(countryCode)" and city = "\(city.mapper(countryCode: countryCode))"
+                and date = "\(formatPrayerDate(date))"
                 """)
                 guard let row = result else {
                     callback(nil, "Found nil while unwrapping result.")
@@ -59,7 +59,7 @@ class DBHelper {
                 let result = try Name.fetchAll(dbConnect, sql: """
                 SELECT org.name , tr.name as translated
                 FROM name as org
-                INNER JOIN name_translation as tr on tr.name_id = org._id and tr.language = '\(language)'
+                INNER JOIN name_translation as tr on tr.name_id = org._id and tr.language = "\(language)"
                 """)
                 guard result.count > 0 else {
                     callback(nil, "No row found")
@@ -84,7 +84,7 @@ class DBHelper {
                 SELECT org._id, category_name
                 FROM azkar_category as org
                 INNER JOIN azkar_category_translation as tr on tr.category_id = org._id
-                and language = '\(language)'
+                and language = "\(language)"
                 """)
                 guard result.count > 0 else {
                     callback(nil, "No row found")
@@ -113,7 +113,7 @@ class DBHelper {
                 let result = try AzkarChapter.fetchAll(dbConnect, sql: """
                 SELECT org._id, category_id, chapter_name
                 FROM azkar_chapter as org
-                INNER JOIN azkar_chapter_translation as tr on tr.chapter_id = org._id and language = '\(language)'
+                INNER JOIN azkar_chapter_translation as tr on tr.chapter_id = org._id and language = "\(language)"
                 \(category)
                 """)
                 guard result.count > 0 else {
@@ -139,11 +139,11 @@ class DBHelper {
                 let result = try AzkarItem.fetchAll(dbConnect, sql: """
                 SELECT org._id, org.chapter_id, org.item, tr.item_translation, rtr.reference
                 FROM azkar_item as org
-                INNER JOIN azkar_item_translation as tr on tr.item_id = org._id and tr.language = '\(language)'
+                INNER JOIN azkar_item_translation as tr on tr.item_id = org._id and tr.language = "\(language)"
                 and org.chapter_id = \(chapterId)
                 INNER JOIN azkar_reference as ref on ref.item_id = org._id
                 INNER JOIN azkar_reference_translation as rtr on rtr.reference_id = ref._id
-                and rtr.language = '\(language)'
+                and rtr.language = "\(language)"
                 """)
                 guard result.count > 0 else {
                     callback(nil, "No row found")

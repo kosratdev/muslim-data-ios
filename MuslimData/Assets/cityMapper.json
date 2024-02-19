@@ -5,7 +5,7 @@
         "Bardarash": ["Mamuzin"],
         "Erbil": ["Kalak", "Pirmam", "Shaqlawa", "Harir", "Khalifan", "Rawanduz", "Soran", "Mergasur", "Galala", "Choman", "Hiran", "Qushtapa", "Kasnazan"],
         "Qasre": ["Wallze","Soraban","Shnawa","Rashdur","Makosan","Saya","Walash","Eskawa","Xazena","Dilman",
-            "Sarkan", "Chomsak","Qalat","Koila","Mawnan","Wasan","Choma","Mergay Khwaru","Kani Bast"],
+            "Sarkan", "Chomsak","Qalat","Koila","Mawnan","Wasan","Choma","Mergay Khwaru","Kani bast"],
         "Kirkuk": ["Taza Khurmatu"],
         "Sulaymaniyah": ["Mawat", "Arbat"],
         "Qaladiza": ["Halsho", "Nawdasht", "Tasluja", "Bazian", "Sangasar", "Zharawa", "Bngrd", "Hero"],
@@ -21,7 +21,7 @@
         "Urmia": ["Orumiyeh"]
     },
     "KW": {
-        "Al Asimah": ["Kuwait City", "Dasman Palace", "Sharq", "Mirqab", "Jibla", "Dasma", "Daiya", "Salhia", "Bneid Al Qar", "Kaifan", "Mansouriya", "Abdullah Al-Salem", "Nuzha", "Faiha", "Shamiya", "Rawda", "Adailiya", "Khaldiya", "Qadsiya", "Qortuba", "Surra", "Yarmouk", "Shuwaikh Industrial", "Rai", "Granada", "Sulaibikhat", "Doha", "Nahdha", "Jaber Al Ahmad", "Qairawan", "Ahmadi", "Al Wafrah", "Sabah Al Salem", "Messila", "Al-Masayel", "Adan", "Fnaitees", "Qusor", "Qurain", "Abu Fatira", "Mubarak Al Kabeer", "Jeleeb Al-Shuyoukh", "Eqaila", "Fintas", "Dahar", "Mahboula", "Hadiya", "Al-Riqqa", "Abu Halifa", "Fahad Al Ahmad", "Assabahiyah", "Mangaf", "Fahaheel", "South Sabahiya", "Ali Sabah Al Salem", "Shalayhat Mina Abdullah", "Zour", "Al Khiran"],
+        "Al Asimah": ["Kuwait City", "Dasman Palace", "Sharq", "Mirqab", "Jibla", "Dasma", "Daiya", "Salhia", "Bneid Al Qar", "Kaifan", "Mansouriya", "Abdullah al-Salem", "Nuzha", "Faiha", "Shamiya", "Rawda", "Adailiya", "Khaldiya", "Qadsiya", "Qortuba", "Surra", "Yarmouk", "Shuwaikh Industrial", "Rai", "Granada", "Sulaibikhat", "Doha", "Nahdha", "Jaber Al Ahmad", "Qairawan", "Ahmadi", "Al Wafrah", "Sabah Al Salem", "Messila", "Al-Masayel", "Adan", "Fnaitees", "Qusor", "Qurain", "Abu Fatira", "Mubarak Al Kabeer", "Jeleeb Al-Shuyoukh", "Eqaila", "Fintas", "Dahar", "Mahboula", "Hadiya", "Al-Riqqa", "Abu Halifa", "Fahad Al Ahmad", "Assabahiyah", "Mangaf", "Fahaheel", "South Sabahiya", "Ali Sabah Al Salem", "Shalayhat Mina Abdullah", "Zour", "Al Khiran"],
         "Failaka Island": ["Zoor", "Kubbar Island", "Al-Nuwaiseeb"],
         "Abdali": ["Jahra"]
     }
