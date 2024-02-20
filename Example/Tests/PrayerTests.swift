@@ -30,6 +30,16 @@ class PrayerTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+    func testAllFixedPrayerTimes() {
+        let locations = LocationHelper.shared.fixedPrayerTimesList()
+        locations!.forEach({ location in
+            PrayerTime.getPrayerTimes(location: location, date: self.date, attributes: self.attributes) { prayer, error in
+                XCTAssertNil(error)
+                XCTAssertNotNil(prayer)
+            }
+        })
+    }
+    
     func testFixedPrayer() {
         // Test fixed prayer times for Sulav, Iraq
         let sulav = Location(latitude: 0.0, longitude: 0.0, cityName: "Sulav", countryCode: "IQ",

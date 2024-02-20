@@ -34,7 +34,7 @@ extension String {
     /// - Parameter countryCode: Country code
     /// - Returns: Parent city if available else the city it self.
     func mapper(countryCode: String) -> String {
-        let city = capitalized
+        let city = self
         var parentCity: String?
         if let path = Bundle(for: DBHelper.self).path(forResource: "cityMapper", ofType: "json") {
             do {

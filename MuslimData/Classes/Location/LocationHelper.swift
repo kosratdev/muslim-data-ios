@@ -36,7 +36,7 @@ public struct LocationHelper {
                            latitude, longitude, has_fixed_prayer_time
                     FROM city
                     INNER JOIN country on city.country_code = country.country_code
-                    WHERE city.city_name like '\(city)%'
+                    WHERE city.city_name like "\(city)%"
                     """)
                     DispatchQueue.main.async {
                         callback(locations, nil)
@@ -64,7 +64,7 @@ public struct LocationHelper {
                        longitude, has_fixed_prayer_time
                 FROM city
                 INNER JOIN country on city.country_code = country.country_code
-                WHERE city.country_code='\(countryCode)' COLLATE NOCASE and city.city_name='\(city)' COLLATE NOCASE
+                WHERE city.country_code="\(countryCode)" COLLATE NOCASE and city.city_name="\(city)" COLLATE NOCASE
                 """)
 
                 guard var location = result else {
@@ -106,6 +106,25 @@ public struct LocationHelper {
             }
         } catch {
             callback(nil)
+        }
+    }
+    
+    /// Get all the locations that has fixed prayer times.
+    /// - Returns: Location list
+    public func fixedPrayerTimesList() -> [Location]?{
+        do {
+            return try self.dbHelper.dbPool?.read { dbConnect in
+                let locations = try Location.fetchAll(dbConnect, sql: """
+                SELECT city.country_code as country_code, country_name, city_name,
+                       latitude, longitude, has_fixed_prayer_time
+                FROM city
+                INNER JOIN country on city.country_code = country.country_code
+                WHERE has_fixed_prayer_time=1
+                """)
+               return locations
+            }
+        } catch {
+            return nil
         }
     }
 }

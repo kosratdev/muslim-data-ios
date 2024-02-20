@@ -10,6 +10,9 @@
 		2D110EDE216BE7FB002035FA /* PrayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D110EDD216BE7FB002035FA /* PrayerTests.swift */; };
 		2D27AC4B2188E621004722BD /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D27AC4A2188E621004722BD /* LocationViewController.swift */; };
 		2D4558BA21694A5200A08DAF /* LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4558B921694A5200A08DAF /* LocationTests.swift */; };
+		2D4EC4D42B835D7C00F08DCB /* IQCityMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4EC4D32B835D7C00F08DCB /* IQCityMapperTests.swift */; };
+		2D4EC4D72B83637A00F08DCB /* IRCityMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4EC4D62B83637A00F08DCB /* IRCityMapperTests.swift */; };
+		2D4EC4D92B83639E00F08DCB /* KWCityMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4EC4D82B83639E00F08DCB /* KWCityMapperTests.swift */; };
 		2D6B21C421708D600054F8C0 /* NamesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6B21C321708D600054F8C0 /* NamesTest.swift */; };
 		2D9FC355217278E0003EF074 /* AzkarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9FC354217278E0003EF074 /* AzkarTests.swift */; };
 		2DBD7E7B218E01AF00B6595B /* AzkarChaptersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBD7E7A218E01AF00B6595B /* AzkarChaptersViewController.swift */; };
@@ -40,6 +43,9 @@
 		2D110EDD216BE7FB002035FA /* PrayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTests.swift; sourceTree = "<group>"; };
 		2D27AC4A2188E621004722BD /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		2D4558B921694A5200A08DAF /* LocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTests.swift; sourceTree = "<group>"; };
+		2D4EC4D32B835D7C00F08DCB /* IQCityMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IQCityMapperTests.swift; sourceTree = "<group>"; };
+		2D4EC4D62B83637A00F08DCB /* IRCityMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRCityMapperTests.swift; sourceTree = "<group>"; };
+		2D4EC4D82B83639E00F08DCB /* KWCityMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KWCityMapperTests.swift; sourceTree = "<group>"; };
 		2D6B21C321708D600054F8C0 /* NamesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesTest.swift; sourceTree = "<group>"; };
 		2D9FC354217278E0003EF074 /* AzkarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AzkarTests.swift; sourceTree = "<group>"; };
 		2DBD7E7A218E01AF00B6595B /* AzkarChaptersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AzkarChaptersViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +100,16 @@
 				5665FE91640402C3D36C56F2 /* Pods-MuslimData_Tests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		2D4EC4D52B83634200F08DCB /* CityMapperTests */ = {
+			isa = PBXGroup;
+			children = (
+				2D4EC4D32B835D7C00F08DCB /* IQCityMapperTests.swift */,
+				2D4EC4D62B83637A00F08DCB /* IRCityMapperTests.swift */,
+				2D4EC4D82B83639E00F08DCB /* KWCityMapperTests.swift */,
+			);
+			path = CityMapperTests;
 			sourceTree = "<group>";
 		};
 		2DBD7E7C218E01BF00B6595B /* Azkars */ = {
@@ -196,6 +212,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				2D4EC4D52B83634200F08DCB /* CityMapperTests */,
 				2D9FC354217278E0003EF074 /* AzkarTests.swift */,
 				2D6B21C321708D600054F8C0 /* NamesTest.swift */,
 				2D110EDD216BE7FB002035FA /* PrayerTests.swift */,
@@ -445,9 +462,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D110EDE216BE7FB002035FA /* PrayerTests.swift in Sources */,
+				2D4EC4D92B83639E00F08DCB /* KWCityMapperTests.swift in Sources */,
 				2D6B21C421708D600054F8C0 /* NamesTest.swift in Sources */,
 				2D4558BA21694A5200A08DAF /* LocationTests.swift in Sources */,
 				2D9FC355217278E0003EF074 /* AzkarTests.swift in Sources */,
+				2D4EC4D72B83637A00F08DCB /* IRCityMapperTests.swift in Sources */,
+				2D4EC4D42B835D7C00F08DCB /* IQCityMapperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,7 +616,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4HFFW4423Q;
 				INFOPLIST_FILE = MuslimData/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -615,7 +635,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4HFFW4423Q;
 				INFOPLIST_FILE = MuslimData/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -641,7 +661,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -664,7 +684,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
