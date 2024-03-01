@@ -32,8 +32,11 @@ class PrayerTests: XCTestCase {
 
     func testAllFixedPrayerTimes() {
         let locations = LocationHelper.shared.fixedPrayerTimesList()
+        let date = Date(timeIntervalSince1970: 1709206718) // 2024/02/29
         locations!.forEach({ location in
-            PrayerTime.getPrayerTimes(location: location, date: self.date, attributes: self.attributes) { prayer, error in
+            print(location)
+            print(date)
+            PrayerTime.getPrayerTimes(location: location, date: date, attributes: self.attributes) { prayer, error in
                 XCTAssertNil(error)
                 XCTAssertNotNil(prayer)
             }
