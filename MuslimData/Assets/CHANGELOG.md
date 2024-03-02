@@ -4,6 +4,13 @@ All notable changes to the MuslimData database will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.4.2] - 2024-03-01
+
+Bug fixes.
+
+### Fixed
+- Fix Sanandaj, IR prayer time at 29 Feb which was added as 02-01. 
+
 ## [1.4.1] - 2024-02-28
 
 Bug fixes.
