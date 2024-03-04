@@ -4,6 +4,13 @@ All notable changes to the MuslimData database will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.5.0] - 2024-03-04
+
+Update Chamchamal prayer times. 
+
+### Changed
+- Chamchamal, IQ prayer times have been updated.
+
 ## [1.4.2] - 2024-03-01
 
 Bug fixes.
