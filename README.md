@@ -1,6 +1,6 @@
 # MuslimData
 
-[![CI Status](https://img.shields.io/travis/KosratDAhmad/MuslimData.svg?style=flat)](https://travis-ci.org/KosratDAhmad/MuslimData)
+[![Build Status](https://github.com/kosratdev/muslim-data-ios/actions/workflows/deploy_to_cocoapods.yml/badge.svg)](https://github.com/kosratdev/muslim-data-ios/actions)
 [![Version](https://img.shields.io/cocoapods/v/MuslimData.svg?style=flat)](https://cocoapods.org/pods/MuslimData)
 [![License](https://img.shields.io/cocoapods/l/MuslimData.svg?style=flat)](https://cocoapods.org/pods/MuslimData)
 [![Platform](https://img.shields.io/cocoapods/p/MuslimData.svg?style=flat)](https://cocoapods.org/pods/MuslimData)
