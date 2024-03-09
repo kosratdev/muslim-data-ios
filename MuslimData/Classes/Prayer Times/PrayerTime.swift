@@ -82,9 +82,7 @@ public struct PrayerTime {
             return
         }
 
-        DBHelper.shared.prayerTimes(countryCode: location.countryCode,
-                                    city: location.cityName,
-                                    date: date) { row, error in
+        DBHelper.shared.prayerTimes(location: location, date: date) { row, error in
             guard error == nil else {
                 callback(nil, error)
                 return

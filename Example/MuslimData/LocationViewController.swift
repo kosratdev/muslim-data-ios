@@ -51,7 +51,7 @@ class LocationViewController: UIViewController {
     /// Display selected location on the screen.
     func displayLocation() {
         let location = Location.loadSavedLocation()
-        locationTitle.text = "\(location.cityName), \(location.countryName)"
+        locationTitle.text = "\(location.name), \(location.countryName)"
     }
 
     /// Dismiss and return to the parent screen.
@@ -103,7 +103,7 @@ extension LocationViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell", for: indexPath)
         let location = locations[indexPath.row]
-        cell.textLabel?.text = location.cityName
+        cell.textLabel?.text = location.name
         cell.detailTextLabel?.text = location.countryName
 
         return cell

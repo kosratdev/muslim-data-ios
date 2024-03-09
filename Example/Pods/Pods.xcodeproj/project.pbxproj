@@ -36,11 +36,10 @@
 		2A050272F5AA9419EACC2B68583FBF0C /* StatementAuthorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D32E01380A9B4A0B3817B6B914A51 /* StatementAuthorizer.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		2B130AEAB2EE4BD7997DB369572A684A /* FetchableRecord+TableRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2058FFAD3AA3F5F1DA38DAB365079462 /* FetchableRecord+TableRecord.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		2D0F97A52B813E8B003D46C5 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 2D0F97A42B813E8B003D46C5 /* CHANGELOG.md */; };
-		2D6CD44729CC5BF2009B527C /* muslim_db_v1.5.0.db in Resources */ = {isa = PBXBuildFile; fileRef = 2D6CD44629CC5BF2009B527C /* muslim_db_v1.5.0.db */; };
+		2D6CD44729CC5BF2009B527C /* muslim_db_v2.0.0.db in Resources */ = {isa = PBXBuildFile; fileRef = 2D6CD44629CC5BF2009B527C /* muslim_db_v2.0.0.db */; };
 		2DAF0C709FAF6D288751DB00EB06B40C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FD7232797ACF3F6F7685B58BCDC00C7 /* Foundation.framework */; };
 		318B2D4FBE83F08BB67C2AA6A52977AB /* FTS5+QueryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5779BFB97BB16F7C257E39CD28630594 /* FTS5+QueryInterface.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		33FDF2697ECE2E34513CACBC1EDFDB51 /* DatabaseValueConvertible+RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1585FD241A9AC0D79B3E084E1A8B7B77 /* DatabaseValueConvertible+RawRepresentable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		34B4EB735E3756C6399E9137529EE8BF /* cityMapper.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A3F05D7AA5BB40DB61D702ECFAACD79 /* cityMapper.json */; };
 		35A9B68C8D7AC42A8187DC1F8AEC095A /* FTS3TokenizerDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C9ECD60B68221B76E253AA39B4B52E /* FTS3TokenizerDescriptor.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		394451DC1DB1945ED4FF137FDE90A8E4 /* ValueObservation+FetchableRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112165439418B44C4BDCFB45D22CBE34 /* ValueObservation+FetchableRecord.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		3A22C174B394CB9AF865557B3EA0D761 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730FF805483A83B2584256EEDC5D2639 /* Language.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -229,7 +228,7 @@
 		2BC5D21AC275156EB1E637182C566346 /* MuslimData.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MuslimData.modulemap; sourceTree = "<group>"; };
 		2C8D1DE939367A8362484A58B33EB6DE /* DatabaseSnapshot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseSnapshot.swift; path = GRDB/Core/DatabaseSnapshot.swift; sourceTree = "<group>"; };
 		2D0F97A42B813E8B003D46C5 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = MuslimData/Assets/CHANGELOG.md; sourceTree = "<group>"; };
-		2D6CD44629CC5BF2009B527C /* muslim_db_v1.5.0.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = muslim_db_v1.5.0.db; path = MuslimData/Assets/muslim_db_v1.5.0.db; sourceTree = "<group>"; };
+		2D6CD44629CC5BF2009B527C /* muslim_db_v2.0.0.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = muslim_db_v2.0.0.db; path = MuslimData/Assets/muslim_db_v2.0.0.db; sourceTree = "<group>"; };
 		2DC6A83C7FE2580E3F2A1AFBB2B117E6 /* PrayerAttribute.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PrayerAttribute.swift; sourceTree = "<group>"; };
 		2E88CF46329DBA47B53B98F005E11EE3 /* MuslimData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MuslimData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F75C56ED8BD1951FC8172C608B20303 /* Pods-MuslimData_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MuslimData_Example-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -244,7 +243,6 @@
 		3708554DF1666EC6C41BBEB89E5AC257 /* URL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = URL.swift; path = GRDB/Core/Support/Foundation/URL.swift; sourceTree = "<group>"; };
 		374B2EE56EE7DAC67CCB2C047D622957 /* Configuration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Configuration.swift; path = GRDB/Core/Configuration.swift; sourceTree = "<group>"; };
 		37C9ECD60B68221B76E253AA39B4B52E /* FTS3TokenizerDescriptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTS3TokenizerDescriptor.swift; path = GRDB/FTS/FTS3TokenizerDescriptor.swift; sourceTree = "<group>"; };
-		3A3F05D7AA5BB40DB61D702ECFAACD79 /* cityMapper.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; name = cityMapper.json; path = MuslimData/Assets/cityMapper.json; sourceTree = "<group>"; };
 		3BEF107E7E8091B90FAECDFC4C7A6954 /* Inflections+English.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Inflections+English.swift"; path = "GRDB/Utils/Inflections+English.swift"; sourceTree = "<group>"; };
 		3CA2DEAEDF6FED5B07AE3779109C7886 /* DatabaseSchemaCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseSchemaCache.swift; path = GRDB/Core/DatabaseSchemaCache.swift; sourceTree = "<group>"; };
 		3FF0BA87045E3E9FABE15B6BF3A8D5A2 /* FTS3.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTS3.swift; path = GRDB/FTS/FTS3.swift; sourceTree = "<group>"; };
@@ -756,8 +754,7 @@
 		CF862A95B5D3FFC023257833F1193CE5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2D6CD44629CC5BF2009B527C /* muslim_db_v1.5.0.db */,
-				3A3F05D7AA5BB40DB61D702ECFAACD79 /* cityMapper.json */,
+				2D6CD44629CC5BF2009B527C /* muslim_db_v2.0.0.db */,
 				2D0F97A42B813E8B003D46C5 /* CHANGELOG.md */,
 			);
 			name = Resources;
@@ -967,8 +964,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D0F97A52B813E8B003D46C5 /* CHANGELOG.md in Resources */,
-				34B4EB735E3756C6399E9137529EE8BF /* cityMapper.json in Resources */,
-				2D6CD44729CC5BF2009B527C /* muslim_db_v1.5.0.db in Resources */,
+				2D6CD44729CC5BF2009B527C /* muslim_db_v2.0.0.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

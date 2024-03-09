@@ -19,7 +19,7 @@ class DBHelper {
     private init() {
         var configuration = Configuration()
         configuration.readonly = true
-        let databaseURL = Bundle(for: DBHelper.self).path(forResource: "muslim_db_v1.5.0", ofType: "db")!
+        let databaseURL = Bundle(for: DBHelper.self).path(forResource: "muslim_db_v2.0.0", ofType: "db")!
         dbPool = try? DatabasePool(path: databaseURL, configuration: configuration)
 
         // Be a nice iOS citizen, and don’t consume too much memory
@@ -29,12 +29,12 @@ class DBHelper {
 
     // MARK: - Public Methods
 
-    func prayerTimes(countryCode: String, city: String, date: Date, callback: @escaping (Row?, String?) -> Void) {
+    func prayerTimes(location: Location, date: Date, callback: @escaping (Row?, String?) -> Void) {
         do {
             try dbPool?.read { dbConnect in
                 let result = try Row.fetchOne(dbConnect, sql: """
                 SELECT * FROM prayer_time
-                WHERE country_code = "\(countryCode)" and city = "\(city.mapper(countryCode: countryCode))"
+                WHERE location_id = "\(location.prayerDependentId ?? location.id)"
                 and date = "\(formatPrayerDate(date))"
                 """)
                 guard let row = result else {

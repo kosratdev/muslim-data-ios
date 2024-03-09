@@ -25,18 +25,18 @@ public struct LocationHelper {
     /// Search for a city in the database
     ///
     /// - Parameters:
-    ///   - city: City name
+    ///   - locationName: location name
     ///   - callback: Callback that returns a Location object.
-    public func citySearch(_ city: String, callback: @escaping ([Location]?, String?) -> Void) {
+    public func citySearch(_ locationName: String, callback: @escaping ([Location]?, String?) -> Void) {
         DispatchQueue.global(qos: .background).async {
             do {
                 try self.dbHelper.dbPool?.read { dbConnect in
                     let locations = try Location.fetchAll(dbConnect, sql: """
-                    SELECT city.country_code as country_code, country_name, city_name,
-                           latitude, longitude, has_fixed_prayer_time
-                    FROM city
-                    INNER JOIN country on city.country_code = country.country_code
-                    WHERE city.city_name like "\(city)%"
+                    SELECT location._id as _id, country.code as country_code, country.name as country_name,
+                           location.name as name, latitude, longitude, has_fixed_prayer_time, prayer_dependent_id
+                    FROM location
+                    INNER JOIN country on country._id = location.country_id
+                    WHERE location.name like "\(locationName)%"
                     """)
                     DispatchQueue.main.async {
                         callback(locations, nil)
@@ -56,15 +56,15 @@ public struct LocationHelper {
     ///   - countryCode: Country code
     ///   - city: City name
     ///   - callback: Callback that returns a Location object.
-    public func geocoder(countryCode: String, city: String, callback: @escaping (Location?) -> Void) {
+    public func geocoder(countryCode: String, locationName: String, callback: @escaping (Location?) -> Void) {
         do {
             try dbHelper.dbPool?.read { dbConnect in
                 let result = try Location.fetchOne(dbConnect, sql: """
-                SELECT city.country_code as country_code, country_name, city_name, latitude,
-                       longitude, has_fixed_prayer_time
-                FROM city
-                INNER JOIN country on city.country_code = country.country_code
-                WHERE city.country_code="\(countryCode)" COLLATE NOCASE and city.city_name="\(city)" COLLATE NOCASE
+                SELECT location._id as _id, country.code as country_code, country.name as country_name, 
+                       location.name as name, latitude, longitude, has_fixed_prayer_time, prayer_dependent_id
+                FROM location
+                INNER JOIN country on country._id = location.country_id
+                WHERE country.code="\(countryCode)" COLLATE NOCASE and location.name="\(locationName)" COLLATE NOCASE
                 """)
 
                 guard var location = result else {
@@ -89,10 +89,10 @@ public struct LocationHelper {
         do {
             try dbHelper.dbPool?.read { dbConnect in
                 let result = try Location.fetchOne(dbConnect, sql: """
-                SELECT city.country_code as country_code, country_name, city_name, latitude,
-                       longitude, has_fixed_prayer_time
-                FROM city
-                INNER JOIN country on city.country_code = country.country_code
+                SELECT location._id as _id, country.code as country_code, country.name as country_name,
+                       location.name as name, latitude, longitude, has_fixed_prayer_time, prayer_dependent_id
+                FROM location
+                INNER JOIN country on country._id = location.country_id
                 ORDER BY abs(latitude - (\(latitude))) + abs(longitude - (\(longitude)))
                 LIMIT 1
                 """)
@@ -115,10 +115,10 @@ public struct LocationHelper {
         do {
             return try self.dbHelper.dbPool?.read { dbConnect in
                 let locations = try Location.fetchAll(dbConnect, sql: """
-                SELECT city.country_code as country_code, country_name, city_name,
-                       latitude, longitude, has_fixed_prayer_time
-                FROM city
-                INNER JOIN country on city.country_code = country.country_code
+                SELECT location._id as _id, country.code as country_code, country.name as country_name, 
+                       location.name as name, latitude, longitude, has_fixed_prayer_time, prayer_dependent_id
+                FROM location
+                INNER JOIN country on country._id = location.country_id
                 WHERE has_fixed_prayer_time=1
                 """)
                return locations

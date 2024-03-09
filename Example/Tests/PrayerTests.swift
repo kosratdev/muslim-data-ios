@@ -45,8 +45,8 @@ class PrayerTests: XCTestCase {
     
     func testFixedPrayer() {
         // Test fixed prayer times for Sulav, Iraq
-        let sulav = Location(latitude: 0.0, longitude: 0.0, cityName: "Sulav", countryCode: "IQ",
-                             countryName: "Iraq", hasFixedPrayerTime: true)
+        let sulav = Location(id: 77342, name: "Sulav", latitude: 0.0, longitude: 0.0, countryCode: "IQ",
+                             countryName: "Iraq", hasFixedPrayerTime: true, prayerDependentId: 77349)
         PrayerTime.getPrayerTimes(location: sulav, date: date, attributes: attributes) { prayer, error in
             XCTAssertNil(error)
             XCTAssertNotNil(prayer)
@@ -60,8 +60,8 @@ class PrayerTests: XCTestCase {
         }
 
         // Test fixed prayer times for Erbil, Iraq
-        let erbil = Location(latitude: 0.0, longitude: 0.0, cityName: "Erbil", countryCode: "IQ",
-                             countryName: "Iraq", hasFixedPrayerTime: true)
+        let erbil = Location(id: 77359, name: "Erbil", latitude: 0.0, longitude: 0.0, countryCode: "IQ",
+                             countryName: "Iraq", hasFixedPrayerTime: true, prayerDependentId: nil)
         PrayerTime.getPrayerTimes(location: erbil, date: date, attributes: attributes) { prayer, error in
             XCTAssertNil(error)
             XCTAssertNotNil(prayer)
@@ -75,8 +75,8 @@ class PrayerTests: XCTestCase {
         }
 
         // Test fixed prayer times for Baghdad, Iraq
-        let baghdad = Location(latitude: 0.0, longitude: 0.0, cityName: "Baghdad", countryCode: "IQ",
-                             countryName: "Iraq", hasFixedPrayerTime: true)
+        let baghdad = Location(id: 77452, name: "Baghdad", latitude: 0.0, longitude: 0.0, countryCode: "IQ",
+                             countryName: "Iraq", hasFixedPrayerTime: true, prayerDependentId: nil)
         PrayerTime.getPrayerTimes(location: baghdad, date: date, attributes: attributes) { prayer, error in
             XCTAssertNil(error)
             XCTAssertNotNil(prayer)
@@ -91,8 +91,8 @@ class PrayerTests: XCTestCase {
         }
 
         // Test fixed prayer times for Sanandaj, Iran
-        let sanandaj = Location(latitude: 0.0, longitude: 0.0, cityName: "Sanandaj", countryCode: "IR",
-                             countryName: "Iran", hasFixedPrayerTime: true)
+        let sanandaj = Location(id: 154907, name: "Sanandaj", latitude: 0.0, longitude: 0.0, countryCode: "IR",
+                             countryName: "Iran", hasFixedPrayerTime: true, prayerDependentId: nil)
         PrayerTime.getPrayerTimes(location: sanandaj, date: date, attributes: attributes) { prayer, error in
             XCTAssertNil(error)
             XCTAssertNotNil(prayer)
@@ -106,8 +106,8 @@ class PrayerTests: XCTestCase {
         }
         
         // Test fixed prayer times for Qasre, Iraq
-        let qasre = Location(latitude: 0.0, longitude: 0.0, cityName: "Qasre", countryCode: "IQ",
-                             countryName: "Iraq", hasFixedPrayerTime: true)
+        let qasre = Location(id: 166502, name: "Qasre", latitude: 0.0, longitude: 0.0, countryCode: "IQ",
+                             countryName: "Iraq", hasFixedPrayerTime: true, prayerDependentId: nil)
         PrayerTime.getPrayerTimes(location: qasre, date: date, attributes: attributes) { prayer, error in
             XCTAssertNil(error)
             XCTAssertNotNil(prayer)
@@ -123,8 +123,8 @@ class PrayerTests: XCTestCase {
 
     func testCalculatedPrayer() {
         // Test calculated prayer times for Mecca, Saudi Arabia
-        let mecca = Location(latitude: 21.42664, longitude: 39.82563, cityName: "Mecca", countryCode: "SA",
-                             countryName: "Saudi Arabia", hasFixedPrayerTime: false)
+        let mecca = Location(id: 119496, name: "Mecca", latitude: 21.42664, longitude: 39.82563, countryCode: "SA",
+                             countryName: "Saudi Arabia", hasFixedPrayerTime: false, prayerDependentId: nil)
         PrayerTime.getPrayerTimes(location: mecca, date: date, attributes: attributes) { prayer, error in
             XCTAssertNil(error)
             XCTAssertNotNil(prayer)
