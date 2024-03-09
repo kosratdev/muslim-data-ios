@@ -15,9 +15,9 @@ Refactor database tables to improve table nomalization and handle city mapper in
  
 ### Changed
 - `city` table name has been renamed to `location`. 
-- `country_code` has been removed and the `country_id` is used for the relationship between `location` and `country` tables.
-- the `city` field in the `location` table has been renamed to `name` as it holds different types of locations like governorate, city, sub-city, village, etc. 
-- `country` table fields have refactored by removing the country suffix before the fields.
+- `country_code` has been removed in the `location` table and the `country_id` field is used for the relationship between `location` and `country` tables.
+- The `city` field in the `location` table has been renamed to `name` as it holds different types of locations like governorate, city, sub-city, village, etc. 
+- `country` table fields have been refactored by removing the country suffix before the fields.
 - `country_code` and `city` fields have been removed in the `prayer_time` table and used `location_id` to make the relationship between `prayer_time` and `location` tables.
 - Database indices have been refactored as shown blow: 
     - `country` table has `code` and `name` indices. 
