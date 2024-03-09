@@ -14,7 +14,7 @@ Most cities around the world find their prayer times by using some calculations 
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-<img width="40%" src="https://raw.githubusercontent.com/KosratDAhmad/MuslimData/develop/screenshots/1-prayer-times.png" /> <img width="40%" src="https://raw.githubusercontent.com/KosratDAhmad/MuslimData/develop/screenshots/2-locations.png" /> <img width="40%" src="https://raw.githubusercontent.com/KosratDAhmad/MuslimData/develop/screenshots/3-names.png" /> <img width="40%" src="https://raw.githubusercontent.com/KosratDAhmad/MuslimData/develop/screenshots/4-azkars.png" /> <img width="40%" src="https://raw.githubusercontent.com/KosratDAhmad/MuslimData/develop/screenshots/5-azkar-detail.png" />
+<img width="40%" src="https://raw.githubusercontent.com/kosratdev/muslim-data-ios/main/screenshots/1-prayer-times.png" /> <img width="40%" src="https://raw.githubusercontent.com/kosratdev/muslim-data-ios/main/screenshots/2-locations.png" /> <img width="40%" src="https://raw.githubusercontent.com/kosratdev/muslim-data-ios/main/screenshots/3-names.png" /> <img width="40%" src="https://raw.githubusercontent.com/kosratdev/muslim-data-ios/main/screenshots/4-azkars.png" /> <img width="40%" src="https://raw.githubusercontent.com/kosratdev/muslim-data-ios/main/screenshots/5-azkar-detail.png" />
 
 ## Requirements
 
