@@ -85,7 +85,7 @@ public struct LocationHelper {
     ///   - latitude: City latitude.
     ///   - longitude: City longitude.
     ///   - callback: Callback that returns a Location object.
-    public func geocoder(latitude: Double, longitude: Double, callback: @escaping (Location?) -> Void) {
+    public func reverseGeocoder(latitude: Double, longitude: Double, callback: @escaping (Location?) -> Void) {
         do {
             try dbHelper.dbPool?.read { dbConnect in
                 let result = try Location.fetchOne(dbConnect, sql: """

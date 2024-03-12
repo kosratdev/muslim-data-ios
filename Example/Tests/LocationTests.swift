@@ -66,7 +66,7 @@ class LocationTests: XCTestCase {
 
     func testGeocoderLocation() {
         // Test (London, GB) which has fixed prayer times.
-        locationHelper.geocoder(latitude: 51.50853, longitude: -0.12574) { location in
+        locationHelper.reverseGeocoder(latitude: 51.50853, longitude: -0.12574) { location in
             XCTAssertNotNil(location)
             XCTAssertEqual(location!.name, "London")
             XCTAssertEqual(location!.countryCode, "GB")
@@ -75,7 +75,7 @@ class LocationTests: XCTestCase {
         }
 
         // Test (Tahran, IR) which hasn't fixed prayer times.
-        locationHelper.geocoder(latitude: 35.69439, longitude: 51.42151) { location in
+        locationHelper.reverseGeocoder(latitude: 35.69439, longitude: 51.42151) { location in
             XCTAssertNotNil(location)
             XCTAssertEqual(location!.name, "Tehran")
             XCTAssertEqual(location!.countryCode, "IR")
@@ -84,7 +84,7 @@ class LocationTests: XCTestCase {
         }
 
         // Test (Soran, IQ) which has fixed prayer times by city mapper.
-        locationHelper.geocoder(latitude: 36.652686, longitude: 44.541427) { location in
+        locationHelper.reverseGeocoder(latitude: 36.652686, longitude: 44.541427) { location in
             XCTAssertNotNil(location)
             XCTAssertEqual(location!.name, "Soran")
             XCTAssertEqual(location!.countryCode, "IQ")
@@ -93,7 +93,7 @@ class LocationTests: XCTestCase {
         }
         
         // Test (Qasre, IQ) which has fixed prayer times by city mapper.
-        locationHelper.geocoder(latitude: 36.557804, longitude: 44.827805) { location in
+        locationHelper.reverseGeocoder(latitude: 36.557804, longitude: 44.827805) { location in
             XCTAssertNotNil(location)
             XCTAssertEqual(location!.name, "Qasre")
             XCTAssertEqual(location!.countryCode, "IQ")

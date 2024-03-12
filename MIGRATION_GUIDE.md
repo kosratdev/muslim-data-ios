@@ -38,6 +38,9 @@ This migration guide assists developers in transitioning from version 1.x to ver
   - Add the `id` and `name` properties to the `Location` object to ensure consistency with the updated schema.
   - Update any references to the `Location` object throughout your codebase to use the new structure.
 
+**Geocoding locatoins** 
+- One of the geocoding locations has been changed from `geocoder(latitude: Double, longitude: Double)` to `reverseGeocoder(latitude: Double, longitude: Double)`.
+
 **Location Retrieval and Prayer Times**
 - Update any methods or functions responsible for fetching user locations, geocoding, reverse geocoding, and obtaining prayer times to use the new `Location` object structure.
 
