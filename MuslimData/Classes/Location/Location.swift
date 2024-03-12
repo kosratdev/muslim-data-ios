@@ -45,7 +45,8 @@ public struct Location: FetchableRecord {
         prayerDependentId = row[Columns.prayerDependentId]
     }
 
-    public init(id: Int, name: String, latitude: Double, longitude: Double,countryCode: String, countryName: String, hasFixedPrayerTime: Bool, prayerDependentId: Int?) {
+    public init(id: Int, name: String, latitude: Double, longitude: Double, countryCode: String,
+                countryName: String, hasFixedPrayerTime: Bool, prayerDependentId: Int?) {
         self.id = id
         self.latitude = latitude
         self.longitude = longitude

@@ -6,11 +6,10 @@
 //  Copyright © 2024 CocoaPods. All rights reserved.
 //
 
-import XCTest
 @testable import MuslimData
+import XCTest
 
 class IQCityMapperTests: XCTestCase {
-    
     override func setUp() {
         super.setUp()
     }
@@ -19,7 +18,7 @@ class IQCityMapperTests: XCTestCase {
         super.tearDown()
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-    
+
     func testDuhokCityMapper() {
         // TODO: Update city mapper test.
 //        XCTAssertEqual("Sumel".mapper(countryCode: "IQ"), "Duhok")
@@ -28,7 +27,7 @@ class IQCityMapperTests: XCTestCase {
 //        XCTAssertEqual("Sharya".mapper(countryCode: "IQ"), "Duhok")
 //        XCTAssertEqual("Mrebah".mapper(countryCode: "IQ"), "Duhok")
     }
-    
+
     func testAkreCityMapper() {
         // TODO: Update city mapper test.
 //        XCTAssertEqual("Amedi".mapper(countryCode: "IQ"), "Akre")
@@ -43,12 +42,12 @@ class IQCityMapperTests: XCTestCase {
 //        XCTAssertEqual("Susna".mapper(countryCode: "IQ"), "Akre")
 //        XCTAssertEqual("Sersink".mapper(countryCode: "IQ"), "Akre")
     }
-    
+
     func testBardarashCityMapper() {
         // TODO: Update city mapper test.
 //        XCTAssertEqual("Mamuzin".mapper(countryCode: "IQ"), "Bardarash")
     }
-    
+
     func testErbilCityMapper() {
         // TODO: Update city mapper test.
 //        XCTAssertEqual("Kalak".mapper(countryCode: "IQ"), "Erbil")
@@ -65,7 +64,7 @@ class IQCityMapperTests: XCTestCase {
 //        XCTAssertEqual("Qushtapa".mapper(countryCode: "IQ"), "Erbil")
 //        XCTAssertEqual("Kasnazan".mapper(countryCode: "IQ"), "Erbil")
     }
-    
+
     func testQasreCityMapper() {
         // TODO: Update city mapper test.
 //        XCTAssertEqual("Wallze".mapper(countryCode: "IQ"), "Qasre")
@@ -88,18 +87,18 @@ class IQCityMapperTests: XCTestCase {
 //        XCTAssertEqual("Mergay Khwaru".mapper(countryCode: "IQ"), "Qasre")
 //        XCTAssertEqual("Kani bast".mapper(countryCode: "IQ"), "Qasre")
     }
-    
+
     func testKirkukCityMapper() {
         // TODO: Update city mapper test.
 //        XCTAssertEqual("Taza Khurmatu".mapper(countryCode: "IQ"), "Kirkuk")
     }
-    
+
     func testSulaymaniyahCityMapper() {
         // TODO: Update city mapper test.
 //        XCTAssertEqual("Mawat".mapper(countryCode: "IQ"), "Sulaymaniyah")
 //        XCTAssertEqual("Arbat".mapper(countryCode: "IQ"), "Sulaymaniyah")
     }
-    
+
     func testQaladizaCityMapper() {
         // TODO: Update city mapper test.
 //        XCTAssertEqual("Halsho".mapper(countryCode: "IQ"), "Qaladiza")
@@ -111,12 +110,12 @@ class IQCityMapperTests: XCTestCase {
 //        XCTAssertEqual("Bngrd".mapper(countryCode: "IQ"), "Qaladiza")
 //        XCTAssertEqual("Hero".mapper(countryCode: "IQ"), "Qaladiza")
     }
-    
+
     func testDokanCityMapper() {
         // TODO: Update city mapper test.
 //        XCTAssertEqual("Piramagroon".mapper(countryCode: "IQ"), "Dokan")
     }
-    
+
     func testRanyaCityMapper() {
         // TODO: Update city mapper test.
 //        XCTAssertEqual("Hajiawa".mapper(countryCode: "IQ"), "Ranya")
@@ -126,7 +125,7 @@ class IQCityMapperTests: XCTestCase {
 //        XCTAssertEqual("Hizop".mapper(countryCode: "IQ"), "Ranya")
 //        XCTAssertEqual("Chwarqurna".mapper(countryCode: "IQ"), "Ranya")
     }
-    
+
     func testChamchamalCityMapper() {
         // TODO: Update city mapper test.
 //        XCTAssertEqual("Takiya".mapper(countryCode: "IQ"), "Chamchamal")
@@ -135,7 +134,7 @@ class IQCityMapperTests: XCTestCase {
 //        XCTAssertEqual("Aghjalar".mapper(countryCode: "IQ"), "Chamchamal")
 //        XCTAssertEqual("Sangaw".mapper(countryCode: "IQ"), "Chamchamal")
     }
-    
+
     func testDarbandikhanCityMapper() {
         // TODO: Update city mapper test.
 //        XCTAssertEqual("Zalan".mapper(countryCode: "IQ"), "Darbandikhan")
@@ -146,7 +145,7 @@ class IQCityMapperTests: XCTestCase {
 //        XCTAssertEqual("Halebjai Taza".mapper(countryCode: "IQ"), "Darbandikhan")
 //        XCTAssertEqual("Qara Dagh".mapper(countryCode: "IQ"), "Darbandikhan")
     }
-    
+
     func testPenjwenCityMapper() {
         // TODO: Update city mapper test.
 //        XCTAssertEqual("Garmk".mapper(countryCode: "IQ"), "Penjwen")
@@ -154,7 +153,7 @@ class IQCityMapperTests: XCTestCase {
 //        XCTAssertEqual("Said Sadiq".mapper(countryCode: "IQ"), "Penjwen")
 //        XCTAssertEqual("Pshta".mapper(countryCode: "IQ"), "Penjwen")
     }
-    
+
     func testHalabjaCityMapper() {
         // TODO: Update city mapper test.
 //        XCTAssertEqual("Sirwan".mapper(countryCode: "IQ"), "Halabja")

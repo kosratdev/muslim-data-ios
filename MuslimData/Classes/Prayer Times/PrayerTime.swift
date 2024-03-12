@@ -31,13 +31,13 @@ public struct PrayerTime {
         maghrib = maghrib.addMinutes(offsets[4])
         isha = isha.addMinutes(offsets[5])
     }
-    
+
     /// Apply daylight saving time to the current prayer times.
     private mutating func applyDST() {
-        
+
         let isDST = TimeZone.current.isDaylightSavingTime()
-        
-        if (isDST) {
+
+        if isDST {
             fajr = fajr.addHours(1)
             sunrise = sunrise.addHours(1)
             dhuhr = dhuhr.addHours(1)
@@ -46,7 +46,7 @@ public struct PrayerTime {
             isha = isha.addHours(1)
         }
     }
-    
+
     // MARK: - Public Methods
 
     /// Get prayer times from the prayer database.

@@ -6,11 +6,10 @@
 //  Copyright © 2018 CocoaPods. All rights reserved.
 //
 
-import XCTest
 @testable import MuslimData
+import XCTest
 
 class LocationTests: XCTestCase {
-
     var locationHelper: LocationHelper!
 
     override func setUp() {
@@ -54,7 +53,7 @@ class LocationTests: XCTestCase {
             XCTAssertEqual(location!.longitude, 44.541427)
             XCTAssertEqual(location!.hasFixedPrayerTime, true)
         }
-        
+
         // Test (Qasre, IQ) which has fixed prayer times by city mapper.
         locationHelper.geocoder(countryCode: "IQ", locationName: "Qasre") { location in
             XCTAssertNotNil(location)
@@ -91,7 +90,7 @@ class LocationTests: XCTestCase {
             XCTAssertEqual(location!.countryName, "Iraq")
             XCTAssertEqual(location!.hasFixedPrayerTime, true)
         }
-        
+
         // Test (Qasre, IQ) which has fixed prayer times by city mapper.
         locationHelper.reverseGeocoder(latitude: 36.557804, longitude: 44.827805) { location in
             XCTAssertNotNil(location)

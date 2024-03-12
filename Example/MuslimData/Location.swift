@@ -39,7 +39,7 @@ extension Location {
         let countryCode = defaults.string(forKey: "countryCode") ?? "IQ"
         let countryName = defaults.string(forKey: "countryName") ?? "Iraq"
         let hasFixedPrayerTime = (defaults.object(forKey: "hasFixedPrayerTime") as? Bool) ?? true
-        let prayerDependentId = defaults.integer(forKey: "prayerDependentId")
+        let prayerDependentId = defaults.object(forKey: "prayerDependentId") as? Int
 
         return Location(id: id, name: name, latitude: latitude, longitude: longitude,
                         countryCode: countryCode, countryName: countryName, hasFixedPrayerTime: hasFixedPrayerTime,

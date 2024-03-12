@@ -6,20 +6,19 @@
 //  Copyright © 2024 CocoaPods. All rights reserved.
 //
 
-import XCTest
 @testable import MuslimData
+import XCTest
 
 class KWCityMapperTests: XCTestCase {
-    
     override func setUp() {
         super.setUp()
     }
-    
+
     override func tearDown() {
         super.tearDown()
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-    
+
     func testAlAsimahCityMapper() {
         // TODO: Update city mapper test.
 //        XCTAssertEqual("Kuwait City".mapper(countryCode: "KW"), "Al Asimah")
@@ -81,14 +80,14 @@ class KWCityMapperTests: XCTestCase {
 //        XCTAssertEqual("Zour".mapper(countryCode: "KW"), "Al Asimah")
 //        XCTAssertEqual("Al Khiran".mapper(countryCode: "KW"), "Al Asimah")
     }
-    
+
     func testFailakaIslandCityMapper() {
         // TODO: Update city mapper test.
 //        XCTAssertEqual("Zoor".mapper(countryCode: "KW"), "Failaka Island")
 //        XCTAssertEqual("Kubbar Island".mapper(countryCode: "KW"), "Failaka Island")
 //        XCTAssertEqual("Al-Nuwaiseeb".mapper(countryCode: "KW"), "Failaka Island")
     }
-    
+
     func testAbdaliCityMapper() {
         // TODO: Update city mapper test.
 //        XCTAssertEqual("Jahra".mapper(countryCode: "KW"), "Abdali")

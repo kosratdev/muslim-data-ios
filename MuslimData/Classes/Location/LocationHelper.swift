@@ -60,7 +60,7 @@ public struct LocationHelper {
         do {
             try dbHelper.dbPool?.read { dbConnect in
                 let result = try Location.fetchOne(dbConnect, sql: """
-                SELECT location._id as _id, country.code as country_code, country.name as country_name, 
+                SELECT location._id as _id, country.code as country_code, country.name as country_name,
                        location.name as name, latitude, longitude, has_fixed_prayer_time, prayer_dependent_id
                 FROM location
                 INNER JOIN country on country._id = location.country_id
@@ -108,14 +108,14 @@ public struct LocationHelper {
             callback(nil)
         }
     }
-    
+
     /// Get all the locations that has fixed prayer times.
     /// - Returns: Location list
-    public func fixedPrayerTimesList() -> [Location]?{
+    public func fixedPrayerTimesList() -> [Location]? {
         do {
             return try self.dbHelper.dbPool?.read { dbConnect in
                 let locations = try Location.fetchAll(dbConnect, sql: """
-                SELECT location._id as _id, country.code as country_code, country.name as country_name, 
+                SELECT location._id as _id, country.code as country_code, country.name as country_name,
                        location.name as name, latitude, longitude, has_fixed_prayer_time, prayer_dependent_id
                 FROM location
                 INNER JOIN country on country._id = location.country_id

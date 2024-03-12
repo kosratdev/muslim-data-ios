@@ -1,19 +1,18 @@
 //
-//  AzkarsViewController.swift
+//  AzkarChaptersViewController.swift
 //  MuslimData_Example
 //
 //  Created by Kosrat D. Ahmad on 11/3/18.
 //  Copyright © 2018 CocoaPods. All rights reserved.
 //
 
-import UIKit
 import MuslimData
+import UIKit
 
 class AzkarChaptersViewController: UIViewController {
-
     // MARK: - Outlets
 
-    @IBOutlet weak var chaptersTable: UITableView!
+    @IBOutlet var chaptersTable: UITableView!
 
     // MARK: - Properties
 
@@ -53,7 +52,7 @@ extension AzkarChaptersViewController: UITableViewDelegate {
 
 extension AzkarChaptersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chapters.count
+        chapters.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

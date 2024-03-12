@@ -6,13 +6,13 @@
 //  Copyright © 2018 CocoaPods. All rights reserved.
 //
 
-import UIKit
 import MuslimData
+import UIKit
 
 class AzkarDetailViewController: UIViewController {
     // MARK: - Outlets
 
-    @IBOutlet weak var azkarTable: UITableView!
+    @IBOutlet var azkarTable: UITableView!
 
     // MARK: - Properties
 
@@ -44,7 +44,7 @@ class AzkarDetailViewController: UIViewController {
 
 extension AzkarDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return azkars.count
+        azkars.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -6,17 +6,17 @@
 //  Copyright © 2018 CocoaPods. All rights reserved.
 //
 
-import UIKit
 import MuslimData
+import UIKit
 
 class LocationViewController: UIViewController {
     // MARK: - Outlets
 
-    @IBOutlet weak var locationTitle: UILabel!
-    @IBOutlet weak var locationTable: UITableView!
+    @IBOutlet var locationTitle: UILabel!
+    @IBOutlet var locationTable: UITableView!
 
     var locations: [Location] = [] {
-        didSet{
+        didSet {
             locationTable.reloadData()
         }
     }
@@ -63,6 +63,7 @@ class LocationViewController: UIViewController {
 }
 
 // MARK: - UISearchBarDelegate
+
 extension LocationViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == "" {
@@ -75,19 +76,19 @@ extension LocationViewController: UISearchBarDelegate {
             }
             if let locations = locations {
                 self.locations = locations
-
             }
         }
     }
 }
 
 // MARK: - UITableViewDelegate
+
 extension LocationViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let location = locations[indexPath.row]
-        
+
         location.saveLocation()
-        self.displayLocation()
+        displayLocation()
         if #available(iOS 11.0, *) {
             navigationItem.searchController?.isActive = false
         }
@@ -95,9 +96,10 @@ extension LocationViewController: UITableViewDelegate {
 }
 
 // MARK: - UITableViewDataSource
+
 extension LocationViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return locations.count
+        locations.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
