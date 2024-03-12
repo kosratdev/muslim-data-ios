@@ -20,9 +20,11 @@ Refactor database tables to improve table nomalization and handle city mapper in
 - `country` table fields have been refactored by removing the country suffix before the fields.
 - `country_code` and `city` fields have been removed in the `prayer_time` table and used `location_id` to make the relationship between `prayer_time` and `location` tables.
 - Database indices have been refactored as shown blow: 
-    - `country` table has `code` and `name` indices. 
-    - `location` table has `name`, `country_id`, `prayer_dependent_id`, `latitude`, `longitude`, `has_fixed_prayer_time` indices
-    - `prayer_time` table has `date`, `location_id` indices.
+    - `country` table has `code_index` for indexing `code` column. 
+    - `location` table has has two indices as listed below: 
+      - `location_lat_long_index` for indexing `latitude` and `longitude` columns.
+      - `location_name_index` for indexing `name` column.
+    - `prayer_time` table has `prayer_index` for indexing `location_id`, `date` columns.
 
 
 ## [1.5.0] - 2024-03-04
