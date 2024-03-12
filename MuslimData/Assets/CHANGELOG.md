@@ -6,12 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2.0.0] - 2024-03-09
 
-Refactor database tables to improve table nomalization and handle city mapper in the database level.
+Refactor database tables to improve table normalization and handle city mapper in the database level.
 
 ### Added
-- `country_id` as a foriegn key added to the `location` (or `city`) table to make a relation with `country` table.
+- `country_id` as a foreign key added to the `location` (or `city`) table to make a relation with `country` table.
 - `prayer_dependent_id` field added to the `location` table to handle city mapper in the database level. 
-- `location_id` as a foriegn key added to the `prayer_time` table to make a relation with `location` table.
+- `location_id` as a foreign key added to the `prayer_time` table to make a relation with `location` table.
  
 ### Changed
 - `city` table name has been renamed to `location`. 
