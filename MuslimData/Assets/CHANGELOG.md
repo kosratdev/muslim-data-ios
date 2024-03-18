@@ -25,7 +25,7 @@ Refactor database tables to improve table normalization and handle city mapper i
       - `location_lat_long_index` for indexing `latitude` and `longitude` columns.
       - `location_name_index` for indexing `name` column.
     - `prayer_time` table has `prayer_index` for indexing `location_id`, `date` columns.
-
+- Khanaqin, IQ prayer times has been updated.
 
 ## [1.5.0] - 2024-03-04
 
