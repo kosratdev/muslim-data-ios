@@ -6,14 +6,14 @@
 //  Copyright © 2018 CocoaPods. All rights reserved.
 //
 
-import UIKit
 import MuslimData
+import UIKit
 
 class PrayersViewController: UIViewController {
     // MARK: - Outlets
 
-    @IBOutlet weak var locationDetail: UILabel!
-    @IBOutlet weak var prayerTable: UITableView!
+    @IBOutlet var locationDetail: UILabel!
+    @IBOutlet var prayerTable: UITableView!
 
     // MARK: - Properties
 
@@ -26,7 +26,7 @@ class PrayersViewController: UIViewController {
         super.viewDidLoad()
 
         prayerTable.dataSource = self
-        prayerTable.tableFooterView  = UIView()
+        prayerTable.tableFooterView = UIView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -44,7 +44,7 @@ class PrayersViewController: UIViewController {
         let location = Location.loadSavedLocation()
         let attributes = PrayerAttribute(method: .makkah, asrMethod: .shafii, adjustAngle: .angleBased, offsets: offsets)
         PrayerTime.getPrayerTimes(location: location, date: Date(),
-                                  attributes: attributes) { (prayerTime, error) in
+                                  attributes: attributes) { prayerTime, error in
             guard error == nil else {
                 return
             }
@@ -56,7 +56,7 @@ class PrayersViewController: UIViewController {
         dateFormatter.dateFormat = "dd MMM yyyy"
         let stringDate = dateFormatter.string(from: Date())
 
-        locationDetail.text = "\(location.cityName), \(location.countryName)\n\(stringDate)"
+        locationDetail.text = "\(location.name), \(location.countryName)\n\(stringDate)"
     }
 }
 
@@ -64,7 +64,7 @@ class PrayersViewController: UIViewController {
 
 extension PrayersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return prayerTimes.count
+        prayerTimes.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

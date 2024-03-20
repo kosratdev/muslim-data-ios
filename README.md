@@ -1,6 +1,6 @@
 # MuslimData
 
-[![CI Status](https://img.shields.io/travis/KosratDAhmad/MuslimData.svg?style=flat)](https://travis-ci.org/KosratDAhmad/MuslimData)
+[![Build Status](https://github.com/kosratdev/muslim-data-ios/actions/workflows/deploy_to_cocoapods.yml/badge.svg)](https://github.com/kosratdev/muslim-data-ios/actions)
 [![Version](https://img.shields.io/cocoapods/v/MuslimData.svg?style=flat)](https://cocoapods.org/pods/MuslimData)
 [![License](https://img.shields.io/cocoapods/l/MuslimData.svg?style=flat)](https://cocoapods.org/pods/MuslimData)
 [![Platform](https://img.shields.io/cocoapods/p/MuslimData.svg?style=flat)](https://cocoapods.org/pods/MuslimData)
@@ -10,11 +10,14 @@ MuslimData is an Islamic library that provides Prayer Times (fixed and calculate
 **Fixed and Calculated Prayer Times**:
 Most cities around the world find their prayer times by using some calculations which is based on location (longitude and latitude) but some other cities have fixed time table for their prayer times. This library contains most fixed and calculated prayer times. Now you can contribute it to improve it and also you can use it in Muslim communities or Muslim apps.
 
+## Migration Guide
+If you're upgrading from version 1.x to version 2.x of `muslim-data-ios`, please refer to the [Migration Guide](MIGRATION_GUIDE.md) for detailed instructions on updating your code to accommodate the changes in the latest release.
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-<img width="40%" src="https://raw.githubusercontent.com/KosratDAhmad/MuslimData/develop/screenshots/1-prayer-times.png" /> <img width="40%" src="https://raw.githubusercontent.com/KosratDAhmad/MuslimData/develop/screenshots/2-locations.png" /> <img width="40%" src="https://raw.githubusercontent.com/KosratDAhmad/MuslimData/develop/screenshots/3-names.png" /> <img width="40%" src="https://raw.githubusercontent.com/KosratDAhmad/MuslimData/develop/screenshots/4-azkars.png" /> <img width="40%" src="https://raw.githubusercontent.com/KosratDAhmad/MuslimData/develop/screenshots/5-azkar-detail.png" />
+<img width="40%" src="https://raw.githubusercontent.com/kosratdev/muslim-data-ios/main/screenshots/1-prayer-times.png" /> <img width="40%" src="https://raw.githubusercontent.com/kosratdev/muslim-data-ios/main/screenshots/2-locations.png" /> <img width="40%" src="https://raw.githubusercontent.com/kosratdev/muslim-data-ios/main/screenshots/3-names.png" /> <img width="40%" src="https://raw.githubusercontent.com/kosratdev/muslim-data-ios/main/screenshots/4-azkars.png" /> <img width="40%" src="https://raw.githubusercontent.com/kosratdev/muslim-data-ios/main/screenshots/5-azkar-detail.png" />
 
 ## Requirements
 

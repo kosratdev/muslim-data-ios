@@ -6,14 +6,13 @@
 //  Copyright © 2018 CocoaPods. All rights reserved.
 //
 
-import UIKit
 import MuslimData
+import UIKit
 
 class NamesViewController: UIViewController {
-
     // MARK: - Outlets
 
-    @IBOutlet weak var namesTable: UITableView!
+    @IBOutlet var namesTable: UITableView!
 
     // MARK: - Properties
 
@@ -39,9 +38,9 @@ class NamesViewController: UIViewController {
 
 // MARK: - UITableViewDataSource
 
-extension NamesViewController: UITableViewDataSource  {
+extension NamesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return names.count
+        names.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

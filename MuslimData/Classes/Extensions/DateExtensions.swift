@@ -34,7 +34,7 @@ public extension Date {
     func addMinutes(_ minutes: Double) -> Date {
         addingTimeInterval(60 * minutes)
     }
-    
+
     /// Add hours to the date.
     ///
     /// - Parameter hours: hours to be added to the date.

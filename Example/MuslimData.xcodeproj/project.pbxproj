@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2D110EDE216BE7FB002035FA /* PrayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D110EDD216BE7FB002035FA /* PrayerTests.swift */; };
+		2D1D63A32B9CCF2100DBC74B /* MIGRATION_GUIDE.md in Resources */ = {isa = PBXBuildFile; fileRef = 2D1D63A22B9CCF2100DBC74B /* MIGRATION_GUIDE.md */; };
 		2D27AC4B2188E621004722BD /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D27AC4A2188E621004722BD /* LocationViewController.swift */; };
 		2D4558BA21694A5200A08DAF /* LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4558B921694A5200A08DAF /* LocationTests.swift */; };
 		2D4EC4D42B835D7C00F08DCB /* IQCityMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4EC4D32B835D7C00F08DCB /* IQCityMapperTests.swift */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		1FA7CF45010583A8DE450B74 /* Pods-MuslimData_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuslimData_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MuslimData_Example/Pods-MuslimData_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		2D110EDD216BE7FB002035FA /* PrayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTests.swift; sourceTree = "<group>"; };
+		2D1D63A22B9CCF2100DBC74B /* MIGRATION_GUIDE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = MIGRATION_GUIDE.md; path = ../MIGRATION_GUIDE.md; sourceTree = "<group>"; };
 		2D27AC4A2188E621004722BD /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		2D4558B921694A5200A08DAF /* LocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTests.swift; sourceTree = "<group>"; };
 		2D4EC4D32B835D7C00F08DCB /* IQCityMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IQCityMapperTests.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 			children = (
 				CBF44BC9BD957BA32BBAB0D7 /* MuslimData.podspec */,
 				E0705505FB7482A035EE85A3 /* README.md */,
+				2D1D63A22B9CCF2100DBC74B /* MIGRATION_GUIDE.md */,
 				C7F9702CA1CFE6102812811C /* LICENSE */,
 			);
 			name = "Podspec Metadata";
@@ -330,6 +333,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D1D63A32B9CCF2100DBC74B /* MIGRATION_GUIDE.md in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
@@ -363,7 +367,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		2DABCDEA216296CC008F4B9B /* SwiftFormat */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -382,7 +386,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftformat >/dev/null; then\n    swiftformat ../MuslimData\nelse\n    echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftformat > /dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
 		};
 		379ECBACD51077EED9BCFABC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

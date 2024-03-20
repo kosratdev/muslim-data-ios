@@ -6,11 +6,10 @@
 //  Copyright © 2018 CocoaPods. All rights reserved.
 //
 
-import XCTest
 @testable import MuslimData
+import XCTest
 
 class PrayerTests: XCTestCase {
-
     var attributes: PrayerAttribute!
     var date: Date!
     var offsets: [Double]!
@@ -18,8 +17,8 @@ class PrayerTests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        date = Date(timeIntervalSince1970: 1538956800) // 2018/10/08
-        offsets = [1,1,1,-1,-1,-1]
+        date = Date(timeIntervalSince1970: 1_538_956_800) // 2018/10/08
+        offsets = [1, 1, 1, -1, -1, -1]
         attributes = PrayerAttribute(method: .makkah, asrMethod: .shafii, adjustAngle: .angleBased, offsets: offsets)
     }
 
@@ -32,21 +31,21 @@ class PrayerTests: XCTestCase {
 
     func testAllFixedPrayerTimes() {
         let locations = LocationHelper.shared.fixedPrayerTimesList()
-        let date = Date(timeIntervalSince1970: 1709206718) // 2024/02/29
-        locations!.forEach({ location in
+        let date = Date(timeIntervalSince1970: 1_709_206_718) // 2024/02/29
+        locations!.forEach { location in
             print(location)
             print(date)
             PrayerTime.getPrayerTimes(location: location, date: date, attributes: self.attributes) { prayer, error in
                 XCTAssertNil(error)
                 XCTAssertNotNil(prayer)
             }
-        })
+        }
     }
-    
+
     func testFixedPrayer() {
         // Test fixed prayer times for Sulav, Iraq
-        let sulav = Location(latitude: 0.0, longitude: 0.0, cityName: "Sulav", countryCode: "IQ",
-                             countryName: "Iraq", hasFixedPrayerTime: true)
+        let sulav = Location(id: 77342, name: "Sulav", latitude: 0.0, longitude: 0.0, countryCode: "IQ",
+                             countryName: "Iraq", hasFixedPrayerTime: true, prayerDependentId: 77349)
         PrayerTime.getPrayerTimes(location: sulav, date: date, attributes: attributes) { prayer, error in
             XCTAssertNil(error)
             XCTAssertNotNil(prayer)
@@ -60,8 +59,8 @@ class PrayerTests: XCTestCase {
         }
 
         // Test fixed prayer times for Erbil, Iraq
-        let erbil = Location(latitude: 0.0, longitude: 0.0, cityName: "Erbil", countryCode: "IQ",
-                             countryName: "Iraq", hasFixedPrayerTime: true)
+        let erbil = Location(id: 77359, name: "Erbil", latitude: 0.0, longitude: 0.0, countryCode: "IQ",
+                             countryName: "Iraq", hasFixedPrayerTime: true, prayerDependentId: nil)
         PrayerTime.getPrayerTimes(location: erbil, date: date, attributes: attributes) { prayer, error in
             XCTAssertNil(error)
             XCTAssertNotNil(prayer)
@@ -75,8 +74,8 @@ class PrayerTests: XCTestCase {
         }
 
         // Test fixed prayer times for Baghdad, Iraq
-        let baghdad = Location(latitude: 0.0, longitude: 0.0, cityName: "Baghdad", countryCode: "IQ",
-                             countryName: "Iraq", hasFixedPrayerTime: true)
+        let baghdad = Location(id: 77452, name: "Baghdad", latitude: 0.0, longitude: 0.0, countryCode: "IQ",
+                               countryName: "Iraq", hasFixedPrayerTime: true, prayerDependentId: nil)
         PrayerTime.getPrayerTimes(location: baghdad, date: date, attributes: attributes) { prayer, error in
             XCTAssertNil(error)
             XCTAssertNotNil(prayer)
@@ -91,8 +90,8 @@ class PrayerTests: XCTestCase {
         }
 
         // Test fixed prayer times for Sanandaj, Iran
-        let sanandaj = Location(latitude: 0.0, longitude: 0.0, cityName: "Sanandaj", countryCode: "IR",
-                             countryName: "Iran", hasFixedPrayerTime: true)
+        let sanandaj = Location(id: 154_907, name: "Sanandaj", latitude: 0.0, longitude: 0.0, countryCode: "IR",
+                                countryName: "Iran", hasFixedPrayerTime: true, prayerDependentId: nil)
         PrayerTime.getPrayerTimes(location: sanandaj, date: date, attributes: attributes) { prayer, error in
             XCTAssertNil(error)
             XCTAssertNotNil(prayer)
@@ -104,10 +103,10 @@ class PrayerTests: XCTestCase {
             XCTAssertEqual(stringPrayer[4], "18:04")
             XCTAssertEqual(stringPrayer[5], "19:19")
         }
-        
+
         // Test fixed prayer times for Qasre, Iraq
-        let qasre = Location(latitude: 0.0, longitude: 0.0, cityName: "Qasre", countryCode: "IQ",
-                             countryName: "Iraq", hasFixedPrayerTime: true)
+        let qasre = Location(id: 166_502, name: "Qasre", latitude: 0.0, longitude: 0.0, countryCode: "IQ",
+                             countryName: "Iraq", hasFixedPrayerTime: true, prayerDependentId: nil)
         PrayerTime.getPrayerTimes(location: qasre, date: date, attributes: attributes) { prayer, error in
             XCTAssertNil(error)
             XCTAssertNotNil(prayer)
@@ -123,8 +122,8 @@ class PrayerTests: XCTestCase {
 
     func testCalculatedPrayer() {
         // Test calculated prayer times for Mecca, Saudi Arabia
-        let mecca = Location(latitude: 21.42664, longitude: 39.82563, cityName: "Mecca", countryCode: "SA",
-                             countryName: "Saudi Arabia", hasFixedPrayerTime: false)
+        let mecca = Location(id: 119_496, name: "Mecca", latitude: 21.42664, longitude: 39.82563, countryCode: "SA",
+                             countryName: "Saudi Arabia", hasFixedPrayerTime: false, prayerDependentId: nil)
         PrayerTime.getPrayerTimes(location: mecca, date: date, attributes: attributes) { prayer, error in
             XCTAssertNil(error)
             XCTAssertNotNil(prayer)
