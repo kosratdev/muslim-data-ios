@@ -38,6 +38,7 @@
 		2D6CD44729CC5BF2009B527C /* muslim_db_v2.0.0.db in Resources */ = {isa = PBXBuildFile; fileRef = 2D6CD44629CC5BF2009B527C /* muslim_db_v2.0.0.db */; };
 		2DAF0C709FAF6D288751DB00EB06B40C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FD7232797ACF3F6F7685B58BCDC00C7 /* Foundation.framework */; };
 		2DE6E95C2BA8D8010082A3CE /* MuslimRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE6E95B2BA8D8010082A3CE /* MuslimRepository.swift */; };
+		2DFE19682BAB81E900665C6B /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE19672BAB81E900665C6B /* Repository.swift */; };
 		318B2D4FBE83F08BB67C2AA6A52977AB /* FTS5+QueryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5779BFB97BB16F7C257E39CD28630594 /* FTS5+QueryInterface.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		33FDF2697ECE2E34513CACBC1EDFDB51 /* DatabaseValueConvertible+RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1585FD241A9AC0D79B3E084E1A8B7B77 /* DatabaseValueConvertible+RawRepresentable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		35A9B68C8D7AC42A8187DC1F8AEC095A /* FTS3TokenizerDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C9ECD60B68221B76E253AA39B4B52E /* FTS3TokenizerDescriptor.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -229,6 +230,7 @@
 		2D6CD44629CC5BF2009B527C /* muslim_db_v2.0.0.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = muslim_db_v2.0.0.db; path = MuslimData/Assets/muslim_db_v2.0.0.db; sourceTree = "<group>"; };
 		2DC6A83C7FE2580E3F2A1AFBB2B117E6 /* PrayerAttribute.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PrayerAttribute.swift; sourceTree = "<group>"; };
 		2DE6E95B2BA8D8010082A3CE /* MuslimRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuslimRepository.swift; sourceTree = "<group>"; };
+		2DFE19672BAB81E900665C6B /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		2E88CF46329DBA47B53B98F005E11EE3 /* MuslimData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MuslimData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F75C56ED8BD1951FC8172C608B20303 /* Pods-MuslimData_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MuslimData_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		2FFBDBD6E148D8CD2D3E5D40636ABE46 /* AzkarItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AzkarItem.swift; sourceTree = "<group>"; };
@@ -489,6 +491,7 @@
 		2DE6E95A2BA8D75D0082A3CE /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				2DFE19672BAB81E900665C6B /* Repository.swift */,
 				2DE6E95B2BA8D8010082A3CE /* MuslimRepository.swift */,
 			);
 			path = Repository;
@@ -999,6 +1002,7 @@
 				A7D645073A4902CE19144733BD3B1D6B /* MuslimData-dummy.m in Sources */,
 				FF616834C38743D535B62B7886C74F07 /* Name.swift in Sources */,
 				EA0BC2897FF6BE975F969C15629840CB /* Prayer.swift in Sources */,
+				2DFE19682BAB81E900665C6B /* Repository.swift in Sources */,
 				0AD24AEB225F135FE242003EA86E7039 /* PrayerAttribute.swift in Sources */,
 				4232F4B0DC26B878201F9523CEF8F761 /* PrayerTime.swift in Sources */,
 				E746EBB44033C7F5ECE664C2A2862C8D /* String+Extensions.swift in Sources */,

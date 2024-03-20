@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class MuslimRepository {
+public class MuslimRepository: Repository {
     
     public init () {}
     
