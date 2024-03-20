@@ -28,30 +28,4 @@ extension String {
 
         return calendar.date(from: dateComponents)!
     }
-
-    /// City mapper that finds parent city if it has and it is used in the fixed prayers.
-    ///
-    /// - Parameter countryCode: Country code
-    /// - Returns: Parent city if available else the city it self.
-    func mapper(countryCode: String) -> String {
-        let city = self
-        var parentCity: String?
-        if let path = Bundle(for: DBHelper.self).path(forResource: "cityMapper", ofType: "json") {
-            do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String: Any]
-                if let jsonResult = jsonResult, let cities = jsonResult[countryCode] as? [String: [String]] {
-                    cities.forEach { key, values in
-                        if values.contains(city) {
-                            parentCity = key
-                        }
-                    }
-                }
-
-            } catch {
-                return city
-            }
-        }
-        return parentCity ?? city
-    }
 }

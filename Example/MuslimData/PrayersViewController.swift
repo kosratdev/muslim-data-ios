@@ -33,24 +33,22 @@ class PrayersViewController: UIViewController {
         super.viewWillAppear(animated)
 
         // Get prayer times
-        getPrayers()
+        Task.init {
+            try! await getPrayers()
+        }
     }
 
     // MARK: - Helper Methods
 
     /// Get prayer times from the MuslimData library
-    func getPrayers() {
+    func getPrayers() async throws {
         let offsets = [Double](repeating: 0, count: 6)
         let location = Location.loadSavedLocation()
         let attributes = PrayerAttribute(method: .makkah, asrMethod: .shafii, adjustAngle: .angleBased, offsets: offsets)
-        PrayerTime.getPrayerTimes(location: location, date: Date(),
-                                  attributes: attributes) { prayerTime, error in
-            guard error == nil else {
-                return
-            }
-            self.prayerTimes = prayerTime!.formatPrayers(.time12)
-            self.prayerTable.reloadData()
-        }
+
+        let prayer = try await MuslimRepository().getPrayerTimes(location: location, date: Date(), attributes: attributes)
+        prayerTimes = prayer!.formatPrayers(.time12)
+        prayerTable.reloadData()
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy"

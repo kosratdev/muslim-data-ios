@@ -37,7 +37,7 @@ pod 'MuslimData'
 
 ### Location Helper 
 
-There are some location helper methods that provides **offline** Location Search, Geocoder, Reverse Geocoder, and check a city for fixed prayer times.
+There are some location helper methods that provides **offline** Location Search, Geocoder, Reverse Geocoder, and check a location for fixed prayer times.
 
 
 #### Search for location
