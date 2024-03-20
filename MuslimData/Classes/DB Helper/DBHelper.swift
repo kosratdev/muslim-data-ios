@@ -28,19 +28,19 @@ class DBHelper {
     }
 
     // MARK: - Public Methods
-    
+
     /// Get fixed prayer times from Muslim database.
     /// - Parameters:
     ///   - location: Location object
     ///   - date: Prayer date
     /// - Returns: PrayerTime instance.
-    func prayerTimes(location: Location, date: String) async throws -> PrayerTime? {
+    func prayerTimes(location: Location, date: Date) async throws -> PrayerTime? {
         do {
             return try dbPool?.read { dbConnect in
                 let result = try Row.fetchOne(dbConnect, sql: """
                 SELECT * FROM prayer_time
                 WHERE location_id = '\(location.prayerDependentId ?? location.id)'
-                and date = '\(date)'
+                and date = '\(date.toDBDate())'
                 """)
 
                 guard let row = result else {
@@ -208,7 +208,8 @@ class DBHelper {
                        location.name as name, latitude, longitude, has_fixed_prayer_time, prayer_dependent_id
                 FROM location
                 INNER JOIN country on country._id = location.country_id
-                WHERE country.code = '\(countryCode)' COLLATE NOCASE and location.name = '\(locationName)' COLLATE NOCASE
+                WHERE country.code = '\(countryCode)' COLLATE NOCASE
+                and location.name = '\(locationName)' COLLATE NOCASE
                 """)
                 return location
             }

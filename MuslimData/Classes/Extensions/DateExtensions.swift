@@ -10,7 +10,7 @@ import Foundation
 // MARK: - Date Extensions
 
 public extension Date {
-    
+
     /// Format date to "MM-dd" pattern which will be used to get prayers fro this date in the prayer database.
     ///
     /// - Returns: Formatted date by "MM-dd" pattern.
