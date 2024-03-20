@@ -8,9 +8,9 @@
 import Foundation
 
 public class MuslimRepository: Repository {
-    
+
     public init () {}
-    
+
     /// Search for locations in the database by location name and it will return a list of Location object.
     /// 
     /// - Parameters:
@@ -19,7 +19,7 @@ public class MuslimRepository: Repository {
     public func searchLocation(locationName: String) async throws -> [Location]? {
         return try await DBHelper.shared.searchLocation(locationName)
     }
-    
+
     /// Geocoding location information based on the provided country code and location name.
     /// 
     /// - Parameters:
@@ -29,7 +29,7 @@ public class MuslimRepository: Repository {
     public func geocoder(countryCode: String, locationName: String) async throws -> Location? {
         return try await DBHelper.shared.geocoder(countryCode: countryCode, locationName: locationName)
     }
-    
+
     /// Reverse geocoding location information based on the provided latitude and longitude.
     /// 
     /// - Parameters:
@@ -39,7 +39,7 @@ public class MuslimRepository: Repository {
     public func reverseGeocoder(latitude: Double, longitude: Double) async throws -> Location? {
         return try await DBHelper.shared.reverseGeocoder(latitude: latitude, longitude: longitude)
     }
-    
+
     /// Get prayer times for the specified location, date, and prayer attribute.
     /// 
     /// - Parameters:
@@ -48,7 +48,9 @@ public class MuslimRepository: Repository {
     ///   - attribute: Prayer times' attribute
     ///   - attributes: Prayer attribute
     /// - Returns: PrayerTime
-    public func getPrayerTimes(location: Location, date: Date, attributes: PrayerAttribute) async throws -> PrayerTime? {
+    public func getPrayerTimes(location: Location,
+                               date: Date,
+                               attributes: PrayerAttribute) async throws -> PrayerTime? {
         var prayerTime: PrayerTime?
         if location.hasFixedPrayerTime {
             prayerTime = try await DBHelper.shared.prayerTimes(location: location, date: date)
@@ -56,11 +58,11 @@ public class MuslimRepository: Repository {
         } else {
             prayerTime = Prayer.getPrayerTimes(location: location, date: date, attributes: attributes)
         }
-        
+
         prayerTime?.applyOffsets(attributes.offsets)
         return prayerTime
     }
-    
+
     /// Get names of Allah for the specified language.
     /// 
     /// - Parameters:
@@ -69,7 +71,7 @@ public class MuslimRepository: Repository {
     public func getNamesOfAllah(language: Language) async throws -> [Name]? {
         return try await DBHelper.shared.names(language: language)
     }
-    
+
     /// Get azkar categories for the specified language.
     /// 
     /// - Parameters:
@@ -78,7 +80,7 @@ public class MuslimRepository: Repository {
     public func getAzkarCategories(language: Language) async throws -> [AzkarCategory]? {
         return try await DBHelper.shared.azkarCategories(language: language)
     }
-    
+
     /// Get azkar chapters from the database for the specified language and category id.
     /// 
     /// - Parameters:
@@ -88,7 +90,7 @@ public class MuslimRepository: Repository {
     public func getAzkarChapters(language: Language, categoryId: Int? = nil) async throws -> [AzkarChapter]? {
         return try await DBHelper.shared.azkarChapters(language: language, categoryId: categoryId)
     }
-    
+
     /// Get azkar items for specific azkar chapter from database which is localized by the given language.
     /// 
     /// - Parameters:
@@ -98,7 +100,7 @@ public class MuslimRepository: Repository {
     public func getAzkarItems(language: Language, chapterId: Int) async throws -> [AzkarItem]? {
         return try await DBHelper.shared.azkarItems(language: language, chapterId: chapterId)
     }
-    
+
     // TODO: it needs to be deleted when the tests migrated to the package itself.
     public func getAllFixedPrayerLocations() async throws -> [Location]? {
         return try await DBHelper.shared.fixedPrayerTimesList()

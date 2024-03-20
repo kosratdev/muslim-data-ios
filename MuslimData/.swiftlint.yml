@@ -1,6 +1,6 @@
 excluded:
   - Pods
-  - ../MuslimData/Classes/Prayer Times/Prayer.swift
+  - ../MuslimData/Classes/Models/PrayerTimes/Prayer.swift
 included:
   - ../MuslimData
 identifier_name:

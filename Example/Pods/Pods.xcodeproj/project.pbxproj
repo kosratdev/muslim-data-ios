@@ -494,7 +494,8 @@
 				2DFE19672BAB81E900665C6B /* Repository.swift */,
 				2DE6E95B2BA8D8010082A3CE /* MuslimRepository.swift */,
 			);
-			path = Repository;
+			name = Repository;
+			path = MuslimData/Classes/Repository;
 			sourceTree = "<group>";
 		};
 		2DE6E95D2BA8F1F30082A3CE /* Models */ = {
@@ -503,9 +504,10 @@
 				5B32A0A6C3385773AA423D017A5BFE73 /* Azkars */,
 				8D92D353CC7766D3072B3133A23D2705 /* Names */,
 				2817A6C16C274658D2455BB0739C199E /* Location */,
-				F45771AD65677FDC2506D34994A89145 /* Prayer Times */,
+				F45771AD65677FDC2506D34994A89145 /* PrayerTimes */,
 			);
-			path = Models;
+			name = Models;
+			path = MuslimData/Classes/Models;
 			sourceTree = "<group>";
 		};
 		4022D06EB0FD32BF668EE12AF2306B41 /* standard */ = {
@@ -796,7 +798,7 @@
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		F45771AD65677FDC2506D34994A89145 /* Prayer Times */ = {
+		F45771AD65677FDC2506D34994A89145 /* PrayerTimes */ = {
 			isa = PBXGroup;
 			children = (
 				B85117D4C9BE4B6480B1C89933815E58 /* Prayer.swift */,
@@ -804,7 +806,7 @@
 				6368FFE5512AD8AC9D36EB8427AFA109 /* PrayerTime.swift */,
 				65F554C03188A6F204B2036E5CF4B82D /* TimeFormat.swift */,
 			);
-			path = "Prayer Times";
+			path = PrayerTimes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
