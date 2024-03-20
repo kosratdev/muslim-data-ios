@@ -16,7 +16,7 @@ public class MuslimRepository {
     /// - Parameters:
     ///   - locationName: location name
     /// - Returns: List of [Location]?
-    public func searchLocation(_ locationName: String) async throws -> [Location]? {
+    public func searchLocation(locationName: String) async throws -> [Location]? {
         return try await DBHelper.shared.searchLocation(locationName)
     }
     

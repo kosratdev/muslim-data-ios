@@ -44,61 +44,40 @@ There are some location helper methods that provides **offline** Location Search
 
 You can search for any cities or places around the world and this is useful when a use doesn't have internet connection or user's location is turned off so you can search here:
 ```swift
-LocationHelper.shared.citySearch(city: "London") { locations, error in
-    guard let locations = locations, locations.count > 0 else {
-        print("City could not be found!")
-        return
-    }
-    print("locations: \(locations)")
+let locations = try! await MuslimData().searchLocation(locationName: "London")
+guard let locations = locations, locations.count > 0 else {
+    print("Location could not be found!")
+    return
 }
-```
-`Important Note`: Search results always return **false** for **hasFixedPrayerTimes** property in the **Location** object so you need manualy check selected location in the search result like the following example 
-```swift
-// Check the selected location to know that it has fixed prayer times or not.
-LocationHelper.shared.cityHasFixedPrayerTimes(countryCode: location.countryCode, city: location.city) { hasFixed in
-    location.hasFixedPrayerTimes = hasFixed
-}
+print("locations: \(locations)")
 ```
 
 #### Geocoder 
 
-Use geocoder to find city location by name.
+Use geocoder to find a location by name.
 
 ```swift
-// Use geocoder to find city location by name.
-LocationHelper.shared.geocoder(countryCode: "GB", city: "London") { location in
-    guard let location = location else {
-        print("City name can not be geocode")
-        return
-    }
-    print("location: \(location)")
+// Use geocoder to find a location by name.
+let location = try! await MuslimRepository().geocoder(countryCode: "GB", locationName: "London")
+guard let location = location else {
+    print("Location name can not be geocoded")
+    return
 }
+print("location: \(location)")
 ```
 
 #### Reverse Geocoder
 
-Use reverse geocoder to find city name by latitude and longitude.
+Use reverse geocoder to find a location by latitude and longitude.
 
 ```swift 
-// Use reverse geocoder to find city name by latitude and longitude.
-LocationHelper.shared.geocoder(latitude: 36.654090, longitude: 44.541278) { location in
-    guard let location = location else {
-        print("City name can nnot be geocode by latitude and longitude")
-        return
-    }
-    print("location: \(location)")
+// Use reverse geocoder to find a location by its latitude and longitude.
+let location = try! await MuslimRepository().reverseGeocoder(latitude: 36.654090, longitude: 44.541278)
+guard let location = location else {
+    print("Location name can not be geocoded by latitude and longitude")
+    return
 }
-```
-
-#### Has Fixed Prayer Times
-
-Check a city to know that it has fixed prayer times or not
-
-```swift
-// Check a city to know that it has fixed prayer times or not
-LocationHelper.shared.cityHasFixedPrayerTimes(countryCode: "IQ", city: "Duhok") { hasFixed in
-    print("City has fixed prayer times: \(hasFixed)")
-}
+print("location: \(location)")
 ```
 
 ### Prayer Times 
@@ -107,25 +86,20 @@ You can easily get a location prayer times just by passing (`Location`, `PrayerA
 
 ```swift 
 // Create location object.
-let location = Location(latitude: 36.123, longitude: 44.123, city: "Erbil", countryCode: "IQ",
-                        countryName: "Iraq", hasFixedPrayerTimes: true)
+let location = // it should be retrieved from geocoder, reverseGeocoder, or searchLocation methods.
 
 // Crate prayer attributes object.
 let attributes = PrayerAttribute(method: .makkah, asrMethod: .shafii, adjustAngle: .angleBased)
 
 // Get prayer times
-PrayerTime.getPrayerTimes(location: location, date: Date(), attributes: attributes) { prayerTime, error in
-    guard error == nil else {
-        print("Prayer tims didn't found for the specified properties.")
-        return
-    }
-    print("prayer times: \(prayerTime!)")
-    print("Fromat prayer times: \(prayerTime!.formatPrayers(.time12))")
-    print("Format one prayer time: \(prayerTime!.isha.toTime(format: .time24))")
-    print("next prayer index: \(prayerTime!.nextPrayerIndex())")
-    print("next prayer interval: \(prayerTime!.nextPrayerInterval())")
-    print("next prayer time remaining: \(prayerTime!.nextPrayerTimeRemaining())")
-}
+let prayerTime = try! await MuslimRepository().getPrayerTimes(location: location, date: Date(), attributes: attributes)
+
+print("prayer times: \(prayerTime!)")
+print("Fromat prayer times: \(prayerTime!.formatPrayers(.time12))")
+print("Format one prayer time: \(prayerTime!.isha.toTime(format: .time24))")
+print("next prayer index: \(prayerTime!.nextPrayerIndex())")
+print("next prayer interval: \(prayerTime!.nextPrayerInterval())")
+print("next prayer time remaining: \(prayerTime!.nextPrayerTimeRemaining())")
 ```
 
 ### Azkars (Hisnul Muslim)
@@ -138,13 +112,8 @@ Get all azkar categories and it is localized for the given language.
 
 ```swift
 // Get azkar categories from MuslimData library
-Azkars.azkarCategories(language: .en) { azkarCategories, error in
-    guard error == nil else {
-        print("Azkar categories didn't find: \(error!)")
-        return
-    }
-    print("Azkar Categories: \(azkarCategories!)")
-}
+let azkarCategories = try! await MuslimRepository().getAzkarCategories(language: .en)
+print("Azkar Categories: \(azkarCategories!)")
 ```
 
 #### Azkar Chapters
@@ -153,26 +122,16 @@ Get azkar chapters and it is localized for the given language.
 
 ```swift
 // Get azkar chapters from MuslimData library
-Azkars.azkarChapters(language: .en) { azkarChapters, error in
-    guard error == nil else {
-        print("Azkar chapters didn't found: \(error!)")
-        return
-    }
-    print("Azkar Chapters: \(azkarChapters!)")
-}
+let azkarChapters = try! await MuslimRepository().getAzkarChapters(language: .en)
+print("Azkar Chapters: \(azkarChapters!)")
 ```
 
 Get azkar chapters for a specific category and it is localized for the given language.
 
 ```swift
 // Get azkar chapters for a specific category from MuslimData library
-Azkars.azkarChapters(language: .en, categoryId: 2) { azkarChapters, error in
-    guard error == nil else {
-        print("Azkar chapters didn't found: \(error!)")
-        return
-    }
-    print("Azkar Chapters for a category: \(azkarChapters!)")
-}
+let azkarChapters = try! await MuslimRepository().getAzkarChapters(language: .en, categoryId: 2)
+print("Azkar Chapters for a category: \(azkarChapters!)")
 ```
 
 #### Azkar Items
@@ -180,13 +139,8 @@ Azkars.azkarChapters(language: .en, categoryId: 2) { azkarChapters, error in
 Get azkar items for a specific chapter and it is localized for the given language.
 ```swift
 // Get azkar items for a specific chapter from MuslimData library
-Azkars.azkarItems(language: .en, chapterId: 2) { azkarItems, error in
-    guard error == nil else {
-        print("Azkar items didn't found: \(error!)")
-        return
-    }
-    print("azkar items: \(azkarItems!)")
-}
+let azkarItems = try! await MuslimRepository().getAzkarItems(language: .en, chapterId: 2)
+print("azkar items: \(azkarItems!)")
 ```
 
 ### Names of Allah 
@@ -195,18 +149,13 @@ Get 99 Names of Allah with it's translation and now it is available for these la
 
 ```swift
 // Get 99 names of allah from MuslimData library
-Names.names(language: .en) { names, error in
-    guard error == nil else {
-        print("Names of Allah didn't found: \(error!)")
-        return
-    }
-    print("Names of Allah: \(names)")
-} 
+let namesOfAllah = try! await MuslimRepository().getNamesOfAllah(language: .en)
+print("Names of Allah: \(namesOfAllah)")
 ```
 ## Author
 
-Kosrat D. Ahmad, kosrat.d.ahmad@gmail.com
+Kosrat D. Ahmed, kosrat.d.ahmad@gmail.com
 
 ## License
 
-MuslimData is available under the MIT license. See the [LICENSE](LICENSE) file for more info.
+MuslimData is available under the Apache license. See the [LICENSE](LICENSE) file for more info.

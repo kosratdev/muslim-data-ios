@@ -71,7 +71,7 @@ extension LocationViewController: UISearchBarDelegate {
             return
         }
         Task.init {
-            let locations = try! await MuslimRepository().searchLocation(searchBar.text!)
+            let locations = try! await MuslimRepository().searchLocation(locationName: searchBar.text!)
             if let locations = locations {
                 self.locations = locations
             }
