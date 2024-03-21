@@ -30,7 +30,7 @@ extension Location {
     /// - Returns: Location object.
     static func loadSavedLocation() -> Location {
         let defaults = UserDefaults.standard
-        let id = defaults.integer(forKey: "id")
+        let id = defaults.object(forKey: "id") as? Int ?? 77359
         let name = defaults.string(forKey: "name") ?? "Erbil"
         var latitude = defaults.double(forKey: "latitude")
         latitude = latitude == 0.0 ? 36.188204 : latitude
