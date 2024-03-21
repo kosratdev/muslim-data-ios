@@ -70,10 +70,8 @@ extension LocationViewController: UISearchBarDelegate {
             locations.removeAll()
             return
         }
-        LocationHelper.shared.citySearch(searchBar.text!) { locations, error in
-            guard error == nil else {
-                return
-            }
+        Task.init {
+            let locations = try! await MuslimRepository().searchLocation(locationName: searchBar.text!)
             if let locations = locations {
                 self.locations = locations
             }

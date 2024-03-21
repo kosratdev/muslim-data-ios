@@ -18,184 +18,138 @@ class AzkarTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testAzkarCategories() {
-        // Test English azkar categories
-        Azkars.azkarCategories(language: .en) { categories, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(categories)
-            XCTAssertEqual(categories!.count, 11)
-            XCTAssertNotNil(categories![5].name)
-        }
-
-        // Test Arabic azkar categories
-        Azkars.azkarCategories(language: .ar) { categories, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(categories)
-            XCTAssertEqual(categories!.count, 11)
-            XCTAssertNotNil(categories![10].name)
-        }
-
-        // Test Central Kurdish azkar categories
-        Azkars.azkarCategories(language: .ckb) { categories, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(categories)
-            XCTAssertEqual(categories!.count, 11)
-            XCTAssertNotNil(categories![3].name)
-        }
-
-        // Test Farsi azkar categories
-        Azkars.azkarCategories(language: .fa) { categories, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(categories)
-            XCTAssertEqual(categories!.count, 11)
-            XCTAssertNotNil(categories![1].name)
-        }
-
-        // Test Russian azkar categories
-        Azkars.azkarCategories(language: .ru) { categories, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(categories)
-            XCTAssertEqual(categories!.count, 11)
-            XCTAssertNotNil(categories![7].name)
-        }
+    func testEnAzkarCategories() async throws {
+        let categories = try await MuslimRepository().getAzkarCategories(language: .en)
+        assesAzkarCategories(categories: categories)
     }
 
-    func testAzkarChapters() {
-        // Test English azkar chapters
-        Azkars.azkarChapters(language: .en) { chapters, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(chapters)
-            XCTAssertEqual(chapters!.count, 133)
-        }
-
-        // Test Arabic azkar chapters
-        Azkars.azkarChapters(language: .ar) { chapters, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(chapters)
-            XCTAssertEqual(chapters!.count, 133)
-        }
-
-        // Test Central Kurdish azkar chapters
-        Azkars.azkarChapters(language: .ckb) { chapters, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(chapters)
-            XCTAssertEqual(chapters!.count, 133)
-        }
-
-        // Test Farsi azkar chapters
-        Azkars.azkarChapters(language: .fa) { chapters, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(chapters)
-            XCTAssertEqual(chapters!.count, 133)
-        }
-
-        // Test Russian azkar chapters
-        Azkars.azkarChapters(language: .ru) { chapters, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(chapters)
-            XCTAssertEqual(chapters!.count, 133)
-        }
+    func testArAzkarCategories() async throws {
+        let categories = try await MuslimRepository().getAzkarCategories(language: .ar)
+        assesAzkarCategories(categories: categories)
     }
 
-    func testAzkarChaptersByCategory() {
+    func testCkbAzkarCategories() async throws {
+        let categories = try await MuslimRepository().getAzkarCategories(language: .ckb)
+        assesAzkarCategories(categories: categories)
+    }
+
+    func testFaAzkarCategories() async throws {
+        let categories = try await MuslimRepository().getAzkarCategories(language: .fa)
+        assesAzkarCategories(categories: categories)
+    }
+
+    func testRuAzkarCategories() async throws {
+        let categories = try await MuslimRepository().getAzkarCategories(language: .ru)
+        assesAzkarCategories(categories: categories)
+    }
+
+    private func assesAzkarCategories(categories: [AzkarCategory]?) {
+        XCTAssertNotNil(categories)
+        XCTAssertEqual(categories!.count, 11)
+        XCTAssertNotNil(categories![Int.random(in: 0 ..< 11)].name)
+    }
+
+    func testEnAzkarChapters() async throws {
+        let chapters = try await MuslimRepository().getAzkarChapters(language: .en)
+        assesAzkarChapters(chapters: chapters)
+    }
+
+    func testArAzkarChapters() async throws {
+        let chapters = try await MuslimRepository().getAzkarChapters(language: .ar)
+        assesAzkarChapters(chapters: chapters)
+    }
+
+    func testCkbAzkarChapters() async throws {
+        let chapters = try await MuslimRepository().getAzkarChapters(language: .ckb)
+        assesAzkarChapters(chapters: chapters)
+    }
+
+    func testFaAzkarChapters() async throws {
+        let chapters = try await MuslimRepository().getAzkarChapters(language: .fa)
+        assesAzkarChapters(chapters: chapters)
+    }
+
+    func testRuAzkarChapters() async throws {
+        let chapters = try await MuslimRepository().getAzkarChapters(language: .ru)
+        assesAzkarChapters(chapters: chapters)
+    }
+
+    private func assesAzkarChapters(chapters: [AzkarChapter]?) {
+        XCTAssertNotNil(chapters)
+        XCTAssertEqual(chapters!.count, 133)
+    }
+
+    func testAzkarChaptersByCategory() async throws {
         // Test English azkar chapters for category id = 1
-        Azkars.azkarChapters(language: .en, categoryId: 1) { chapters, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(chapters)
-            XCTAssertEqual(chapters!.count, 7)
-        }
+        var chapters = try await MuslimRepository().getAzkarChapters(language: .en, categoryId: 1)
+        XCTAssertNotNil(chapters)
+        XCTAssertEqual(chapters!.count, 7)
 
         // Test English azkar chapters for category id = 2
-        Azkars.azkarChapters(language: .en, categoryId: 2) { chapters, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(chapters)
-            XCTAssertEqual(chapters!.count, 14)
-        }
+        chapters = try await MuslimRepository().getAzkarChapters(language: .en, categoryId: 2)
+        XCTAssertNotNil(chapters)
+        XCTAssertEqual(chapters!.count, 14)
 
         // Test English azkar chapters for category id = 3
-        Azkars.azkarChapters(language: .en, categoryId: 3) { chapters, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(chapters)
-            XCTAssertEqual(chapters!.count, 7)
-        }
+        chapters = try await MuslimRepository().getAzkarChapters(language: .en, categoryId: 3)
+        XCTAssertNotNil(chapters)
+        XCTAssertEqual(chapters!.count, 7)
 
         // Test English azkar chapters for category id = 4
-        Azkars.azkarChapters(language: .en, categoryId: 4) { chapters, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(chapters)
-            XCTAssertEqual(chapters!.count, 15)
-        }
+        chapters = try await MuslimRepository().getAzkarChapters(language: .en, categoryId: 4)
+        XCTAssertNotNil(chapters)
+        XCTAssertEqual(chapters!.count, 15)
 
         // Test English azkar chapters for category id = 5
-        Azkars.azkarChapters(language: .en, categoryId: 5) { chapters, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(chapters)
-            XCTAssertEqual(chapters!.count, 11)
-        }
+        chapters = try await MuslimRepository().getAzkarChapters(language: .en, categoryId: 5)
+        XCTAssertNotNil(chapters)
+        XCTAssertEqual(chapters!.count, 11)
 
         // Test English azkar chapters for category id = 6
-        Azkars.azkarChapters(language: .en, categoryId: 6) { chapters, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(chapters)
-            XCTAssertEqual(chapters!.count, 19)
-        }
+        chapters = try await MuslimRepository().getAzkarChapters(language: .en, categoryId: 6)
+        XCTAssertNotNil(chapters)
+        XCTAssertEqual(chapters!.count, 19)
 
         // Test English azkar chapters for category id = 7
-        Azkars.azkarChapters(language: .en, categoryId: 7) { chapters, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(chapters)
-            XCTAssertEqual(chapters!.count, 9)
-        }
+        chapters = try await MuslimRepository().getAzkarChapters(language: .en, categoryId: 7)
+        XCTAssertNotNil(chapters)
+        XCTAssertEqual(chapters!.count, 9)
 
         // Test English azkar chapters for category id = 8
-        Azkars.azkarChapters(language: .en, categoryId: 8) { chapters, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(chapters)
-            XCTAssertEqual(chapters!.count, 8)
-        }
+        chapters = try await MuslimRepository().getAzkarChapters(language: .en, categoryId: 8)
+        XCTAssertNotNil(chapters)
+        XCTAssertEqual(chapters!.count, 8)
 
         // Test English azkar chapters for category id = 9
-        Azkars.azkarChapters(language: .en, categoryId: 9) { chapters, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(chapters)
-            XCTAssertEqual(chapters!.count, 20)
-        }
+        chapters = try await MuslimRepository().getAzkarChapters(language: .en, categoryId: 9)
+        XCTAssertNotNil(chapters)
+        XCTAssertEqual(chapters!.count, 20)
 
         // Test English azkar chapters for category id = 10
-        Azkars.azkarChapters(language: .en, categoryId: 10) { chapters, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(chapters)
-            XCTAssertEqual(chapters!.count, 10)
-        }
+        chapters = try await MuslimRepository().getAzkarChapters(language: .en, categoryId: 10)
+        XCTAssertNotNil(chapters)
+        XCTAssertEqual(chapters!.count, 10)
 
         // Test English azkar chapters for category id = 11
-        Azkars.azkarChapters(language: .en, categoryId: 11) { chapters, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(chapters)
-            XCTAssertEqual(chapters!.count, 13)
-        }
+        chapters = try await MuslimRepository().getAzkarChapters(language: .en, categoryId: 11)
+        XCTAssertNotNil(chapters)
+        XCTAssertEqual(chapters!.count, 13)
     }
 
-    func testAzkarItems() {
+    func testAzkarItems() async throws {
         // Test English azkar items for chapter id = 1
-        Azkars.azkarItems(language: .en, chapterId: 1) { items, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(items)
-            XCTAssertEqual(items!.count, 4)
-        }
+        var items = try await MuslimRepository().getAzkarItems(language: .en, chapterId: 1)
+        XCTAssertNotNil(items)
+        XCTAssertEqual(items!.count, 4)
 
         // Test English azkar items for chapter id = 10
-        Azkars.azkarItems(language: .en, chapterId: 10) { items, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(items)
-            XCTAssertEqual(items!.count, 2)
-        }
+        items = try await MuslimRepository().getAzkarItems(language: .en, chapterId: 10)
+        XCTAssertNotNil(items)
+        XCTAssertEqual(items!.count, 2)
 
         // Test English azkar items for chapter id = 100
-        Azkars.azkarItems(language: .en, chapterId: 100) { items, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(items)
-            XCTAssertEqual(items!.count, 1)
-        }
+        items = try await MuslimRepository().getAzkarItems(language: .en, chapterId: 100)
+        XCTAssertNotNil(items)
+        XCTAssertEqual(items!.count, 1)
     }
 }

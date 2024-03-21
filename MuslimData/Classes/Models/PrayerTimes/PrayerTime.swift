@@ -18,12 +18,12 @@ public struct PrayerTime {
     public var maghrib: Date
     public var isha: Date
 
-    // MARK: - Private Methods
+    // MARK: - Internal Methods
 
     /// Apply offests to the current prayer times.
     ///
     /// - Parameter offsets: List of double values as prayer offsets.
-    private mutating func applyOffsets(_ offsets: [Double]) {
+    internal mutating func applyOffsets(_ offsets: [Double]) {
         fajr = fajr.addMinutes(offsets[0])
         sunrise = sunrise.addMinutes(offsets[1])
         dhuhr = dhuhr.addMinutes(offsets[2])
@@ -33,8 +33,7 @@ public struct PrayerTime {
     }
 
     /// Apply daylight saving time to the current prayer times.
-    private mutating func applyDST() {
-
+    internal mutating func applyDST() {
         let isDST = TimeZone.current.isDaylightSavingTime()
 
         if isDST {
@@ -48,69 +47,6 @@ public struct PrayerTime {
     }
 
     // MARK: - Public Methods
-
-    /// Get prayer times from the prayer database.
-    ///
-    /// - Parameters:
-    ///   - city: City name
-    ///   - date: Prayer times date
-    ///   - callback: Callback that will returen the prayer time when it has been found in the database.
-    public static func getPrayerTimes(location: Location, date: Date, attributes: PrayerAttribute,
-                                      callback: @escaping (PrayerTime?, String?) -> Void) {
-        if !location.hasFixedPrayerTime {
-            let prayers = Prayer(method: attributes.method, asrJuristic: attributes.asrMethod,
-                                 adjustHighLats: attributes.adjustAngle, timeFormat: .time24)
-            let calculatedTimes = prayers.getPrayerTimes(date, latitude: location.latitude,
-                                                         longitude: location.longitude)
-            // Check calculated prayer times for nullability.
-            guard let fajr = calculatedTimes["Fajr"], let sunrise = calculatedTimes["Sunrise"],
-                  let dhuhr = calculatedTimes["Dhuhr"], let asr = calculatedTimes["Asr"],
-                  let maghrib = calculatedTimes["Maghrib"], let isha = calculatedTimes["Isha"]
-            else {
-                callback(nil, "")
-                return
-            }
-
-            var prayerTime = PrayerTime(fajr: fajr.toDate(date),
-                                        sunrise: sunrise.toDate(date),
-                                        dhuhr: dhuhr.toDate(date),
-                                        asr: asr.toDate(date),
-                                        maghrib: maghrib.toDate(date),
-                                        isha: isha.toDate(date))
-            prayerTime.applyOffsets(attributes.offsets)
-            callback(prayerTime, nil)
-            return
-        }
-
-        DBHelper.shared.prayerTimes(location: location, date: date) { row, error in
-            guard error == nil else {
-                callback(nil, error)
-                return
-            }
-            // Getting data from columns
-            guard let fajr = row?["fajr"] as? String,
-                  let sunrise = row?["sunrise"] as? String,
-                  let dhuhr = row?["dhuhr"] as? String,
-                  let asr = row?["asr"] as? String,
-                  let maghrib = row?["maghrib"] as? String,
-                  let isha = row?["isha"] as? String
-            else {
-                callback(nil, "All columns are not found in the row.")
-                return
-            }
-
-            // Create PrayerTime object.
-            var prayerTime = PrayerTime(fajr: fajr.toDate(date),
-                                        sunrise: sunrise.toDate(date),
-                                        dhuhr: dhuhr.toDate(date),
-                                        asr: asr.toDate(date),
-                                        maghrib: maghrib.toDate(date),
-                                        isha: isha.toDate(date))
-            prayerTime.applyOffsets(attributes.offsets)
-            prayerTime.applyDST()
-            callback(prayerTime, nil)
-        }
-    }
 
     /// Format prayer times from Date object to String by "HH:mm" or "hh:mm a" pattern which
     /// depends on the given time format.

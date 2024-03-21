@@ -214,6 +214,28 @@ open class Prayer {
         let tZone = Double(TimeZone.current.secondsFromGMT()) / 60.0 / 60.0
         return getDatePrayerTimes(year, month: month, day: day, latitude: latitude, longitude: longitude, tZone: tZone)
     }
+    
+    static func getPrayerTimes(location: Location, date: Date, attributes: PrayerAttribute) -> PrayerTime? {
+        let prayers = Prayer(method: attributes.method, asrJuristic: attributes.asrMethod,
+                             adjustHighLats: attributes.adjustAngle, timeFormat: .time24)
+        
+        let calculatedTimes = prayers.getPrayerTimes(date, latitude: location.latitude,
+                                                     longitude: location.longitude)
+        // Check calculated prayer times for nullability.
+        guard let fajr = calculatedTimes["Fajr"], let sunrise = calculatedTimes["Sunrise"],
+              let dhuhr = calculatedTimes["Dhuhr"], let asr = calculatedTimes["Asr"],
+              let maghrib = calculatedTimes["Maghrib"], let isha = calculatedTimes["Isha"]
+        else {
+            return nil
+        }
+
+        return PrayerTime(fajr: fajr.toDate(date),
+                          sunrise: sunrise.toDate(date),
+                          dhuhr: dhuhr.toDate(date),
+                          asr: asr.toDate(date),
+                          maghrib: maghrib.toDate(date),
+                          isha: isha.toDate(date))
+    }
 
     // set custom values for calculation parameters
     open func setCustomParams(_ params: [Double]) {

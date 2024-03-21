@@ -30,11 +30,9 @@ class AzkarDetailViewController: UIViewController {
         azkarTable.tableFooterView = UIView()
 
         // Get azkar items from MuslimData library.
-        Azkars.azkarItems(language: .en, chapterId: azkarChapter!.id) { azkars, error in
-            guard error == nil else {
-                return
-            }
-            self.azkars = azkars!
+        Task.init {
+            let items = try! await MuslimRepository().getAzkarItems(language: .en, chapterId: azkarChapter!.id)
+            self.azkars = items!
             self.azkarTable.reloadData()
         }
     }

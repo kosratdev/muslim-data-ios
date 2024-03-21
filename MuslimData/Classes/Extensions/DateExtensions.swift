@@ -10,6 +10,17 @@ import Foundation
 // MARK: - Date Extensions
 
 public extension Date {
+
+    /// Format date to "MM-dd" pattern which will be used to get prayers fro this date in the prayer database.
+    ///
+    /// - Returns: Formatted date by "MM-dd" pattern.
+    func toDBDate() -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "us")
+        formatter.dateFormat = "MM-dd"
+        return formatter.string(from: self)
+    }
+
     /// Convert date to string time by given time format.
     ///
     /// - Parameter format: TimeFormat object.

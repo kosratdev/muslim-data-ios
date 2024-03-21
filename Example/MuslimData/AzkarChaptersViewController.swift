@@ -27,10 +27,8 @@ class AzkarChaptersViewController: UIViewController {
         chaptersTable.dataSource = self
 
         // Get azkar chapters from MuslimData library.
-        Azkars.azkarChapters(language: .en) { chapters, error in
-            guard error == nil else {
-                return
-            }
+        Task.init {
+            let chapters = try! await MuslimRepository().getAzkarChapters(language: .en)
             self.chapters = chapters!
             self.chaptersTable.reloadData()
         }

@@ -25,11 +25,8 @@ class NamesViewController: UIViewController {
 
         namesTable.dataSource = self
 
-        // Get names of allah from MuslimData.
-        Names.names(language: .en) { names, error in
-            guard error == nil else {
-                return
-            }
+        Task.init {
+            let names = try! await MuslimRepository().getNamesOfAllah(language: .en)
             self.names = names!
             self.namesTable.reloadData()
         }
