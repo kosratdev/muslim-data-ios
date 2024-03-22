@@ -19,13 +19,28 @@ class DBHelper {
     private init() {
         var configuration = Configuration()
         configuration.readonly = true
-        //let databaseURL = Bundle.module.path(forResource: "muslim_db_v2.0.0", ofType: "db")!
-        let databaseURL = Bundle(for: DBHelper.self).path(forResource: "muslim_db_v2.0.0", ofType: "db")!
+        let databaseURL = pathForDatabase()
         dbPool = try? DatabasePool(path: databaseURL, configuration: configuration)
 
         // Be a nice iOS citizen, and don’t consume too much memory
         // See https://github.com/groue/GRDB.swift/#memory-management
         dbPool?.setupMemoryManagement(in: UIApplication.shared)
+    }
+    
+    //MARK: - Private Methods
+    
+    /// Provides the appropriate file path string for the muslim database,
+    /// taking into account whether the code is integrated using Swift Package Manager or CocoaPods.
+    ///
+    /// - Returns: A string representing the full file path to the database.
+    private func pathForDatabase() -> String {
+       #if SWIFT_PACKAGE
+       // SPM Access
+       return Bundle.module.path(forResource: "muslim_db_v2.0.0", ofType: "db")!
+       #else
+       // CocoaPods Access
+       return Bundle(for: DBHelper.self).path(forResource: "muslim_db_v2.0.0", ofType: "db")!
+       #endif
     }
 
     // MARK: - Public Methods
