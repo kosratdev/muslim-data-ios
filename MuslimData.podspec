@@ -33,14 +33,14 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '13.0'
 
-  s.source_files = 'MuslimData/Classes/**/*'
+  s.source_files = 'Sources/MuslimData/**/*'
   
   # s.resource_bundles = {
-  #   'MuslimData' => ['MuslimData/Assets/*.png']
+  #   'MuslimData' => ['MuslimData/Resources/*.png']
   # }
 
-  s.swift_version = "5.0"
-  s.resources = 'MuslimData/Assets/**/*'
+  s.swift_version = "5.10"
+  s.resources = 'Sources/MuslimData/Resources/**/*'
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit'
