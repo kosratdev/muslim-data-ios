@@ -6,17 +6,17 @@
 //  Copyright © 2018 CocoaPods. All rights reserved.
 //
 
-import UIKit
 import MuslimData
+import UIKit
 
 class LocationViewController: UIViewController {
     // MARK: - Outlets
 
-    @IBOutlet weak var locationTitle: UILabel!
-    @IBOutlet weak var locationTable: UITableView!
+    @IBOutlet var locationTitle: UILabel!
+    @IBOutlet var locationTable: UITableView!
 
     var locations: [Location] = [] {
-        didSet{
+        didSet {
             locationTable.reloadData()
         }
     }
@@ -51,7 +51,7 @@ class LocationViewController: UIViewController {
     /// Display selected location on the screen.
     func displayLocation() {
         let location = Location.loadSavedLocation()
-        locationTitle.text = "\(location.cityName), \(location.countryName)"
+        locationTitle.text = "\(location.name), \(location.countryName)"
     }
 
     /// Dismiss and return to the parent screen.
@@ -63,31 +63,30 @@ class LocationViewController: UIViewController {
 }
 
 // MARK: - UISearchBarDelegate
+
 extension LocationViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == "" {
             locations.removeAll()
             return
         }
-        LocationHelper.shared.citySearch(searchBar.text!) { locations, error in
-            guard error == nil else {
-                return
-            }
+        Task.init {
+            let locations = try! await MuslimRepository().searchLocation(locationName: searchBar.text!)
             if let locations = locations {
                 self.locations = locations
-
             }
         }
     }
 }
 
 // MARK: - UITableViewDelegate
+
 extension LocationViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let location = locations[indexPath.row]
-        
+
         location.saveLocation()
-        self.displayLocation()
+        displayLocation()
         if #available(iOS 11.0, *) {
             navigationItem.searchController?.isActive = false
         }
@@ -95,15 +94,16 @@ extension LocationViewController: UITableViewDelegate {
 }
 
 // MARK: - UITableViewDataSource
+
 extension LocationViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return locations.count
+        locations.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell", for: indexPath)
         let location = locations[indexPath.row]
-        cell.textLabel?.text = location.cityName
+        cell.textLabel?.text = location.name
         cell.detailTextLabel?.text = location.countryName
 
         return cell

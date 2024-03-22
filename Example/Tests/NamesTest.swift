@@ -6,11 +6,10 @@
 //  Copyright © 2018 CocoaPods. All rights reserved.
 //
 
-import XCTest
 @testable import MuslimData
+import XCTest
 
 class NamesTest: XCTestCase {
-
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -19,43 +18,33 @@ class NamesTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testEnglishNames() {
-        Names.names(language: .en) { names, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(names)
-            XCTAssertEqual(names!.count, 99)
-        }
+    func testEnglishNames() async throws {
+        let names = try await MuslimRepository().getNamesOfAllah(language: .en)
+        assesNames(names: names)
     }
 
-    func testArabicNames() {
-        Names.names(language: .ar) { names, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(names)
-            XCTAssertEqual(names!.count, 99)
-        }
+    func testArabicNames() async throws {
+        let names = try await MuslimRepository().getNamesOfAllah(language: .ar)
+        assesNames(names: names)
     }
 
-    func testKurdishNames() {
-        Names.names(language: .ckb) { names, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(names)
-            XCTAssertEqual(names!.count, 99)
-        }
+    func testKurdishNames() async throws {
+        let names = try await MuslimRepository().getNamesOfAllah(language: .ckb)
+        assesNames(names: names)
     }
 
-    func testFarsiNames() {
-        Names.names(language: .fa) { names, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(names)
-            XCTAssertEqual(names!.count, 99)
-        }
+    func testFarsiNames() async throws {
+        let names = try await MuslimRepository().getNamesOfAllah(language: .fa)
+        assesNames(names: names)
     }
 
-    func testRussianNames() {
-        Names.names(language: .ru) { names, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(names)
-            XCTAssertEqual(names!.count, 99)
-        }
+    func testRussianNames() async throws {
+        let names = try await MuslimRepository().getNamesOfAllah(language: .ru)
+        assesNames(names: names)
+    }
+
+    private func assesNames(names: [Name]?) {
+        XCTAssertNotNil(names)
+        XCTAssertEqual(names!.count, 99)
     }
 }

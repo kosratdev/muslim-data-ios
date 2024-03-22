@@ -6,14 +6,13 @@
 //  Copyright © 2018 CocoaPods. All rights reserved.
 //
 
-import UIKit
 import MuslimData
+import UIKit
 
 class NamesViewController: UIViewController {
-
     // MARK: - Outlets
 
-    @IBOutlet weak var namesTable: UITableView!
+    @IBOutlet var namesTable: UITableView!
 
     // MARK: - Properties
 
@@ -26,11 +25,8 @@ class NamesViewController: UIViewController {
 
         namesTable.dataSource = self
 
-        // Get names of allah from MuslimData.
-        Names.names(language: .en) { names, error in
-            guard error == nil else {
-                return
-            }
+        Task.init {
+            let names = try! await MuslimRepository().getNamesOfAllah(language: .en)
             self.names = names!
             self.namesTable.reloadData()
         }
@@ -39,9 +35,9 @@ class NamesViewController: UIViewController {
 
 // MARK: - UITableViewDataSource
 
-extension NamesViewController: UITableViewDataSource  {
+extension NamesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return names.count
+        names.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

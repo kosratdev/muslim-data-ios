@@ -6,14 +6,14 @@
 //  Copyright © 2018 CocoaPods. All rights reserved.
 //
 
-import UIKit
 import MuslimData
+import UIKit
 
 class PrayersViewController: UIViewController {
     // MARK: - Outlets
 
-    @IBOutlet weak var locationDetail: UILabel!
-    @IBOutlet weak var prayerTable: UITableView!
+    @IBOutlet var locationDetail: UILabel!
+    @IBOutlet var prayerTable: UITableView!
 
     // MARK: - Properties
 
@@ -26,37 +26,35 @@ class PrayersViewController: UIViewController {
         super.viewDidLoad()
 
         prayerTable.dataSource = self
-        prayerTable.tableFooterView  = UIView()
+        prayerTable.tableFooterView = UIView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         // Get prayer times
-        getPrayers()
+        Task.init {
+            try! await getPrayers()
+        }
     }
 
     // MARK: - Helper Methods
 
     /// Get prayer times from the MuslimData library
-    func getPrayers() {
+    func getPrayers() async throws {
         let offsets = [Double](repeating: 0, count: 6)
         let location = Location.loadSavedLocation()
         let attributes = PrayerAttribute(method: .makkah, asrMethod: .shafii, adjustAngle: .angleBased, offsets: offsets)
-        PrayerTime.getPrayerTimes(location: location, date: Date(),
-                                  attributes: attributes) { (prayerTime, error) in
-            guard error == nil else {
-                return
-            }
-            self.prayerTimes = prayerTime!.formatPrayers(.time12)
-            self.prayerTable.reloadData()
-        }
+
+        let prayer = try await MuslimRepository().getPrayerTimes(location: location, date: Date(), attributes: attributes)
+        prayerTimes = prayer!.formatPrayers(.time12)
+        prayerTable.reloadData()
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy"
         let stringDate = dateFormatter.string(from: Date())
 
-        locationDetail.text = "\(location.cityName), \(location.countryName)\n\(stringDate)"
+        locationDetail.text = "\(location.name), \(location.countryName)\n\(stringDate)"
     }
 }
 
@@ -64,7 +62,7 @@ class PrayersViewController: UIViewController {
 
 extension PrayersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return prayerTimes.count
+        prayerTimes.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

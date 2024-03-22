@@ -6,13 +6,13 @@
 //  Copyright © 2018 CocoaPods. All rights reserved.
 //
 
-import UIKit
 import MuslimData
+import UIKit
 
 class AzkarDetailViewController: UIViewController {
     // MARK: - Outlets
 
-    @IBOutlet weak var azkarTable: UITableView!
+    @IBOutlet var azkarTable: UITableView!
 
     // MARK: - Properties
 
@@ -30,11 +30,9 @@ class AzkarDetailViewController: UIViewController {
         azkarTable.tableFooterView = UIView()
 
         // Get azkar items from MuslimData library.
-        Azkars.azkarItems(language: .en, chapterId: azkarChapter!.id) { azkars, error in
-            guard error == nil else {
-                return
-            }
-            self.azkars = azkars!
+        Task.init {
+            let items = try! await MuslimRepository().getAzkarItems(language: .en, chapterId: azkarChapter!.id)
+            self.azkars = items!
             self.azkarTable.reloadData()
         }
     }
@@ -44,7 +42,7 @@ class AzkarDetailViewController: UIViewController {
 
 extension AzkarDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return azkars.count
+        azkars.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -18,7 +18,6 @@
 		11AAE1599E6093A219A889D2DAE80ECA /* StatementColumnConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5F36FEF53D52328747380C3D59D187 /* StatementColumnConvertible.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		121E4E7A4C0459415A9B883D506D3FBC /* ValueObservation+DatabaseValueConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8F40C80B8B85C4393ED5F43C8ED116 /* ValueObservation+DatabaseValueConvertible.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		13F6B7CE384A0A2CE2A7E12616535089 /* SQLExpressible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7093F7382D260704506C5464AFBC16F5 /* SQLExpressible.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		1423967A16BCB379BE339E4C573082CF /* Azkars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F486496B9633B4BBEBB8F8AC33399 /* Azkars.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		15BFA9419F7B8F44B90DB2A0685D8416 /* SQLGenerationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E1BA72AB090848D099FDE15FFCD602 /* SQLGenerationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		1958078CF71CEA9143902886C5B9C310 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A49D0B537A24E7B6779BDF2FF4BF1376 /* UIKit.framework */; };
 		19EAAEBC608AA44323ABEE5E5C433F82 /* GRDB-Bridging.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C3DE7F469BC348F7C1DDC5196499B58 /* GRDB-Bridging.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -36,11 +35,12 @@
 		2A050272F5AA9419EACC2B68583FBF0C /* StatementAuthorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D32E01380A9B4A0B3817B6B914A51 /* StatementAuthorizer.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		2B130AEAB2EE4BD7997DB369572A684A /* FetchableRecord+TableRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2058FFAD3AA3F5F1DA38DAB365079462 /* FetchableRecord+TableRecord.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		2D0F97A52B813E8B003D46C5 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 2D0F97A42B813E8B003D46C5 /* CHANGELOG.md */; };
-		2D6CD44729CC5BF2009B527C /* muslim_db_v1.5.0.db in Resources */ = {isa = PBXBuildFile; fileRef = 2D6CD44629CC5BF2009B527C /* muslim_db_v1.5.0.db */; };
+		2D6CD44729CC5BF2009B527C /* muslim_db_v2.0.0.db in Resources */ = {isa = PBXBuildFile; fileRef = 2D6CD44629CC5BF2009B527C /* muslim_db_v2.0.0.db */; };
 		2DAF0C709FAF6D288751DB00EB06B40C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FD7232797ACF3F6F7685B58BCDC00C7 /* Foundation.framework */; };
+		2DE6E95C2BA8D8010082A3CE /* MuslimRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE6E95B2BA8D8010082A3CE /* MuslimRepository.swift */; };
+		2DFE19682BAB81E900665C6B /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE19672BAB81E900665C6B /* Repository.swift */; };
 		318B2D4FBE83F08BB67C2AA6A52977AB /* FTS5+QueryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5779BFB97BB16F7C257E39CD28630594 /* FTS5+QueryInterface.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		33FDF2697ECE2E34513CACBC1EDFDB51 /* DatabaseValueConvertible+RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1585FD241A9AC0D79B3E084E1A8B7B77 /* DatabaseValueConvertible+RawRepresentable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		34B4EB735E3756C6399E9137529EE8BF /* cityMapper.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A3F05D7AA5BB40DB61D702ECFAACD79 /* cityMapper.json */; };
 		35A9B68C8D7AC42A8187DC1F8AEC095A /* FTS3TokenizerDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C9ECD60B68221B76E253AA39B4B52E /* FTS3TokenizerDescriptor.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		394451DC1DB1945ED4FF137FDE90A8E4 /* ValueObservation+FetchableRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112165439418B44C4BDCFB45D22CBE34 /* ValueObservation+FetchableRecord.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		3A22C174B394CB9AF865557B3EA0D761 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730FF805483A83B2584256EEDC5D2639 /* Language.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -100,7 +100,6 @@
 		8691CEE725ED2C7C06E086770DB7757B /* Column.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4B190F2E830A1BB55FBA48ACEA7E86 /* Column.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		889F226413C21D59F2BFFBC2C92DB9EA /* SQLFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291780A00DC00211D75FBDEA9B09E764 /* SQLFunctions.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		8C8DDF01955D5FB72AE73979CD218F36 /* AssociationAggregate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98583347F707576BCEA189427FC47A69 /* AssociationAggregate.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		8D172DEA8CB15655BCF753F343BABDA0 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A76849C47F3395C7AD6455AB2B7634D /* LocationHelper.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		8F776D68D6DEFD38CCF85B4276D968E0 /* FTS3+QueryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD278A63004131343ECCF5C78B29392 /* FTS3+QueryInterface.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		90DF4F4E9630E63609F3CF6642505E25 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DF833796CBC2D0F008C6638CF48BD2 /* Record.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		91F28A0A35BA0F4F8FB3F005D7253C45 /* FTS5CustomTokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F53F41F8B38930F8E492305ADD4866 /* FTS5CustomTokenizer.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -129,7 +128,6 @@
 		BA76D4525CC0A4865E2AAA90336118D8 /* SQLForeignKeyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27BA0AAB3F0B8F0F6FBFD49B7969EA9 /* SQLForeignKeyRequest.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		BD802C1DC1B139EDAB311C7709A00CB0 /* DatabaseValueConvertible+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A48FA30EC31431A33C17FAE91902EE /* DatabaseValueConvertible+Encodable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		BE5A72CE583F45FF74F5334921FF9968 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FD7232797ACF3F6F7685B58BCDC00C7 /* Foundation.framework */; };
-		C0B657B41E3B2EFEBF0C340107759317 /* Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707CD218A0DD160B3BF52677AA016730 /* Names.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		C184186D7F480467C879626B3D8BF92A /* grdb_config.h in Headers */ = {isa = PBXBuildFile; fileRef = F4E91BB21A1925C004A070AB895D6B14 /* grdb_config.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C31B69B2E5A6B91C7202FCE6A3B6A1E4 /* FTS5TokenizerDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0938A7247E2982B82482760B0AC6123F /* FTS5TokenizerDescriptor.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		C4E2B1658AC3663D15AA9F2531B7BFD6 /* FetchableRecord+QueryInterfaceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2B193D223BFC78855A3B1DE8CED395 /* FetchableRecord+QueryInterfaceRequest.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -229,8 +227,10 @@
 		2BC5D21AC275156EB1E637182C566346 /* MuslimData.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MuslimData.modulemap; sourceTree = "<group>"; };
 		2C8D1DE939367A8362484A58B33EB6DE /* DatabaseSnapshot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseSnapshot.swift; path = GRDB/Core/DatabaseSnapshot.swift; sourceTree = "<group>"; };
 		2D0F97A42B813E8B003D46C5 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = MuslimData/Assets/CHANGELOG.md; sourceTree = "<group>"; };
-		2D6CD44629CC5BF2009B527C /* muslim_db_v1.5.0.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = muslim_db_v1.5.0.db; path = MuslimData/Assets/muslim_db_v1.5.0.db; sourceTree = "<group>"; };
+		2D6CD44629CC5BF2009B527C /* muslim_db_v2.0.0.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = muslim_db_v2.0.0.db; path = MuslimData/Assets/muslim_db_v2.0.0.db; sourceTree = "<group>"; };
 		2DC6A83C7FE2580E3F2A1AFBB2B117E6 /* PrayerAttribute.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PrayerAttribute.swift; sourceTree = "<group>"; };
+		2DE6E95B2BA8D8010082A3CE /* MuslimRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuslimRepository.swift; sourceTree = "<group>"; };
+		2DFE19672BAB81E900665C6B /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		2E88CF46329DBA47B53B98F005E11EE3 /* MuslimData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MuslimData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F75C56ED8BD1951FC8172C608B20303 /* Pods-MuslimData_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MuslimData_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		2FFBDBD6E148D8CD2D3E5D40636ABE46 /* AzkarItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AzkarItem.swift; sourceTree = "<group>"; };
@@ -244,7 +244,6 @@
 		3708554DF1666EC6C41BBEB89E5AC257 /* URL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = URL.swift; path = GRDB/Core/Support/Foundation/URL.swift; sourceTree = "<group>"; };
 		374B2EE56EE7DAC67CCB2C047D622957 /* Configuration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Configuration.swift; path = GRDB/Core/Configuration.swift; sourceTree = "<group>"; };
 		37C9ECD60B68221B76E253AA39B4B52E /* FTS3TokenizerDescriptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTS3TokenizerDescriptor.swift; path = GRDB/FTS/FTS3TokenizerDescriptor.swift; sourceTree = "<group>"; };
-		3A3F05D7AA5BB40DB61D702ECFAACD79 /* cityMapper.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; name = cityMapper.json; path = MuslimData/Assets/cityMapper.json; sourceTree = "<group>"; };
 		3BEF107E7E8091B90FAECDFC4C7A6954 /* Inflections+English.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Inflections+English.swift"; path = "GRDB/Utils/Inflections+English.swift"; sourceTree = "<group>"; };
 		3CA2DEAEDF6FED5B07AE3779109C7886 /* DatabaseSchemaCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseSchemaCache.swift; path = GRDB/Core/DatabaseSchemaCache.swift; sourceTree = "<group>"; };
 		3FF0BA87045E3E9FABE15B6BF3A8D5A2 /* FTS3.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTS3.swift; path = GRDB/FTS/FTS3.swift; sourceTree = "<group>"; };
@@ -268,7 +267,6 @@
 		59FBE42988DD91F3D3C2B74D31996523 /* ValueObservation+CompactMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ValueObservation+CompactMap.swift"; path = "GRDB/ValueObservation/ValueObservation+CompactMap.swift"; sourceTree = "<group>"; };
 		5A02DA8BFACEE9E07FBD62D157FED96B /* SQLSpecificExpressible+QueryInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SQLSpecificExpressible+QueryInterface.swift"; path = "GRDB/QueryInterface/SQL/SQLSpecificExpressible+QueryInterface.swift"; sourceTree = "<group>"; };
 		5A2F3326B33A6BC66E13954DF736BEAA /* GRDB.swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GRDB.swift-dummy.m"; sourceTree = "<group>"; };
-		5D8F486496B9633B4BBEBB8F8AC33399 /* Azkars.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Azkars.swift; sourceTree = "<group>"; };
 		5E166D7E44FE057A6E248D6B423B0C81 /* DatabaseMigrator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseMigrator.swift; path = GRDB/Migration/DatabaseMigrator.swift; sourceTree = "<group>"; };
 		5F5B13B296896404F68B81BDDB33598A /* SQLSelectable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SQLSelectable.swift; path = GRDB/QueryInterface/SQL/SQLSelectable.swift; sourceTree = "<group>"; };
 		5F997529A98C052DA7C12591E52C94D6 /* FetchedRecordsController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FetchedRecordsController.swift; path = GRDB/Record/FetchedRecordsController.swift; sourceTree = "<group>"; };
@@ -287,7 +285,6 @@
 		6DE2E8EEA85B8FB4DB536F2DDA9089D0 /* DatabaseRegionObservation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseRegionObservation.swift; path = GRDB/Core/DatabaseRegionObservation.swift; sourceTree = "<group>"; };
 		6E4B190F2E830A1BB55FBA48ACEA7E86 /* Column.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Column.swift; path = GRDB/QueryInterface/SQL/Column.swift; sourceTree = "<group>"; };
 		6F74C3288A30C090F9DAE356D7F8CEF9 /* HasOneAssociation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HasOneAssociation.swift; path = GRDB/QueryInterface/Request/Association/HasOneAssociation.swift; sourceTree = "<group>"; };
-		707CD218A0DD160B3BF52677AA016730 /* Names.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Names.swift; sourceTree = "<group>"; };
 		7093F7382D260704506C5464AFBC16F5 /* SQLExpressible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SQLExpressible.swift; path = GRDB/QueryInterface/SQL/SQLExpressible.swift; sourceTree = "<group>"; };
 		720E3E47CB7DDE45FA7550A02D097ACD /* MuslimData.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = MuslimData.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		730FF805483A83B2584256EEDC5D2639 /* Language.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
@@ -315,7 +312,6 @@
 		98583347F707576BCEA189427FC47A69 /* AssociationAggregate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AssociationAggregate.swift; path = GRDB/QueryInterface/Request/Association/AssociationAggregate.swift; sourceTree = "<group>"; };
 		988514746A18BB7288E7AE2B074B7196 /* SQLExpression.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SQLExpression.swift; path = GRDB/QueryInterface/SQL/SQLExpression.swift; sourceTree = "<group>"; };
 		9A0D52E8D92DD8E648D19B837936563A /* Pods_MuslimData_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MuslimData_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A76849C47F3395C7AD6455AB2B7634D /* LocationHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 		9AC1744C057858332AA73845B0CE26D7 /* DatabaseValueConvertible+Decodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DatabaseValueConvertible+Decodable.swift"; path = "GRDB/Core/Support/StandardLibrary/DatabaseValueConvertible+Decodable.swift"; sourceTree = "<group>"; };
 		9B99EBD21496FBA605E3A375E86ED829 /* DatabaseValueConversion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseValueConversion.swift; path = GRDB/Core/DatabaseValueConversion.swift; sourceTree = "<group>"; };
 		9C3DE7F469BC348F7C1DDC5196499B58 /* GRDB-Bridging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GRDB-Bridging.h"; path = "Support/GRDB-Bridging.h"; sourceTree = "<group>"; };
@@ -479,10 +475,8 @@
 			isa = PBXGroup;
 			children = (
 				35291486FD48076A204DF52CCD6A72AC /* Location.swift */,
-				9A76849C47F3395C7AD6455AB2B7634D /* LocationHelper.swift */,
 			);
-			name = Location;
-			path = MuslimData/Classes/Location;
+			path = Location;
 			sourceTree = "<group>";
 		};
 		2B81C12C52C5CB2D888908B65FF9D6DD /* GRDB.swift */ = {
@@ -492,6 +486,28 @@
 				0A8C8B1A53515417C6F57ECB1DB76072 /* Support Files */,
 			);
 			path = GRDB.swift;
+			sourceTree = "<group>";
+		};
+		2DE6E95A2BA8D75D0082A3CE /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				2DFE19672BAB81E900665C6B /* Repository.swift */,
+				2DE6E95B2BA8D8010082A3CE /* MuslimRepository.swift */,
+			);
+			name = Repository;
+			path = MuslimData/Classes/Repository;
+			sourceTree = "<group>";
+		};
+		2DE6E95D2BA8F1F30082A3CE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5B32A0A6C3385773AA423D017A5BFE73 /* Azkars */,
+				8D92D353CC7766D3072B3133A23D2705 /* Names */,
+				2817A6C16C274658D2455BB0739C199E /* Location */,
+				F45771AD65677FDC2506D34994A89145 /* PrayerTimes */,
+			);
+			name = Models;
+			path = MuslimData/Classes/Models;
 			sourceTree = "<group>";
 		};
 		4022D06EB0FD32BF668EE12AF2306B41 /* standard */ = {
@@ -645,10 +661,8 @@
 				BB2B3F9D2BF7D6132661A531E7BB2F12 /* AzkarCategory.swift */,
 				94586B16D5D2DCA4B4E22C167DD17B61 /* AzkarChapter.swift */,
 				2FFBDBD6E148D8CD2D3E5D40636ABE46 /* AzkarItem.swift */,
-				5D8F486496B9633B4BBEBB8F8AC33399 /* Azkars.swift */,
 			);
-			name = Azkars;
-			path = MuslimData/Classes/Azkars;
+			path = Azkars;
 			sourceTree = "<group>";
 		};
 		6A7E60A4A85B5746C77AA59AF4549B00 /* Development Pods */ = {
@@ -699,10 +713,8 @@
 			children = (
 				730FF805483A83B2584256EEDC5D2639 /* Language.swift */,
 				401A16EADAEB6FE46A4F5411CCD2A9F3 /* Name.swift */,
-				707CD218A0DD160B3BF52677AA016730 /* Names.swift */,
 			);
-			name = Names;
-			path = MuslimData/Classes/Names;
+			path = Names;
 			sourceTree = "<group>";
 		};
 		A08711B133A02CDCC7C1F09A0D69CB4A /* Products */ = {
@@ -756,8 +768,7 @@
 		CF862A95B5D3FFC023257833F1193CE5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2D6CD44629CC5BF2009B527C /* muslim_db_v1.5.0.db */,
-				3A3F05D7AA5BB40DB61D702ECFAACD79 /* cityMapper.json */,
+				2D6CD44629CC5BF2009B527C /* muslim_db_v2.0.0.db */,
 				2D0F97A42B813E8B003D46C5 /* CHANGELOG.md */,
 			);
 			name = Resources;
@@ -775,13 +786,11 @@
 		D6987B66A5B198235A8BB606A32FC336 /* MuslimData */ = {
 			isa = PBXGroup;
 			children = (
-				5B32A0A6C3385773AA423D017A5BFE73 /* Azkars */,
 				0540E1C8A51BDA08F9803F4F5C81C4A9 /* DB Helper */,
 				068C7933E1034C5E720F2FEE596A2051 /* Extensions */,
-				2817A6C16C274658D2455BB0739C199E /* Location */,
-				8D92D353CC7766D3072B3133A23D2705 /* Names */,
+				2DE6E95D2BA8F1F30082A3CE /* Models */,
+				2DE6E95A2BA8D75D0082A3CE /* Repository */,
 				6C85BC022E11396A542DB08BF82032BE /* Pod */,
-				F45771AD65677FDC2506D34994A89145 /* Prayer Times */,
 				CF862A95B5D3FFC023257833F1193CE5 /* Resources */,
 				176ED022F62840DFBB6098DE94236B35 /* Support Files */,
 			);
@@ -789,7 +798,7 @@
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		F45771AD65677FDC2506D34994A89145 /* Prayer Times */ = {
+		F45771AD65677FDC2506D34994A89145 /* PrayerTimes */ = {
 			isa = PBXGroup;
 			children = (
 				B85117D4C9BE4B6480B1C89933815E58 /* Prayer.swift */,
@@ -797,8 +806,7 @@
 				6368FFE5512AD8AC9D36EB8427AFA109 /* PrayerTime.swift */,
 				65F554C03188A6F204B2036E5CF4B82D /* TimeFormat.swift */,
 			);
-			name = "Prayer Times";
-			path = "MuslimData/Classes/Prayer Times";
+			path = PrayerTimes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -967,8 +975,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D0F97A52B813E8B003D46C5 /* CHANGELOG.md in Resources */,
-				34B4EB735E3756C6399E9137529EE8BF /* cityMapper.json in Resources */,
-				2D6CD44729CC5BF2009B527C /* muslim_db_v1.5.0.db in Resources */,
+				2D6CD44729CC5BF2009B527C /* muslim_db_v2.0.0.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -989,16 +996,15 @@
 				A2C07BA2D862B7CFEE16E632B97EF68C /* AzkarCategory.swift in Sources */,
 				4F3B7D7E1C44ECB7A2EBEC681ACE4090 /* AzkarChapter.swift in Sources */,
 				5301D3C1ECA5E2D47002FBE7724941FF /* AzkarItem.swift in Sources */,
-				1423967A16BCB379BE339E4C573082CF /* Azkars.swift in Sources */,
 				E4B3988CB85F30F8B1539CDFFC777DE8 /* DateExtensions.swift in Sources */,
 				567C4757D6C8959A805420C387798D94 /* DBHelper.swift in Sources */,
 				3A22C174B394CB9AF865557B3EA0D761 /* Language.swift in Sources */,
 				5B889DD74524BF47702D94225C8676BF /* Location.swift in Sources */,
-				8D172DEA8CB15655BCF753F343BABDA0 /* LocationHelper.swift in Sources */,
+				2DE6E95C2BA8D8010082A3CE /* MuslimRepository.swift in Sources */,
 				A7D645073A4902CE19144733BD3B1D6B /* MuslimData-dummy.m in Sources */,
 				FF616834C38743D535B62B7886C74F07 /* Name.swift in Sources */,
-				C0B657B41E3B2EFEBF0C340107759317 /* Names.swift in Sources */,
 				EA0BC2897FF6BE975F969C15629840CB /* Prayer.swift in Sources */,
+				2DFE19682BAB81E900665C6B /* Repository.swift in Sources */,
 				0AD24AEB225F135FE242003EA86E7039 /* PrayerAttribute.swift in Sources */,
 				4232F4B0DC26B878201F9523CEF8F761 /* PrayerTime.swift in Sources */,
 				E746EBB44033C7F5ECE664C2A2862C8D /* String+Extensions.swift in Sources */,
@@ -1270,7 +1276,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1367,7 +1373,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;

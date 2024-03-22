@@ -4,6 +4,29 @@ All notable changes to the MuslimData database will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.0] - 2024-03-09
+
+Refactor database tables to improve table normalization and handle city mapper in the database level.
+
+### Added
+- `country_id` as a foreign key added to the `location` (or `city`) table to make a relation with `country` table.
+- `prayer_dependent_id` field added to the `location` table to handle city mapper in the database level. 
+- `location_id` as a foreign key added to the `prayer_time` table to make a relation with `location` table.
+ 
+### Changed
+- `city` table name has been renamed to `location`. 
+- `country_code` has been removed in the `location` table and the `country_id` field is used for the relationship between `location` and `country` tables.
+- The `city` field in the `location` table has been renamed to `name` as it holds different types of locations like governorate, city, sub-city, village, etc. 
+- `country` table fields have been refactored by removing the country suffix before the fields.
+- `country_code` and `city` fields have been removed in the `prayer_time` table and used `location_id` to make the relationship between `prayer_time` and `location` tables.
+- Database indices have been refactored as shown blow: 
+    - `country` table has `code_index` for indexing `code` column. 
+    - `location` table has has two indices as listed below: 
+      - `location_lat_long_index` for indexing `latitude` and `longitude` columns.
+      - `location_name_index` for indexing `name` column.
+    - `prayer_time` table has `prayer_index` for indexing `location_id`, `date` columns.
+- Khanaqin, IQ prayer times has been updated.
+
 ## [1.5.0] - 2024-03-04
 
 Update Chamchamal prayer times. 
