@@ -19,7 +19,7 @@ class DBHelper {
     private init() {
         var configuration = Configuration()
         configuration.readonly = true
-        let databaseURL = Bundle(for: DBHelper.self).path(forResource: "muslim_db_v2.0.0", ofType: "db")!
+        let databaseURL = Bundle.module.path(forResource: "muslim_db_v2.0.0", ofType: "db")!
         dbPool = try? DatabasePool(path: databaseURL, configuration: configuration)
 
         // Be a nice iOS citizen, and don’t consume too much memory
