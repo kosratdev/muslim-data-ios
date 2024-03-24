@@ -7,8 +7,6 @@
 
 import Foundation
 
-// MARK: - String Extensions
-
 extension String {
     /// Convert string time to date object.
     ///
