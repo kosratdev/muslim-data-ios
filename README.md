@@ -55,7 +55,7 @@ If you prefer to manage your Swift packages via Xcode, you can also add Muslim D
 1. Open your Xcode project.
 2. Navigate to the `File` menu > `Swift Packages` > `Add Package Dependency...`.
 3. Paste the Muslim Data GitHub repository URL (`https://github.com/kosratdev/muslim-data-ios.git`) into the search bar and click `Next`.
-4. Choose the version rule (`Up to Next Major` from version `1.0.0`) and click `Next`.
+4. Choose the version rule (`Up to Next Major` from version `2.0.0`) and click `Next`.
 5. Xcode will resolve the package and integrate it into your project.
 
 ## Usage 
