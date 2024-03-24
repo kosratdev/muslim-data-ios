@@ -48,7 +48,7 @@ class DBHelper {
                 let result = try Row.fetchOne(dbConnect, sql: """
                 SELECT * FROM prayer_time
                 WHERE location_id = '\(location.prayerDependentId ?? location.id)'
-                and date = '\(date.toDBDate())'
+                AND date = '\(date.toDBDate())'
                 """)
 
                 guard let row = result else {
@@ -91,9 +91,9 @@ class DBHelper {
         do {
             return try await dbPool?.read { dbConnect in
                 let names = try Name.fetchAll(dbConnect, sql: """
-                SELECT name.name , transl.name as translated
+                SELECT name.name , transl.name AS translated
                 FROM name
-                INNER JOIN name_translation as transl on transl.name_id = name._id and transl.language = '\(language)'
+                INNER JOIN name_translation AS transl ON transl.name_id = name._id AND transl.language = '\(language)'
                 """)
                 return names
             }
@@ -113,9 +113,9 @@ class DBHelper {
             return try await dbPool?.read { dbConnect in
                 let categories = try AzkarCategory.fetchAll(dbConnect, sql: """
                 SELECT category._id, category_name
-                FROM azkar_category as category
-                INNER JOIN azkar_category_translation as transl on transl.category_id = category._id
-                and language = '\(language)'
+                FROM azkar_category AS category
+                INNER JOIN azkar_category_translation AS transl ON transl.category_id = category._id
+                AND language = '\(language)'
                 """)
                 return categories
             }
@@ -132,15 +132,15 @@ class DBHelper {
     ///   - categoryId: Optional category id
     /// - Returns: List of [AzkarChapter]?
     func azkarChapters(language: Language, categoryId: Int = -1) async throws -> [AzkarChapter]? {
-        let category = categoryId == -1 ? "" : " and category_id = \(String(describing: categoryId))"
+        let category = categoryId == -1 ? "" : " AND category_id = \(String(describing: categoryId))"
 
         do {
             return try await dbPool?.read { dbConnect in
                 let chapters = try AzkarChapter.fetchAll(dbConnect, sql: """
                 SELECT chapter._id, category_id, chapter_name
-                FROM azkar_chapter as chapter
-                INNER JOIN azkar_chapter_translation as transl on transl.chapter_id = chapter._id
-                and language = '\(language)' \(category)
+                FROM azkar_chapter AS chapter
+                INNER JOIN azkar_chapter_translation AS transl ON transl.chapter_id = chapter._id
+                AND language = '\(language)' \(category)
                 """)
                 return chapters
             }
@@ -161,9 +161,9 @@ class DBHelper {
             return try await dbPool?.read { dbConnect in
                 let chapters = try AzkarChapter.fetchAll(dbConnect, sql: """
                 SELECT chapter._id, category_id, chapter_name
-                FROM azkar_chapter as chapter
-                INNER JOIN azkar_chapter_translation as transl on transl.chapter_id = chapter._id
-                and language = '\(language)' AND chapter._id IN (\(chapterIds.minimalDescription))
+                FROM azkar_chapter AS chapter
+                INNER JOIN azkar_chapter_translation AS transl ON transl.chapter_id = chapter._id
+                AND language = '\(language)' AND chapter._id IN (\(chapterIds.minimalDescription))
                 """)
                 return chapters
             }
@@ -184,12 +184,12 @@ class DBHelper {
             return try await dbPool?.read { dbConnect in
                 let items = try AzkarItem.fetchAll(dbConnect, sql: """
                 SELECT item._id, item.chapter_id, item.item, transl.item_translation, ref_transl.reference
-                FROM azkar_item as item
-                INNER JOIN azkar_item_translation as transl on transl.item_id = item._id
-                and transl.language = '\(language)' and item.chapter_id = \(chapterId)
-                INNER JOIN azkar_reference as ref on ref.item_id = item._id
-                INNER JOIN azkar_reference_translation as ref_transl on ref_transl.reference_id = ref._id
-                and ref_transl.language = '\(language)'
+                FROM azkar_item AS item
+                INNER JOIN azkar_item_translation AS transl ON transl.item_id = item._id
+                AND transl.language = '\(language)' AND item.chapter_id = \(chapterId)
+                INNER JOIN azkar_reference AS ref ON ref.item_id = item._id
+                INNER JOIN azkar_reference_translation AS ref_transl ON ref_transl.reference_id = ref._id
+                AND ref_transl.language = '\(language)'
                 """)
                 return items
             }
@@ -209,10 +209,10 @@ class DBHelper {
             do {
                 return try await dbPool?.read { dbConnect in
                     let locations = try Location.fetchAll(dbConnect, sql: """
-                    SELECT location._id as _id, country.code as country_code, country.name as country_name,
-                           location.name as name, latitude, longitude, has_fixed_prayer_time, prayer_dependent_id
+                    SELECT location._id AS _id, country.code AS country_code, country.name AS country_name,
+                           location.name AS name, latitude, longitude, has_fixed_prayer_time, prayer_dependent_id
                     FROM location
-                    INNER JOIN country on country._id = location.country_id
+                    INNER JOIN country ON country._id = location.country_id
                     WHERE location.name like '\(locationName)%'
                     """)
                     return locations
@@ -233,12 +233,12 @@ class DBHelper {
         do {
             return try await dbPool?.read { dbConnect in
                 let location = try Location.fetchOne(dbConnect, sql: """
-                SELECT location._id as _id, country.code as country_code, country.name as country_name,
-                       location.name as name, latitude, longitude, has_fixed_prayer_time, prayer_dependent_id
+                SELECT location._id AS _id, country.code AS country_code, country.name AS country_name,
+                       location.name AS name, latitude, longitude, has_fixed_prayer_time, prayer_dependent_id
                 FROM location
-                INNER JOIN country on country._id = location.country_id
+                INNER JOIN country ON country._id = location.country_id
                 WHERE country.code = '\(countryCode)' COLLATE NOCASE
-                and location.name = '\(locationName)' COLLATE NOCASE
+                AND location.name = '\(locationName)' COLLATE NOCASE
                 """)
                 return location
             }
@@ -258,10 +258,10 @@ class DBHelper {
         do {
             return try await dbPool?.read { dbConnect in
                 let location = try Location.fetchOne(dbConnect, sql: """
-                SELECT location._id as _id, country.code as country_code, country.name as country_name,
-                       location.name as name, latitude, longitude, has_fixed_prayer_time, prayer_dependent_id
+                SELECT location._id AS _id, country.code AS country_code, country.name AS country_name,
+                       location.name AS name, latitude, longitude, has_fixed_prayer_time, prayer_dependent_id
                 FROM location
-                INNER JOIN country on country._id = location.country_id
+                INNER JOIN country ON country._id = location.country_id
                 ORDER BY abs(latitude - (\(latitude))) + abs(longitude - (\(longitude)))
                 LIMIT 1
                 """)
@@ -279,10 +279,10 @@ class DBHelper {
         do {
             return try dbPool?.read { dbConnect in
                 let locations = try Location.fetchAll(dbConnect, sql: """
-                SELECT location._id as _id, country.code as country_code, country.name as country_name,
-                       location.name as name, latitude, longitude, has_fixed_prayer_time, prayer_dependent_id
+                SELECT location._id AS _id, country.code AS country_code, country.name AS country_name,
+                       location.name AS name, latitude, longitude, has_fixed_prayer_time, prayer_dependent_id
                 FROM location
-                INNER JOIN country on country._id = location.country_id
+                INNER JOIN country ON country._id = location.country_id
                 WHERE has_fixed_prayer_time=1
                 """)
                return locations
