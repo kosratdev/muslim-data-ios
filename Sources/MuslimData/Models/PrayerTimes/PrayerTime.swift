@@ -23,7 +23,7 @@ public struct PrayerTime {
     /// Apply offests to the current prayer times.
     ///
     /// - Parameter offsets: List of double values as prayer offsets.
-    internal mutating func applyOffsets(_ offsets: [Double]) {
+    mutating func applyOffsets(_ offsets: [Double]) {
         fajr = fajr.addMinutes(offsets[0])
         sunrise = sunrise.addMinutes(offsets[1])
         dhuhr = dhuhr.addMinutes(offsets[2])
@@ -33,7 +33,7 @@ public struct PrayerTime {
     }
 
     /// Apply daylight saving time to the current prayer times.
-    internal mutating func applyDST() {
+    mutating func applyDST() {
         let isDST = TimeZone.current.isDaylightSavingTime()
 
         if isDST {
