@@ -28,7 +28,7 @@ class PrayerTimesTests: XCTestCase {
         let locations = DBHelper.shared.fixedPrayerTimesList()
         let date = Date(timeIntervalSince1970: 1_709_206_718) // 2024/02/29
         for location in locations! {
-            print(location)
+            // print(location)
             let prayerTimes = try await MuslimRepository().getPrayerTimes(location: location, date: date, attributes: attributes)
             XCTAssertNotNil(prayerTimes)
         }
