@@ -6,41 +6,33 @@
 //
 
 import GRDB
-import UIKit
+import Foundation
 
 class DBHelper {
     // MARK: - Properties
 
+    let dbName = "muslim_db_v2.0.0"
     var dbPool: DatabasePool?
     static let shared = DBHelper()
+
+    var dbPath: String {
+        #if SWIFT_PACKAGE
+        // SPM Access
+        return Bundle.module.path(forResource: dbName, ofType: "db")!
+        #else
+        // CocoaPods Access
+        return Bundle(for: DBHelper.self).path(forResource: dbName, ofType: "db")!
+        #endif
+    }
 
     // MARK: - Life cycle
 
     private init() {
         var configuration = Configuration()
         configuration.readonly = true
-        let databaseURL = pathForDatabase()
-        dbPool = try? DatabasePool(path: databaseURL, configuration: configuration)
-
-        // Be a nice iOS citizen, and don’t consume too much memory
-        // See https://github.com/groue/GRDB.swift/#memory-management
-        dbPool?.setupMemoryManagement(in: UIApplication.shared)
-    }
-    
-    //MARK: - Private Methods
-    
-    /// Provides the appropriate file path string for the muslim database,
-    /// taking into account whether the code is integrated using Swift Package Manager or CocoaPods.
-    ///
-    /// - Returns: A string representing the full file path to the database.
-    private func pathForDatabase() -> String {
-       #if SWIFT_PACKAGE
-       // SPM Access
-       return Bundle.module.path(forResource: "muslim_db_v2.0.0", ofType: "db")!
-       #else
-       // CocoaPods Access
-       return Bundle(for: DBHelper.self).path(forResource: "muslim_db_v2.0.0", ofType: "db")!
-       #endif
+        dbPool = try? DatabasePool(path: dbPath, configuration: configuration)
+               
+        dbPool?.releaseMemoryEventually()
     }
 
     // MARK: - Public Methods
@@ -52,7 +44,7 @@ class DBHelper {
     /// - Returns: PrayerTime instance.
     func prayerTimes(location: Location, date: Date) async throws -> PrayerTime? {
         do {
-            return try dbPool?.read { dbConnect in
+            return try await dbPool?.read { dbConnect in
                 let result = try Row.fetchOne(dbConnect, sql: """
                 SELECT * FROM prayer_time
                 WHERE location_id = '\(location.prayerDependentId ?? location.id)'
@@ -97,7 +89,7 @@ class DBHelper {
     /// - Returns: List of [name]? of Allah
     func names(language: Language) async throws -> [Name]? {
         do {
-            return try dbPool?.read { dbConnect in
+            return try await dbPool?.read { dbConnect in
                 let names = try Name.fetchAll(dbConnect, sql: """
                 SELECT name.name , transl.name as translated
                 FROM name
@@ -118,7 +110,7 @@ class DBHelper {
     /// - Returns: List of [AzkarCategory]?
     func azkarCategories(language: Language) async throws -> [AzkarCategory]? {
         do {
-            return try dbPool?.read { dbConnect in
+            return try await dbPool?.read { dbConnect in
                 let categories = try AzkarCategory.fetchAll(dbConnect, sql: """
                 SELECT category._id, category_name
                 FROM azkar_category as category
@@ -140,12 +132,10 @@ class DBHelper {
     ///   - categoryId: Optional category id
     /// - Returns: List of [AzkarChapter]?
     func azkarChapters(language: Language, categoryId: Int? = nil) async throws -> [AzkarChapter]? {
-        var category = ""
-        if let categoryId = categoryId {
-            category = " and category_id = \(categoryId)"
-        }
+        let category = categoryId == nil ? "" : " and category_id = \(String(describing: categoryId!))"
+
         do {
-            return try dbPool?.read { dbConnect in
+            return try await dbPool?.read { dbConnect in
                 let chapters = try AzkarChapter.fetchAll(dbConnect, sql: """
                 SELECT chapter._id, category_id, chapter_name
                 FROM azkar_chapter as chapter
@@ -168,7 +158,7 @@ class DBHelper {
     /// - Returns: List of [AskarItem]?
     func azkarItems(language: Language, chapterId: Int) async throws -> [AzkarItem]? {
         do {
-            return try dbPool?.read { dbConnect in
+            return try await dbPool?.read { dbConnect in
                 let items = try AzkarItem.fetchAll(dbConnect, sql: """
                 SELECT item._id, item.chapter_id, item.item, transl.item_translation, ref_transl.reference
                 FROM azkar_item as item
@@ -194,7 +184,7 @@ class DBHelper {
     /// - Returns: List of found locations
     public func searchLocation(_ locationName: String) async throws -> [Location]? {
             do {
-                return try dbPool?.read { dbConnect in
+                return try await dbPool?.read { dbConnect in
                     let locations = try Location.fetchAll(dbConnect, sql: """
                     SELECT location._id as _id, country.code as country_code, country.name as country_name,
                            location.name as name, latitude, longitude, has_fixed_prayer_time, prayer_dependent_id
@@ -218,7 +208,7 @@ class DBHelper {
     /// - Returns: geocoded location
     public func geocoder(countryCode: String, locationName: String) async throws -> Location? {
         do {
-            return try dbPool?.read { dbConnect in
+            return try await dbPool?.read { dbConnect in
                 let location = try Location.fetchOne(dbConnect, sql: """
                 SELECT location._id as _id, country.code as country_code, country.name as country_name,
                        location.name as name, latitude, longitude, has_fixed_prayer_time, prayer_dependent_id
@@ -243,7 +233,7 @@ class DBHelper {
     /// - Returns: reverse geocoded location
     public func reverseGeocoder(latitude: Double, longitude: Double) async throws -> Location? {
         do {
-            return try dbPool?.read { dbConnect in
+            return try await dbPool?.read { dbConnect in
                 let location = try Location.fetchOne(dbConnect, sql: """
                 SELECT location._id as _id, country.code as country_code, country.name as country_name,
                        location.name as name, latitude, longitude, has_fixed_prayer_time, prayer_dependent_id

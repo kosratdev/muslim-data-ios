@@ -6,7 +6,11 @@ import PackageDescription
 let package = Package(
     name: "muslim-data-ios",
     platforms: [
-         .iOS(.v13)
+         .iOS(.v13),
+         .macOS(.v12),
+         .tvOS(.v13),
+         .visionOS(.v1),
+         .watchOS(.v6)
      ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
@@ -15,7 +19,7 @@ let package = Package(
             targets: ["MuslimData"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/groue/GRDB.swift.git", exact: "4.0.1")
+        .package(url: "https://github.com/groue/GRDB.swift.git", exact: "6.26.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.

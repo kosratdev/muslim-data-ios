@@ -102,7 +102,7 @@ public class MuslimRepository: Repository {
     }
 
     // TODO: it needs to be deleted when the tests migrated to the package itself.
-    public func getAllFixedPrayerLocations() async throws -> [Location]? {
-        return try await DBHelper.shared.fixedPrayerTimesList()
+    public func getAllFixedPrayerLocations() -> [Location]? {
+        return DBHelper.shared.fixedPrayerTimesList()
     }
 }

@@ -30,7 +30,7 @@ class PrayerTests: XCTestCase {
     }
 
     func testAllFixedPrayerTimes() async throws {
-        let locations = try await MuslimRepository().getAllFixedPrayerLocations()
+        let locations = MuslimRepository().getAllFixedPrayerLocations()
         let date = Date(timeIntervalSince1970: 1_709_206_718) // 2024/02/29
         for location in locations! {
             print(location)
