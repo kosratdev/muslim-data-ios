@@ -11,7 +11,7 @@ import Foundation
 class DBHelper {
     // MARK: - Properties
 
-    let dbName = "muslim_db_v2.0.0"
+    private let dbName = "muslim_db_v2.0.0"
     var dbPool: DatabasePool?
     static let shared = DBHelper()
 
@@ -91,7 +91,7 @@ class DBHelper {
         do {
             return try await dbPool?.read { dbConnect in
                 let names = try Name.fetchAll(dbConnect, sql: """
-                SELECT name.name , transl.name AS translated
+                SELECT name.name, transl.name AS translated
                 FROM name
                 INNER JOIN name_translation AS transl ON transl.name_id = name._id AND transl.language = '\(language)'
                 """)
@@ -125,8 +125,8 @@ class DBHelper {
         }
     }
 
-    /// Get azkar chapters from database which is localized by given language.
-    /// 
+    /// Get azkar chapters from database which is localized by given language and filtered by category id.
+    ///
     /// - Parameters:
     ///   - language: Language of the chapter.
     ///   - categoryId: Optional category id
@@ -262,7 +262,7 @@ class DBHelper {
                        location.name AS name, latitude, longitude, has_fixed_prayer_time, prayer_dependent_id
                 FROM location
                 INNER JOIN country ON country._id = location.country_id
-                ORDER BY abs(latitude - (\(latitude))) + abs(longitude - (\(longitude)))
+                ORDER BY ABS(latitude - (\(latitude))) + ABS(longitude - (\(longitude)))
                 LIMIT 1
                 """)
                 return location
@@ -283,7 +283,7 @@ class DBHelper {
                        location.name AS name, latitude, longitude, has_fixed_prayer_time, prayer_dependent_id
                 FROM location
                 INNER JOIN country ON country._id = location.country_id
-                WHERE has_fixed_prayer_time=1
+                WHERE has_fixed_prayer_time = 1
                 """)
                return locations
             }
