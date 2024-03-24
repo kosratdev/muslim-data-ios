@@ -23,19 +23,30 @@ extension Date {
     ///
     /// - Parameter format: TimeFormat object.
     /// - Returns: Formatted date to string time.
-    func toTime(format: TimeFormat) -> String {
-        let dateFormatter = DateFormatter()
-        switch format {
+    func format(format: TimeFormat, locale: Locale) -> String {
+        return switch format {
         case .time24:
-            dateFormatter.dateFormat = "HH:mm"
-            dateFormatter.locale = Locale(identifier: "en_GB")
+            formatTime24(locale: locale)
         case .time12:
-            dateFormatter.dateFormat = "hh:mm a"
-            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+            formatTime12(locale: locale)
         }
-        return dateFormatter.string(from: self)
+        
     }
 
+    private func formatTime24(locale: Locale) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.locale = locale
+        return dateFormatter.string(from: self)
+    }
+    
+    private func formatTime12(locale: Locale) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hh:mm a"
+        dateFormatter.locale = locale
+        return dateFormatter.string(from: self)
+    }
+    
     /// Add minutes to the date.
     ///
     /// - Parameter minutes: minutes to be added to the date.

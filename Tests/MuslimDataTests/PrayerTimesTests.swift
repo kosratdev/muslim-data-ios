@@ -9,7 +9,7 @@
 @testable import MuslimData
 import XCTest
 
-class PrayerTests: XCTestCase {
+class PrayerTimesTests: XCTestCase {
     var attributes: PrayerAttribute!
     var offsets: [Double]!
 

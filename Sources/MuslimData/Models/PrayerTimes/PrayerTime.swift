@@ -53,9 +53,13 @@ public struct PrayerTime {
     ///
     /// - Parameter format: TimeFormat instance.
     /// - Returns: Array of formatted prayer times
-    public func formatPrayers(_ format: TimeFormat) -> [String] {
-        [fajr.toTime(format: format), sunrise.toTime(format: format), dhuhr.toTime(format: format),
-         asr.toTime(format: format), maghrib.toTime(format: format), isha.toTime(format: format)]
+    public func formatPrayers(_ format: TimeFormat, locale: Locale = Locale(identifier: "en_US")) -> [String] {
+        [fajr.format(format: format, locale: locale),
+         sunrise.format(format: format, locale: locale),
+         dhuhr.format(format: format, locale: locale),
+         asr.format(format: format, locale: locale),
+         maghrib.format(format: format, locale: locale),
+         isha.format(format: format, locale: locale)]
     }
 
     /// Get next prayer index and if all prayer times passed it will return 0.
@@ -99,5 +103,14 @@ public struct PrayerTime {
         let minutes = Int(time) / 60 % 60
         let seconds = Int(time) % 60
         return String(format: "%02i:%02i:%02i", hours, minutes, seconds)
+    }
+    
+    public subscript(index: Int) -> Date {
+        let prayers = [fajr, sunrise, dhuhr, asr, maghrib, isha]
+        return if (index < 0) {
+            prayers[5]
+        } else {
+            prayers[index]
+        }
     }
 }
