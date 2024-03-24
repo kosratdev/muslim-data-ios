@@ -9,7 +9,7 @@
 @testable import MuslimData
 import XCTest
 
-class NamesTest: XCTestCase {
+class NamesTests: XCTestCase {
     override func setUp() {
         super.setUp()
     }
