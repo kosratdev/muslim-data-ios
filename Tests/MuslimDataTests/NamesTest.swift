@@ -18,32 +18,29 @@ class NamesTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testEnglishNames() async throws {
-        let names = try await MuslimRepository().getNamesOfAllah(language: .en)
-        assesNames(names: names)
+    func testEnNamesOfAllah() async throws {
+        try await assesNames(language: .en)
     }
 
-    func testArabicNames() async throws {
-        let names = try await MuslimRepository().getNamesOfAllah(language: .ar)
-        assesNames(names: names)
+    func testArNamesOfAllah() async throws {
+        try await assesNames(language: .ar)
     }
 
-    func testKurdishNames() async throws {
-        let names = try await MuslimRepository().getNamesOfAllah(language: .ckb)
-        assesNames(names: names)
+    func testCkbNamesOfAllah() async throws {
+        try await assesNames(language: .ckb)
     }
 
-    func testFarsiNames() async throws {
-        let names = try await MuslimRepository().getNamesOfAllah(language: .fa)
-        assesNames(names: names)
+    func testFaNamesOfAllah() async throws {
+        try await assesNames(language: .fa)
+
     }
 
-    func testRussianNames() async throws {
-        let names = try await MuslimRepository().getNamesOfAllah(language: .ru)
-        assesNames(names: names)
+    func testRuNamesOfAllah() async throws {
+        try await assesNames(language: .ru)
     }
 
-    private func assesNames(names: [Name]?) {
+    private func assesNames(language: Language) async throws {
+        let names = try await MuslimRepository().getNamesOfAllah(language: language)
         XCTAssertNotNil(names)
         XCTAssertEqual(names!.count, 99)
     }
