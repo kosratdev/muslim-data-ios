@@ -20,9 +20,9 @@ public protocol Repository {
 
     func getAzkarCategories(language: Language) async throws -> [AzkarCategory]?
 
-    func getAzkarChapters(language: Language, categoryId: Int?) async throws -> [AzkarChapter]?
+    func getAzkarChapters(language: Language, categoryId: Int) async throws -> [AzkarChapter]?
+    
+    func getAzkarChapters(language: Language, chapterIds: [Int]) async throws -> [AzkarChapter]?
 
-    func getAzkarItems(language: Language, chapterId: Int) async throws -> [AzkarItem]?
-
-    func getAllFixedPrayerLocations() async throws -> [Location]?
+    func getAzkarItems(chapterId: Int, language: Language) async throws -> [AzkarItem]?
 }

@@ -87,22 +87,27 @@ public class MuslimRepository: Repository {
     ///   - language: Language of the azkar chapters.
     ///   - categoryId: Optional category id
     /// - Returns: List of [AzkarChapter]?
-    public func getAzkarChapters(language: Language, categoryId: Int? = nil) async throws -> [AzkarChapter]? {
+    public func getAzkarChapters(language: Language, categoryId: Int = -1) async throws -> [AzkarChapter]? {
         return try await DBHelper.shared.azkarChapters(language: language, categoryId: categoryId)
+    }
+
+    /// Get azkar chapters from the database for the specified language and category id.
+    /// 
+    /// - Parameters:
+    ///   - language: Language of the azkar chapters.
+    ///   - categoryId: Optional category id
+    /// - Returns: List of [AzkarChapter]?
+    public func getAzkarChapters(language: Language, chapterIds: [Int]) async throws -> [AzkarChapter]? {
+        return try await DBHelper.shared.azkarChapters(language: language, chapterIds: chapterIds)
     }
 
     /// Get azkar items for specific azkar chapter from database which is localized by the given language.
     /// 
     /// - Parameters:
-    ///   - language: Language of the chapter.
     ///   - chapterId: Chapter id for the azkar items.
+    ///   - language: Language of the chapter.
     /// - Returns: List of [AzkarItem]?
-    public func getAzkarItems(language: Language, chapterId: Int) async throws -> [AzkarItem]? {
+    public func getAzkarItems(chapterId: Int, language: Language) async throws -> [AzkarItem]? {
         return try await DBHelper.shared.azkarItems(language: language, chapterId: chapterId)
-    }
-
-    // TODO: it needs to be deleted when the tests migrated to the package itself.
-    public func getAllFixedPrayerLocations() -> [Location]? {
-        return DBHelper.shared.fixedPrayerTimesList()
     }
 }

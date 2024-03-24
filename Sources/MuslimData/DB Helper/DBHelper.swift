@@ -131,8 +131,8 @@ class DBHelper {
     ///   - language: Language of the chapter.
     ///   - categoryId: Optional category id
     /// - Returns: List of [AzkarChapter]?
-    func azkarChapters(language: Language, categoryId: Int? = nil) async throws -> [AzkarChapter]? {
-        let category = categoryId == nil ? "" : " and category_id = \(String(describing: categoryId!))"
+    func azkarChapters(language: Language, categoryId: Int = -1) async throws -> [AzkarChapter]? {
+        let category = categoryId == -1 ? "" : " and category_id = \(String(describing: categoryId))"
 
         do {
             return try await dbPool?.read { dbConnect in
@@ -141,6 +141,29 @@ class DBHelper {
                 FROM azkar_chapter as chapter
                 INNER JOIN azkar_chapter_translation as transl on transl.chapter_id = chapter._id
                 and language = '\(language)' \(category)
+                """)
+                return chapters
+            }
+        } catch {
+            print("Error: \(error.localizedDescription)")
+            return nil
+        }
+    }
+
+    /// Get azkar chapters from database which is localized by given language and filtered by chapter ids.
+    ///
+    /// - Parameters:
+    ///   - language: Language of the chapter.
+    ///   - chapterIds: Array of chapter  ids
+    /// - Returns: List of [AzkarChapter]?
+    func azkarChapters(language: Language, chapterIds: [Int]) async throws -> [AzkarChapter]? {
+        do {
+            return try await dbPool?.read { dbConnect in
+                let chapters = try AzkarChapter.fetchAll(dbConnect, sql: """
+                SELECT chapter._id, category_id, chapter_name
+                FROM azkar_chapter as chapter
+                INNER JOIN azkar_chapter_translation as transl on transl.chapter_id = chapter._id
+                and language = '\(language)' AND chapter._id IN (\(chapterIds.minimalDescription))
                 """)
                 return chapters
             }
@@ -182,7 +205,7 @@ class DBHelper {
     ///   - locationName: location name
     ///   - callback: Callback that returns a Location object.
     /// - Returns: List of found locations
-    public func searchLocation(_ locationName: String) async throws -> [Location]? {
+    func searchLocation(_ locationName: String) async throws -> [Location]? {
             do {
                 return try await dbPool?.read { dbConnect in
                     let locations = try Location.fetchAll(dbConnect, sql: """
@@ -206,7 +229,7 @@ class DBHelper {
     ///   - countryCode: Country code
     ///   - locationName: location name
     /// - Returns: geocoded location
-    public func geocoder(countryCode: String, locationName: String) async throws -> Location? {
+    func geocoder(countryCode: String, locationName: String) async throws -> Location? {
         do {
             return try await dbPool?.read { dbConnect in
                 let location = try Location.fetchOne(dbConnect, sql: """
@@ -231,7 +254,7 @@ class DBHelper {
     ///   - latitude: Location latitude.
     ///   - longitude: Location longitude.
     /// - Returns: reverse geocoded location
-    public func reverseGeocoder(latitude: Double, longitude: Double) async throws -> Location? {
+    func reverseGeocoder(latitude: Double, longitude: Double) async throws -> Location? {
         do {
             return try await dbPool?.read { dbConnect in
                 let location = try Location.fetchOne(dbConnect, sql: """
@@ -252,7 +275,7 @@ class DBHelper {
 
     /// Get all the locations that has fixed prayer times.
     /// - Returns: Location list
-    public func fixedPrayerTimesList() -> [Location]? {
+    func fixedPrayerTimesList() -> [Location]? {
         do {
             return try dbPool?.read { dbConnect in
                 let locations = try Location.fetchAll(dbConnect, sql: """
