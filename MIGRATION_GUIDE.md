@@ -3,13 +3,32 @@
 ## MuslimDate Version 1.x to 2.x
 
 ### Introduction
-This migration guide assists developers in transitioning from version 1.x to version 2.x of the `muslim-data-ios` library. Version 2 introduces improvements in database schema and table relations, including changes to the `Location` object structure.
+This migration guide assists developers in transitioning from version 1.x to version 2.x of the `muslim-data-ios` library. Version 2 introduces improvements in database schema and table relations, including changes to the `Location` object structure and accessing its data through repository pattern.
 
 ### Changes Overview
 - Improved database table normalization and rearranged table relations.
 - Restructured the `Location` object schema for better data management and consistency.
+- Implemented the Repository pattern for accessing data, replacing direct access through class methods.
+
 
 ### Migration Steps
+** Repository Pattern ** 
+- Refactor your code to utilize the MuslimRepository for accessing data instead of direct access through class methods.
+- Replace instances of direct data access with calls to appropriate methods provided by `MuslimRepository` class.
+- Update your codebase to follow the repository pattern for improved testability and ease of mocking.
+The following code snippet shows how to access to PrayerTimes via MuslimRepository and the reset other changes can be found in the [README](README.md) file.
+```swift
+// Version 1.x
+// Get prayer times
+PrayerTime.getPrayerTimes(location: location, date: Date(), attributes: attributes) { prayerTime, error in
+    print("prayer times: \(prayerTime!)")
+}
+
+// Version 2.x
+let prayerTime = try await MuslimRepository().getPrayerTimes(location: location, date: Date(), attributes: attributes)
+print("prayer times: \(prayerTime!)")
+```
+
 **Update Location Object**
 - Modify the `Location` object structure in your code to align with version 2.x.
   ```swift
