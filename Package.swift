@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "muslim-data-ios",
+    name: "MuslimData",
     platforms: [
          .iOS(.v13),
          .macOS(.v12),
