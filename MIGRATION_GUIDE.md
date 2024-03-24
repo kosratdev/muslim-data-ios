@@ -16,6 +16,7 @@ This migration guide assists developers in transitioning from version 1.x to ver
 - Refactor your code to utilize the MuslimRepository for accessing data instead of direct access through class methods.
 - Replace instances of direct data access with calls to appropriate methods provided by `MuslimRepository` class.
 - Update your codebase to follow the repository pattern for improved testability and ease of mocking.
+
 The following code snippet shows how to access to PrayerTimes via `MuslimRepository` and the reset other examples can be found in the [README](README.md) file.
 ```swift
 // Version 1.x
