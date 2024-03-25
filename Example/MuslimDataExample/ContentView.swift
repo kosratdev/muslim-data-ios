@@ -30,7 +30,7 @@ struct ContentView: View {
                         Image("ic_nav_names")
                         Text("Names")
                     }.tag(AppTabs.names)
-                Text("Azkar")
+                AzkarChaptersScreen()
                     .tabItem {
                         Image("ic_nav_azkars")
                         Text("Azkar")

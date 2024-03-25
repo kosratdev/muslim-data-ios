@@ -11,12 +11,11 @@
 import Foundation
 import MuslimData
 
-/// Manages the state for a list of Names of Allah. Responsible for fetching data.
 @Observable
+/// Manages the state for a list of Names of Allah and responsible for fetching data.
 class NamesViewModel {
     private(set) var names: [Name] = []
 
-    /// Initializes the view model and starts fetching the Names of Allah.
     init() {
         getNamesOfAllah()
     }

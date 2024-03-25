@@ -11,10 +11,11 @@
 import SwiftUI
 import MuslimData
 
-/// Displays a single row representing a Name of Allah. Includes the Arabic name and its translation.
+/// Displays a single row which is representing a Name of Allah. Includes the Arabic name 
+/// and its translation.
 ///
-/// - Parameter:
-///   - name: The `Name` data to be displayed in the row.
+/// - Parameters:
+///   - name: The `Name` instance that needs to be displayed in the row.
 struct NamesRowView: View {
     let name: Name
 

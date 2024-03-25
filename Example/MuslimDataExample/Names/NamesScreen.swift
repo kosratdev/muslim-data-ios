@@ -21,7 +21,6 @@ struct NamesScreen: View {
                     NamesRowView(name: name)
                 }
             }
-            .listStyle(.plain)
             .navigationTitle("Names of Allah")
         }
     }
