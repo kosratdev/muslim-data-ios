@@ -20,7 +20,7 @@ struct ContentView: View {
     
     var body: some View {
             TabView(selection: $selection) {
-                Text("Prayer Time")
+                PrayerScreen()
                     .tabItem {
                         Image("ic_nav_prayers")
                         Text("Prayer Times")

@@ -18,6 +18,15 @@ public struct PrayerTime {
     public var maghrib: Date
     public var isha: Date
 
+    public init(fajr: Date, sunrise: Date, dhuhr: Date, asr: Date, maghrib: Date, isha: Date) {
+        self.fajr = fajr
+        self.sunrise = sunrise
+        self.dhuhr = dhuhr
+        self.asr = asr
+        self.maghrib = maghrib
+        self.isha = isha
+    }
+    
     // MARK: - Internal Methods
 
     /// Apply offests to the current prayer times.
