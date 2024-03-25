@@ -11,24 +11,30 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var tab: AppTabs = .prayerTime
+    @State private var selection: AppTabs = .prayerTime
+    enum AppTabs {
+        case prayerTime
+        case names
+        case azkar
+    }
+    
     var body: some View {
-            TabView(selection: $tab) {
+            TabView(selection: $selection) {
                 Text("Prayer Time")
                     .tabItem {
                         Image("ic_nav_prayers")
-                        Text("Prayer Time")
-                    }.tag(1)
+                        Text("Prayer Times")
+                    }.tag(AppTabs.prayerTime)
                 NamesScreen()
                     .tabItem {
                         Image("ic_nav_names")
                         Text("Names")
-                    }.tag(2)
+                    }.tag(AppTabs.names)
                 Text("Azkar")
                     .tabItem {
                         Image("ic_nav_azkars")
                         Text("Azkar")
-                    }.tag(3)
+                    }.tag(AppTabs.azkar)
             }
     }
 }

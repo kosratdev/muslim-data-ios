@@ -17,6 +17,7 @@ import MuslimData
 ///   - name: The `Name` data to be displayed in the row.
 struct NamesRowView: View {
     let name: Name
+
     var body: some View {
         VStack(alignment: .leading){
             Text(name.name)
@@ -28,5 +29,5 @@ struct NamesRowView: View {
 }
 
 #Preview {
-    NamesRowView(name: .init(name: "", translated: ""))
+    NamesRowView(name: .init(name: "اللە", translated: "Allah"))
 }

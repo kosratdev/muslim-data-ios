@@ -10,24 +10,15 @@
 
 import SwiftUI
 
-/// Displays a list of the Names of Allah. Handles loading, error states, and data presentation.
+/// Displays a list of the Names of Allah.
 struct NamesScreen: View {
-    @ObservedObject private var viewModel = NamesViewModel()
+    private var viewModel = NamesViewModel()
     
     var body: some View {
         NavigationStack{
             List {
-                if viewModel.isLoading {
-                    ProgressView("Loading...")
-                } else if let error = viewModel.error {
-                    ErrorWithRetryView(title: "Error loading names!",
-                                       errorMessage: error.localizedDescription) {
-                        viewModel.getNamesOfAllah()
-                    }
-                } else {
-                    ForEach(viewModel.names, id: \.name) { name in
-                        NamesRowView(name: name)
-                    }
+                ForEach(viewModel.names, id: \.name) { name in
+                    NamesRowView(name: name)
                 }
             }
             .listStyle(.plain)
