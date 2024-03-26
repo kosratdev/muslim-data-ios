@@ -36,7 +36,7 @@ struct PrayerScreen: View {
                     }
                 }
             }
-            .navigationTitle("My Prayers")
+            .navigationTitle("Prayer Times")
             .toolbar {
                 NavigationLink {
                     LocationScreen(prayerViewModel: prayerViewModel)
