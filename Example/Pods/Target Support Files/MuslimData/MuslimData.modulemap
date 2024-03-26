@@ -1,6 +1,0 @@
-framework module MuslimData {
-  umbrella header "MuslimData-umbrella.h"
-
-  export *
-  module * { export * }
-}
