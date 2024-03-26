@@ -11,7 +11,7 @@ import MuslimData
 @Observable
 /// Manages the state for the prayer times and responsible for fetching data.
 class PrayerViewModel {
-    private(set) var location: Location
+    var location: Location
     private(set) var prayerTimes: [String] = []
     private(set) var prayerNames = ["Fajr", "Sunrise", "Dhuhr", "Asr", "Maghrib", "Isha"]
 
@@ -40,5 +40,11 @@ class PrayerViewModel {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy"
         return dateFormatter.string(from: Date())
+    }
+    
+    /// Update location and prayer times.
+    func updatePrayerTimes() {
+        location = Location.loadSavedLocation()
+        getPrayerTimes()
     }
 }

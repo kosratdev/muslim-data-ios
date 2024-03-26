@@ -10,6 +10,9 @@
 		2D13C26A2BB1E582007081CA /* PrayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D13C2692BB1E582007081CA /* PrayerViewModel.swift */; };
 		2D13C26C2BB1E9C9007081CA /* LocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D13C26B2BB1E9C9007081CA /* LocationExtensions.swift */; };
 		2D13C26E2BB1F1F9007081CA /* PrayerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D13C26D2BB1F1F9007081CA /* PrayerRowView.swift */; };
+		2D13C2742BB20AA6007081CA /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D13C2732BB20AA6007081CA /* LocationViewModel.swift */; };
+		2D13C2762BB20ABA007081CA /* LocationRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D13C2752BB20ABA007081CA /* LocationRowView.swift */; };
+		2D13C2782BB20AC9007081CA /* LocationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D13C2772BB20AC9007081CA /* LocationScreen.swift */; };
 		2D9B68CA2BB190E30029E4D0 /* ChapterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B68C92BB190E30029E4D0 /* ChapterViewModel.swift */; };
 		2D9B68CD2BB191270029E4D0 /* ChapterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B68CC2BB191270029E4D0 /* ChapterRow.swift */; };
 		2D9B68CF2BB1913A0029E4D0 /* AzkarChaptersScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B68CE2BB1913A0029E4D0 /* AzkarChaptersScreen.swift */; };
@@ -31,6 +34,9 @@
 		2D13C2692BB1E582007081CA /* PrayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerViewModel.swift; sourceTree = "<group>"; };
 		2D13C26B2BB1E9C9007081CA /* LocationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationExtensions.swift; sourceTree = "<group>"; };
 		2D13C26D2BB1F1F9007081CA /* PrayerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerRowView.swift; sourceTree = "<group>"; };
+		2D13C2732BB20AA6007081CA /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		2D13C2752BB20ABA007081CA /* LocationRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRowView.swift; sourceTree = "<group>"; };
+		2D13C2772BB20AC9007081CA /* LocationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationScreen.swift; sourceTree = "<group>"; };
 		2D9B68C92BB190E30029E4D0 /* ChapterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterViewModel.swift; sourceTree = "<group>"; };
 		2D9B68CC2BB191270029E4D0 /* ChapterRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterRow.swift; sourceTree = "<group>"; };
 		2D9B68CE2BB1913A0029E4D0 /* AzkarChaptersScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AzkarChaptersScreen.swift; sourceTree = "<group>"; };
@@ -67,6 +73,16 @@
 				2D13C26B2BB1E9C9007081CA /* LocationExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2D13C2722BB20A82007081CA /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				2D13C2772BB20AC9007081CA /* LocationScreen.swift */,
+				2D13C2752BB20ABA007081CA /* LocationRowView.swift */,
+				2D13C2732BB20AA6007081CA /* LocationViewModel.swift */,
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 		2D9B68CB2BB190F30029E4D0 /* Azkars */ = {
@@ -147,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				2D9B68DA2BB1A9490029E4D0 /* PrayerTimes */,
+				2D13C2722BB20A82007081CA /* Location */,
 				6A22480B2BAED7730094967B /* Names */,
 				2D9B68CB2BB190F30029E4D0 /* Azkars */,
 				2D13C2712BB204DC007081CA /* Extensions */,
@@ -243,9 +260,12 @@
 				2D9B68D92BB1A9410029E4D0 /* PrayerScreen.swift in Sources */,
 				2D9B68CF2BB1913A0029E4D0 /* AzkarChaptersScreen.swift in Sources */,
 				2D9B68CD2BB191270029E4D0 /* ChapterRow.swift in Sources */,
+				2D13C2762BB20ABA007081CA /* LocationRowView.swift in Sources */,
 				2D9B68D42BB19AFB0029E4D0 /* ItemViewModel.swift in Sources */,
+				2D13C2782BB20AC9007081CA /* LocationScreen.swift in Sources */,
 				6A22480F2BAED7960094967B /* NamesRowView.swift in Sources */,
 				6A22480D2BAED7840094967B /* NamesScreen.swift in Sources */,
+				2D13C2742BB20AA6007081CA /* LocationViewModel.swift in Sources */,
 				6A787B1E2BAECF6F00DA0107 /* ContentView.swift in Sources */,
 				6A787B1C2BAECF6F00DA0107 /* MuslimDataExampleApp.swift in Sources */,
 				2D9B68D62BB19B0F0029E4D0 /* ItemRow.swift in Sources */,

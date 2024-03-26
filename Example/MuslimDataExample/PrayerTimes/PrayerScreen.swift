@@ -20,9 +20,9 @@ struct PrayerScreen: View {
     var prayerTimes: [String] {
         prayerViewModel.prayerTimes
     }
-
+    
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 VStack(alignment: .leading) {
                     Text("\(location.name), \(location.countryCode)")
@@ -38,8 +38,8 @@ struct PrayerScreen: View {
             }
             .navigationTitle("My Prayers")
             .toolbar {
-                Button {
-                    print("Navigate to location screen")
+                NavigationLink {
+                    LocationScreen(prayerViewModel: prayerViewModel)
                 } label: {
                     Image("ic_location")
                 }
