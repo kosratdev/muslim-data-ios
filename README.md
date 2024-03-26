@@ -18,12 +18,7 @@ If you're upgrading from version 1.x to version 2.x of `muslim-data-ios`, please
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-<img width="40%" src="screenshots/1-prayer-times.png" /> 
-<img width="40%" src="screenshots/2-locations.png" /> 
-<img width="40%" src="screenshots/2-locations-search.png" /> 
-<img width="40%" src="screenshots/3-names.png" />
-<img width="40%" src="screenshots/4-azkars.png" /> 
-<img width="40%" src="screenshots/5-azkar-detail.png" />
+<img width="40%" src="screenshots/1-prayer-times.png" /> <img width="40%" src="screenshots/2-locations.png" /> <img width="40%" src="screenshots/2-locations-search.png" /> <img width="40%" src="screenshots/3-names.png" /><img width="40%" src="screenshots/4-azkars.png" /> <img width="40%" src="screenshots/5-azkar-detail.png" />
 
 ## Requirements
 
