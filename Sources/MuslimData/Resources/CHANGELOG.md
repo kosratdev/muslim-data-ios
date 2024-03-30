@@ -22,6 +22,8 @@ Refactor database tables to improve table normalization and handle city mapper i
 - Database indices have been refactored as shown blow: 
     - `country` table has `code_index` for indexing `code` column. 
     - `location` table has has two indices as listed below: 
+      - `location_country_id_index` for indexing `country_id` column.
+      - `location_prayer_dependent_id_index` for indexing `prayer_dependent_id` column.
       - `location_lat_long_index` for indexing `latitude` and `longitude` columns.
       - `location_name_index` for indexing `name` column.
     - `prayer_time` table has `prayer_index` for indexing `location_id`, `date` columns.
