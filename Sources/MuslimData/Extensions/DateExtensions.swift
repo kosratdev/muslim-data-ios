@@ -9,7 +9,7 @@ import Foundation
 
 extension Date {
 
-    /// Format date to "MM-dd" pattern which will be used to get prayers fro this date in the prayer database.
+    /// Format date to "MM-dd" pattern which will be used to get prayers for this date in the prayer database.
     ///
     /// - Returns: Formatted date by "MM-dd" pattern.
     func toDBDate() -> String {
