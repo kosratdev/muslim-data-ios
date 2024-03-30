@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  SequenceExtensions.swift
 //  
 //
 //  Created by Kosrat Ahmed on 24/03/2024.
