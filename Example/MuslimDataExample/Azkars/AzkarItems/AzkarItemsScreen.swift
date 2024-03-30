@@ -9,11 +9,9 @@ import SwiftUI
 
 /// Display the detail of the selected azkar chapter. 
 struct AzkarItemsScreen: View {
-    var chapterId: Int
     var itemsViewModel: ItemViewModel
     
     init(chapterId: Int) {
-        self.chapterId = chapterId
         itemsViewModel = ItemViewModel(chapterId: chapterId)
     }
     
