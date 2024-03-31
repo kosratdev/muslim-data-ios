@@ -1,0 +1,20 @@
+name: Unit Tests Workflow
+
+on:
+  workflow_call:
+
+jobs:
+  unit_tests:
+    runs-on: macOS-latest
+    steps:
+    - uses: szenius/set-timezone@v1.2
+      with:
+        timezoneMacos: "Asia/Baghdad"
+    - uses: swift-actions/setup-swift@v2
+      with:
+        swift-version: "5.10"
+    - uses: actions/checkout@v4
+    - name: Build
+      run: swift build
+    - name: Run tests
+      run: swift test
