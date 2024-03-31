@@ -2,6 +2,7 @@
 
 [![Build Status](https://github.com/kosratdev/muslim-data-ios/actions/workflows/deploy_to_cocoapods.yml/badge.svg)](https://github.com/kosratdev/muslim-data-ios/actions)
 [![Version](https://img.shields.io/cocoapods/v/MuslimData.svg?style=flat)](https://cocoapods.org/pods/MuslimData)
+[![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat-square)](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat-square)
 [![License](https://img.shields.io/cocoapods/l/MuslimData.svg?style=flat)](https://cocoapods.org/pods/MuslimData)
 [![Platform](https://img.shields.io/cocoapods/p/MuslimData.svg?style=flat)](https://cocoapods.org/pods/MuslimData)
 
@@ -15,16 +16,18 @@ If you're upgrading from version 1.x to version 2.x of `muslim-data-ios`, please
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+To run the example project, clone the repo, and run.
 
-<img width="40%" src="https://raw.githubusercontent.com/kosratdev/muslim-data-ios/main/screenshots/1-prayer-times.png" /> <img width="40%" src="https://raw.githubusercontent.com/kosratdev/muslim-data-ios/main/screenshots/2-locations.png" /> <img width="40%" src="https://raw.githubusercontent.com/kosratdev/muslim-data-ios/main/screenshots/3-names.png" /> <img width="40%" src="https://raw.githubusercontent.com/kosratdev/muslim-data-ios/main/screenshots/4-azkars.png" /> <img width="40%" src="https://raw.githubusercontent.com/kosratdev/muslim-data-ios/main/screenshots/5-azkar-detail.png" />
+<img width="40%" src="screenshots/1-prayer-times.png" /> <img width="40%" src="screenshots/2-locations.png" /> <img width="40%" src="screenshots/2-locations-search.png" /> <img width="40%" src="screenshots/3-names.png" /><img width="40%" src="screenshots/4-azkars.png" /> <img width="40%" src="screenshots/5-azkar-detail.png" />
 
 ## Requirements
 
-* iOS 10.0+
-* Xcode 10.0+
+* iOS 13.0+
+* Xcode 11.0+
 
 ## Installation
+
+### CocoaPods
 
 MuslimData is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
@@ -32,6 +35,28 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod 'MuslimData'
 ```
+
+### Swift Package Manager
+
+The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler.
+
+Once you have your Swift package set up, adding MuslimData as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift` or the Package list in Xcode.
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/kosratdev/muslim-data-ios", .upToNextMajor(from: "2.0.0"))
+]
+```
+
+##### Integrate with Xcode:
+
+If you prefer to manage your Swift packages via Xcode, you can also add Muslim Data as a dependency using Xcode's UI:
+
+1. Open your Xcode project.
+2. Navigate to the `File` menu > `Swift Packages` > `Add Package Dependency...`.
+3. Paste the Muslim Data GitHub repository URL (`https://github.com/kosratdev/muslim-data-ios.git`) into the search bar and click `Next`.
+4. Choose the version rule (`Up to Next Major` from version `2.0.0`) and click `Next`.
+5. Xcode will resolve the package and integrate it into your project.
 
 ## Usage 
 
@@ -44,7 +69,7 @@ There are some location helper methods that provides **offline** Location Search
 
 You can search for any cities or places around the world and this is useful when a use doesn't have internet connection or user's location is turned off so you can search here:
 ```swift
-let locations = try! await MuslimData().searchLocation(locationName: "London")
+let locations = try! await MuslimRepository().searchLocation(locationName: "London")
 guard let locations = locations, locations.count > 0 else {
     print("Location could not be found!")
     return
