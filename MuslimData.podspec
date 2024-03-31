@@ -48,5 +48,5 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'Foundation'
-  s.dependency 'GRDB.swift', '6.26.0'
+  s.dependency 'GRDB.swift', '~> 6.0'
 end
