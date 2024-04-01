@@ -5,7 +5,7 @@ on:
 
 jobs:
   unit_tests:
-    runs-on: macOS-latest
+    runs-on: macOS-14
     steps:
     - uses: szenius/set-timezone@v1.2
       with:
