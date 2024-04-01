@@ -13,6 +13,12 @@ jobs:
     needs: unit_tests
 
     steps:
+    - uses: szenius/set-timezone@v1.2
+      with:
+        timezoneMacos: "Asia/Baghdad"
+    - uses: swift-actions/setup-swift@v2
+      with:
+        swift-version: "5.10"
     - uses: actions/checkout@v4
     - name: Install Cocoapods
       run: gem install cocoapods
