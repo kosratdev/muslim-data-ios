@@ -6,18 +6,9 @@
 # To learn more about a Podspec see https://guides.cocoapods.org/syntax/podspec.html
 #
 
-require 'git'
-# Define a function to get the latest git tag
-def latest_git_tag
-  git = Git.open('.')
-  git_tag = git.describe(tags: true)
-  git_tag.strip
-end
-
-
 Pod::Spec.new do |s|
   s.name             = 'MuslimData'
-  s.version          = latest_git_tag
+  s.version          = '2.0.1'
   s.summary          = 'Islamic library (Prayer Times [fixed and calculated], Names of Allah, and Azkars).'
 
 # This description is used to generate tags and improve search results.
