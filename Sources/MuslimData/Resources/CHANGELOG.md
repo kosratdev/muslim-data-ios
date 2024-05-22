@@ -4,6 +4,13 @@ All notable changes to the MuslimData database will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.1] - 2024-05-22
+Bug fixes 
+
+### Fixed
+
+- Fix Halabja, IQ sunrise time at 21 Apr.
+
 ## [2.0.0] - 2024-03-09
 
 Refactor database tables to improve table normalization and handle city mapper in the database level.
