@@ -4,6 +4,13 @@ All notable changes to the MuslimData database will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.1.0] - 2024-06-20
+Change comma style in the Arabic azkars to be compatible with the Uthmanic HAFS font. 
+
+### Changed 
+
+- Changed comma style in the Arabic azkars to use english comma style as it is compatible with the Uthmanic HAFS font.
+
 ## [2.0.1] - 2024-05-22
 Bug fixes 
 
