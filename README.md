@@ -129,7 +129,7 @@ print("next prayer time remaining: \(prayerTime!.nextPrayerTimeRemaining())")
 
 ### Azkars (Hisnul Muslim)
 
-Get all azkars from (**Hisnul Muslim** book) that is categorized by (`Category`, `Chapter`, and `Item`) and also the azkars are available for these languages (`en`, `ar`, `ckb`, `fa`, and `ru`)
+Get all azkars from (**Hisnul Muslim** book) that is categorized by (`Category`, `Chapter`, and `Item`) and also the azkars are available for these languages (`en`, `ar`, `ckb`, `ckb_BADINI`, `fa`, and `ru`)
 
 #### Azkar Categories 
 
@@ -170,7 +170,7 @@ print("azkar items: \(azkarItems!)")
 
 ### Names of Allah 
 
-Get 99 Names of Allah with it's translation and now it is available for these languages (`en`, `ar`, `ckb`, `fa`, and `ru`)
+Get 99 Names of Allah with it's translation and now it is available for these languages (`en`, `ar`, `ckb`, `ckb_BADINI`, `fa`, and `ru`)
 
 ```swift
 // Get 99 names of allah from MuslimData library

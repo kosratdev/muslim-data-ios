@@ -29,6 +29,10 @@ class NamesTests: XCTestCase {
     func testCkbNamesOfAllah() async throws {
         try await assesNames(language: .ckb)
     }
+    
+    func testCkbBadiniNamesOfAllah() async throws {
+        try await assesNames(language: .ckb_BADINI)
+    }
 
     func testFaNamesOfAllah() async throws {
         try await assesNames(language: .fa)

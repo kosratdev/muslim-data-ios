@@ -28,6 +28,10 @@ class AzkarChapterTests: XCTestCase {
     func testCkbAzkarChapters() async throws {
         try await assesAzkarChapters(language: .ckb)
     }
+    
+    func testCkbBadiniAzkarChapters() async throws {
+        try await assesAzkarChapters(language: .ckb_BADINI)
+    }
 
     func testFaAzkarChapters() async throws {
         try await assesAzkarChapters(language: .fa)
@@ -89,6 +93,20 @@ class AzkarChapterTests: XCTestCase {
         try await assesAzkarChapters(language: .ckb, categoryId: 9, total: 20)
         try await assesAzkarChapters(language: .ckb, categoryId: 10, total: 10)
         try await assesAzkarChapters(language: .ckb, categoryId: 11, total: 13)
+    }
+    
+    func testCkbBadiniAzkarChaptersByCategory() async throws {
+        try await assesAzkarChapters(language: .ckb_BADINI, categoryId: 1, total: 7)
+        try await assesAzkarChapters(language: .ckb_BADINI, categoryId: 2, total: 14)
+        try await assesAzkarChapters(language: .ckb_BADINI, categoryId: 3, total: 7)
+        try await assesAzkarChapters(language: .ckb_BADINI, categoryId: 4, total: 15)
+        try await assesAzkarChapters(language: .ckb_BADINI, categoryId: 5, total: 11)
+        try await assesAzkarChapters(language: .ckb_BADINI, categoryId: 6, total: 19)
+        try await assesAzkarChapters(language: .ckb_BADINI, categoryId: 7, total: 9)
+        try await assesAzkarChapters(language: .ckb_BADINI, categoryId: 8, total: 8)
+        try await assesAzkarChapters(language: .ckb_BADINI, categoryId: 9, total: 20)
+        try await assesAzkarChapters(language: .ckb_BADINI, categoryId: 10, total: 10)
+        try await assesAzkarChapters(language: .ckb_BADINI, categoryId: 11, total: 13)
     }
 
     func testFaAzkarChaptersByCategory() async throws {
