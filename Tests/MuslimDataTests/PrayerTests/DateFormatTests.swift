@@ -26,11 +26,15 @@ class DateFormatTests: XCTestCase {
     }
     
     func testArFormatTime24() {
-        XCTAssertEqual(TestUtils.getDate().format(format: .time24, locale: Locale(identifier: "ar")), "١٠:١٠")
+        XCTAssertEqual(TestUtils.getDate().format(format: .time24, locale: Locale(identifier: "ar@numbers=arab")), "١٠:١٠")
     }
     
     func testCkbFormatTime24() {
         XCTAssertEqual(TestUtils.getDate().format(format: .time24, locale: Locale(identifier: "ckb")), "١٠:١٠")
+    }
+    
+    func testCkbBadiniFormatTime24() {
+        XCTAssertEqual(TestUtils.getDate().format(format: .time24, locale: Locale(identifier: "ckb_BADINI")), "١٠:١٠")
     }
     
     func testEnFormatTime12() {
@@ -39,13 +43,18 @@ class DateFormatTests: XCTestCase {
     }
     
     func testArFormatTime12() {
-        XCTAssertEqual(TestUtils.getDate().format(format: .time12, locale: Locale(identifier: "ar")), "١٠:١٠ ص")
-        XCTAssertEqual(TestUtils.getDate().addHours(12).format(format: .time12, locale: Locale(identifier: "ar")), "١٠:١٠ م")
+        XCTAssertEqual(TestUtils.getDate().format(format: .time12, locale: Locale(identifier: "ar@numbers=arab")), "١٠:١٠ ص")
+        XCTAssertEqual(TestUtils.getDate().addHours(12).format(format: .time12, locale: Locale(identifier: "ar@numbers=arab")), "١٠:١٠ م")
     }
     
     func testCkbFormatTime12() {
         XCTAssertEqual(TestUtils.getDate().format(format: .time12, locale: Locale(identifier: "ckb")), "١٠:١٠ ب.ن")
         XCTAssertEqual(TestUtils.getDate().addHours(12).format(format: .time12, locale: Locale(identifier: "ckb")), "١٠:١٠ د.ن")
+    }
+    
+    func testCkbBadiniFormatTime12() {
+        XCTAssertEqual(TestUtils.getDate().format(format: .time12, locale: Locale(identifier: "ckb_BADINI")), "١٠:١٠ ب.ن")
+        XCTAssertEqual(TestUtils.getDate().addHours(12).format(format: .time12, locale: Locale(identifier: "ckb_BADINI")), "١٠:١٠ د.ن")
     }
     
     func testStringToDate() {

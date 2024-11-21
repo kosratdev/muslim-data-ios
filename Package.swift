@@ -19,7 +19,7 @@ let package = Package(
             targets: ["MuslimData"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/groue/GRDB.swift.git", exact: "6.26.0")
+        .package(url: "https://github.com/groue/GRDB.swift.git", exact: "6.29.3")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.

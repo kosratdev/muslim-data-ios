@@ -12,12 +12,14 @@ import Foundation
 /// - en: English
 /// - ar: Arabic
 /// - ckb: Central Kurdish
+/// - ckb_BADINI: Kurdish badini dialect
 /// - fa: Farsi
 /// - ru: Russian
 public enum Language: String {
     case en
     case ar
     case ckb
+    case ckb_BADINI
     case fa
     case ru
 }

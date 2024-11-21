@@ -28,6 +28,10 @@ class AzkarCategoryTests: XCTestCase {
     func testCkbAzkarCategories() async throws {
         try await assesAzkarCategories(language: .ckb)
     }
+    
+    func testCkbBadiniAzkarCategories() async throws {
+        try await assesAzkarCategories(language: .ckb_BADINI)
+    }
 
     func testFaAzkarCategories() async throws {
         try await assesAzkarCategories(language: .fa)

@@ -29,6 +29,10 @@ class AzkarItemTests: XCTestCase {
     func testCkbAzkarItems() async throws {
         try await assesAzkarItems(language: .ckb, id: 50, total: 2)
     }
+    
+    func testCkbBadiniAzkarItems() async throws {
+        try await assesAzkarItems(language: .ckb_BADINI, id: 50, total: 2)
+    }
 
     func testFaAzkarItems() async throws {
         try await assesAzkarItems(language: .fa, id: 75, total: 1)
