@@ -4,6 +4,13 @@ All notable changes to the MuslimData database will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.4.0] - 2025-01-03
+Change Qasre, IQ prayer times.
+
+### Changed
+
+- Changed prayer times in the Qasre, IQ based on their latest update.
+
 ## [2.3.2] - 2024-12-06
 Fix some Kurdish Badini translation.
 
